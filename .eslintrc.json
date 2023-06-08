@@ -1,0 +1,10 @@
+{
+    "extends": "next",
+    "plugins": ["react"],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-vars": "error",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "checkJs": true
+}

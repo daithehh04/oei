@@ -1,0 +1,212 @@
+.about {
+    position: relative;
+    overflow: hidden;
+}
+.about .container-about {
+    width: 95.625%;
+    margin-left: auto;
+    padding-top: 202px;
+}
+
+.about .wrapper {
+    display: flex;
+    gap: 21px;
+}
+
+.about .left {
+    width: 42.61%;
+}
+
+.about .left .img {
+    position: absolute;
+    z-index: -1;
+    top: 282px;
+    left: 0;
+}
+.about .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about .right {
+    width: 57.39%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 19.07% 26.89% 27.94% 12.19% 4.18% 9.73%;
+    grid-template-rows: 17.93% 4.62% 21.74% 18.75% 8.56% 8.83% 5.98% 13.59%;
+    grid-template-areas:
+        ". . . m1 m1 ."
+        "m2 m3 m3 . . ."
+        "m2 m3 m3 m4 m4 m4"
+        ". m3 m3 m4 m4 m4"
+        "m5 . m6 m4 m4 m4"
+        "m5 . m6 . . ."
+        ". . m6 . . ."
+        ". . m6 m7 . .";
+}
+
+.about .right .id-5 {
+    grid-area: m1;
+    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+    border-radius: 0px 20.0903px 0px 0px;
+}
+
+.about .right .id-1 {
+    grid-area: m2;
+}
+
+.about .right .id-2 {
+    grid-area: m3;
+}
+
+.about .right .id-3 {
+    grid-area: m4;
+}
+
+.about .right .id-6 {
+    grid-area: m5;
+}
+
+.about .right .id-4 {
+    grid-area: m6;
+}
+
+.about .right .id-7 {
+    grid-area: m7;
+}
+
+.about .right .id-6 {
+    background: #ebeef0;
+    border-radius: 0px 0px 0px 20.0903px;
+    z-index: 2;
+}
+
+.about .right .id-7 {
+    background: #ebeef0;
+    border-radius: 0px 0px 20.0903px 0px;
+    z-index: 2;
+}
+
+.about .right .id-1,
+.about .right .id-2,
+.about .right .id-6,
+.about .right .id-4 {
+    transform: translateX(-100%);
+}
+.about .right .id-5,
+.about .right .id-3,
+.about .right .id-7 {
+    transform: translateX(100%);
+}
+.about .left .sub-title {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #376a66;
+}
+
+.about .left .desc {
+    margin-top: 16px;
+    font-weight: 800;
+    font-size: $fs-46;
+    line-height: 1.22;
+    letter-spacing: -0.05em;
+    color: #3a5469;
+}
+
+.about .left .desc strong {
+    color: #4ca757;
+}
+
+.about .left .btn-see {
+    margin-top: 60px;
+    width: 143px;
+    height: 143px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 2;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+}
+
+// .about .text {
+//     margin-top: 121px;
+//     margin-bottom: 58px;
+//     font-weight: 900;
+//     font-size: 100px;
+//     line-height: 1.5;
+//     text-transform: uppercase;
+//     color: transparent;
+//     /* -webkit-text-stroke: 1.5px #16a571; */
+//     -webkit-text-fill-color: white;
+//     white-space: nowrap;
+//     text-shadow: 1.5px 1.5px 0 #16a571, -1.5px -1.5px 0 #16a571,
+//         1.5px -1.5px 0 #16a571, -1.5px 1.5px 0 #16a571, 1.5px 1.5px 0 #16a571;
+//     -moz-transform: translateX(-100%);
+//     -webkit-transform: translateX(-100%);
+//     transform: translateX(-100%);
+
+//     -moz-animation: my-animation 15s linear infinite;
+//     -webkit-animation: my-animation 15s linear infinite;
+//     animation: my-animation 15s linear infinite;
+// }
+
+.about .row-text {
+    margin-top: 121px;
+    margin-bottom: 58px;
+}
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+    from {
+        -moz-transform: translateX(-100%);
+    }
+    to {
+        -moz-transform: translateX(100%);
+    }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+    from {
+        -webkit-transform: translateX(-100%);
+    }
+    to {
+        -webkit-transform: translateX(100%);
+    }
+}
+
+@keyframes my-animation {
+    from {
+        -moz-transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    to {
+        -moz-transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.about .img {
+    animation: rotate 20s linear infinite;
+    object-fit: cover;
+}
