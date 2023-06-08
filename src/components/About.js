@@ -5,36 +5,35 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Image from "next/image";
-import img from "../assets/img/about-circle.png";
-import img2 from "../assets/img/about-2.png";
-import img3 from "../assets/img/about-3.png";
-import img4 from "../assets/img/about-4.png";
-import img5 from "../assets/img/about-5.png";
 import SlideTextService from "./SlideTextService";
 
 gsap.registerPlugin(ScrollTrigger);
 
+function initializeGSAPWithDelay(delay) {
+    setTimeout(() => {
+        const boxes = document.querySelectorAll(".item-about");
+        // const boxes = self.selector(".item-about");
+        boxes.forEach((box) => {
+            gsap.to(box, {
+                x: "0",
+                scrollTrigger: {
+                    trigger: box,
+                    start: "top bottom",
+                    end: "top 10%",
+                    scrub: true,
+                },
+            });
+        });
+    }, delay);
+}
 const About = ({ data }) => {
     const parentRef = useRef(null);
     useLayoutEffect(() => {
         if (!parentRef.current) {
             return;
         }
-        let ctx = gsap.context((self) => {
-            // const boxes = document.querySelectorAll(".item-about")
-            const boxes = self.selector(".item-about");
-            boxes.forEach((box) => {
-                gsap.to(box, {
-                    x: "0",
-                    scrollTrigger: {
-                        trigger: box,
-                        start: "top bottom",
-                        end: "top 10%",
-                        markers: true,
-                        scrub: true,
-                    },
-                });
-            });
+        let ctx = gsap.context(() => {
+            initializeGSAPWithDelay(2000);
         }, parentRef);
         return () => {
             ctx.revert();
