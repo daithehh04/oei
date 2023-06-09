@@ -1,16 +1,8 @@
-import Image from "next/image";
-import React from "react";
+import Image from 'next/image';
 
 const Partners = ({ data }) => {
-    const sectionStyle = {
-        width: "100%",
-        height: "auto",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${data?.background.sourceUrl}})`,
-    };
     return (
-        <div className="partners" style={sectionStyle}>
+        <section className="partners">
             <h2 className="title">{data?.title}</h2>
             <h3 className="text">{data?.desc}</h3>
             <div className="row">
@@ -48,7 +40,7 @@ const Partners = ({ data }) => {
                     ))}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

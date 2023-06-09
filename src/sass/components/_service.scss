@@ -88,6 +88,8 @@
                 bottom: 17px;
                 color: $white-text;
                 padding: 0 16px;
+                font-size: $fs-16;
+                transition: all 0.3s linear;
             }
             .plus {
                 width: 46px;
@@ -154,15 +156,27 @@
             }
         }
         .item-9 {
+            overflow: visible;
             cursor: unset;
             background: #dbe9e3;
             .text {
-                right: 0;
+                margin-left: 10px;
+                width: 100%;
+                right: -15px;
                 top: 0;
-                color: #4ca757;
+                bottom: 0;
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                transform: rotate(-90deg) translateY(100%);
+                z-index: 9;
             }
             &:hover {
                 scale: unset;
+            }
+            &:hover .text {
+                font-size: unset;
             }
         }
         .item-4,

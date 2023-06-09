@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-import imgPlusNum from "../assets/img/+.png";
-import imgPlus from "../assets/img/plus.png";
+import imgPlusNum from "../../assets/img/+.png";
+import imgPlus from "../../assets/img/plus.png";
 
 import SlideTextService from "./SlideTextService";
 

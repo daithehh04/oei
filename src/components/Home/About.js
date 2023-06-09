@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import React, { useLayoutEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import Image from "next/image";
-import SlideTextService from "./SlideTextService";
+import Image from 'next/image';
+import SlideTextService from './SlideTextService';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
-        const boxes = document.querySelectorAll(".item-about");
+        const boxes = document.querySelectorAll('.item-about');
         // const boxes = self.selector(".item-about");
         boxes.forEach((box) => {
             gsap.to(box, {
-                x: "0",
+                x: '0',
                 scrollTrigger: {
                     trigger: box,
-                    start: "top bottom",
-                    end: "top 10%",
+                    start: 'top bottom',
+                    end: 'top 10%',
                     scrub: true,
                 },
             });
@@ -73,34 +73,6 @@ const About = ({ data }) => {
                                 height="500"
                             />
                         ))}
-                        {/* <Image
-                            src={img2}
-                            className="id-1 item-about"
-                            alt="img"
-                            width={500}
-                            height={500}
-                        />
-                        <Image
-                            src={img3}
-                            className="id-2 item-about"
-                            alt="img"
-                            width={500}
-                            height={500}
-                        />
-                        <Image
-                            src={img4}
-                            className="id-3 item-about"
-                            alt="img"
-                            width={500}
-                            height={500}
-                        />
-                        <Image
-                            src={img5}
-                            className="id-4 item-about"
-                            alt="img"
-                            width={500}
-                            height={500}
-                        /> */}
                     </div>
                 </div>
                 <SlideTextService text={data?.textBottom} />
