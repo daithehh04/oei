@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import SlideBanner from './SlideBanner';
-import Image from 'next/image';
+import Link from "next/link";
+import SlideBanner from "./SlideBanner";
+import Image from "next/image";
 
 export default function Header({ header }) {
     const { logoImage, phoneNumber, slideHeader, navbar, contentActive } =
@@ -29,7 +29,7 @@ export default function Header({ header }) {
                     </Link>
                     <div className="flex gap-x-[calc(1.625*100vw/100)] items-center">
                         <div className="flex justify-center items-center border w-[calc(9.5*100vw/100)] h-[calc(2.5*100vw/100)] rounded-[calc(1.25*100vw/100)] border-solid border-white025">
-                            <span className="capitalize font-semibold text-[calc(0.875*100vw/100)] leading-[179%]">
+                            <span className="capitalize font-semibold text-[calc(0.875*100vw/100)] leading-[179%] phone-number">
                                 {phoneNumber}
                             </span>
                         </div>

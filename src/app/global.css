@@ -7,15 +7,42 @@
     --primary-color: #4ca757;
     --white-text: white;
     --bg-primary: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+
+    --scale-px: calc(0.5px + 0.5 * ((100vw - 720px) / 720));
+    --scale-em: calc(0.5em + 5 * ((100vw - 720px) / 720));
+    --scale-rem: calc(0.5rem + 5 * ((100vw - 720px) / 720));
+    --scale-perc: calc(0.5% + 0.5 * ((100vw - 720px) / 720));
 }
 
 body {
-    color: var(--white-text);
     background: var(--background-color);
     font-family: "Averta Std CY";
     overflow-x: hidden;
     font-size: calc(1 * 100vw / 100);
     font-weight: 400;
+}
+
+.slide-certified .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-certified .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-certified .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @keyframes scaleUp {

@@ -1,5 +1,5 @@
 .service .over-lay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -9,7 +9,6 @@
 }
 
 .service {
-    position: relative;
     overflow: hidden;
     .list-service {
         padding-top: 151px;

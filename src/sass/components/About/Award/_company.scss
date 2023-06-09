@@ -1,0 +1,37 @@
+.company {
+    padding-top: 120px;
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 79px;
+        .title {
+            width: 50%;
+            font-weight: $fw-800;
+            font-size: $fs-46;
+            line-height: 1.22;
+            letter-spacing: -0.05em;
+            color: #394854;
+            text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.04);
+            strong {
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+        .desc {
+            width: 50%;
+            margin-left: auto;
+            p {
+                margin-left: 156px;
+                width: 68%;
+                font-weight: $fw-400;
+                font-size: $fs-24;
+                line-height: 1.58;
+                color: #394854;
+            }
+        }
+    }
+}

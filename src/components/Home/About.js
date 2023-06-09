@@ -1,25 +1,25 @@
-'use client';
+"use client";
 
-import { useLayoutEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Image from 'next/image';
-import SlideTextService from './SlideTextService';
+import Image from "next/image";
+import SlideTextService from "./SlideTextService";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
-        const boxes = document.querySelectorAll('.item-about');
+        const boxes = document.querySelectorAll(".item-about");
         // const boxes = self.selector(".item-about");
         boxes.forEach((box) => {
             gsap.to(box, {
-                x: '0',
+                x: "0",
                 scrollTrigger: {
                     trigger: box,
-                    start: 'top bottom',
-                    end: 'top 10%',
+                    start: "top bottom",
+                    end: "top 10%",
                     scrub: true,
                 },
             });

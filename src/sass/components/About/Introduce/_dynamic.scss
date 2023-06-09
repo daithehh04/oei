@@ -1,0 +1,48 @@
+.dynamic {
+    margin-top: 138px;
+    .wrapper {
+        display: flex;
+        width: 100%;
+        .title {
+            width: 50%;
+            h3 {
+                width: 68%;
+                font-weight: 800;
+                font-size: $fs-46;
+                line-height: 1.22;
+                letter-spacing: -0.05em;
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+                text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.04);
+            }
+        }
+        .category {
+            width: 50%;
+            margin-top: 152px;
+            .desc {
+                width: 81%;
+                font-weight: $fw-400;
+                font-size: $fs-24;
+                line-height: 1.5;
+                color: #394854;
+            }
+            ul {
+                list-style: inside;
+                margin-top: 60px;
+                li {
+                    font-weight: $fw-600;
+                    font-size: $fs-18;
+                    line-height: 1.5;
+                    color: #394854;
+                    margin-bottom: 16px;
+                    &::marker {
+                        padding-inline-start: 0;
+                    }
+                }
+            }
+        }
+    }
+}

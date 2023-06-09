@@ -8,6 +8,20 @@
 // ------------- Pages -----------
 
 // ------------- Components --------
-@import "./components/about";
-@import "./components/partners";
-@import "./components/service";
+@import "./components/Home/header";
+@import "./components/Home/about";
+@import "./components/Home/partners";
+@import "./components/Home/service";
+
+// ------------- About -----------
+
+// Introduce of About
+@import "./components/About/Introduce/solution";
+@import "./components/About/Introduce/drilled";
+@import "./components/About/Introduce/message";
+@import "./components/About/Introduce/dynamic";
+
+// Award of About
+@import "./components/About/Award/achievements";
+@import "./components/About/Award/company";
+@import "./components/About/Award/certified";

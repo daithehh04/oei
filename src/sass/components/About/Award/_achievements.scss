@@ -1,0 +1,132 @@
+.history {
+    margin-top: 90px;
+    position: relative;
+}
+
+.history .title {
+    color: #a3a3a3;
+    font-weight: 400;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #ccc;
+}
+
+.history .wrapper {
+    margin-top: -80px;
+    display: flex;
+    width: 100%;
+}
+
+.history .wrapper .years {
+    width: 60%;
+    height: 100vh;
+    position: sticky;
+    top: -40px;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+}
+.history .wrapper .years-content {
+    display: flex;
+}
+
+.history .wrapper .years .number {
+    display: flex;
+    align-items: flex-start;
+    font-weight: $fw-800;
+    font-size: 240px;
+    line-height: 1.2;
+    color: #16a571;
+    margin-top: 82px;
+    z-index: 2;
+}
+
+.history .wrapper .years .number .year-right {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 280px;
+}
+.history .wrapper .years .number .year-right .num {
+    height: 300px;
+    color: #ededed;
+}
+
+.history .wrapper .years .circle {
+    z-index: 2;
+    position: absolute;
+    left: 155px;
+}
+
+.history-years-vertical__circle rect {
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
+    transition-property: stroke-dashoffset;
+    fill: none;
+    stroke: black;
+    stroke-width: 1.25;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 2;
+    opacity: 0.15;
+    rx: calc(var(--scale-px) * 240);
+    ry: calc(var(--scale-px) * 240);
+    transform-origin: 50% 50%;
+    width: calc(100% - 2px);
+    height: calc(100% - 2px);
+}
+.history-years-vertical__circle rect + rect {
+    stroke: var(--primary-color);
+    stroke-dashoffset: 0.999;
+    stroke-width: 2.5;
+    opacity: 1;
+    stroke-dashoffset: 0.5;
+}
+
+.history .wrapper .history-events {
+    margin-top: 290px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.history .wrapper .history-events .history-item > div {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.history .wrapper .history-events .history-item .time {
+    font-size: 14px;
+}
+
+.history .wrapper .history-events .history-item p {
+    font-weight: $fw-400;
+    font-size: $fs-18;
+    line-height: 1.5;
+    color: #394854;
+}
+.history .wrapper .history-events .history-item {
+    padding: 40px 0;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+
+.history .wrapper .history-events .history-item h4 {
+    font-weight: $fw-800;
+    font-size: $fs-32;
+    line-height: 1.38;
+    letter-spacing: -0.05em;
+    color: #3a5469;
+}
+
+.history .wrapper .history-events .history-item img {
+    width: 25%;
+    object-fit: cover;
+}
+
+.history .wrapper .history-events .history-item .title-16.active {
+    color: #16a571;
+}
