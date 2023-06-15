@@ -205,7 +205,6 @@ body {
 }
 
 .btn-slide-member:hover {
-    transform: translateY(-4px);
     animation: shadow 1s;
     box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
 }
@@ -463,7 +462,15 @@ body {
     color: transparent;
     white-space: nowrap;
 }
-
+#swiper-service .service-item-text strong {
+    -webkit-text-stroke: 1px transparent;
+    text-stroke: 1px transparent;
+    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
 #news .title {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -478,10 +485,6 @@ span {
 #list-logo-member .logo-disable img {
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
-}
-
-.slide-item-news:hover .bg-item-news {
-    background: var(--bg-primary);
 }
 
 .slide-item-news:hover .title-date-news,

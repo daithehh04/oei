@@ -35,7 +35,6 @@ export default function IndexHome() {
                     <News news={news} />
                 </div>
             </main>
-            <Footer footer={footer} />
         </>
     );
 }

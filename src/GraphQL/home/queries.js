@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 const GET_SECTION_SITEMAP = gql`
     query {
@@ -60,12 +60,14 @@ const GET_DATA_HOME = gql`
                     logoImage {
                         sourceUrl
                         altText
+                        title
                     }
                     phoneNumber
                     slideHeader {
                         itemImage {
                             sourceUrl
                             altText
+                            title
                         }
                         itemTitle
                         itemDescription
@@ -86,6 +88,7 @@ const GET_DATA_HOME = gql`
                             icon {
                                 sourceUrl
                                 altText
+                                title
                             }
                             description
                             link {
@@ -108,28 +111,7 @@ const GET_DATA_HOME = gql`
                     }
                     textBottom
                 }
-                partners {
-                    title
-                    desc
-                    partnersRow1 {
-                        img {
-                            sourceUrl
-                        }
-                    }
-                    partnersRow2 {
-                        img {
-                            sourceUrl
-                        }
-                    }
-                    partnersRow3 {
-                        img {
-                            sourceUrl
-                        }
-                    }
-                    background {
-                        sourceUrl
-                    }
-                }
+
                 service {
                     title
                     subTitle
@@ -161,51 +143,43 @@ const GET_DATA_HOME = gql`
                     }
                     textBottom
                 }
+                partners {
+                    title
+                    desc
+                    partnersRow {
+                        img {
+                            sourceUrl
+                        }
+                    }
+                }
                 news {
                     subTitle
                     title
-                }
-                footer {
-                    background {
-                        sourceUrl
-                        altText
-                        title
-                    }
-                    title
-                    menu {
-                        item {
+                    filterOnly {
+                        ... on Post {
+                            id
                             title
-                            link {
-                                url
+                            date
+                            excerpt
+                            slug
+                            categories {
+                                edges {
+                                    node {
+                                        name
+                                    }
+                                }
+                            }
+                            featuredImage {
+                                node {
+                                    sourceUrl
+                                    altText
+                                    title
+                                }
                             }
                         }
                     }
-                    copyRight
-                    form {
-                        title
-                        description
-                        placeholder
-                    }
-                    socialMedia {
-                        item {
-                            icon {
-                                sourceUrl
-                                altText
-                                title
-                            }
-                            link {
-                                url
-                            }
-                        }
-                    }
-                    address {
-                        title
-                        addressCurrent
-                    }
-                    contact {
-                        title
-                        phoneNumber
-                        email
+                    filterCategory {
+                        id
                     }
                 }
             }

@@ -24,3 +24,14 @@ $secondary-color: #3a5469;
 $white-text: #fff;
 $background-color: white;
 $bg-primary: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+
+.text-primary {
+    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+$mobile-width: 768px;
+$tablet-width: 1024px;

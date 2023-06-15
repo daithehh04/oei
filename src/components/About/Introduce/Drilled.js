@@ -27,7 +27,7 @@ function initializeGSAPWithDelay(delay) {
         gsap.to(".drilled", {
             scrollTrigger: {
                 trigger: ".drilled",
-                start: "top 10%",
+                start: "-100 10%",
                 end: "bottom 10%",
                 scrub: true,
                 onToggle: (self) => {
@@ -81,7 +81,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".info-num", {
-                            y: -198,
+                            y: -240,
                         });
                     } else {
                         gsap.to(".info-num", {
@@ -120,11 +120,11 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".info-num", {
-                            y: -396,
+                            y: -480,
                         });
                     } else {
                         gsap.to(".info-num", {
-                            y: -198,
+                            y: -240,
                         });
                     }
                 },
@@ -159,11 +159,11 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".info-num", {
-                            y: -594,
+                            y: -720,
                         });
                     } else {
                         gsap.to(".info-num", {
-                            y: -396,
+                            y: -480,
                         });
                     }
                 },
@@ -189,11 +189,11 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".info-num", {
-                            y: -594,
+                            y: -720,
                         });
                     } else {
                         gsap.to(".info-num", {
-                            y: -594,
+                            y: -720,
                         });
                     }
                 },

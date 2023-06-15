@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer({ footer }) {
     const {
@@ -38,7 +38,7 @@ export default function Footer({ footer }) {
                     {menu.slice(0, 6).map((e, index) => (
                         <Link
                             key={index}
-                            href={e.item.link?.url || '#'}
+                            href={e.item.link?.url || "#"}
                             className="uppercase font-semibold leading-[150%]"
                         >
                             {e.item?.title}
@@ -51,7 +51,7 @@ export default function Footer({ footer }) {
                             {menu.slice(6).map((e, index) => (
                                 <Link
                                     key={index}
-                                    href={e.item.link?.url || '#'}
+                                    href={e.item.link || "#"}
                                     className="uppercase font-semibold leading-[150%]"
                                 >
                                     {e.item?.title}
@@ -99,15 +99,15 @@ export default function Footer({ footer }) {
                             {socialMedia.map((e, index) => (
                                 <Link
                                     key={index}
-                                    href={e.link?.url || '#'}
+                                    href={e.link || "#"}
                                     className="w-[calc(1.25*100VW/100)] h-[calc(1.25*100vw/100)] cursor-pointer"
                                 >
                                     <Image
                                         className="object-contain w-full h-full"
                                         src={e.item.icon?.sourceUrl}
                                         alt={
-                                            e.item.link?.url ||
-                                            e.item.link?.title
+                                            e.item.icon.altText ||
+                                            e.item.icon?.title
                                         }
                                         width={20}
                                         height={20}

@@ -1,4 +1,5 @@
 import "swiper/css";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
@@ -8,6 +9,7 @@ import "../app/global.css";
 import "../assets/fonts/stylesheet.css";
 import "../sass/main.scss";
 import ApolloWrapper from "@/GraphQL/ApolloWrapper";
+import Footer from "@/components/Common/Footer";
 
 export const metadata = {
     title: "Create Next App",
@@ -19,6 +21,7 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <ApolloWrapper>
                 <body suppressHydrationWarning={true}>{children}</body>
+                <Footer />
             </ApolloWrapper>
         </html>
     );

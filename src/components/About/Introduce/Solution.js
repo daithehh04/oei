@@ -8,28 +8,21 @@ function Solution() {
         <div className="solution">
             <div className="content">
                 <div className="wrapper">
-                    <h3 className="text">
-                        Solutions toward customer satisfaction
-                    </h3>
-                    <Image
-                        src={img}
-                        width={1000}
-                        height={1000}
-                        alt="img"
-                        className="img-solution"
-                    />
+                    <div className="left">
+                        <h3 className="text">
+                            Solutions toward customer satisfaction
+                        </h3>
+                        <Image
+                            src={imgPerson}
+                            width={1000}
+                            height={1000}
+                            alt="img"
+                        />
+                    </div>
                     <div className="num">
                         <div>3</div>
                         <span>YEars establish</span>
                     </div>
-                </div>
-                <div className="person-bottom">
-                    <Image
-                        src={imgPerson}
-                        width={1000}
-                        height={1000}
-                        alt="img"
-                    />
                 </div>
             </div>
         </div>

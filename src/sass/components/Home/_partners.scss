@@ -1,47 +1,27 @@
 .partners {
-    text-align: center;
-    padding-bottom: 136px;
-}
-
-.partners .title {
-    padding-top: 120px;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 1.5;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #376a66;
-}
-
-.partners .text {
-    width: 59.375%;
-    margin: 0 auto;
-    margin-top: 16px;
-    font-weight: 800;
-    font-size: 46px;
-    line-height: 1.22;
-    letter-spacing: -0.05em;
-    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-}
-
-.partners .row-1,
-.partners .row-2,
-.partners .row-3 {
-    margin-top: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 100px;
-}
-
-.partners .row img {
+    background-image: url(../../../assets/img/bg-partners.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
     width: 100%;
-    height: 100%;
-    max-width: 150px;
-    max-height: 100px;
-    object-fit: contain;
+    height: auto;
+    .wrapper {
+        background: rgba(255, 255, 255, 0.94);
+    }
+}
+
+/* ----------Scroll reveal effect--------------- */
+.partners .title,
+.partners .text,
+.partners .slideP {
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 1s linear;
+}
+
+.partners.active .title,
+.partners.active .text,
+.partners.active .slideP {
+    transform: translateY(0);
+    opacity: 1;
 }

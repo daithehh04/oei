@@ -1,6 +1,6 @@
-'use client';
-import { useQuery } from '@apollo/client';
-import { GET_SECTION_SITEMAP } from '@/graphql/home/queries';
+"use client";
+import { useQuery } from "@apollo/client";
+import { GET_SECTION_SITEMAP } from "@/GraphQL/home/queries";
 
 export default function SiteMap() {
     const { loading, error, data } = useQuery(GET_SECTION_SITEMAP);
@@ -18,7 +18,7 @@ export default function SiteMap() {
                 />
                 <div className="z-10  flex pt-[calc(5.75*100vw/100)] pb-[calc(1*100vw/100)] gap-x-[calc(0.75*100vw/100)]">
                     <div className="flex justify-between py-[calc(0.71875*100vw/100)] text-[calc(0.875*100vw/100)] leading-[143%] font-normal min-w-[132px] px-[calc(1*100vw/100)] border border-solid border-white rounded-[calc(3.125*100vw/100)]">
-                        Năm 2022{' '}
+                        Năm 2022{" "}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -35,7 +35,7 @@ export default function SiteMap() {
                         </svg>
                     </div>
                     <div className="flex justify-between py-[calc(0.71875*100vw/100)] text-[calc(0.875*100vw/100)] leading-[143%] font-normal min-w-[calc(8.25*100vw/100)] px-[calc(1*100vw/100)] border border-solid border-white rounded-[calc(3.125*100vw/100)]">
-                        China{' '}
+                        China{" "}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"

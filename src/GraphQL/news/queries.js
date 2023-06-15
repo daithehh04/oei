@@ -1,31 +1,43 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
-const GET_CATEGORIES = gql`
-    query {
-        categories {
-            edges {
-                node {
-                    id
-                    name
-                    slug
-                }
-            }
-        }
-    }
-`;
-const GET_POST_FOLLOW_CATEGORIES = gql`
-    query ($categoryIn: [ID], $offset: Int!, $size: Int!) {
-        posts(
+const GET_ALL_NEWS = gql`
+    query GetAllNews($categorySlug: [String!], $offset: Int!, $size: Int!) {
+        allNews(
             where: {
-                categoryIn: $categoryIn
                 offsetPagination: { offset: $offset, size: $size }
+                taxQuery: {
+                    taxArray: [
+                        {
+                            taxonomy: NEWSCATEGORY
+                            operator: IN
+                            terms: $categorySlug
+                            field: SLUG
+                        }
+                    ]
+                }
+                orderby: { field: DATE, order: DESC }
             }
         ) {
-            edges {
-                node {
-                    id
-                    title
-                    slug
+            nodes {
+                slug
+                title
+                date
+                content
+                newsCategory {
+                    nodes {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                newsCategory {
+                    nodes {
+                        name
+                        id
+                    }
                 }
             }
             pageInfo {
@@ -37,31 +49,49 @@ const GET_POST_FOLLOW_CATEGORIES = gql`
     }
 `;
 
-const GET_POST_RELATE = gql`
-    query ($postId: ID!, $categoryIn: [ID], $limit: Int!) {
-        post(id: $postId) {
-            id
-            title
-            content
-            date
-        }
-        relatedPosts: posts(
+const GET_RELATED_NEWS = gql`
+    query GetPostsRelated($postId: ID!, $categoryIn: [String], $limit: Int!) {
+        allNews(
             where: {
-                categoryIn: $categoryIn
+                taxQuery: {
+                    taxArray: [
+                        {
+                            taxonomy: NEWSCATEGORY
+                            operator: IN
+                            terms: $categoryIn
+                            field: SLUG
+                        }
+                    ]
+                }
                 notIn: [$postId]
                 orderby: { field: DATE, order: DESC }
             }
             first: $limit
         ) {
-            edges {
-                node {
-                    id
-                    title
-                    date
-                    slug
+            nodes {
+                slug
+                title
+                date
+                content
+                newsCategory {
+                    nodes {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                newsCategory {
+                    nodes {
+                        name
+                        id
+                    }
                 }
             }
         }
     }
 `;
-export { GET_POST_FOLLOW_CATEGORIES, GET_CATEGORIES, GET_POST_RELATE };
+
+export { GET_ALL_NEWS, GET_RELATED_NEWS };

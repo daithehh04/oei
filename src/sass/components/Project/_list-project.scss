@@ -1,0 +1,58 @@
+.list-project {
+    .title {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+    .select {
+        appearance: none;
+        background-color: transparent;
+        color: #394854;
+        font-size: $fs-14;
+        font-weight: $fw-700;
+    }
+    .select::-ms-expand {
+        display: none;
+    }
+    .select:focus {
+        outline: none;
+    }
+
+    .select select option:hover {
+        background-color: #e0e0e0;
+    }
+
+    .select > option {
+        padding: 8px;
+    }
+
+    .select > option:selected {
+        background-color: #999;
+        color: #fff;
+    }
+
+    .project-item:nth-child(2n) {
+        padding-top: 4vw;
+    }
+
+    .project-item {
+        margin-top: -4vw;
+    }
+
+    .project-item:nth-child(1) {
+        padding-top: -4vw;
+    }
+
+    .slide-prj {
+        .swiper-prj {
+            .swiper-slide {
+                width: 20%;
+            }
+            .swiper-slide:has(a.active) {
+                width: 60%;
+            }
+        }
+    }
+}

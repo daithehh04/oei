@@ -1,0 +1,22 @@
+.list-member {
+    .swiper-members {
+        .swiper-horizontal > .swiper-pagination-progressbar,
+        .swiper-pagination-progressbar.swiper-pagination-horizontal {
+            width: calc(77.625 * 100vw / 100) !important;
+            height: 4px;
+            left: unset !important;
+            top: unset !important;
+            bottom: 0 !important;
+            right: 0 !important;
+            margin-top: calc(4.46875 * 100vw / 100);
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+        .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+            background: linear-gradient(
+                180deg,
+                #4ca757 0%,
+                #16a571 100%
+            ) !important;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+.review {
+    .title {
+        margin-top: 120px;
+        margin-bottom: 40px;
+        font-weight: $fw-800;
+        font-size: $fs-60;
+        line-height: 1.33;
+        letter-spacing: -0.05em;
+        text-transform: capitalize;
+
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+}

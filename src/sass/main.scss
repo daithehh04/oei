@@ -1,27 +1,54 @@
-// ------------- Base -----------
+// ============== Base ==============
 @import "./base/base";
 @import "./base/variable";
+@import "./base/mixin";
 
-// ------------- Layout -----------
+// ============== Layout ==============
 @import "./layout/header";
 
-// ------------- Pages -----------
+// ============== Pages ==============
 
-// ------------- Components --------
+// ============== Home ==============
 @import "./components/Home/header";
 @import "./components/Home/about";
 @import "./components/Home/partners";
 @import "./components/Home/service";
+@import "./components/Home/slide-partners";
 
-// ------------- About -----------
+// ================ About ==============
 
 // Introduce of About
 @import "./components/About/Introduce/solution";
 @import "./components/About/Introduce/drilled";
 @import "./components/About/Introduce/message";
 @import "./components/About/Introduce/dynamic";
+@import "./components/About/Introduce/slide-team";
+@import "./components/About/Introduce/our-teams";
+@import "./components/About/Introduce/values";
+@import "./components/About/Introduce/vision";
 
 // Award of About
+@import "./components/About/Award/award";
 @import "./components/About/Award/achievements";
 @import "./components/About/Award/company";
 @import "./components/About/Award/certified";
+@import "./components/About/Award/slide-review";
+@import "./components/About/Award/review";
+@import "./components/About/Award/slide-certified";
+
+// People of About
+@import "./components/About/People/member";
+@import "./components/About/People/list-member";
+
+// ============== News ==============
+// ListNews
+@import "./components/News/ListNews/main-new";
+@import "./components/News/ListNews/news-item";
+@import "./components/News/ListNews/list-new";
+
+// News Detail
+@import "./components/News/NewsDetail/new-content";
+
+// ============== Project ==============
+@import "./components/Project/list-project";
+@import "./components/Project/project-item";

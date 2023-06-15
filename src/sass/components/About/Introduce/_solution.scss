@@ -1,35 +1,37 @@
-.solution {
-    padding-top: 130px;
-    padding-bottom: 16vw;
-    position: relative;
+.bg-insure {
     background-image: url(../../../../assets/img/bg-common.png);
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.solution {
+    transform: translateY(100%);
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    // bottom: 0;
     .wrapper {
-        position: relative;
-        width: 94%;
-        .text {
-            width: 467px;
-            position: absolute;
-            left: 0;
-            top: 68px;
-            font-weight: $fw-800;
-            font-size: $fs-46;
-            line-height: 1.22;
-            letter-spacing: -0.05em;
-            -webkit-text-stroke: 1px #4ca757;
-            color: #fff;
-        }
-        .img-solution {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            padding-left: 155px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .left {
+            .text {
+                width: 467px;
+                font-weight: $fw-800;
+                font-size: $fs-46;
+                line-height: 1.22;
+                letter-spacing: -0.05em;
+                -webkit-text-stroke: 1px #4ca757;
+                color: #fff;
+            }
+            img {
+                width: 27.75vw;
+                object-fit: cover;
+            }
         }
         .num {
-            position: absolute;
-            bottom: 60px;
-            right: -60px;
+            margin-bottom: 180px;
+            margin-right: 1.75vw;
             div {
                 font-weight: $fw-700;
                 font-size: 290px;
@@ -47,16 +49,6 @@
                 -webkit-text-stroke: 1px #4ca757;
                 color: #fff;
             }
-        }
-    }
-    .person-bottom {
-        width: 27.875vw;
-        position: absolute;
-        bottom: 0;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
     }
 }

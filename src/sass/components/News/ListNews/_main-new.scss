@@ -1,0 +1,27 @@
+.main-news {
+    .right {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        .top {
+            p {
+                font-weight: $fw-400;
+                font-size: $fs-20;
+                line-height: 1.69;
+                color: #ffffff;
+            }
+            .title {
+                font-weight: $fw-800;
+                line-height: 1.33;
+                letter-spacing: -0.05em;
+                text-transform: capitalize;
+                color: #ffffff;
+            }
+        }
+        .bottom {
+            .text {
+                font-weight: $fw-400;
+                line-height: 1.5;
+                color: #ffffff;
+            }
+        }
+    }
+}
