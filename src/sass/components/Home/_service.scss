@@ -121,6 +121,11 @@
                     color: #ffffff;
                 }
             }
+            &.title {
+                &:hover {
+                    scale: none !important;
+                }
+            }
         }
         .item-1,
         .item-4,
