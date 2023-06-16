@@ -11,16 +11,24 @@
 }
 
 /* ----------Scroll reveal effect--------------- */
-.partners .title,
-.partners .text,
+
 .partners .slideP {
     transform: translateY(150px);
     opacity: 0;
     transition: all 1s linear;
 }
 
+.partners .title,
+.partners .text {
+    opacity: 0;
+    transition: all 2.5s linear;
+}
+
 .partners.active .title,
-.partners.active .text,
+.partners.active .text {
+    opacity: 1;
+}
+
 .partners.active .slideP {
     transform: translateY(0);
     opacity: 1;

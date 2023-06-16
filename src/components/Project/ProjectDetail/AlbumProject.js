@@ -1,115 +1,13 @@
-"use client";
+import React from "react";
+import AlbumProjectSlide from "./AlbumProjectSlide";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
-import { Pagination } from "swiper";
-import Link from "next/link";
-
-import img from "../../../assets/img/about-page.png";
-import Image from "next/image";
-
-const arrAlbum = new Array(10).fill(0);
-
-export default function AlbumProject() {
-    const [indexSlider, setIndexSlider] = useState(0);
-    const swiperRef = useRef();
-    const handleNextSlide = () => {
-        swiperRef.current?.slideNext();
-    };
-
-    const handlePrevSlide = () => {
-        swiperRef.current?.slidePrev();
-    };
-
-    const handleSlideChange = (swiper) => {
-        setIndexSlider(swiper.activeIndex);
-    };
-
+export default function AlbumProject({ imgsAlbum }) {
     return (
-        <div className="relative slide-certified album-project ">
-            <div className="flex flex-col gap-y-[24px] gap-x-[calc(1.5*100vw/100)] btn-action">
-                <button
-                    className={`${
-                        indexSlider === 0
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
-                    onClick={handlePrevSlide}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-6 h-6"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 19.5L8.25 12l7.5-7.5"
-                        />
-                    </svg>
-                </button>
-                <button
-                    onClick={handleNextSlide}
-                    className={`${
-                        arrAlbum.length - indexSlider === 2
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke={`${
-                            arrAlbum.length - indexSlider === 2
-                                ? "#4CA757"
-                                : "white"
-                        }`}
-                        className="w-6 h-6"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                        />
-                    </svg>
-                </button>
-            </div>
-            <Swiper
-                slidesPerView={2}
-                spaceBetween={0}
-                onSlideChange={handleSlideChange}
-                modules={[Pagination]}
-                onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
-                className="w-full h-fit flex flex-col items-end relative swiper-certified"
-            >
-                {arrAlbum.map((news, index) => (
-                    <SwiperSlide
-                        key={index}
-                        className="!h-fit relative slide-item-certified pr-[60px]"
-                    >
-                        {({ isActive }) => (
-                            <Link href="/">
-                                <div className="w-full h-[calc(26.625*100vw/100)] img-certified">
-                                    <Image
-                                        width={344}
-                                        height={426}
-                                        className="object-cover w-full h-full"
-                                        src={img}
-                                        alt="img"
-                                    />
-                                </div>
-                            </Link>
-                        )}
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+        <div>
+            <h3 className="text-[3.75vw] capitalize text-primary font-[800] text-center mb-[3.75vw] mt-[7.875vw]">
+                album image project
+            </h3>
+            <AlbumProjectSlide imgsAlbum={imgsAlbum} />
         </div>
     );
 }

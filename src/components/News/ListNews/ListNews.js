@@ -35,6 +35,7 @@ export default function ListNews() {
             setCategory(initCategory);
         }
         setSelectedButton(idBtn);
+        setActiveButton(0);
     };
 
     const handleClick = (buttonIdex) => {

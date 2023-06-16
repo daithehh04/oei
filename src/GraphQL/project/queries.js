@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const GET_ALL_PROJECTS = gql`
+const QUERY_ALL_PROJECTS = gql`
     query GetAllProjects(
         $categorySlug: [String!]
         $year: Int!
@@ -56,4 +56,57 @@ const GET_ALL_PROJECTS = gql`
     }
 `;
 
-export { GET_ALL_PROJECTS };
+const GET_ALL_PROJECTS = gql`
+    query GetProjects {
+        allProject {
+            nodes {
+                slug
+                title
+                content
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                project {
+                    name
+                    repeatInfo {
+                        title
+                        content
+                    }
+                }
+                projectDetail {
+                    location
+                    titleLocation
+                    repeatLocation {
+                        title
+                        content
+                    }
+                    tech
+                    repeatTech {
+                        title
+                        content
+                    }
+                    imgs {
+                        sourceUrl
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const GET_HEADER_PROJECT = gql`
+    query {
+        page(id: "cG9zdDo4NjM=") {
+            headerProject {
+                background {
+                    sourceUrl
+                }
+                title
+            }
+        }
+    }
+`;
+
+export { QUERY_ALL_PROJECTS, GET_ALL_PROJECTS, GET_HEADER_PROJECT };

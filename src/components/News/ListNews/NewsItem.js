@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 export default function NewsItem({ newsItem }) {
@@ -11,7 +12,12 @@ export default function NewsItem({ newsItem }) {
     const formattedDate = date.toLocaleDateString("en-US", options);
     return (
         <div className="news-item">
-            <img src={urlImg} className="object-cover h-[20.25vw] w-[100%]" />
+            <Link href={`news/${encodeURIComponent(news?.slug)}`}>
+                <img
+                    src={urlImg}
+                    className="object-cover h-[20.25vw] w-[100%]"
+                />
+            </Link>
             <div className="info p-[1.375vw]">
                 <div className="date text-[1.25vw] font-[400]">
                     <span>{formattedDate} </span>/ <span>Event</span>
@@ -20,12 +26,12 @@ export default function NewsItem({ newsItem }) {
                     Lorem ipsum dolor sit amet consectetur. Quisque curabitur
                     nunc diam laoreet.
                 </p>
-                <a
-                    href="#"
+                <Link
+                    href={`news/${encodeURIComponent(news?.slug)}`}
                     className="uppercase text-[1.11vw] font-[700] text-end block mt-[0.7025vw]"
                 >
                     See More +
-                </a>
+                </Link>
             </div>
         </div>
     );

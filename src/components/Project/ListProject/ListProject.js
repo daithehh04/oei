@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProjectItem from "./ProjectItem";
 import OutstandingProject from "./OutStandingProject";
-import { GET_ALL_PROJECTS } from "@/GraphQL/project/queries";
+import { QUERY_ALL_PROJECTS } from "@/GraphQL/project/queries";
 import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
 
@@ -12,38 +12,35 @@ export default function ListProject() {
     const [year, setYear] = useState(null);
     const [location, setLocation] = useState(initLocation);
 
-    const { data, refetch } = useQuery(GET_ALL_PROJECTS, {
+    const { data, refetch } = useQuery(QUERY_ALL_PROJECTS, {
         variables: {
             categorySlug: location,
             year: +year,
             offset: 0,
-            size: 5,
+            size: 6,
         },
     });
 
     const nodes = data?.allProject?.nodes;
 
-    console.log(nodes);
-
-    const firstNews = nodes?.[0];
-
     const pageInfo = data?.allProject?.pageInfo.offsetPagination.total;
-    const totalPages = Math.ceil(pageInfo / 5);
+    const totalPages = Math.ceil(pageInfo / 6);
 
     const handleSelect = (e) => {
         const value = e.target.value;
         if (value !== "") {
             setLocation(value);
+            setActiveButton(0);
         } else {
-            setLocation(initCategory);
+            setLocation(initLocation);
         }
     };
 
     const handleClick = (buttonIdex) => {
         setActiveButton(buttonIdex);
         refetch({
-            offset: buttonIdex * 5,
-            size: 5,
+            offset: buttonIdex * 6,
+            size: 6,
         });
     };
     useEffect(() => {
@@ -51,7 +48,7 @@ export default function ListProject() {
     }, [activeButton]);
     return (
         <div className="list-project content">
-            <OutstandingProject />
+            <OutstandingProject project={nodes} total={pageInfo} />
             <div className="row flex justify-between items-center mt-[6.4375vw] mb-[7.125vw]">
                 <h2 className="title text-[3.75vw] font-[800] capitalize">
                     Project list
@@ -62,7 +59,10 @@ export default function ListProject() {
                             name="year"
                             id="year"
                             className="w-[8.25vw] border border-[#394854] rounded-[3.125vw] py-[0.75vw] px-[1vw] select"
-                            onChange={(e) => setYear(e.target.value)}
+                            onChange={(e) => {
+                                setYear(e.target.value);
+                                setActiveButton(0);
+                            }}
                         >
                             <option value="">YEAR</option>
                             <option value="2023">2023</option>

@@ -41,17 +41,20 @@
         margin-top: -4vw;
     }
 
-    .project-item:nth-child(1) {
-        padding-top: -4vw;
-    }
-
     .slide-prj {
         .swiper-prj {
             .swiper-slide {
-                width: 20%;
-            }
-            .swiper-slide:has(a.active) {
                 width: 60%;
+                .prj {
+                    .info-block {
+                        display: none;
+                    }
+                }
+                .prj.active {
+                    .info-block {
+                        display: flex;
+                    }
+                }
             }
         }
     }

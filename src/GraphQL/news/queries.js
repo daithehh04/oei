@@ -94,4 +94,45 @@ const GET_RELATED_NEWS = gql`
     }
 `;
 
-export { GET_ALL_NEWS, GET_RELATED_NEWS };
+const GET_NEWS = gql`
+    query GetNews {
+        allNews {
+            nodes {
+                slug
+                title
+                date
+                content
+                newsCategory {
+                    nodes {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                newsCategory {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+            }
+        }
+    }
+`;
+
+const GET_HEADER_NEWS = gql`
+    query {
+        page(id: "cG9zdDo4NTk=") {
+            news {
+                background {
+                    sourceUrl
+                }
+                title
+            }
+        }
+    }
+`;
+export { GET_ALL_NEWS, GET_RELATED_NEWS, GET_NEWS, GET_HEADER_NEWS };
