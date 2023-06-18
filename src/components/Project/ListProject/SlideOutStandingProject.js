@@ -95,7 +95,7 @@ export default function SlideOutstandingProject({ project, total }) {
                                                 0{index + 1}
                                             </span>
                                             <span className="text-[1.5vw] font-[400]">
-                                                /05
+                                                /{total}
                                             </span>
                                         </div>
                                         <div className="flex flex-col gap-[1.5vw]">

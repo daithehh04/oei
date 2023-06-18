@@ -1,4 +1,5 @@
 .news-item {
+    cursor: pointer;
     .info {
         .date {
             line-height: 1.69;
@@ -6,6 +7,14 @@
         }
         .desc {
             color: #394854;
+        }
+    }
+    &:hover {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        span,
+        p,
+        a {
+            color: #fff;
         }
     }
 }

@@ -1,0 +1,12 @@
+.slide-item-lastnews {
+    &:hover {
+        .bg-item-news {
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            span,
+            p,
+            a {
+                color: #fff;
+            }
+        }
+    }
+}

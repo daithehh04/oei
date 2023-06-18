@@ -1,20 +1,11 @@
 import { gql } from "@apollo/client";
 
 const GET_ALL_NEWS = gql`
-    query GetAllNews($categorySlug: [String!], $offset: Int!, $size: Int!) {
-        allNews(
+    query GetAllNews($categorySlug: [ID], $offset: Int!, $size: Int!) {
+        posts(
             where: {
                 offsetPagination: { offset: $offset, size: $size }
-                taxQuery: {
-                    taxArray: [
-                        {
-                            taxonomy: NEWSCATEGORY
-                            operator: IN
-                            terms: $categorySlug
-                            field: SLUG
-                        }
-                    ]
-                }
+                categoryIn: $categorySlug
                 orderby: { field: DATE, order: DESC }
             }
         ) {
@@ -23,17 +14,13 @@ const GET_ALL_NEWS = gql`
                 title
                 date
                 content
-                newsCategory {
-                    nodes {
-                        name
-                    }
-                }
+                excerpt
                 featuredImage {
                     node {
                         sourceUrl
                     }
                 }
-                newsCategory {
+                categories {
                     nodes {
                         name
                         id
@@ -95,24 +82,25 @@ const GET_RELATED_NEWS = gql`
 `;
 
 const GET_NEWS = gql`
-    query GetNews {
-        allNews {
+    query {
+        posts {
             nodes {
                 slug
                 title
                 date
                 content
-                newsCategory {
+                categories {
                     nodes {
                         name
                     }
                 }
+                excerpt
                 featuredImage {
                     node {
                         sourceUrl
                     }
                 }
-                newsCategory {
+                categories {
                     nodes {
                         name
                         id

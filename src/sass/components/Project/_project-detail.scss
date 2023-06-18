@@ -1,0 +1,35 @@
+.content-projectDetail {
+    .wp-block-image {
+        width: 100%;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    p {
+        font-weight: 400;
+        font-size: 1.125vw;
+        color: #394854;
+        line-height: 1.5;
+    }
+    h3 {
+        margin-top: 4.125vw;
+        margin-bottom: 1.5vw;
+        font-weight: 800;
+        font-size: 2.875vw;
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+    .is-layout-flex {
+        margin-top: 2.875vw;
+        margin-bottom: 2.5vw;
+        display: flex;
+        gap: 1.375vw;
+        img {
+            object-fit: cover;
+        }
+    }
+}

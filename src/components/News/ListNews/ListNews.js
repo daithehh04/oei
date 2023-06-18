@@ -7,11 +7,10 @@ import { useQuery } from "@apollo/client";
 import { GET_ALL_NEWS } from "@/GraphQL/news/queries";
 
 export default function ListNews() {
-    const initCategory = ["category1", "category2", "category3"];
     const [activeButton, setActiveButton] = useState(0);
     const [selectedButton, setSelectedButton] = useState(1);
 
-    const [category, setCategory] = useState(initCategory);
+    const [category, setCategory] = useState([]);
     const { data, refetch } = useQuery(GET_ALL_NEWS, {
         variables: {
             categorySlug: category,
@@ -20,22 +19,24 @@ export default function ListNews() {
         },
     });
 
-    const nodes = data?.allNews?.nodes;
+    const nodes = data?.posts?.nodes;
+
     const firstNews = nodes?.[0];
 
-    const pageInfo = data?.allNews?.pageInfo.offsetPagination.total;
+    const pageInfo = data?.posts?.pageInfo.offsetPagination.total;
     const totalPages = Math.ceil(pageInfo / 9);
 
     const handleSelect = (e) => {
         const value = e.target.getAttribute("data-value");
         const idBtn = +e.target.getAttribute("data-btn");
-        if (value !== "") {
-            setCategory(value);
+        if (value === "") {
+            setCategory([]);
         } else {
-            setCategory(initCategory);
+            setCategory([value]);
         }
         setSelectedButton(idBtn);
         setActiveButton(0);
+        console.log(category);
     };
 
     const handleClick = (buttonIdex) => {
@@ -74,7 +75,7 @@ export default function ListNews() {
                         className={`filter-item text-[0.875vw] w-[8.25vw] py-[0.71875vw] text-center ${
                             selectedButton === 2 ? `active` : ``
                         }`}
-                        data-value="category1"
+                        data-value="dGVybToz"
                         data-btn="2"
                         onClick={handleSelect}
                     >
@@ -84,7 +85,7 @@ export default function ListNews() {
                         className={`filter-item text-[0.875vw] w-[8.25vw] py-[0.71875vw] text-center ${
                             selectedButton === 3 ? `active` : ``
                         }`}
-                        data-value="category2"
+                        data-value="dGVybTo1"
                         data-btn="3"
                         onClick={handleSelect}
                     >
@@ -94,7 +95,7 @@ export default function ListNews() {
                         className={`filter-item text-[0.875vw] w-[8.25vw] py-[0.71875vw] text-center ${
                             selectedButton === 4 ? `active` : ``
                         }`}
-                        data-value="category3"
+                        data-value="dGVybTo0"
                         data-btn="4"
                         onClick={handleSelect}
                     >

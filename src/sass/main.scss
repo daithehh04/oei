@@ -47,8 +47,10 @@
 @import "./components/News/ListNews/list-new";
 
 // News Detail
-@import "./components/News/NewsDetail/new-content";
+@import "./components/News/NewsDetail/last-news";
+@import "./components/News/NewsDetail/news-detail";
 
 // ============== Project ==============
 @import "./components/Project/list-project";
 @import "./components/Project/project-item";
+@import "./components/Project/project-detail";

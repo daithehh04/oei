@@ -7,14 +7,27 @@ import Member from "./Member";
 import News from "./News";
 import Partners from "./Partners";
 import Service from "./Service";
-import { GET_DATA_HOME } from "@/GraphQL/home/queries";
+import { GET_DATA_HOME, GET_DATA_HOME_PAGE } from "@/GraphQL/home/queries";
 
-export default function IndexHome() {
-    const { data, loading, error } = useQuery(GET_DATA_HOME);
-    if (loading) return <div className="text-black">loading ...</div>;
-    if (error) return <div className="text-black">{error.message}</div>;
+export async function getData() {
+    const res = await fetch(process.env.API, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            query: GET_DATA_HOME_PAGE,
+        }),
+    });
+    if (!res.ok) {
+        throw new Error("Failed to fetch data");
+    }
+    return res.json();
+}
+export default async function IndexHome() {
+    const data = await getData();
     const { header, footer, news, partners, service, about } =
-        data?.page?.homePage;
+        data?.data?.page?.homePage;
     return (
         <>
             <Header header={header} />
