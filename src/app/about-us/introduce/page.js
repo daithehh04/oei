@@ -19,7 +19,7 @@ function Introduce() {
     const { header } = data?.page?.aboutIntroduce;
     return (
         <>
-            <HeaderSecond header={header} />
+            {/* <HeaderSecond header={header} /> */}
             <main>
                 <Vision />
                 <Values />

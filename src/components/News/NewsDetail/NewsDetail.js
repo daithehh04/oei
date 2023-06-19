@@ -1,17 +1,19 @@
-"use client";
 import Image from "next/image";
 import twitter from "../../../assets/img/twitter.png";
 import fb from "../../../assets/img/fb.png";
 import linkedin from "../../../assets/img/linkedin.png";
 
 import dropdown from "../../../assets/img/arrow-down.png";
-import React, { useEffect, useState } from "react";
-import LastNews from "./LastNews";
+import React from "react";
 import HeaderSecond from "@/components/Common/HeaderSecond";
+import getData from "@/utils/getData";
+import { GET_NEWS } from "@/GraphQL/news/queries";
+import LastNews from "./LastNews";
 
-export default function NewsDetail({ data, slug }) {
-    const [titles, setTitles] = useState([]);
+export default async function NewsDetail({ slug }) {
+    // const [titles, setTitles] = useState([]);
 
+    const data = await getData(GET_NEWS);
     const nodes = data?.data?.posts?.nodes;
     const NewsItem = nodes?.find((e) => e?.slug === slug);
 
@@ -25,22 +27,22 @@ export default function NewsDetail({ data, slug }) {
 
     const formattedDate = date.toLocaleDateString("en-US", options);
 
-    useEffect(() => {
-        setTimeout(() => {
-            const newsDetail = document.querySelector(".content-news");
-            if (newsDetail) {
-                const titles = [...newsDetail.querySelectorAll("h3")];
-                const nodeList = newsDetail.querySelectorAll("h3");
-                nodeList.forEach((element, index) => {
-                    element.id = `element-${index + 1}`;
-                    console.log(element.id);
-                });
-                setTitles(titles);
-            }
-        }, 2000);
-    }, []);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         const newsDetail = document.querySelector(".content-news");
+    //         if (newsDetail) {
+    //             const titles = [...newsDetail.querySelectorAll("h3")];
+    //             const nodeList = newsDetail.querySelectorAll("h3");
+    //             nodeList.forEach((element, index) => {
+    //                 element.id = `element-${index + 1}`;
+    //                 console.log(element.id);
+    //             });
+    //             setTitles(titles);
+    //         }
+    //     }, 2000);
+    // }, []);
     return (
-        <div className="bg-[#FAFAFA]">
+        <div className="bg-[#FAFAFA] pb-[7.5vw]">
             <HeaderSecond header={header} />
             <div className="content-newsDetail">
                 <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw]">
@@ -64,7 +66,7 @@ export default function NewsDetail({ data, slug }) {
                             className="w-[0.75vw] h-[1vw] object-contain"
                         />
                     </div>
-                    {titles.map((item, index) => (
+                    {/* {titles.map((item, index) => (
                         <a href={`#element-${index + 1}`}>
                             <h3
                                 className="text-[1.125vw] font-[600] leading-[1.83] text-[#394854] mt-[1vw]"
@@ -73,7 +75,7 @@ export default function NewsDetail({ data, slug }) {
                                 {item.textContent}
                             </h3>
                         </a>
-                    ))}
+                    ))} */}
                 </div>
 
                 {/* Content news */}

@@ -24,7 +24,7 @@ export default function LastNewsSlide({ news }) {
     };
 
     return (
-        <div className="relative w-[95.625%] ml-auto mb-[7.5vw]">
+        <div className="relative w-[95.625%] ml-auto">
             <Swiper
                 slidesPerView={4}
                 spaceBetween={24}
