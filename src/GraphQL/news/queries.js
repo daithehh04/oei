@@ -36,52 +36,7 @@ const GET_ALL_NEWS = gql`
     }
 `;
 
-const GET_RELATED_NEWS = gql`
-    query GetPostsRelated($postId: ID!, $categoryIn: [String], $limit: Int!) {
-        allNews(
-            where: {
-                taxQuery: {
-                    taxArray: [
-                        {
-                            taxonomy: NEWSCATEGORY
-                            operator: IN
-                            terms: $categoryIn
-                            field: SLUG
-                        }
-                    ]
-                }
-                notIn: [$postId]
-                orderby: { field: DATE, order: DESC }
-            }
-            first: $limit
-        ) {
-            nodes {
-                slug
-                title
-                date
-                content
-                newsCategory {
-                    nodes {
-                        name
-                    }
-                }
-                featuredImage {
-                    node {
-                        sourceUrl
-                    }
-                }
-                newsCategory {
-                    nodes {
-                        name
-                        id
-                    }
-                }
-            }
-        }
-    }
-`;
-
-const GET_NEWS = gql`
+const GET_NEWS = `
     query {
         posts {
             nodes {
@@ -111,8 +66,8 @@ const GET_NEWS = gql`
     }
 `;
 
-const GET_HEADER_NEWS = gql`
-    query {
+const GET_HEADER_NEWS_PAGE = `
+    {
         page(id: "cG9zdDo4NTk=") {
             news {
                 background {
@@ -123,4 +78,4 @@ const GET_HEADER_NEWS = gql`
         }
     }
 `;
-export { GET_ALL_NEWS, GET_RELATED_NEWS, GET_NEWS, GET_HEADER_NEWS };
+export { GET_ALL_NEWS, GET_NEWS, GET_HEADER_NEWS_PAGE };

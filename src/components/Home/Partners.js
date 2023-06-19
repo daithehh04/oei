@@ -4,6 +4,7 @@ import SlidePartners from "./SlidePartners";
 
 const Partners = ({ data }) => {
     const refPartners = useRef();
+    if (!refPartners.current) return;
     useEffect(() => {
         function scrollReveal() {
             if (

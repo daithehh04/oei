@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import ProjectItem from "./ProjectItem";
 import OutstandingProject from "./OutStandingProject";
@@ -36,10 +37,10 @@ export default function ListProject() {
         }
     };
 
-    const handleClick = (buttonIdex) => {
-        setActiveButton(buttonIdex);
+    const handleClick = (buttonIndex) => {
+        setActiveButton(buttonIndex);
         refetch({
-            offset: buttonIdex * 6,
+            offset: buttonIndex * 6,
             size: 6,
         });
     };

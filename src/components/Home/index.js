@@ -1,32 +1,36 @@
-"use client";
-import { useQuery } from "@apollo/client";
 import About from "./About";
-import Footer from "./Footer";
 import Header from "./Header";
-import Member from "./Member";
 import News from "./News";
 import Partners from "./Partners";
 import Service from "./Service";
-import { GET_DATA_HOME, GET_DATA_HOME_PAGE } from "@/GraphQL/home/queries";
+import { GET_DATA_HOME_PAGE } from "@/GraphQL/home/queries";
 
 export async function getData() {
-    const res = await fetch(process.env.API, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            query: GET_DATA_HOME_PAGE,
-        }),
-    });
-    if (!res.ok) {
-        throw new Error("Failed to fetch data");
+    try {
+        const response = await fetch(process.env.API, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query: GET_DATA_HOME_PAGE,
+            }),
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        throw error;
     }
-    return res.json();
 }
 export default async function IndexHome() {
     const data = await getData();
-    const { header, footer, news, partners, service, about } =
+    const { header, news, partners, service, about } =
         data?.data?.page?.homePage;
     return (
         <>
@@ -40,9 +44,6 @@ export default async function IndexHome() {
                     <img
                         className="absolute background-second-section top-0 left-0 object-cover w-full h-full z-[-1]"
                         src="https://demo1.okhub.tech/wp-content/uploads/2023/06/bg-partners-1.png"
-                        // alt={src}
-                        // width={1600}
-                        // height={1612}
                     />
                     <Partners data={partners} />
                     <News news={news} />

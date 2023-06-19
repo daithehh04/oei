@@ -1,13 +1,13 @@
 import { GET_GLOBAL_NAVBAR } from "@/GraphQL/global/queries";
+import getData from "@/utils/getData";
 import { useQuery } from "@apollo/client";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Navbar() {
-    const { data, loading, error } = useQuery(GET_GLOBAL_NAVBAR);
-    if (loading) return;
-    if (error) return <div className="text-black">{error.message}</div>;
-    const { logoImage, phoneNumber, navbar } = data?.page?.homePage?.header;
+export default async function Navbar() {
+    const data = await getData(GET_GLOBAL_NAVBAR);
+    const { logoImage, phoneNumber, navbar } =
+        data?.data?.page?.homePage?.header;
     return (
         <div className="relative z-10 px-[4.375vw]">
             <div className="flex justify-between py-[0.75vw]">

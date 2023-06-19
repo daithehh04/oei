@@ -1,14 +1,14 @@
-"use client";
 import { GET_ALL_PROJECTS } from "@/GraphQL/project/queries";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import AlbumProject from "@/components/Project/ProjectDetail/AlbumProject";
 import OtherProject from "@/components/Project/ProjectDetail/OtherProject";
+import getData from "@/utils/getData";
 import { useQuery } from "@apollo/client";
 import React from "react";
 
-export default function ProjectDetail(context) {
-    const { data } = useQuery(GET_ALL_PROJECTS);
-    const nodes = data?.allProject?.nodes;
+export default async function ProjectDetail(context) {
+    const data = await getData(GET_ALL_PROJECTS);
+    const nodes = data?.data?.allProject?.nodes;
     const slug = context.params.slug;
     const projectItem = nodes?.find((e) => e?.slug === slug);
 

@@ -26,7 +26,6 @@ function initializeGSAPWithDelay(delay) {
                     start: "top bottom",
                     end: "top 20%",
                     scrub: true,
-                    markers: true,
                 },
             });
         });

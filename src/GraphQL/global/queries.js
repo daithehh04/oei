@@ -1,25 +1,24 @@
 import { gql } from "@apollo/client";
 
-const GET_GLOBAL_NAVBAR = gql`
-    query {
-        page(id: "cG9zdDoxOQ==") {
-            homePage {
-                header {
-                    logoImage {
-                        sourceUrl
-                        altText
-                        title
-                    }
-                    phoneNumber
-                    navbar {
-                        titleNav
-                        href
-                    }
-                }
-            }
-        }
-    }
-`;
+const GET_GLOBAL_NAVBAR = `
+{
+	page(id: "cG9zdDoxOQ==") {
+		homePage {
+			header {
+				logoImage {
+					sourceUrl
+					altText
+					title
+				}
+				phoneNumber
+				navbar {
+					titleNav
+					href
+				}
+			}
+		}
+	}
+}`;
 
 const GET_GLOBAL_FOOTER = gql`
     query {

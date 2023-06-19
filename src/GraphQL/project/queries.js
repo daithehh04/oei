@@ -56,7 +56,7 @@ const QUERY_ALL_PROJECTS = gql`
     }
 `;
 
-const GET_ALL_PROJECTS = gql`
+const GET_ALL_PROJECTS = `
     query GetProjects {
         allProject {
             nodes {
@@ -96,8 +96,8 @@ const GET_ALL_PROJECTS = gql`
     }
 `;
 
-const GET_HEADER_PROJECT = gql`
-    query {
+const GET_HEADER_PROJECT = `
+    {
         page(id: "cG9zdDo4NjM=") {
             headerProject {
                 background {
@@ -109,4 +109,58 @@ const GET_HEADER_PROJECT = gql`
     }
 `;
 
-export { QUERY_ALL_PROJECTS, GET_ALL_PROJECTS, GET_HEADER_PROJECT };
+const QUERY_ALL_PROJECTS_PAGE = (categorySlug, year, offset, size) => `{
+        allProject(
+            where: {
+                dateQuery: { year: ${year} }
+                offsetPagination: { offset: ${offset}, size: ${size} }
+                taxQuery: {
+                    taxArray: [
+                        {
+                            taxonomy: LOCATION
+                            operator: IN
+                            terms: "${categorySlug}"
+                            field: SLUG
+                        }
+                    ]
+                }
+                orderby: { field: DATE, order: DESC }
+            }
+        ) {
+            nodes {
+                slug
+                title
+                date
+                content
+                location {
+                    nodes {
+                        name
+                    }
+                }
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                project {
+                    name
+                    repeatInfo {
+                        title
+                        content
+                    }
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
+                }
+            }
+        }
+    }
+`;
+export {
+    QUERY_ALL_PROJECTS,
+    GET_ALL_PROJECTS,
+    GET_HEADER_PROJECT,
+    QUERY_ALL_PROJECTS_PAGE,
+};
