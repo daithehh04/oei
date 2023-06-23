@@ -53,13 +53,22 @@
 
 // ============== News ==============
 // ListNews
-@import "./components/News/ListNews/main-new";
-@import "./components/News/ListNews/news-item";
-@import "./components/News/ListNews/list-new";
+@import "./components/News/Event&News/main-new";
+@import "./components/News/Event&News/news-item";
+@import "./components/News/Event&News/list-new";
 
 // News Detail
 @import "./components/News/NewsDetail/last-news";
 @import "./components/News/NewsDetail/news-detail";
+
+// Company News
+@import "./components/News/CompanyNews/company-news";
+
+// Blogs News
+@import "./components/News/Blogs/blog";
+
+// Industry News
+@import "./components/News/Industry/industry-news";
 
 // ============== Project ==============
 @import "./components/Project/list-project";

@@ -1,4 +1,3 @@
-import React from "react";
 import LastNewsSlide from "./LastNewsSlide";
 import Link from "next/link";
 

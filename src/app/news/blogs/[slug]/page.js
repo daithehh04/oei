@@ -1,9 +1,9 @@
 import NewsDetail from "@/components/News/NewsDetail/NewsDetail";
 
-export default async function NewDetail(context) {
+export default function NewDetail(context) {
     const slug = context.params.slug;
     return (
-        <div className="bg-[#FAFAFA]">
+        <div>
             <NewsDetail slug={slug} />
         </div>
     );

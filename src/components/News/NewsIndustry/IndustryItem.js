@@ -15,31 +15,39 @@ export default function IndustryItem({ industry }) {
     const formattedDate = `${day}.${month}.${year}`;
     return (
         <div href="#" className="block company-item">
-            <a href="#">
+            <Link
+                href={`/news/industry-news/${encodeURIComponent(
+                    industry?.slug
+                )}`}
+            >
                 <Image
                     src={urlImg}
                     width={500}
                     height={500}
                     alt="img"
-                    className="object-cover h-[20.3125vw] w-[100%]"
+                    className="object-cover h-[20.3125vw] w-[100%] md:h-[53.6vw] lg:h-[32vw]"
                 />
-            </a>
-            <div className="info pt-[1.5vw] px-[1.25vw] pb-[2vw] bg-[#fff]">
-                <div className="date text-[1.25vw] font-[400] text-[#376A66]">
+            </Link>
+            <div className="info pt-[1.5vw] px-[1.25vw] pb-[2vw] bg-[#fff] md:p-[4.27vw]">
+                <div className="date text-[1.25vw] font-[400] text-[#376A66] md:text-[3.2vw] lg:text-[2vw]">
                     <span>{formattedDate}</span> <span>/Event</span>
                 </div>
-                <a
-                    href="#"
-                    className="title block text-[#394854] font-[800] text-[1.58vw] tracking-tighter leading-[1.25] mt-[1vw]"
+                <Link
+                    href={`/news/industry-news/${encodeURIComponent(
+                        industry?.slug
+                    )}`}
+                    className="title block text-[#394854] font-[800] text-[1.58vw] line-clamp tracking-tighter leading-[1.25] mt-[1vw] md:text-[4.8vw] lg:text-[2.25vw]"
                 >
                     {industry?.title}
-                </a>
-                <a
-                    href="#"
-                    className="uppercase text-[1.11vw] block font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57]"
+                </Link>
+                <Link
+                    href={`/news/industry-news/${encodeURIComponent(
+                        industry?.slug
+                    )}`}
+                    className="uppercase text-[1.11vw] block font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57] md:text-[3.73vw] lg:text-[2vw]"
                 >
                     See More +
-                </a>
+                </Link>
             </div>
         </div>
     );

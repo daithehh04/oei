@@ -24,4 +24,13 @@
             }
         }
     }
+    .left {
+        overflow: hidden;
+        img {
+            transition: all 0.3s ease-in;
+        }
+        img:hover {
+            scale: 1.2;
+        }
+    }
 }

@@ -1,31 +1,41 @@
+import Link from "next/link";
 import React from "react";
 
-export default function IndustrySuggets() {
+export default function IndustrySuggets({ blog }) {
+    const dateString = blog?.date;
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear()); //
+
+    const formattedDate = `${day}.${month}.${year}`;
     return (
-        <div>
-            <span className="text-[#376A66] text-[1.125vw] uppercase">
-                26.04.2022 / company news
+        <div className="industry-suggets md:pt-[4.27vw] md:border-t md:border-[#ccc]">
+            <span className="text-[#376A66] text-[1.125vw] uppercase md:text-16mb md:leading-[2.15] lg:text-[1.75vw]">
+                {formattedDate} / company news
             </span>
             <h3>
-                <a
-                    href="#"
-                    className="text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw]"
+                <Link
+                    href={`/news/industry-news/${encodeURIComponent(
+                        blog?.slug
+                    )}`}
+                    className="text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-25mb lg:text-[2.25vw]"
                 >
-                    OEI Awarded the Contract for Providing Submarine Cable
-                </a>
+                    {blog?.title}
+                </Link>
             </h3>
-            <p className="text-[#394854] leading-[1.44] mt-[1.75vw] text-[1.125vw]">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit. Amet
-                minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                sint. Velit officia consequat duis enim velit mollit.
-            </p>
-            <a
-                href="#"
-                className="text-[#394854] mt-[2.5vw] font-[700] text-[0.8125vw] uppercase leading-[2.57]"
+            <p
+                className="text-[#394854] leading-[1.44] mt-[1.75vw] text-[1.125vw] md:text-14mb md:mt-[7.47vw] lg:text-[1.875vw]"
+                dangerouslySetInnerHTML={{
+                    __html: blog?.excerpt,
+                }}
+            />
+            <Link
+                href={`/news/industry-news/${encodeURIComponent(blog?.slug)}`}
+                className="text-[#394854] mt-[2.5vw] font-[700] text-[0.8125vw] uppercase leading-[2.57] md:text-[4.267vw] lg:text-[1.75vw]"
             >
                 See More +
-            </a>
+            </Link>
         </div>
     );
 }

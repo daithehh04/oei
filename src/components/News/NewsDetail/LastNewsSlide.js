@@ -54,7 +54,7 @@ export default function LastNewsSlide({ news }) {
                         >
                             {({ isActive }) => (
                                 <Link
-                                    href={`news/${encodeURIComponent(
+                                    href={`/news/news&event/${encodeURIComponent(
                                         newsItem?.slug
                                     )}`}
                                 >
@@ -79,15 +79,17 @@ export default function LastNewsSlide({ news }) {
                                                 }}
                                             ></p>
                                             <div className="flex justify-end mt-[calc(0.625*100vw/100)]">
-                                                <a
-                                                    href="#"
+                                                <Link
+                                                    href={`/news/news&event/${encodeURIComponent(
+                                                        newsItem?.slug
+                                                    )}`}
                                                     className="flex items-center text-blackLastNews btn-news uppercase text-[calc(0.875*100vw/100)] font-bold leading-[257%]"
                                                 >
                                                     see more{" "}
                                                     <span className="inline-block leading-[100%] mb-1 ml-[calc(0.3125*100vw/100)]">
                                                         +
                                                     </span>
-                                                </a>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
@@ -112,7 +114,7 @@ export default function LastNewsSlide({ news }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-6 h-6"
+                        className="w-[1.25vw] h-[1.25vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -139,7 +141,7 @@ export default function LastNewsSlide({ news }) {
                                 ? "#4CA757"
                                 : "white"
                         }`}
-                        className="w-6 h-6"
+                        className="w-[1.25vw] h-[1.25vw]"
                     >
                         <path
                             strokeLinecap="round"

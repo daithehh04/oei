@@ -19,4 +19,12 @@
             }
         }
     }
+    .news-item {
+        .info {
+            background-color: #fff;
+        }
+        &:hover .info {
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        }
+    }
 }

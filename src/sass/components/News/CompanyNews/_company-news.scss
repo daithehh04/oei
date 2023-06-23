@@ -1,0 +1,38 @@
+.company-item {
+    .info {
+        background-color: #fff;
+    }
+    &:hover .info {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        .title,
+        span,
+        a {
+            color: #fff;
+        }
+    }
+}
+
+.main-company {
+    .info {
+        a:hover {
+            cursor: pointer;
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    }
+    .right {
+        .company-suggets {
+            a:hover {
+                cursor: pointer;
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+    }
+}

@@ -200,6 +200,42 @@ const GET_ALL_NEWS_EVENTS = gql`
 `;
 //
 
+const GET_ALL_NEWS_EVENTS_PAGE = `
+    query {
+        posts(
+            first: 100
+            where: {
+                categoryIn: ["dGVybToz"]
+                orderby: { field: DATE, order: DESC }
+            }
+        ) {
+            nodes {
+                slug
+                title
+                date
+                content
+                excerpt
+                featuredImage {
+                    node {
+                        sourceUrl
+                    }
+                }
+                categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+            }
+            pageInfo {
+                offsetPagination {
+                    total
+                }
+            }
+        }
+    }
+`;
+
 const GET_ALL_NEWS_INDUSTRY = gql`
     query GetNewsIndustry($offset: Int!, $size: Int!) {
         posts(
@@ -284,4 +320,5 @@ export {
     GET_ALL_NEWS_EVENTS,
     GET_ALL_NEWS_BLOGS,
     GET_ALL_NEWS_INDUSTRY,
+    GET_ALL_NEWS_EVENTS_PAGE,
 };

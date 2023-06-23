@@ -1,0 +1,20 @@
+.main-industry {
+    .info a:hover {
+        cursor: pointer;
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+    .industry-suggets {
+        a:hover {
+            cursor: pointer;
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    }
+}

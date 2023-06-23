@@ -4,16 +4,13 @@ import fb from "../../../assets/img/fb.png";
 import linkedin from "../../../assets/img/linkedin.png";
 
 import dropdown from "../../../assets/img/arrow-down.png";
-import React from "react";
 import HeaderSecond from "@/components/Common/HeaderSecond";
-import getData from "@/utils/getData";
-import { GET_NEWS } from "@/GraphQL/news/queries";
 import LastNews from "./LastNews";
+import Link from "next/link";
 
-export default async function NewsDetail({ slug }) {
+export default async function NewsDetail({ slug, data }) {
     // const [titles, setTitles] = useState([]);
 
-    const data = await getData(GET_NEWS);
     const nodes = data?.data?.posts?.nodes;
     const NewsItem = nodes?.find((e) => e?.slug === slug);
 
@@ -44,6 +41,7 @@ export default async function NewsDetail({ slug }) {
     return (
         <div className="bg-[#FAFAFA] pb-[7.5vw]">
             <HeaderSecond header={header} />
+            {/* {JSON.stringify(NewsItem)} */}
             <div className="content-newsDetail">
                 <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw]">
                     {NewsItem?.title}
@@ -55,9 +53,9 @@ export default async function NewsDetail({ slug }) {
                 {/* Table content */}
                 <div className="table-content p-[2vw] bg-[#fff] w-[60%] mb-[2vw]">
                     <div className="flex items-center justify-between">
-                        <h2 className="text-[2vw] text-[#394854] font-[800] leading-[1.25] tracking-tighter mb-[1.5vw]">
+                        <span className="text-[2vw] text-[#394854] font-[800] leading-[1.25] tracking-tighter mb-[1.5vw]">
                             Table of Contents
-                        </h2>
+                        </span>
                         <Image
                             src={dropdown}
                             alt="drop-down"
@@ -90,7 +88,7 @@ export default async function NewsDetail({ slug }) {
                     </span>
                     <ul className="flex items-center gap-[0.5vw]">
                         <li>
-                            <a href="#">
+                            <Link href="#">
                                 <Image
                                     src={twitter}
                                     alt="twitter"
@@ -98,10 +96,10 @@ export default async function NewsDetail({ slug }) {
                                     height={50}
                                     className="w-[1vw] h-[1.5vw] object-contain"
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link href="#">
                                 <Image
                                     src={fb}
                                     alt="fb"
@@ -109,10 +107,10 @@ export default async function NewsDetail({ slug }) {
                                     height={50}
                                     className="w-[1.5vw] h-[1.5vw] object-contain"
                                 />
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#">
+                            <Link href="#">
                                 <Image
                                     src={linkedin}
                                     alt="linkedin"
@@ -120,7 +118,7 @@ export default async function NewsDetail({ slug }) {
                                     height={50}
                                     className="w-[1.5vw] h-[1.5vw] object-contain"
                                 />
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

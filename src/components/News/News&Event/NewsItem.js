@@ -14,28 +14,25 @@ export default function NewsItem({ newsItem }) {
     const formattedDate = `${day}.${month}.${year}`;
     return (
         <Link
-            href={`news/news&event/${encodeURIComponent(news?.slug)}`}
+            href={`/news/news&event/${encodeURIComponent(news?.slug)}`}
             className="news-item"
         >
             <div>
                 <img
                     src={urlImg}
-                    className="object-cover h-[20.25vw] w-[100%]"
+                    className="object-cover h-[20.25vw] w-[100%] md:h-[53.6vw] lg:h-[32vw]"
                 />
             </div>
-            <div className="info p-[1.375vw]">
-                <div className="date text-[1.25vw] font-[400]">
+            <div className="info p-[1.375vw] md:p-[4.26vw]">
+                <div className="date text-[1.25vw] text-[#376A66] font-[400] md:text-[3.2vw] lg:text-[2vw]">
                     <span>{formattedDate} </span> <span>/Event</span>
                 </div>
-                <p
-                    className="desc text-[1.5625vw] font-[700] mt-[1vw] line-clamp"
-                    dangerouslySetInnerHTML={{
-                        __html: newsItem?.excerpt,
-                    }}
-                ></p>
+                <h3 className="title text-[1.5625vw] text-[#394854] font-[700] mt-[1vw] line-clamp md:text-18mb lg:text-[2vw]">
+                    {newsItem?.title}
+                </h3>
                 <a
-                    href={`news/news&event/${encodeURIComponent(news?.slug)}`}
-                    className="uppercase text-[1.11vw] font-[700] text-end block mt-[0.7025vw]"
+                    href={`/news/news&event/${encodeURIComponent(news?.slug)}`}
+                    className="uppercase text-[1.11vw] text-[#3A5469] font-[700] text-end block mt-[0.7025vw] md:text-14mb lg:text-[2vw]"
                 >
                     See More +
                 </a>

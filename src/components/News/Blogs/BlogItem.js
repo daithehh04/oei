@@ -15,31 +15,31 @@ export default function BlogItem({ blog }) {
     const formattedDate = `${day}.${month}.${year}`;
     return (
         <div className="block company-item">
-            <a href="#">
+            <Link href={`/news/blogs/${encodeURIComponent(blog?.slug)}`}>
                 <Image
                     src={urlImg}
                     width={500}
                     height={500}
                     alt="img"
-                    className="object-cover h-[29.75vw] w-[100%]"
+                    className="object-cover h-[29.75vw] w-[100%] md:h-[53.6vw]"
                 />
-            </a>
-            <div className="info mt-[1.5vw]">
-                <div className="date text-[1.125vw] font-[400]">
+            </Link>
+            <div className="info p-[1vw] pt-[1.5vw] md:p-[4.267vw]">
+                <div className="date text-[1.125vw] font-[400] md:text-12mb lg:text-[1.75vw]">
                     <span>{formattedDate}</span> <span>/Event</span>
                 </div>
-                <a
-                    href="#"
-                    className="title block text-[#394854] font-[800] text-[2vw] tracking-tighter leading-[1.25]"
+                <Link
+                    href={`/news/blogs/${encodeURIComponent(blog?.slug)}`}
+                    className="title block text-[#394854] font-[800] text-[2vw] line-clamp tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]"
                 >
                     {blog?.title}
-                </a>
-                <a
-                    href="#"
-                    className="uppercase text-[1.11vw] font-[700] block mt-[1vw] text-[#3A5469] leading-[2.57]"
+                </Link>
+                <Link
+                    href={`/news/blogs/${encodeURIComponent(blog?.slug)}`}
+                    className="uppercase text-[1.11vw] font-[700] block mt-[1vw] text-[#3A5469] leading-[2.57] md:text-14mb md:flex md:items-end md:justify-end lg:text-[2vw]"
                 >
                     See More +
-                </a>
+                </Link>
             </div>
         </div>
     );
