@@ -28,8 +28,18 @@ export default function SlideTeams() {
     return (
         <div className="relative slide-team">
             <Swiper
-                slidesPerView={4}
-                spaceBetween={28}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 28,
+                    },
+                }}
+                slidesPerView="auto"
+                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
@@ -43,11 +53,11 @@ export default function SlideTeams() {
                 {arrTeams.map((news, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-news"
+                        className="!h-fit relative slide-item-news w-[25%] md:w-[60%]"
                     >
                         {({ isActive }) => (
                             <Link href="/">
-                                <div className="w-full h-[calc(26.625*100vw/100)] img-team">
+                                <div className="w-full h-[calc(26.625*100vw/100)] img-team md:h-[73.6vw] lg:h-[35vw]">
                                     <Image
                                         width={344}
                                         height={426}
@@ -56,12 +66,12 @@ export default function SlideTeams() {
                                         alt="img"
                                     />
                                 </div>
-                                <div className="item-member bg-white transition-all duration-500 flex flex-col ">
+                                <div className="item-member bg-white transition-all duration-500 flex flex-col mt-[1.25vw]">
                                     <div>
-                                        <p className="desc-member">
+                                        <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal md:text-[2.93vw] lg:text-[1.5vw]">
                                             Office Managerin / Management
                                         </p>
-                                        <p className="name-member">
+                                        <p className="name-member text-[1.5vw] text-[#394854] font-[700] leading-normal md:text-[4.352vw] lg:text-[2vw] lg:mt-[1vw]">
                                             Mr. Nguyen Van A
                                         </p>
                                     </div>
@@ -77,7 +87,7 @@ export default function SlideTeams() {
                         indexSlider === 0
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -86,7 +96,7 @@ export default function SlideTeams() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-6 h-6"
+                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -101,7 +111,7 @@ export default function SlideTeams() {
                         arrTeams.length - indexSlider === 4
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +123,7 @@ export default function SlideTeams() {
                                 ? "#4CA757"
                                 : "white"
                         }`}
-                        className="w-6 h-6"
+                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"

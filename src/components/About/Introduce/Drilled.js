@@ -30,6 +30,7 @@ function initializeGSAPWithDelay(delay) {
                 start: "-100 10%",
                 end: "bottom 10%",
                 scrub: true,
+                markers: true,
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".drilled", {
@@ -52,6 +53,7 @@ function initializeGSAPWithDelay(delay) {
                 start: "none 10%",
                 end: "bottom 10%",
                 scrub: true,
+                markers: true,
                 onEnter: () => {
                     info2.classList.add("active");
                     equ2.classList.add("active");
@@ -97,6 +99,7 @@ function initializeGSAPWithDelay(delay) {
                 start: "top 10%",
                 end: "bottom 10%",
                 scrub: true,
+                markers: true,
                 onEnter: () => {
                     info3.classList.add("active");
                     equ3.classList.add("active");
@@ -136,6 +139,7 @@ function initializeGSAPWithDelay(delay) {
                 start: "top 10%",
                 end: "bottom 10%",
                 scrub: true,
+                markers: true,
                 onEnter: () => {
                     info4.classList.add("active");
                     equ4.classList.add("active");
@@ -175,6 +179,7 @@ function initializeGSAPWithDelay(delay) {
                 start: "top 10%",
                 end: "bottom 10%",
                 scrub: true,
+                markers: true,
                 onEnter: () => {
                     info4.classList.add("active");
                     equ4.classList.add("active");

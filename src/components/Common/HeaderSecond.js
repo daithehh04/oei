@@ -19,6 +19,9 @@ export default function HeaderSecond({ header }) {
                     {header?.title}
                 </h1>
             </div>
+            <p className="text-[#fff] absolute right-[4.375vw] bottom-[8.25vw] w-[36.9375vw] text-[1.5vw] font-[400] leading-[1.58]">
+                {header?.desc}
+            </p>
         </header>
     );
 }

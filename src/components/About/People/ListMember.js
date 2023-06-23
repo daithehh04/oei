@@ -25,7 +25,7 @@ export default function ListMember() {
         setIndexSlider(swiper.activeIndex);
     };
     return (
-        <div className="relative list-member">
+        <div className="relative list-member content mt-[3.75vw]">
             <Swiper
                 slidesPerView={4}
                 spaceBetween={28}
@@ -40,7 +40,7 @@ export default function ListMember() {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="swiper-members relative !h-[66.5vw] "
+                className="swiper-members relative !h-[70.25vw] "
             >
                 {arrTeams.map((member, index) => (
                     <SwiperSlide
@@ -49,7 +49,7 @@ export default function ListMember() {
                     >
                         {({ isActive }) => (
                             <Link href="/">
-                                <div className="w-full h-[calc(26.625*100vw/100)] img-team">
+                                <div className="w-full h-[calc(26.625*100vw/100)] img-team ">
                                     <Image
                                         width={344}
                                         height={426}
@@ -58,12 +58,12 @@ export default function ListMember() {
                                         alt="img"
                                     />
                                 </div>
-                                <div className="item-member bg-white transition-all duration-500 flex flex-col ">
+                                <div className="item-member mt-[1vw] bg-white transition-all duration-500 flex flex-col ">
                                     <div>
-                                        <p className="desc-member">
+                                        <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal ">
                                             Office Managerin / Management
                                         </p>
-                                        <p className="name-member">
+                                        <p className="name-member text-[1.5vw] text-[#394854] font-[700] leading-normal ">
                                             Mr. Nguyen Van A
                                         </p>
                                     </div>
@@ -79,7 +79,7 @@ export default function ListMember() {
                         indexSlider === 0
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -88,7 +88,7 @@ export default function ListMember() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-6 h-6"
+                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -103,7 +103,7 @@ export default function ListMember() {
                         arrTeams.length - indexSlider === 4
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export default function ListMember() {
                                 ? "#4CA757"
                                 : "white"
                         }`}
-                        className="w-6 h-6"
+                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"

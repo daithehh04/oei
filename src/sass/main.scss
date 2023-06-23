@@ -26,6 +26,7 @@
 @import "./components/About/Introduce/our-teams";
 @import "./components/About/Introduce/values";
 @import "./components/About/Introduce/vision";
+@import "./components/About/Introduce/lorem";
 
 // Award of About
 @import "./components/About/Award/award";
@@ -34,11 +35,21 @@
 @import "./components/About/Award/certified";
 @import "./components/About/Award/slide-review";
 @import "./components/About/Award/review";
-@import "./components/About/Award/slide-certified";
 
 // People of About
 @import "./components/About/People/member";
 @import "./components/About/People/list-member";
+@import "./components/About/People/proactive";
+
+// Assets&Facility of About
+@import "./components/About/Assets&Facility/dynamic";
+@import "./components/About/Assets&Facility/equipment";
+
+// QHSE of About
+@import "./components/About/QHSE/strives";
+@import "./components/About/QHSE/quality";
+@import "./components/About/QHSE/iso";
+@import "./components/About/QHSE/slide-certified";
 
 // ============== News ==============
 // ListNews

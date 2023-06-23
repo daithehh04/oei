@@ -1,0 +1,26 @@
+.proactive {
+    .title {
+        & strong {
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    }
+    ul {
+        li {
+            margin-left: 1vw;
+        }
+    }
+}
+
+@include mobile {
+    .proactive {
+        ul {
+            li {
+                margin-left: 6vw;
+            }
+        }
+    }
+}

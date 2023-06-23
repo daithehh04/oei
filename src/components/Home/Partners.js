@@ -18,7 +18,7 @@ const Partners = ({ data }) => {
         scrollReveal();
     });
     return (
-        <section className="partners py-[8.75vw] " ref={refPartners}>
+        <section className="partners py-[8.75vw]" ref={refPartners}>
             <div className="wrapper w-[79.5vw] m-auto text-center">
                 <h2 className="title text-[1.125vw] leading-normal font-[700] pt-[5vw] tracking-[0.12em] uppercase text-subtileNew">
                     {data?.title}

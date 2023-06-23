@@ -1,26 +1,31 @@
-"use client";
-
-import { GET_DATA_CONTACT } from "@/GraphQL/contact/queries";
+import { GET_HEADER_ABOUT_PEOPLE } from "@/GraphQL/about/queries";
+import ListMember from "@/components/About/People/ListMember";
+import ListMemberMb from "@/components/About/People/ListMemberMb";
+import Management from "@/components/About/People/Management";
 import Member from "@/components/About/People/Member";
+import Proactive from "@/components/About/People/Proactive";
 import HeaderSecond from "@/components/Common/HeaderSecond";
-import { useQuery } from "@apollo/client";
+import getData from "@/utils/getData";
 import React from "react";
 
-function People() {
-    const { data, loading, error } = useQuery(GET_DATA_CONTACT);
+export default async function People() {
+    const data = await getData(GET_HEADER_ABOUT_PEOPLE);
 
-    if (loading) return;
-    if (error) return <div className="text-black">{error.message}</div>;
-
-    const { header } = data?.page?.contact;
+    const { header } = data?.data?.page?.aboutPeople;
     return (
         <>
             <HeaderSecond header={header} />
-            <div>
+            <div className="pb-[9.375vw] md:pb-[18.4vw]">
                 <Member />
+                <Proactive />
+                <Management />
+                <div className="block lg:hidden">
+                    <ListMember />
+                </div>
+                <div className="hidden lg:block">
+                    <ListMemberMb />
+                </div>
             </div>
         </>
     );
 }
-
-export default People;

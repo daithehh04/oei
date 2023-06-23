@@ -42,7 +42,6 @@ const GET_GLOBAL_FOOTER = gql`
                             link
                         }
                     }
-                    copyRight
                     form {
                         title
                         description

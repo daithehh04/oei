@@ -5,9 +5,11 @@ export default function MainNews({ news }) {
 
     const dateString = news?.date;
     const date = new Date(dateString);
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear()); //
 
-    const formattedDate = date.toLocaleDateString("en-US", options);
+    const formattedDate = `${day}.${month}.${year}`;
     return (
         <div className="main-news flex">
             <div className="left w-[50%]">
@@ -22,17 +24,15 @@ export default function MainNews({ news }) {
                     <p className="uppercase text-[1.25vw]">
                         <span>{formattedDate}</span> / <span>event</span>
                     </p>
-                    <h3 className="title text-[3.75vw]">
-                        Vestas Pre-Qualification
-                    </h3>
+                    <h3 className="title text-[3.75vw]">{news?.title}</h3>
                 </div>
                 <div className="bottom">
-                    <p className="text w-[28.125vw] text-[1.125vw]">
-                        To become a highly professional, competitive company and
-                        first choice to customers in Vietnam, as a reputable,
-                        strategic and reliable partner in the Offshore Wind
-                        Power and Oil & Gas services sectors.{" "}
-                    </p>
+                    <p
+                        className="text w-[28.125vw] text-[1.125vw]"
+                        dangerouslySetInnerHTML={{
+                            __html: news?.excerpt,
+                        }}
+                    />
                 </div>
             </div>
         </div>

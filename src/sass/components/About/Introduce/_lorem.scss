@@ -1,0 +1,29 @@
+.lorem-introduce {
+    background-image: url(../../../../assets/img/bg-common.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    .text {
+        font-weight: 400;
+        font-size: 1.125vw;
+        line-height: 1.5;
+        color: #394854;
+    }
+}
+
+@include tablet {
+    .lorem-introduce {
+        .text {
+            font-size: 2.5vw;
+        }
+    }
+}
+
+@include mobile {
+    .lorem-introduce {
+        .text {
+            font-size: 3.73vw;
+        }
+    }
+}

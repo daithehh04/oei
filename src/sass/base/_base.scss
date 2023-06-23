@@ -6,6 +6,7 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+    // width: 100vw;
 }
 body {
     font-family: "Averta Std CY";
@@ -23,6 +24,12 @@ a {
     width: 91.25%;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 94.66%;
+    }
 }
 
 .line-clamp {

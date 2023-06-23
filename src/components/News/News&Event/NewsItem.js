@@ -14,7 +14,7 @@ export default function NewsItem({ newsItem }) {
     const formattedDate = `${day}.${month}.${year}`;
     return (
         <Link
-            href={`news/${encodeURIComponent(news?.slug)}`}
+            href={`news/news&event/${encodeURIComponent(news?.slug)}`}
             className="news-item"
         >
             <div>
@@ -34,7 +34,7 @@ export default function NewsItem({ newsItem }) {
                     }}
                 ></p>
                 <a
-                    href={`news/${encodeURIComponent(news?.slug)}`}
+                    href={`news/news&event/${encodeURIComponent(news?.slug)}`}
                     className="uppercase text-[1.11vw] font-[700] text-end block mt-[0.7025vw]"
                 >
                     See More +

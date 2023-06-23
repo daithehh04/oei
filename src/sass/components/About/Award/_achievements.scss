@@ -3,15 +3,15 @@
     position: relative;
 }
 
-.history .title {
-    color: #a3a3a3;
-    font-weight: 400;
-    font-size: 18px;
-    text-transform: uppercase;
-    padding-bottom: 16px;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid #ccc;
-}
+// .history .title {
+//     color: #a3a3a3;
+//     font-weight: 400;
+//     font-size: 18px;
+//     text-transform: uppercase;
+//     padding-bottom: 16px;
+//     letter-spacing: 0.05em;
+//     border-bottom: 1px solid #ccc;
+// }
 
 .history .wrapper {
     margin-top: -80px;
@@ -20,7 +20,6 @@
 }
 
 .history .wrapper .years {
-    width: 50%;
     height: 100vh;
     position: sticky;
     top: -40px;
@@ -38,9 +37,16 @@
     font-weight: $fw-800;
     font-size: 240px;
     line-height: 1.2;
-    color: #16a571;
+
     margin-top: 120px;
     z-index: 2;
+    .year-left {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
 }
 
 .history .wrapper .years .number .year-right {
@@ -52,6 +58,11 @@
 .history .wrapper .years .number .year-right .num {
     height: 300px;
     color: #ededed;
+    // background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // background-clip: text;
+    // text-fill-color: transparent;
 }
 
 .history .wrapper .years .circle {
@@ -86,7 +97,6 @@
 
 .history .wrapper .history-events {
     margin-top: 290px;
-    width: 50%;
     display: flex;
     flex-direction: column;
 }
@@ -99,12 +109,15 @@
 }
 
 .history .wrapper .history-events .history-item .time {
-    font-size: 14px;
+    font-size: 1.125vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #376a66;
 }
 
 .history .wrapper .history-events .history-item p {
     font-weight: $fw-400;
-    font-size: $fs-18;
+    font-size: 1.125vw;
     line-height: 1.5;
     color: #394854;
 }
@@ -115,8 +128,9 @@
 }
 
 .history .wrapper .history-events .history-item h4 {
+    width: 22.3125vw;
     font-weight: $fw-800;
-    font-size: $fs-32;
+    font-size: 2vw;
     line-height: 1.38;
     letter-spacing: -0.05em;
     color: #3a5469;
@@ -128,5 +142,9 @@
 }
 
 .history .wrapper .history-events .history-item .title-16.active {
-    color: #16a571;
+    background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }

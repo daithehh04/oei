@@ -497,9 +497,9 @@ export default function Achievements() {
                                 <div className="circle">
                                     <svg
                                         className="history-years-vertical__circle"
-                                        width="554"
-                                        height="554"
-                                        viewBox="0 0 554 554"
+                                        width="32vw"
+                                        height="32vw"
+                                        viewBox="0 0 32vw 32vw"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
                                     >

@@ -1,0 +1,20 @@
+.strives {
+    .title {
+        strong {
+            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+    }
+    .heading {
+        z-index: 99;
+        -webkit-text-stroke: 1px green;
+        text-stroke: 1px green;
+        color: transparent;
+        white-space: nowrap;
+        line-height: 1;
+        bottom: -5.625vw;
+    }
+}

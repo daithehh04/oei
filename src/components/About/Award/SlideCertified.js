@@ -26,7 +26,7 @@ export default function SlideCertified() {
     };
 
     return (
-        <div className="relative slide-certified ">
+        <div className="relative slide-certified">
             <div className="flex flex-col gap-y-[24px] gap-x-[calc(1.5*100vw/100)] btn-action">
                 <button
                     className={`${

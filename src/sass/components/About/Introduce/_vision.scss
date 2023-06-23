@@ -1,10 +1,6 @@
 .vision {
-    padding-top: 100px;
     background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
     .row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         padding-bottom: 59px;
     }
     .line {
@@ -31,5 +27,27 @@
         text-fill-color: transparent;
         opacity: 0.89;
         backdrop-filter: blur(2px);
+    }
+}
+
+@include mobile {
+    .slide-vision {
+        flex-direction: column-reverse;
+        align-items: flex-start !important;
+    }
+
+    .slide-certified .btn-action {
+        width: 100% !important;
+        margin: unset !important;
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        padding-left: 2.8%;
+        padding-bottom: 20.8vw;
+    }
+    .slide-certified .swiper {
+        border-left: 0;
+        width: 97.33%;
+        margin-right: 0 !important;
     }
 }

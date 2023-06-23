@@ -20,7 +20,7 @@ export default function Footer() {
         contact,
     } = data?.page?.homePage?.footer;
     return (
-        <footer className="relative w-full h-auto pt-[6.5625vw] ">
+        <footer className="relative w-full h-auto pt-[6.5625vw] text-[#fff]">
             <Image
                 className="absolute top-0 left-0 w-full h-full z-[-1] transition-opacity opacity-0 duration-[2s]"
                 src={background?.sourceUrl}
