@@ -1,8 +1,7 @@
 import { GET_HEADER_ABOUT_ASSETS } from "@/GraphQL/about/queries";
 import Album from "@/components/About/Assets&Facility/Album";
 import Dynamic from "@/components/About/Assets&Facility/Dynamic";
-import Equipment from "@/components/About/Assets&Facility/Equipment";
-import Lorem from "@/components/About/Assets&Facility/Lorem";
+import Facilities from "@/components/About/Assets&Facility/Facilities";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import getData from "@/utils/getData";
 import React from "react";
@@ -16,9 +15,8 @@ export default async function Assets() {
             <HeaderSecond header={header} />
             <main>
                 <Dynamic />
-                <Equipment />
+                <Facilities />
                 <Album />
-                <Lorem />
             </main>
         </>
     );

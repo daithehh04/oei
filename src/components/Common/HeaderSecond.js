@@ -14,12 +14,12 @@ export default function HeaderSecond({ header }) {
                 fill
             />
             <Navbar />
-            <div className="absolute bottom-[8.875vw] left-[4.375vw] w-[53.8125vw]">
-                <h1 className="capitalize tracking-[-0.05em] font-extrabold text-[3.75vw] leading-[133%] text-[white]">
+            <div className="absolute bottom-[8.875vw] left-[4.375vw] w-[53.8125vw] md:bottom-[13.33vw] md:w-[90%]">
+                <h1 className="capitalize tracking-[-0.05em] font-extrabold text-[3.75vw] leading-[133%] text-[white] md:w-full md:text-35mb md:leading-111 lg:text-42tl">
                     {header?.title}
                 </h1>
             </div>
-            <p className="text-[#fff] absolute right-[4.375vw] bottom-[8.25vw] w-[36.9375vw] text-[1.5vw] font-[400] leading-[1.58]">
+            <p className="text-[#fff] absolute right-[4.375vw] bottom-[8.25vw] w-[36.9375vw] text-[1.5vw] font-[400] leading-[1.58] md:text-16mb md:leading-150 md:mt-[2.13vw] md:max-w-full">
                 {header?.desc}
             </p>
         </header>

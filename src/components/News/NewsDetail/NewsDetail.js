@@ -5,15 +5,11 @@ import linkedin from "../../../assets/img/linkedin.png";
 
 import dropdown from "../../../assets/img/arrow-down.png";
 import HeaderSecond from "@/components/Common/HeaderSecond";
-import LastNews from "./LastNews";
 import Link from "next/link";
+// import React, { useEffect, useState } from "react";
 
-export default async function NewsDetail({ slug, data }) {
-    // const [titles, setTitles] = useState([]);
-
-    const nodes = data?.data?.posts?.nodes;
-    const NewsItem = nodes?.find((e) => e?.slug === slug);
-
+export default async function NewsDetail({ NewsItem }) {
+    // const [headings, setHeadings] = useState([]);
     const background = NewsItem?.featuredImage?.node;
     const title = NewsItem?.title;
     const header = { background, title };
@@ -26,20 +22,20 @@ export default async function NewsDetail({ slug, data }) {
 
     // useEffect(() => {
     //     setTimeout(() => {
-    //         const newsDetail = document.querySelector(".content-news");
-    //         if (newsDetail) {
-    //             const titles = [...newsDetail.querySelectorAll("h3")];
-    //             const nodeList = newsDetail.querySelectorAll("h3");
-    //             nodeList.forEach((element, index) => {
-    //                 element.id = `element-${index + 1}`;
-    //                 console.log(element.id);
-    //             });
-    //             setTitles(titles);
-    //         }
+    //         var headings = document.querySelectorAll("h3, h4");
+    //         setHeadings(headings);
+
+    //         headings.forEach(function (heading, index) {
+    //             var level = parseInt(heading.tagName.charAt(1));
+    //             var title = heading.innerText;
+    //             var slug = "tieu-de-" + (index + 1);
+
+    //             heading.id = slug;
+    //         });
     //     }, 2000);
     // }, []);
     return (
-        <div className="bg-[#FAFAFA] pb-[7.5vw]">
+        <div className="bg-[#FAFAFA]">
             <HeaderSecond header={header} />
             {/* {JSON.stringify(NewsItem)} */}
             <div className="content-newsDetail">
@@ -64,6 +60,24 @@ export default async function NewsDetail({ slug, data }) {
                             className="w-[0.75vw] h-[1vw] object-contain"
                         />
                     </div>
+                    {/* Table content */}
+                    {/* <div id="table-of-contents">
+                        <ul>
+                            {headings.map((heading, index) => {
+                                const level = parseInt(
+                                    heading.tagName.charAt(1)
+                                );
+                                const title = heading.innerText;
+                                const slug = "tieu-de-" + (index + 1);
+
+                                return (
+                                    <li key={slug}>
+                                        <a href={`#${slug}`}>{title}</a>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div> */}
                     {/* {titles.map((item, index) => (
                         <a href={`#element-${index + 1}`}>
                             <h3
@@ -123,7 +137,6 @@ export default async function NewsDetail({ slug, data }) {
                     </ul>
                 </div>
             </div>
-            <LastNews news={nodes} />
         </div>
     );
 }

@@ -1,0 +1,11 @@
+.swiper-assets {
+    .swiper-slide {
+        width: 70%;
+        .item {
+            opacity: 0.7;
+        }
+        .item.active {
+            opacity: 1;
+        }
+    }
+}

@@ -30,7 +30,6 @@ function initializeGSAPWithDelay(delay) {
                 start: "top 10%",
                 end: "bottom 10%",
                 scrub: true,
-                markers: true,
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".equipment", {

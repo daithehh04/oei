@@ -6,8 +6,6 @@ import { Pagination } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
 
-const arrLastNews = new Array(10).fill(0);
-
 export default function LastNewsSlide({ news }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
@@ -126,7 +124,7 @@ export default function LastNewsSlide({ news }) {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrLastNews.length - indexSlider === 4
+                        news.length - indexSlider === 4
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
                     } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
@@ -137,7 +135,7 @@ export default function LastNewsSlide({ news }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${
-                            arrLastNews.length - indexSlider === 4
+                            news.length - indexSlider === 4
                                 ? "#4CA757"
                                 : "white"
                         }`}

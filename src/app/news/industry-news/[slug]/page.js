@@ -1,10 +1,13 @@
-import NewsDetail from "@/components/News/NewsDetail/NewsDetail";
+import { GET_NEWS } from "@/GraphQL/news/queries";
+import Detail from "@/components/News/NewsIndustry/Detail";
+import getData from "@/utils/getData";
 
-export default function NewDetail(context) {
+export default async function NewDetail(context) {
+    const data = await getData(GET_NEWS);
     const slug = context.params.slug;
     return (
         <div>
-            <NewsDetail slug={slug} />
+            <Detail slug={slug} data={data} />
         </div>
     );
 }

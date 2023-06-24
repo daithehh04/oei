@@ -26,7 +26,7 @@ export default function SlideVision() {
     };
 
     return (
-        <div className="relative flex slide-certified slide-vision border-t border-inherit ">
+        <div className="relative flex items-center justify-center border-t slide-certified slide-vision border-inherit">
             <div className="flex items-center justify-center flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action w-[20%] md:pt-[8.66vw] md:gap-x-[2.66vw] md:border-t md:border-[#fff]">
                 <button
                     className={`${
@@ -83,13 +83,13 @@ export default function SlideVision() {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="w-full h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] w-[80%] pl-[4vw] md:pl-0"
+                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] !w-[80%] pl-[4vw] md:pl-0"
             >
                 <div>
                     {arrTeams.map((news, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-vision w-[28%] md:w-[55%]"
+                            className="!h-fit relative slide-item-vision !w-[28%] md:!w-[55%]"
                         >
                             {({ isActive }) => (
                                 <div>
@@ -101,7 +101,7 @@ export default function SlideVision() {
                                         </p>
                                     </div>
                                     <div className="flex items-center my-[2vw]">
-                                        <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] lg:h-[4vw]">
+                                        <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] flex items-center justify-center lg:h-[4vw]">
                                             <Image
                                                 src={img}
                                                 alt="img"

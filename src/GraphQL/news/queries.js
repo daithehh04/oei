@@ -38,7 +38,7 @@ const GET_ALL_NEWS = gql`
 
 const GET_NEWS = `
     query {
-        posts {
+        posts(first:100) {
             nodes {
                 slug
                 title
