@@ -54,7 +54,7 @@ export default function AlbumSlide() {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrTeams.length - indexSlider === 4
+                        arrTeams.length - indexSlider === 3
                             ? "bg-active border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-active cursor-pointer"
                     } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
@@ -75,7 +75,7 @@ export default function AlbumSlide() {
                     </svg>
                 </button>
             </div>
-            <div className="w-full pl-[4.5vw]">
+            <div className="w-[80%] pl-[4.5vw] border-l border-[#ccc]">
                 <Swiper
                     breakpoints={{
                         768: {
@@ -92,7 +92,7 @@ export default function AlbumSlide() {
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    className="h-fit flex flex-col items-end relative swiper-certified w-[80%] py-[2.4vw] border-l border-[#ccc] md:pl-0 md:py-[8vw]"
+                    className="h-fit flex flex-col items-end relative swiper-certified w-[80%] py-[2.4vw] md:pl-0 md:py-[8vw]"
                 >
                     {arrTeams.map((news, index) => (
                         <SwiperSlide
