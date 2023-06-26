@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function OthersProjectSlide({ projectAll }) {
-    console.log(projectAll);
     const swiperRef = useRef();
     return (
         <div className="relative project-item">
@@ -39,7 +38,7 @@ export default function OthersProjectSlide({ projectAll }) {
                             return (
                                 <div className="slide-item__otherProject">
                                     <Link
-                                        href={`project/${encodeURIComponent(
+                                        href={`/project/${encodeURIComponent(
                                             otherProject?.slug
                                         )}`}
                                         className="w-full h-[calc(32.5*100vw/100)] md:h-[57.86vw] "
@@ -54,10 +53,13 @@ export default function OthersProjectSlide({ projectAll }) {
                                     </Link>
                                     <div className="p-[1.5vw] bg-[#fff] md:p-[4.27vw]">
                                         <p className="text-[1.125vw] font-[400] leading-[1.44] text-[#394854] uppercase md:text-[2.93vw] lg:text-[1.65vw] md:font-[600]">
-                                            {otherProject?.project?.name}
+                                            {
+                                                otherProject?.projectDetail
+                                                    ?.project?.name
+                                            }
                                         </p>
                                         <Link
-                                            href={`project/${encodeURIComponent(
+                                            href={`/project/${encodeURIComponent(
                                                 otherProject?.slug
                                             )}`}
                                         >
@@ -66,7 +68,7 @@ export default function OthersProjectSlide({ projectAll }) {
                                             </h3>
                                         </Link>
                                         <div className="flex items-center mt-[1vw] gap-[3.06vw] lg:flex-wrap lg:gap-x-0 lg:gap-y-[1.75vw] md:hidden">
-                                            {otherProject?.project?.repeatInfo?.map(
+                                            {otherProject?.projectDetail?.project?.repeatInfo?.map(
                                                 (item, index) => (
                                                     <div
                                                         className="owner flex flex-col text-[#394854] lg:w-[50%]"
@@ -83,7 +85,7 @@ export default function OthersProjectSlide({ projectAll }) {
                                             )}
                                         </div>
                                         <div className="items-center mt-[1vw] gap-[3.06vw] hidden md:flex">
-                                            {otherProject?.project?.repeatInfo
+                                            {otherProject?.projectDetail?.project?.repeatInfo
                                                 ?.slice(0, 2)
                                                 .map((item, index) => (
                                                     <div
@@ -100,7 +102,7 @@ export default function OthersProjectSlide({ projectAll }) {
                                                 ))}
                                         </div>
                                         <Link
-                                            href={`project/${encodeURIComponent(
+                                            href={`/project/${encodeURIComponent(
                                                 otherProject?.slug
                                             )}`}
                                             className="uppercase text-[#394854] text-[3.73vw] font-[700] mt-[4vw] hidden md:flex md:items-end md:justify-end"

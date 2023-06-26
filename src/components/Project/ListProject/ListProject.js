@@ -7,7 +7,12 @@ import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import img from "../../../assets/img/dowload.png";
 import Image from "next/image";
-export default function ListProject() {
+export default function ListProject({
+    outstanding,
+    listProject,
+    download,
+    prjOutStanding,
+}) {
     const initLocation = ["an_thuan", "da_nang", "ha_noi"];
     const initTypeProject = ["loai_1", "loai_2", "loai_3", "loai_4"];
     const [activeButton, setActiveButton] = useState(0);
@@ -63,22 +68,24 @@ export default function ListProject() {
     }, [activeButton]);
     return (
         <div className="list-project content">
-            <OutstandingProject project={nodes} total={pageInfo} />
+            <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw]">
+                <h2 className=" text-[3.75vw] text-primary leading-[1.33] font-[800] lg:text-[4.67vw] md:text-[8vw]">
+                    {outstanding?.title}
+                </h2>
+                <p className="w-[46.5625vw] ml-auto text-[1.5vw] font-[400] leading-[1.38] mb-[2.31vw] text-[#394854] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mb-[6.4vw] md:mt-[4.27vw] ">
+                    {outstanding?.desc}
+                </p>
+            </div>
+            <OutstandingProject project={prjOutStanding} />
             <div className="row flex justify-between mt-[6.4375vw] md:flex-col">
                 <h2 className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] md:hidden">
-                    Completed Projects
+                    {listProject?.title}
                 </h2>
                 <h2 className="title text-[3.75vw] font-[800] capitalize hidden md:block md:text-[9.33vw] md:mt-[16vw]">
-                    List Projects
+                    {listProject?.titleMobile}
                 </h2>
                 <p className="text-[#394854] text-[1.125vw] w-[44.6875vw] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mt-[4.27vw]">
-                    Journey Through Success – Dive into our rich archive of
-                    completed projects. From Engineering to Submarine Cable
-                    Installation, experience the diverse facets of our
-                    expertise. Each project is a testament to our commitment to
-                    quality, sustainability, and excellence. Revel in the
-                    achievements that have shaped the world of renewable energy
-                    and beyond
+                    {listProject?.desc}
                 </p>
             </div>
 
@@ -161,12 +168,15 @@ export default function ListProject() {
             </div>
 
             <div className="flex items-center pb-[8.09vw] lg:hidden">
-                <p className="dload text-[2.875vw] font-[800] w-[53%] leading-[1.22] text-[#333333] lg:text-[4.5vw]">
-                    <strong>Download Track Record OEI</strong> to see more of
-                    our detailed accurate record information
-                </p>
+                <p
+                    className="dload text-[2.875vw] font-[800] w-[53%] leading-[1.22] text-[#333333] lg:text-[4.5vw]"
+                    dangerouslySetInnerHTML={{
+                        __html: download?.text,
+                    }}
+                ></p>
                 <a
-                    href="#"
+                    href={download?.url}
+                    download
                     className="download flex items-center justify-center bg-member w-[9.4375vw] h-[9.4375vw] rounded-full flex-col ml-[25vw]"
                 >
                     <Image

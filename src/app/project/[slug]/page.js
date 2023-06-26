@@ -60,7 +60,7 @@ export default async function ProjectDetail(context) {
                             {projectItem?.projectDetail?.tech}
                         </span>
                         <ul className="mt-[2vw]">
-                            {projectItem?.projectDetail?.repeatTech.map(
+                            {projectItem?.projectDetail?.repeatTech?.map(
                                 (item) => (
                                     <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff] md:py-[4.27vw]">
                                         <span className="text-[1.25vw] tracking-tighter capitalize font-[700] lg:text-[1.85vw] md:text-[4.26vw]">

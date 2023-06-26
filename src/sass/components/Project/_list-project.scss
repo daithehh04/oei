@@ -60,19 +60,21 @@
             .swiper-slide {
                 width: 72%;
                 .prj {
+                    overflow: hidden;
                     .info-block {
                         display: none;
                     }
                     .desc {
-                        display: none;
+                        transform: translateY(-100%);
+                        transition: all linear 0.2s;
+                    }
+                    &:hover .desc {
+                        transform: translateY(0);
                     }
                 }
                 .prj.active {
                     .info-block {
                         display: flex;
-                    }
-                    .desc {
-                        display: block;
                     }
                 }
             }
