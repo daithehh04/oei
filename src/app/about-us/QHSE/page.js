@@ -1,5 +1,6 @@
 import { GET_HEADER_ABOUT_QHSE } from "@/GraphQL/about/queries";
 import Drilled from "@/components/About/Introduce/Drilled";
+import IndexQHSE from "@/components/About/QHSE";
 import Achievements from "@/components/About/QHSE/Achievements";
 import Certified from "@/components/About/QHSE/Certified";
 import ISO from "@/components/About/QHSE/ISO";
@@ -19,12 +20,7 @@ export default async function QHSE() {
         <>
             <HeaderSecond header={header} />
             <main>
-                <Achievements />
-                <Strives />
-                <Quality />
-                <Certified />
-                <ISO />
-                <Contact />
+                <IndexQHSE />
             </main>
         </>
     );

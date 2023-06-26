@@ -3,11 +3,13 @@ import { gql } from "@apollo/client";
 const QUERY_ALL_PROJECTS = gql`
     query GetAllProjects(
         $categorySlug: [String!]
+        $typeProjectSlug: [String!]
         $year: Int!
         $offset: Int!
         $size: Int!
     ) {
         allProject(
+            first: 100
             where: {
                 dateQuery: { year: $year }
                 offsetPagination: { offset: $offset, size: $size }
@@ -17,6 +19,12 @@ const QUERY_ALL_PROJECTS = gql`
                             taxonomy: LOCATION
                             operator: IN
                             terms: $categorySlug
+                            field: SLUG
+                        }
+                        {
+                            taxonomy: TYPEPROJECT
+                            operator: IN
+                            terms: $typeProjectSlug
                             field: SLUG
                         }
                     ]
@@ -41,6 +49,7 @@ const QUERY_ALL_PROJECTS = gql`
                 }
                 project {
                     name
+                    desc
                     repeatInfo {
                         title
                         content
@@ -58,7 +67,7 @@ const QUERY_ALL_PROJECTS = gql`
 
 const GET_ALL_PROJECTS = `
     query GetProjects {
-        allProject {
+        allProject(first: 100) {
             nodes {
                 slug
                 title

@@ -16,9 +16,11 @@ export default async function NewsDetail({ NewsItem }) {
 
     const dateString = NewsItem?.date;
     const date = new Date(dateString);
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = String(date.getFullYear()); //
 
-    const formattedDate = date.toLocaleDateString("en-US", options);
+    const formattedDate = `${day}.${month}.${year}`;
 
     // useEffect(() => {
     //     setTimeout(() => {
@@ -39,17 +41,24 @@ export default async function NewsDetail({ NewsItem }) {
             <HeaderSecond header={header} />
             {/* {JSON.stringify(NewsItem)} */}
             <div className="content-newsDetail">
-                <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw]">
+                <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw] md:text-[6.67vw] md:mt-[16vw] lg:text-[4.67vw]">
                     {NewsItem?.title}
                 </h2>
-                <span className="text-[1.25w] font-[400] leading-[1.69] text-[#376A66]">
+                <span className="text-[1.25w] font-[400] leading-[1.69] text-[#376A66] md:text-[4.8vw] md:mt-[2.67vw]">
                     {formattedDate} / EVENT
                 </span>
                 <div className="w-[100%] h-[1px] bg-neutral-200 mt-[1vw] mb-[2vw]"></div>
+                <Image
+                    src={NewsItem?.newsDetail?.image?.sourceUrl}
+                    width={500}
+                    height={500}
+                    alt="img"
+                    className="h-[35.4375vw] w-full object-cover mt-[2vw] md:h-[50vw] md:mt-[4.63vw]"
+                />
                 {/* Table content */}
-                <div className="table-content p-[2vw] bg-[#fff] w-[60%] mb-[2vw]">
+                <div className="table-content p-[2vw] bg-[#fff] w-[60%] mb-[2vw] md:w-full md:p-[4.27vw] md:mt-[7.73vw]">
                     <div className="flex items-center justify-between">
-                        <span className="text-[2vw] text-[#394854] font-[800] leading-[1.25] tracking-tighter mb-[1.5vw]">
+                        <span className="text-[2vw] text-[#394854] font-[800] leading-[1.25] tracking-tighter mb-[1.5vw] md:text-[6.4vw] lg:text-[4vw]">
                             Table of Contents
                         </span>
                         <Image
@@ -57,7 +66,7 @@ export default async function NewsDetail({ NewsItem }) {
                             alt="drop-down"
                             width={50}
                             height={50}
-                            className="w-[0.75vw] h-[1vw] object-contain"
+                            className="w-[0.75vw] h-[1vw] object-contain lg:w-[1.35vw] lg:h-[1.85vw] md:w-[2.13vw] md:h-[3.73vw]"
                         />
                     </div>
                     {/* Table content */}
@@ -95,12 +104,12 @@ export default async function NewsDetail({ NewsItem }) {
                     className="content-news"
                     dangerouslySetInnerHTML={{ __html: NewsItem?.content }}
                 ></div>
-                <div className="w-[100%] h-[1px] bg-neutral-200 mt-[2vw] mb-[1.5vw]"></div>
-                <div className="social flex gap-[0.8125vw] items-center justify-end">
-                    <span className="uppercase text-[0.875vw] text-[#394854] font-[700] leading-[1.43]">
+                <div className="w-[100%] h-[1px] bg-neutral-200 mt-[2vw] mb-[1.5vw] md:mt-[4.27vw] md:mb-[4.8vw]"></div>
+                <div className="social flex gap-[0.8125vw] items-center justify-end md:gap-[3.47vw]">
+                    <span className="uppercase text-[0.875vw] text-[#394854] font-[700] leading-[1.43] md:text-[3.46vw] lg:text-[2vw]">
                         share on it:
                     </span>
-                    <ul className="flex items-center gap-[0.5vw]">
+                    <ul className="flex items-center gap-[0.5vw] md:gap-[2.13vw]">
                         <li>
                             <Link href="#">
                                 <Image
@@ -108,7 +117,7 @@ export default async function NewsDetail({ NewsItem }) {
                                     alt="twitter"
                                     width={50}
                                     height={50}
-                                    className="w-[1vw] h-[1.5vw] object-contain"
+                                    className="w-[1vw] h-[1.5vw] object-contain lg:w-[1.75vw] lg:h-[2.5vw] md:w-[5vw] md:h-[6.4vw]"
                                 />
                             </Link>
                         </li>
@@ -119,7 +128,7 @@ export default async function NewsDetail({ NewsItem }) {
                                     alt="fb"
                                     width={50}
                                     height={50}
-                                    className="w-[1.5vw] h-[1.5vw] object-contain"
+                                    className="w-[1.5vw] h-[1.5vw] object-contain lg:w-[2.5vw] lg:h-[2.5vw] md:w-[6.4vw] md:h-[6.4vw]"
                                 />
                             </Link>
                         </li>
@@ -130,7 +139,7 @@ export default async function NewsDetail({ NewsItem }) {
                                     alt="linkedin"
                                     width={50}
                                     height={50}
-                                    className="w-[1.5vw] h-[1.5vw] object-contain"
+                                    className="w-[1.5vw] h-[1.5vw] object-contain lg:w-[2.5vw] lg:h-[2.5vw] md:w-[6.4vw] md:h-[6.4vw]"
                                 />
                             </Link>
                         </li>

@@ -9,3 +9,11 @@
         }
     }
 }
+
+@include mobile {
+    .swiper-assets {
+        .swiper-slide {
+            width: 80%;
+        }
+    }
+}

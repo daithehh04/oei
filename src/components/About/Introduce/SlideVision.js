@@ -3,14 +3,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
 import { Pagination } from "swiper";
-import Link from "next/link";
 
 import img from "../../../assets/img/circle-vision.png";
 import Image from "next/image";
 
-const arrTeams = new Array(10).fill(0);
-
-export default function SlideVision() {
+export default function SlideVision({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -54,7 +51,7 @@ export default function SlideVision() {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrTeams.length - indexSlider === 4
+                        dataSlide.length - indexSlider === 4
                             ? "bg-active border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-active cursor-pointer"
                     } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
@@ -86,7 +83,7 @@ export default function SlideVision() {
                 className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] !w-[80%] pl-[4vw] md:pl-0"
             >
                 <div>
-                    {arrTeams.map((news, index) => (
+                    {dataSlide?.map((item, index) => (
                         <SwiperSlide
                             key={index}
                             className="!h-fit relative slide-item-vision !w-[28%] md:!w-[55%]"
@@ -94,10 +91,8 @@ export default function SlideVision() {
                             {({ isActive }) => (
                                 <div>
                                     <div className="w-full">
-                                        <p className="text-vision pt-[6.03125vw] text-[1vw] text-[#E3FCE6] w-[80%] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw]">
-                                            OFFSHORE ENERGY INSTALLATION JSC
-                                            (OEI) was awarded the order to
-                                            repair
+                                        <p className="text-vision pt-[6.03125vw] text-[1vw] text-[#E3FCE6] w-[80%] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw] line-clamp-2">
+                                            {item?.text}
                                         </p>
                                     </div>
                                     <div className="flex items-center my-[2vw]">
@@ -113,7 +108,7 @@ export default function SlideVision() {
                                         <div className="h-[1px] w-[100%] bg-[#fff]"></div>
                                     </div>
                                     <div className="pb-[8.3125vw] text-start year-vision text-[3.75vw] uppercase leading-[1.58] ml-[-3vw] md:ml-0 md:pb-[10.66vw] md:text-[10.66vw] lg:text-[6vw]">
-                                        {index + 2020}
+                                        {item?.year}
                                     </div>
                                 </div>
                             )}

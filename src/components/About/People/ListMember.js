@@ -3,14 +3,12 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import img from "../../../assets/img/member-team.png";
 
 import { Grid, Pagination } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
-const arrTeams = new Array(20).fill(0);
 
-export default function ListMember() {
+export default function ListMember({ data }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -42,7 +40,7 @@ export default function ListMember() {
                 }}
                 className="swiper-members relative !h-[70.25vw] "
             >
-                {arrTeams.map((member, index) => (
+                {data?.listPeople.map((item, index) => (
                     <SwiperSlide
                         key={index}
                         className="relative slide-item-news !h-[33.25vw] !m-0"
@@ -54,17 +52,17 @@ export default function ListMember() {
                                         width={344}
                                         height={426}
                                         className="object-cover w-full h-full"
-                                        src={img}
+                                        src={item?.img?.sourceUrl}
                                         alt="img"
                                     />
                                 </div>
                                 <div className="item-member mt-[1vw] bg-white transition-all duration-500 flex flex-col ">
                                     <div>
                                         <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal ">
-                                            Office Managerin / Management
+                                            {item?.role}
                                         </p>
                                         <p className="name-member text-[1.5vw] text-[#394854] font-[700] leading-normal ">
-                                            Mr. Nguyen Van A
+                                            {item?.name}
                                         </p>
                                     </div>
                                 </div>
@@ -100,7 +98,7 @@ export default function ListMember() {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrTeams.length - indexSlider === 4
+                        data?.listPeople.length - indexSlider === 4
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
                     } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
@@ -111,7 +109,7 @@ export default function ListMember() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${
-                            arrTeams.length - indexSlider === 4
+                            data?.listPeople.length - indexSlider === 4
                                 ? "#4CA757"
                                 : "white"
                         }`}

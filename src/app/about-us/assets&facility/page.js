@@ -1,6 +1,9 @@
 import { GET_HEADER_ABOUT_ASSETS } from "@/GraphQL/about/queries";
+import IndexAssets from "@/components/About/Assets&Facility";
 import Album from "@/components/About/Assets&Facility/Album";
 import Dynamic from "@/components/About/Assets&Facility/Dynamic";
+import Equipment from "@/components/About/Assets&Facility/Equipment";
+import EquipmentMb from "@/components/About/Assets&Facility/EquipmentMb";
 import Facilities from "@/components/About/Assets&Facility/Facilities";
 import Profile from "@/components/About/Assets&Facility/Profile";
 import Contact from "@/components/Common/Contact";
@@ -16,13 +19,7 @@ export default async function Assets() {
         <>
             <HeaderSecond header={header} />
             <main>
-                <Dynamic />
-                <Facilities />
-                <Album />
-                <Profile />
-                <div className="pb-[7.86vw] mt-[5vw]">
-                    <Contact />
-                </div>
+                <IndexAssets />
             </main>
         </>
     );

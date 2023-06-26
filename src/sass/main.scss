@@ -30,7 +30,6 @@
 
 // Award of About
 @import "./components/About/Award/award";
-@import "./components/About/Award/achievements";
 @import "./components/About/Award/company";
 @import "./components/About/Award/certified";
 @import "./components/About/Award/slide-review";
@@ -43,14 +42,16 @@
 
 // Assets&Facility of About
 @import "./components/About/Assets&Facility/dynamic";
-@import "./components/About/Assets&Facility/equipment";
+@import "./components/About/Assets&Facility/equipment-2";
 @import "./components/About/Assets&Facility/assets";
+@import "./components/About/Assets&Facility/equipment";
 
 // QHSE of About
 @import "./components/About/QHSE/strives";
 @import "./components/About/QHSE/quality";
 @import "./components/About/QHSE/iso";
 @import "./components/About/QHSE/slide-certified";
+@import "./components/About/QHSE/achievements";
 
 // ============== News ==============
 // ListNews

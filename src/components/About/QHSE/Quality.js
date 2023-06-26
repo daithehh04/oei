@@ -18,9 +18,9 @@ function initializeGSAPWithDelay(delay) {
         var positionInfo = element.getBoundingClientRect();
         var positionInfo_2 = element_2.getBoundingClientRect();
         var positionInfo_3 = element_3.getBoundingClientRect();
-        var height = positionInfo.height + 44;
-        var height_2 = positionInfo_2.height + 44;
-        var height_3 = positionInfo_3.height + 44;
+        var height = positionInfo.height;
+        var height_2 = positionInfo_2.height;
+        var height_3 = positionInfo_3.height;
         console.log(height);
 
         gsap.to(".quality", {
@@ -73,11 +73,11 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".list-quality", {
-                            y: `-${2 * height}`,
+                            y: `-${height + height_2}`,
                         });
                     } else {
                         gsap.to(".list-quality", {
-                            y: `-${height}`,
+                            y: `-${height_2}`,
                         });
                     }
                 },
@@ -92,11 +92,11 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".list-quality", {
-                            y: `-${3 * height}`,
+                            y: `-${height + height_2 + height_3}`,
                         });
                     } else {
                         gsap.to(".list-quality", {
-                            y: `-${3 * height}`,
+                            y: `-${height + height_2 + height_3}`,
                         });
                     }
                 },
@@ -104,7 +104,7 @@ function initializeGSAPWithDelay(delay) {
         });
     }, delay);
 }
-export default function Quality() {
+export default function Quality({ data }) {
     const containerRef = useRef(null);
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
@@ -126,94 +126,29 @@ export default function Quality() {
                 </span>
                 <div className="pt-[9.3125vw] flex items-start">
                     <div className="left text-60pc text-[#fff] font-[800] leading-[1.33] tracking-tighter w-[40.375vw]">
-                        Quality, Health & Safety and Environment of OEI
+                        {data?.title}
                     </div>
                     <div className="overflow-hidden">
                         <div className="right list-quality w-[44.8125vw] ml-auto">
-                            <div className="flex items-start pb-[2vw] border-b border-[#ddd] quality-item_1 pt-[1vw]">
-                                <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                    01
-                                </span>
-                                <div className="flex flex-col items-start ml-[5.75vw]">
+                            {data?.listItem?.map((item, index) => (
+                                <div
+                                    className={`flex items-start pb-[2vw] border-b border-[#ddd] quality-item_${
+                                        index + 1
+                                    } pt-[1vw]`}
+                                >
                                     <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                        Quality
+                                        0{index + 1}
                                     </span>
-                                    <p className="text-[1.125vw] font-[400] text-[#fff] leading-normal mt-[1.5vw]">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Etiam suscipit posuere
-                                        arcu in convallis. Nam nec velit a elit
-                                        rutrum gravida. Nam blandit leo orci,
-                                        vel sagittis est vestibulum eu. Vivamus
-                                        luctus varius diam, nec euismod lacus
-                                        porttitor eget. Sed dictum dui eu arcu
-                                        finibus maximus vel sed justo.
-                                        Vestibulum ut cursus odio. Integer eget
-                                        lectus quis dolor pretium molestie.
-                                        Aliquam nec sapien eleifend, pharetra
-                                        nunc euismod, pretium odio. Donec orci
-                                        ante, pulvinar eget euismod sed,
-                                        accumsan id turpis. Cras eget dictum
-                                        justo, nec vehicula turpis. Aliquam
-                                        pretium lacinia aliquet.{" "}
-                                    </p>
+                                    <div className="flex flex-col items-start ml-[5.75vw]">
+                                        <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
+                                            {item?.title}
+                                        </span>
+                                        <p className="text-[1.125vw] font-[400] text-[#fff] leading-normal mt-[1.5vw]">
+                                            {item?.text}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="flex items-start pb-[2vw] border-b border-[#ddd] quality-item_2 pt-[3.125vw]">
-                                <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                    02
-                                </span>
-                                <div className="flex flex-col items-start ml-[5.75vw]">
-                                    <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                        Health & Safety
-                                    </span>
-                                    <p className="text-[1.125vw] font-[400] text-[#fff] leading-normal mt-[1.5vw]">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Etiam suscipit posuere
-                                        arcu in convallis. Nam nec velit a elit
-                                        rutrum gravida. Nam blandit leo orci,
-                                        vel sagittis est vestibulum eu. Vivamus
-                                        luctus varius diam, nec euismod lacus
-                                        porttitor eget. Sed dictum dui eu arcu
-                                        finibus maximus vel sed justo.
-                                        Vestibulum ut cursus odio. Integer eget
-                                        lectus quis dolor pretium molestie.
-                                        Aliquam nec sapien eleifend, pharetra
-                                        nunc euismod, pretium odio. Donec orci
-                                        ante, pulvinar eget euismod sed,
-                                        accumsan id turpis. Cras eget dictum
-                                        justo, nec vehicula turpis. Aliquam
-                                        pretium lacinia aliquet.{" "}
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex items-start pb-[2vw] border-b border-[#ddd] quality-item_3 pt-[3.125vw]">
-                                <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                    03
-                                </span>
-                                <div className="flex flex-col items-start ml-[5.75vw]">
-                                    <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter">
-                                        Environment
-                                    </span>
-                                    <p className="text-[1.125vw] font-[400] text-[#fff] leading-normal mt-[1.5vw]">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit. Etiam suscipit posuere
-                                        arcu in convallis. Nam nec velit a elit
-                                        rutrum gravida. Nam blandit leo orci,
-                                        vel sagittis est vestibulum eu. Vivamus
-                                        luctus varius diam, nec euismod lacus
-                                        porttitor eget. Sed dictum dui eu arcu
-                                        finibus maximus vel sed justo.
-                                        Vestibulum ut cursus odio. Integer eget
-                                        lectus quis dolor pretium molestie.
-                                        Aliquam nec sapien eleifend, pharetra
-                                        nunc euismod, pretium odio. Donec orci
-                                        ante, pulvinar eget euismod sed,
-                                        accumsan id turpis. Cras eget dictum
-                                        justo, nec vehicula turpis. Aliquam
-                                        pretium lacinia aliquet.{" "}
-                                    </p>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -222,7 +157,7 @@ export default function Quality() {
                     width={500}
                     height={500}
                     alt="img"
-                    className="w-full h-full object-cover absolute bottom-0 -z-1"
+                    className="absolute bottom-0 object-cover w-full h-full -z-1"
                 />
             </div>
         </div>

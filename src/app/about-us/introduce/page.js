@@ -9,6 +9,7 @@ import HeaderSecond from "@/components/Common/HeaderSecond";
 import Lorem from "@/components/About/Introduce/Lorem";
 import getData from "@/utils/getData";
 import ValuesMb from "@/components/About/Introduce/ValuesMb";
+import IndexIntroduce from "@/components/About/Introduce";
 
 export default async function Introduce() {
     const data = await getData(GET_HEADER_ABOUT_INTRODUCE);
@@ -18,19 +19,7 @@ export default async function Introduce() {
         <>
             <HeaderSecond header={header} />
             <main>
-                <Lorem />
-                <Vision />
-                <div className="block md:hidden">
-                    <Values />
-                </div>
-                <div className="hidden md:block">
-                    <ValuesMb />
-                </div>
-                <div className="content  mt-[33vw]">
-                    <Message />
-                </div>
-                <Dynamic />
-                <OurTeams />
+                <IndexIntroduce />
             </main>
         </>
     );

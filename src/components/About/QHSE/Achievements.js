@@ -10,6 +10,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 function initializeGSAPWithDelay(delay) {
     setTimeout(function () {
+        gsap.to(".history-events", {
+            scrollTrigger: {
+                trigger: ".history-events",
+                start: "top bottom",
+                end: "bottom bottom",
+                onToggle: (self) => {
+                    if (self.isActive) {
+                        gsap.to(".overlay-year", {
+                            height: "10vw",
+                        });
+                    } else {
+                        gsap.to(".overlay-year", {
+                            height: 0,
+                        });
+                    }
+                },
+            },
+        });
         gsap.to(".year-2016", {
             scrollTrigger: {
                 trigger: ".year-2016",
@@ -54,7 +72,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -300,
+                            y: "-18.75vw",
                         });
                         gsap.to(".num-17", {
                             backgroundImage:
@@ -66,7 +84,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -600,
+                            y: "-37.5vw",
                         });
                         gsap.to(".num-17", {
                             backgroundImage: "unset",
@@ -89,7 +107,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -600,
+                            y: "-37.5vw",
                         });
                         gsap.to(".num-18", {
                             backgroundImage:
@@ -101,7 +119,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -900,
+                            y: "-56.25vw",
                         });
                         gsap.to(".num-18", {
                             backgroundImage: "unset",
@@ -124,7 +142,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -900,
+                            y: "-56.25vw",
                         });
                         gsap.to(".num-19", {
                             backgroundImage:
@@ -136,7 +154,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -1200,
+                            y: "-75vw",
                         });
                         gsap.to(".num-19", {
                             backgroundImage: "unset",
@@ -159,7 +177,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -1200,
+                            y: "-75vw",
                         });
                         gsap.to(".num-20", {
                             backgroundImage:
@@ -171,7 +189,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -1500,
+                            y: "-93.75vw",
                         });
                         gsap.to(".num-20", {
                             backgroundImage: "unset",
@@ -194,7 +212,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -1500,
+                            y: "-93.75vw",
                         });
                         gsap.to(".num-21", {
                             backgroundImage:
@@ -206,7 +224,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -1800,
+                            y: "-112.5vw",
                         });
                         gsap.to(".num-21", {
                             backgroundImage: "unset",
@@ -229,7 +247,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -1800,
+                            y: "-112.5vw",
                         });
                         gsap.to(".num-22", {
                             backgroundImage:
@@ -241,7 +259,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -2100,
+                            y: "-131.25vw",
                         });
                         gsap.to(".num-22", {
                             backgroundImage: "unset",
@@ -264,7 +282,7 @@ function initializeGSAPWithDelay(delay) {
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".year-right", {
-                            y: -2100,
+                            y: "-131.25vw",
                         });
                         gsap.to(".num-23", {
                             backgroundImage:
@@ -276,7 +294,7 @@ function initializeGSAPWithDelay(delay) {
                         });
                     } else {
                         gsap.to(".year-right", {
-                            y: -2400,
+                            y: "-150vw",
                         });
                         gsap.to(".num-23", {
                             backgroundImage: "unset",
@@ -291,7 +309,6 @@ function initializeGSAPWithDelay(delay) {
             },
         });
         // ==================== Active Scroll Post ======================
-        // 2016
         const divElements_2016 = document.querySelectorAll(
             'div[data-year="2016"]'
         );
@@ -304,7 +321,7 @@ function initializeGSAPWithDelay(delay) {
                     scrub: true,
                     onToggle: (self) => {
                         if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title `, {
+                            gsap.to(`.${item.classList[1]}_title`, {
                                 backgroundImage:
                                     "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
                                 WebkitBackgroundClip: "text",
@@ -326,7 +343,7 @@ function initializeGSAPWithDelay(delay) {
                 },
             });
         });
-        // 2017
+
         const divElements_2017 = document.querySelectorAll(
             'div[data-year="2017"]'
         );
@@ -361,7 +378,6 @@ function initializeGSAPWithDelay(delay) {
                 },
             });
         });
-        // 2018
         const divElements_2018 = document.querySelectorAll(
             'div[data-year="2018"]'
         );
@@ -574,7 +590,7 @@ function initializeGSAPWithDelay(delay) {
     }, delay);
 }
 
-export default function Achievements() {
+export default function Achievements({ data }) {
     const containerRef = useRef(null);
     const [rate, setRate] = useState(1);
     const handleScroll = () => {
@@ -611,33 +627,38 @@ export default function Achievements() {
 
     return (
         <>
-            <section className="history">
+            <section className="history pt-[6.25vw]">
                 <div className="content">
                     <h3 className="title text-18pc font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] pb-[0.875vw]">
-                        information HSEQ KPI
+                        {data?.title}
                     </h3>
-                    <div className="wrapper">
-                        <div className="years w-[41.0625vw]">
+                    <div className="flex w-full wrapper">
+                        <div className="years sticky h-[100vh] flex items-center mr-auto w-[41.0625vw]">
                             <div className="years-content">
                                 <div className="number">
                                     <div className="year-left">20</div>
                                     <div className="year-right">
-                                        <p className="num num-16">16</p>
-                                        <p className="num num-17">17</p>
-                                        <p className="num num-18">18</p>
-                                        <p className="num num-19">19</p>
-                                        <p className="num num-20">20</p>
-                                        <p className="num num-21">21</p>
-                                        <p className="num num-22">22</p>
-                                        <p className="num num-23">23</p>
+                                        {data?.listProject?.map(
+                                            (item, index) => (
+                                                <p
+                                                    className={`num num-${
+                                                        index + 16
+                                                    }`}
+                                                >
+                                                    {item?.year
+                                                        .toString()
+                                                        .slice(2, 4)}
+                                                </p>
+                                            )
+                                        )}
                                     </div>
                                 </div>
                                 <div className="circle">
                                     <svg
                                         className="history-years-vertical__circle"
-                                        width="554"
-                                        height="554"
-                                        viewBox="0 0 554 554"
+                                        width="31.25vw"
+                                        height="31.25vw"
+                                        viewBox="0 0 31.25vw 31.25vw"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -669,364 +690,107 @@ export default function Achievements() {
                             className="history-events w-[41.8125vw] ml-auto"
                             ref={containerRef}
                         >
-                            <div className="year-2016">
+                            {data?.listProject?.map((item, index) => (
+                                <div className={`year-${index + 2016}`}>
+                                    <div
+                                        className={`history-item item-${
+                                            index + 16
+                                        }`}
+                                        data-year={`${index + 2016}`}
+                                    >
+                                        <div>
+                                            <span className="time">
+                                                {item?.year}
+                                            </span>
+                                            <h4
+                                                className={`item-${
+                                                    index + 16
+                                                }_title`}
+                                            >
+                                                {item?.title}
+                                            </h4>
+                                            <p className="pb-[2vw] border-b border-[#ccc]">
+                                                {item?.desc}
+                                            </p>
+                                            <div className="info">
+                                                <p className="heading">
+                                                    {item?.heading}
+                                                </p>
+                                                <div
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: item?.content,
+                                                    }}
+                                                ></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+
+                            {/* <div className="year-2016">
                                 <div
-                                    className="history-item item-161"
+                                    className="history-item item-16"
                                     data-year="2016"
                                 >
                                     <div>
                                         <span className="time">2016</span>
-                                        <h4 className="item-161_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
+                                        <h4 className="item-16_title">
+                                            OIE Construction Projects - HSEQ
+                                            Yearly Snapshot 2021
                                         </h4>
-                                        <p>
+                                        <p className="pb-[2vw] border-b border-[#ccc]">
                                             Lorem, ipsum dolor sit amet
                                             consectetur adipisicing elit. Hic,
                                             inventore dignissimos perferendis
                                             pariatur minus.
                                         </p>
+                                        <div className="info">
+                                            <p>
+                                                Welcome to OIE's brief annual
+                                                summary of our Health, Safety,
+                                                Environment, and Quality (HSEQ)
+                                                performance for the year 2023.
+                                            </p>
+                                            <p>
+                                                <strong>Health:</strong>{" "}
+                                                Incident Rate: 3 incidents per
+                                                100 full-time employees Sick
+                                                Days: 1.8% of total working days
+                                            </p>
+                                            <p>
+                                                <strong>Safety:</strong> Total
+                                                Recordable Incident Rate: 4.5
+                                                per 100 full-time employees.
+                                                Safety Compliance Rate: 97%
+                                            </p>
+                                            <p>
+                                                <strong>Quality:</strong>{" "}
+                                                Customer Satisfaction: 92%
+                                                satisfaction rate Project
+                                                Delivery: 90% on-time and
+                                                on-budget Highlights
+                                            </p>
+                                            <p>
+                                                Obtained ISO 14001 Environmental
+                                                Management
+                                                Certification.Launched new
+                                                safety training
+                                                program.Completed the XYZ
+                                                project ahead of schedule and
+                                                under budget.As we move into
+                                                2024, we stay committed to
+                                                excellence in health, safety,
+                                                environmental sustainability,
+                                                and quality in our construction
+                                                projects. Thank you for your
+                                                support.
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div
-                                    className="history-item item-162"
-                                    data-year="2016"
-                                >
-                                    <div>
-                                        <span className="time">2016</span>
-                                        <h4 className="item-162_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2017">
-                                <div
-                                    className="history-item item-171"
-                                    data-year="2017"
-                                >
-                                    <div>
-                                        <span className="time">2017</span>
-                                        <h4 className="item-171_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-172"
-                                    data-year="2017"
-                                >
-                                    <div>
-                                        <span className="time">2017</span>
-                                        <h4 className="item-172_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2018">
-                                <div
-                                    className="history-item item-181"
-                                    data-year="2018"
-                                >
-                                    <div>
-                                        <span className="time">2018</span>
-                                        <h4 className="item-181_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-182"
-                                    data-year="2018"
-                                >
-                                    <div>
-                                        <span className="time">2018</span>
-                                        <h4 className="item-182_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-183"
-                                    data-year="2018"
-                                >
-                                    <div>
-                                        <span className="time">2018</span>
-                                        <h4 className="item-183_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2019">
-                                <div
-                                    className="history-item item-191"
-                                    data-year="2019"
-                                >
-                                    <div>
-                                        <span className="time">2019</span>
-                                        <h4 className="item-191_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-192"
-                                    data-year="2019"
-                                >
-                                    <div>
-                                        <span className="time">2019</span>
-                                        <h4 className="item-192_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-193"
-                                    data-year="2019"
-                                >
-                                    <div>
-                                        <span className="time">2019</span>
-                                        <h4 className="item-193_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2020">
-                                <div
-                                    className="history-item item-201"
-                                    data-year="2020"
-                                >
-                                    <div>
-                                        <span className="time">2020</span>
-                                        <h4 className="item-201_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-202"
-                                    data-year="2020"
-                                >
-                                    <div>
-                                        <span className="time">2020</span>
-                                        <h4 className="item-202_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2021">
-                                <div
-                                    className="history-item item-211"
-                                    data-year="2021"
-                                >
-                                    <div>
-                                        <span className="time">2021</span>
-                                        <h4 className="item-211_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2022">
-                                <div
-                                    className="history-item item-221"
-                                    data-year="2022"
-                                >
-                                    <div>
-                                        <span className="time">2022</span>
-                                        <h4 className="item-221_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-222"
-                                    data-year="2022"
-                                >
-                                    <div>
-                                        <span className="time">2022</span>
-                                        <h4 className="item-222_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="year-2023">
-                                <div
-                                    className="history-item item-231"
-                                    data-year="2023"
-                                >
-                                    <div>
-                                        <span className="time">2023</span>
-                                        <h4 className="item-231_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-232"
-                                    data-year="2023"
-                                >
-                                    <div>
-                                        <span className="time">2023</span>
-                                        <h4 className="item-232_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-233"
-                                    data-year="2023"
-                                >
-                                    <div>
-                                        <span className="time">2023</span>
-                                        <h4 className="item-233_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    className="history-item item-234"
-                                    data-year="2023"
-                                >
-                                    <div>
-                                        <span className="time">2023</span>
-                                        <h4 className="item-234_title">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur.
-                                        </h4>
-                                        <p>
-                                            Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing elit. Hic,
-                                            inventore dignissimos perferendis
-                                            pariatur minus.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> */}
+
+                            <div className="overlay-year"></div>
                         </div>
                     </div>
                 </div>

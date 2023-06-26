@@ -5,12 +5,9 @@ import { useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
 
-import img from "../../../assets/img/certified.png";
 import Image from "next/image";
 
-const arrTeams = new Array(10).fill(0);
-
-export default function SlideCertified() {
+export default function SlideCertified({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -27,7 +24,7 @@ export default function SlideCertified() {
 
     return (
         <div className="relative flex items-center slide-certified border-y border-[#ccc] md:flex-col-reverse">
-            <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action flex items-center justify-center w-[20%] m-auto md:gap-x-[2.13vw]">
+            <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] m-auto md:gap-x-[2.13vw]">
                 <button
                     className={`${
                         indexSlider === 0
@@ -42,7 +39,7 @@ export default function SlideCertified() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-[1.3vw] h-[1.3vw] w-[2.93vw] h-[2.93vw]"
+                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -54,7 +51,7 @@ export default function SlideCertified() {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrTeams.length - indexSlider === 4
+                        dataSlide.length - indexSlider === 4
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
                     } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
@@ -65,11 +62,11 @@ export default function SlideCertified() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${
-                            arrTeams.length - indexSlider === 4
+                            dataSlide.length - indexSlider === 4
                                 ? "#4CA757"
                                 : "white"
                         }`}
-                        className="w-[1.3vw] h-[1.3vw] w-[2.93vw] h-[2.93vw]"
+                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -95,9 +92,9 @@ export default function SlideCertified() {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="w-full h-fit flex flex-col items-end relative swiper-certified w-[80%] p-[5vw] pl-[3.75vw] pr-0 border-l border-[#ccc] md:pl-0 md:py-[8vw]"
+                className="flex flex-col items-end relative swiper-certified w-[80%] p-[5vw] pl-[3.75vw] pr-0 border-l border-[#ccc] md:pl-0 md:py-[8vw]"
             >
-                {arrTeams.map((news, index) => (
+                {dataSlide?.map((item, index) => (
                     <SwiperSlide
                         key={index}
                         className="!h-fit relative slide-item-certified w-[25%] lg:w-[33%] md:w-[60%]"
@@ -109,7 +106,7 @@ export default function SlideCertified() {
                                         width={344}
                                         height={426}
                                         className="object-cover w-full h-full"
-                                        src={img}
+                                        src={item?.sourceUrl}
                                         alt="img"
                                     />
                                 </div>

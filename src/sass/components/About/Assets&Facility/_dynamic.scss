@@ -2,6 +2,12 @@
     background-image: url(../../../../assets/img/bg-common.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
+    width: 100vw;
     height: 42.8125vw;
+}
+
+@include mobile {
+    .dynamic-assets {
+        height: 111vw;
+    }
 }

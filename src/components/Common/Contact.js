@@ -6,20 +6,20 @@ export default function Contact() {
     return (
         <div className="contact mb-[3vw]">
             <div className="content">
-                <div className="wrapper flex md:flex-col-reverse">
+                <div className="flex wrapper md:flex-col-reverse">
                     <div className="left w-[50%] bg-member px-[3.125vw] text-[#fff] md:w-full md:h-auto md:px-[4.26vw]">
                         <div className="mt-[50%] -translate-y-1/2 md:my-[8.8vw] md:transform-none">
-                            <span className="w-[70.35%] capitalize text-60pc font-[800] leading-[1.33] tracking-tighter md:text-[8vw]">
+                            <span className="w-[70.35%] capitalize text-60pc font-[800] leading-[1.33] tracking-tighter md:text-[8vw] lg:w-full lg:text-[4.8vw]">
                                 Would you like to contact us
                             </span>
-                            <p className="text-[1.125vw] font-[800] leading-[1.44] mt-[1vw] md:text-[4.26vw] md:mt-[2.93vw]">
+                            <p className="text-[1.125vw] leading-[1.44] mt-[1vw] md:text-[4.26vw] md:mt-[2.93vw] lg:text-[1.65vw]">
                                 A traditional construction business transformed
                                 with cutting-edge technology solutions for both
                                 construction and customer interactions
                             </p>
                             <a
                                 href="#"
-                                className="inline-block border rounded-[2vw] border-[#fff] leading-[2] py-[0.75vw] px-[2.8125vw] uppercase text-[1.125vw] font-[700] mt-[1.625vw] md:text-[3.2vw] md:rounded-[8.53vw] md:mt-[6.4vw] md:px-[5.73vw]"
+                                className="inline-block border rounded-[2vw] border-[#fff] leading-[2] py-[0.75vw] px-[2.8125vw] uppercase text-[1.125vw] font-[700] mt-[1.625vw] md:text-[3.2vw] md:rounded-[8.53vw] md:mt-[6.4vw] md:px-[5.73vw] lg:text-[2vw] lg:rounded-[6vw]"
                             >
                                 See More
                             </a>

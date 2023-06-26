@@ -219,7 +219,7 @@ export default function NoEquipment() {
 
     return (
         <section
-            className="equipment mt-[22.8125vw] mb-[7.5vw] bg-[#fff]"
+            className="equipment-2 mt-[22.8125vw] mb-[7.5vw] bg-[#fff]"
             ref={containerRef}
         >
             <div className="content">

@@ -5,12 +5,9 @@ import { useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
 
-import img from "../../../assets/img/member-team.png";
 import Image from "next/image";
 
-const arrTeams = new Array(10).fill(0);
-
-export default function FacilitiesSlide() {
+export default function FacilitiesSlide({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -26,7 +23,7 @@ export default function FacilitiesSlide() {
     };
 
     return (
-        <div className="relative slide-facility w-[95.625%] ml-auto">
+        <div className="relative slide-facility w-[95.625%] ml-auto md:w-[94.66%] md:mr-auto">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={24}
@@ -38,61 +35,40 @@ export default function FacilitiesSlide() {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="w-full h-fit flex flex-col items-end relative swiper-lastnews"
+                className="relative flex flex-col items-end w-full h-fit swiper-lastnews"
             >
-                {arrTeams.map((news, index) => (
+                {dataSlide?.map((item, index) => (
                     <SwiperSlide
                         key={index}
                         className="!h-fit relative slide-item-news"
                     >
                         {({ isActive }) => (
-                            <Link href="/" className="flex">
+                            <Link href="/" className="flex md:flex-col">
                                 <Image
                                     width={344}
                                     height={426}
-                                    className="object-cover w-[50%] h-[31.25vw]"
-                                    src={img}
+                                    className="object-cover w-[50%] h-auto max-h-[31.25vw] md:w-full"
+                                    src={item?.img?.sourceUrl}
                                     alt="img"
                                 />
-                                <div className="w-[50%]">
-                                    <div>
-                                        <div className="pb-[1.94vw] border-b border-[#ccc]">
-                                            <h3 className="text-[#394854] text-[2vw] font-[800] leading-[1.375] tracking-tighter pl-[3.63vw] w-[85%]">
-                                                Heavy-duty installation barges
-                                                for WTG foundation, tower and
-                                                turbine installation
+                                <div className="w-[50%] md:w-full">
+                                    <div className="h-full">
+                                        <div className="pb-[1.94vw] h-[25%] border-b border-[#ccc] md:pb-[4.27vw] lg:pb-0">
+                                            <h3 className="text-[#394854] text-[2vw] font-[800] leading-[1.375] tracking-tighter pl-[3.63vw] w-[85%] md:text-[4.8vw] md:w-full md:mt-[2.67vw] md:pl-0 lg:text-[2.25vw]">
+                                                {item?.heading}
                                             </h3>
                                         </div>
-                                        <div className="pb-[1.94vw] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc]">
-                                            <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter">
-                                                Information
-                                            </span>
-                                            <p className="text-[#394854] leading-normal text-[1.125vw]">
-                                                Loma ecenas. Etiam massa tempus
-                                                dolor nulla erat cursus semper
-                                                ut tincidunt.{" "}
-                                            </p>
-                                        </div>
-                                        <div className="pb-[1.94vw] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc]">
-                                            <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter">
-                                                Information
-                                            </span>
-                                            <p className="text-[#394854] leading-normal text-[1.125vw]">
-                                                Loma ecenas. Etiam massa tempus
-                                                dolor nulla erat cursus semper
-                                                ut tincidunt.{" "}
-                                            </p>
-                                        </div>
-                                        <div className="pb-[1.94vw] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc]">
-                                            <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter">
-                                                Information
-                                            </span>
-                                            <p className="text-[#394854] leading-normal text-[1.125vw]">
-                                                Loma ecenas. Etiam massa tempus
-                                                dolor nulla erat cursus semper
-                                                ut tincidunt.{" "}
-                                            </p>
-                                        </div>
+
+                                        {item?.listItem?.map((item) => (
+                                            <div className="pb-[1.94vw] h-[25%] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc] md:flex-col md:items-start md:gap-0 md:py-[4.27vw] md:pl-0">
+                                                <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter md:text-[4.26vw] md:leading-[1.5] lg:text-[1.85vw]">
+                                                    {item?.title}
+                                                </span>
+                                                <p className="text-[#394854] leading-normal text-[1.125vw] md:text-[3.73vw] lg:text-[1.65vw]">
+                                                    {item?.content}
+                                                </p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </Link>
@@ -106,7 +82,7 @@ export default function FacilitiesSlide() {
                         indexSlider === 0
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw] lg:w-[6vw] lg:h-[6vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -127,10 +103,10 @@ export default function FacilitiesSlide() {
                 <button
                     onClick={handleNextSlide}
                     className={`${
-                        arrTeams.length - indexSlider === 1
+                        dataSlide.length - indexSlider === 1
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw] lg:w-[6vw] lg:h-[6vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -138,7 +114,7 @@ export default function FacilitiesSlide() {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${
-                            arrTeams.length - indexSlider === 1
+                            dataSlide.length - indexSlider === 1
                                 ? "#4CA757"
                                 : "white"
                         }`}

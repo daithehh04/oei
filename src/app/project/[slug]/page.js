@@ -3,8 +3,11 @@ import HeaderSecond from "@/components/Common/HeaderSecond";
 import AlbumProject from "@/components/Project/ProjectDetail/AlbumProject";
 import OtherProject from "@/components/Project/ProjectDetail/OtherProject";
 import getData from "@/utils/getData";
-import { useQuery } from "@apollo/client";
 import React from "react";
+
+import img from "../../../assets/img/about-circle.png";
+import Image from "next/image";
+import Contact from "@/components/Common/Contact";
 
 export default async function ProjectDetail(context) {
     const data = await getData(GET_ALL_PROJECTS);
@@ -21,42 +24,49 @@ export default async function ProjectDetail(context) {
     return (
         <div className="bg-[#FAFAFA]">
             <HeaderSecond header={header} />
-            <div className="content mt-[10.625vw] mb-[8.75vw]">
-                <div className="flex">
-                    <div className="location w-[45.5625vw]">
-                        <span className="text-[2vw] font-[800] leading-[1.41] text-[#3A5469] capitalize">
+            <div className="content md:relative pt-[10.625vw] md:pt-[27.7vw]">
+                <div className="flex md:flex-col">
+                    <div className="location w-[45.5625vw] relative md:static md:w-full md:pb-[13.33vw]">
+                        <span className="text-[2vw] font-[800] leading-[1.41] text-[#3A5469] capitalize lg:text-[3.5vw] md:text-[6.4vw]">
                             {projectItem?.projectDetail?.location}
                         </span>
-                        <h2 className="text-[3vw] font-[400] leading-[1.31] text-[#394854] mt-[0.625vw] capitalize">
+                        <h2 className="text-[3vw] font-[400] leading-[1.31] text-[#394854] mt-[0.625vw] capitalize md:text-[8vw]">
                             {projectItem?.projectDetail?.titleLocation}
                         </h2>
                         <ul className="grid grid-cols-2 mt-[4.375vw] gap-x-[2.6875vw]">
                             {projectItem?.projectDetail?.repeatLocation?.map(
                                 (item) => (
                                     <li className="py-[1vw] border-t border-[#BDBDBD]">
-                                        <span className="text-[1.25vw] text-[#3A5469] font-[700] leading-[2.25]">
+                                        <span className="text-[1.25vw] text-[#3A5469] font-[700] leading-[2.25] lg:text-[1.85vw] md:text-[3.733vw] md:leading-[1.67]">
                                             {item?.title}
                                         </span>
-                                        <p className="text-[1.5vw] text-[#394854] font-[400] leading-[1.38]">
+                                        <p className="text-[1.5vw] text-[#394854] font-[400] leading-[1.38] lg:text-[2vw] md:text-[4.266vw] md:leading-[1.64]">
                                             {item?.content}
                                         </p>
                                     </li>
                                 )
                             )}
                         </ul>
+                        <Image
+                            src={img}
+                            width={500}
+                            height={500}
+                            alt="img"
+                            className="w-[77vw] object-cover absolute bottom-[-10%] left-[-30%] md:top-0 md:w-[126vw] md:h-[109vw]"
+                        />
                     </div>
-                    <div className="tech w-[37.5vw] bg-member ml-auto px-[3.75vw] py-[2.5vw] text-[#fff]">
-                        <span className="text-[2vw] capitalize font-[800] leading-[1.75] tracking-tighter flex justify-center">
+                    <div className="tech w-[37.5vw] bg-member ml-auto px-[3.75vw] py-[2.5vw] text-[#fff] md:w-full md:py-[10.67vw]">
+                        <span className="text-[2vw] capitalize font-[800] leading-[1.75] tracking-tighter flex justify-center lg:text-[3.5vw] md:text-[6.67vw]">
                             {projectItem?.projectDetail?.tech}
                         </span>
                         <ul className="mt-[2vw]">
                             {projectItem?.projectDetail?.repeatTech.map(
                                 (item) => (
-                                    <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff]">
-                                        <span className="text-[1.25vw] tracking-tighter capitalize font-[700]">
+                                    <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff] md:py-[4.27vw]">
+                                        <span className="text-[1.25vw] tracking-tighter capitalize font-[700] lg:text-[1.85vw] md:text-[4.26vw]">
                                             {item?.title}
                                         </span>
-                                        <p className="text-[1.5vw] font-[400] leading-[1.38] mt-[0.625vw]">
+                                        <p className="text-[1.5vw] font-[400] leading-[1.38] mt-[0.625vw] lg:text-[2vw] md:text-[4.8vw] md:mt-0">
                                             {item?.content}
                                         </p>
                                     </li>
@@ -73,6 +83,7 @@ export default async function ProjectDetail(context) {
                 ></div>
             </div>
             <AlbumProject imgsAlbum={imgsAlbum} />
+            <Contact />
             <OtherProject projectAll={nodes} />
         </div>
     );

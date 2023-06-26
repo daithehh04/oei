@@ -24,6 +24,10 @@ body {
 
 /* ================ */
 
+.bg-button {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .slide-vision .swiper-slide {
     display: block !important;
 }
@@ -365,6 +369,14 @@ body {
     background-color: rgba(255, 255, 255, 0.6);
     position: relative !important;
     margin-top: calc(4.46875 * 100vw / 100);
+}
+
+@media screen and (max-width: 1024px) {
+    .swiper-lastnews .swiper-pagination.swiper-pagination-progressbar {
+        width: 74.8vw !important;
+        height: 2px;
+        margin-top: 7.672vw;
+    }
 }
 
 @media screen and (max-width: 768px) {

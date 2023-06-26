@@ -5,9 +5,12 @@ import { useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
 
+import img from "../../../assets/img/album.png";
 import Image from "next/image";
 
-export default function AlbumProjectSlide({ imgsAlbum }) {
+const arrTeams = new Array(10).fill(0);
+
+export default function AlbumSlide({ imgsAlbum }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -23,14 +26,14 @@ export default function AlbumProjectSlide({ imgsAlbum }) {
     };
 
     return (
-        <div className="relative slide-certified album-project border-y border-[#ccc]">
-            <div className="flex flex-col gap-y-[24px] gap-x-[calc(1.5*100vw/100)] btn-action">
+        <div className="relative flex items-center slide-certified border-y border-[#ccc] md:flex-col-reverse">
+            <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] m-auto md:gap-x-[2.13vw] md:!pb-[10vw]">
                 <button
                     className={`${
                         indexSlider === 0
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center  lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -39,7 +42,7 @@ export default function AlbumProjectSlide({ imgsAlbum }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-6 h-6"
+                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -54,7 +57,7 @@ export default function AlbumProjectSlide({ imgsAlbum }) {
                         imgsAlbum?.length - indexSlider === 2
                             ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
                             : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center  lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +69,7 @@ export default function AlbumProjectSlide({ imgsAlbum }) {
                                 ? "#4CA757"
                                 : "white"
                         }`}
-                        className="w-6 h-6"
+                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -76,40 +79,48 @@ export default function AlbumProjectSlide({ imgsAlbum }) {
                     </svg>
                 </button>
             </div>
-            <Swiper
-                slidesPerView={2}
-                spaceBetween={0}
-                onSlideChange={handleSlideChange}
-                modules={[Pagination]}
-                onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
-                className="w-full h-fit flex flex-col items-end relative swiper-certified"
-            >
-                {imgsAlbum?.map((item, index) => (
-                    <SwiperSlide
-                        key={index}
-                        className="!h-fit relative slide-item-certified pr-[60px] w-full"
-                    >
-                        {({ isActive }) => {
-                            const urlImg = item?.sourceUrl;
-                            return (
-                                <Link href="/" className="w-full">
-                                    <div className="w-full h-[calc(26.625*100vw/100)] img-certified">
-                                        <Image
-                                            width={344}
-                                            height={426}
-                                            className="object-cover w-full h-full"
-                                            src={urlImg}
-                                            alt="img"
-                                        />
-                                    </div>
-                                </Link>
-                            );
-                        }}
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            <div className="w-[80%] pl-[4.5vw] mr-[4vw] border-l border-[#ccc] md:pl-0 md:py-[6.27vw] md:mr-0 md:mb-[8.53vw] md:border-l-0 md:border-b md:border-[#ccc] md:w-full">
+                <Swiper
+                    breakpoints={{
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 30,
+                        },
+                    }}
+                    slidesPerView="auto"
+                    spaceBetween={10}
+                    onSlideChange={handleSlideChange}
+                    modules={[Pagination]}
+                    onBeforeInit={(swiper) => {
+                        swiperRef.current = swiper;
+                    }}
+                    className="h-fit flex flex-col items-end relative swiper-certified w-[80%] py-[2.4vw] "
+                >
+                    {imgsAlbum.map((item, index) => {
+                        const urlImg = item?.sourceUrl;
+                        return (
+                            <SwiperSlide
+                                key={index}
+                                className="!h-fit relative slide-item-certified md:w-[70%]"
+                            >
+                                {({ isActive }) => (
+                                    <Link href="/" className="w-full">
+                                        <div className="w-full h-[34.8125vw] img-certified md:h-[57.06vw] lg:h-[44vw]">
+                                            <Image
+                                                width={344}
+                                                height={426}
+                                                className="object-cover w-full h-full"
+                                                src={urlImg}
+                                                alt="img"
+                                            />
+                                        </div>
+                                    </Link>
+                                )}
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
+            </div>
         </div>
     );
 }

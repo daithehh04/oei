@@ -1,5 +1,4 @@
 "use client";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
 import { Pagination } from "swiper";
@@ -24,8 +23,18 @@ export default function LastNewsSlide({ news }) {
     return (
         <div className="relative w-[95.625%] ml-auto">
             <Swiper
-                slidesPerView={4}
-                spaceBetween={24}
+                breakpoints={{
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 24,
+                    },
+                }}
+                slidesPerView={"auto"}
+                spaceBetween={18}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
@@ -34,7 +43,7 @@ export default function LastNewsSlide({ news }) {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="w-full h-fit flex flex-col items-end relative swiper-lastnews"
+                className="relative flex flex-col items-end h-fit swiper-lastnews "
             >
                 {news?.map((newsItem, index) => {
                     const urlImg = newsItem?.featuredImage.node.sourceUrl;
@@ -48,7 +57,7 @@ export default function LastNewsSlide({ news }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="!w-[calc(23.4375*100vw/100)] !h-fit relative slide-item-lastnews"
+                            className="relative slide-item-lastnews md:w-[80%]"
                         >
                             {({ isActive }) => (
                                 <Link
@@ -56,7 +65,7 @@ export default function LastNewsSlide({ news }) {
                                         newsItem?.slug
                                     )}`}
                                 >
-                                    <div className="w-full h-[calc(16*100vw/100)]">
+                                    <div className="w-full h-[16vw] md:h-[47.2vw] lg:h-[32vw]">
                                         <Image
                                             className="object-cover w-full h-full"
                                             src={urlImg}
@@ -65,13 +74,13 @@ export default function LastNewsSlide({ news }) {
                                             height={500}
                                         />
                                     </div>
-                                    <div className="bg-item-news py-[calc(1.5*100vw/100)] bg-white px-[calc(1*100vw/100)] transition-all flex flex-col gap-y-[calc(1*100vw/100)]">
-                                        <span className="text-[calc(1*100vw/100) title-date-news text-dateNews inline-block leading-[169%] font-normal uppercase line-clamp">
+                                    <div className="bg-item-news py-[1.5vw] bg-white px-[1vw] md:py-[4.67vw] md:px-[2.67vw] transition-all flex flex-col gap-y-[calc(1*100vw/100)]">
+                                        <span className="text-[calc(1*100vw/100) title-date-news text-dateNews inline-block leading-[169%] font-normal uppercase line-clamp md:text-[2.67vw]">
                                             {formattedDate} / EVENT
                                         </span>
                                         <div>
                                             <p
-                                                className="description-lastnews text-blackLastNews transition-all text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%]"
+                                                className="description-lastnews text-blackLastNews transition-all text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:text-[4.267vw] lg:text-[2vw]"
                                                 dangerouslySetInnerHTML={{
                                                     __html: newsItem?.excerpt,
                                                 }}
@@ -81,7 +90,7 @@ export default function LastNewsSlide({ news }) {
                                                     href={`/news/news&event/${encodeURIComponent(
                                                         newsItem?.slug
                                                     )}`}
-                                                    className="flex items-center text-blackLastNews btn-news uppercase text-[calc(0.875*100vw/100)] font-bold leading-[257%]"
+                                                    className="flex items-center text-blackLastNews btn-news uppercase text-[calc(0.875*100vw/100)] font-bold leading-[257%] md:text-[3.2vw] lg:text-[1.75vw]"
                                                 >
                                                     see more{" "}
                                                     <span className="inline-block leading-[100%] mb-1 ml-[calc(0.3125*100vw/100)]">

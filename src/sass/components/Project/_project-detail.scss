@@ -2,6 +2,7 @@
     .wp-block-image {
         width: 100%;
         img {
+            margin-top: 8.67vw;
             width: 100%;
             object-fit: cover;
         }
@@ -23,13 +24,52 @@
         background-clip: text;
         text-fill-color: transparent;
     }
-    .is-layout-flex {
+    .wp-block-gallery.is-layout-flex {
         margin-top: 2.875vw;
         margin-bottom: 2.5vw;
         display: flex;
         gap: 1.375vw;
         img {
+            margin-top: 0;
             object-fit: cover;
+        }
+    }
+}
+
+@include tablet {
+    .content-projectDetail {
+        p {
+            font-size: 2vw;
+        }
+        h3 {
+            font-size: 4.67vw;
+        }
+    }
+}
+
+@include mobile {
+    .content-projectDetail {
+        .wp-block-image {
+            img {
+                margin-top: 10.67vw;
+                height: 83.46vw;
+            }
+        }
+        p {
+            font-size: 3.73vw;
+        }
+        h3 {
+            line-height: 1.2;
+            margin-top: 6.4vw;
+            margin-bottom: 4.27vw;
+            font-size: 6.67vw;
+        }
+        .wp-block-gallery.is-layout-flex {
+            margin-top: 4.27vw;
+            margin-bottom: 4.27vw;
+            img {
+                height: 36vw;
+            }
         }
     }
 }

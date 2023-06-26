@@ -42,7 +42,7 @@ function initializeGSAPWithDelay(delay) {
         });
     }, delay);
 }
-export default function Values() {
+export default function Values({ data }) {
     const parentRef = useRef(null);
     useLayoutEffect(() => {
         if (!parentRef.current) {
@@ -58,15 +58,15 @@ export default function Values() {
     return (
         <div className="value pt-[7.5vw] pb-[20vw]">
             <div className="content">
-                <div className="row flex items-center md:flex-col md:items-end">
-                    <p className="text text-46pc font-[800] w-[53%] leading-[1.22] text-[#394854] md:text-[6.66vw] md:w-[100%] lg:text-[4.5vw]">
-                        The <strong>CORE VALUES</strong> our Company aims for
-                        are <strong>“TRUST & RELIABILITY”</strong>, which are
-                        instilled and maintained by not only leaders, but all
-                        employees of the Company
-                    </p>
+                <div className="flex items-center row md:flex-col md:items-end">
+                    <p
+                        className="text text-46pc font-[800] w-[53%] leading-[1.22] text-[#394854] md:text-[6.66vw] md:w-[100%] lg:text-[4.5vw]"
+                        dangerouslySetInnerHTML={{
+                            __html: data?.title,
+                        }}
+                    ></p>
                     <a
-                        href="/"
+                        href={data?.profile?.url}
                         className="download flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
                     >
                         <Image
@@ -84,16 +84,18 @@ export default function Values() {
                 <div>
                     <Image
                         ref={parentRef}
-                        src={img2}
+                        src={data?.img?.sourceUrl}
                         width={500}
                         height={500}
                         alt="img"
                         className="bg-value__mb object-cover w-[56.5625vw] h-[34.625vw] absolute bottom-[-20vw] right-[4.375vw] md:h-[50.66vw] md:right-0 md:w-[85.6vw] md:static md:ml-auto md:mt-[6.4vw]"
                     />
-                    <p className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-20vw] leading-[1.05] left-[8.375vw] md:bottom-[20vw] md:text-[6.4vw] md:w-[64vw] md:left-[5vw] lg:text-[3.6vw]">
-                        <strong> Solutions </strong> toward customer
-                        satisfaction
-                    </p>
+                    <p
+                        className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-20vw] leading-[1.05] left-[8.375vw] md:bottom-[20vw] md:text-[6.4vw] md:w-[64vw] md:left-[5vw] lg:text-[3.6vw]"
+                        dangerouslySetInnerHTML={{
+                            __html: data?.text,
+                        }}
+                    ></p>
                 </div>
             </div>
         </div>

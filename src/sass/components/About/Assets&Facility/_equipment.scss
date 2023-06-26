@@ -1,62 +1,56 @@
 .equipment {
-    z-index: 4;
-    height: 100vh;
-    .wrapper {
-        .imgs {
-            img {
-                display: none;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                &.active {
-                    display: block;
-                }
+    .list-heading {
+        .heading-item {
+            cursor: pointer;
+            &.active {
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+            &:last-child {
+                border-bottom: none;
             }
         }
-        .info {
-            li {
-                padding: 24px 0;
-                border-top: 1px solid rgba(0, 0, 0, 0.08);
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                overflow: hidden;
-                height: 240px;
-                & > span {
-                    margin-left: 89px;
-                    font-weight: $fw-600;
-                    font-size: 1.5vw;
-                    line-height: 1.5;
-                    opacity: 0;
-                    visibility: hidden;
-                }
-                .num {
-                    font-weight: $fw-800;
-                    font-size: 6.25vw;
-                    line-height: 1.5;
-                    color: #376a66;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.45vw;
-                    // opacity: 0.6;
-                }
-                &.active {
-                    background: linear-gradient(
-                        180deg,
-                        #4ca757 0%,
-                        #16a571 100%
-                    );
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    text-fill-color: transparent;
-                    opacity: 1;
-                    & > span {
-                        opacity: 1;
-                        visibility: visible;
-                    }
-                }
+    }
+}
+
+.equipment-mb {
+    .item-equip {
+        &:first-child .question {
+            border-top: none;
+        }
+        &:last-child .question {
+            border-bottom: 1px solid #ccc;
+        }
+        &:last-child .answer .top {
+            border-top: none;
+        }
+        .question + .answer {
+            height: 0;
+            overflow: hidden;
+            transition: height ease-in 0.3s;
+        }
+        .question.active {
+            span {
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
             }
+            & + .answer {
+                height: auto;
+            }
+            & > img {
+                opacity: 0;
+                visibility: hidden;
+                transition: all ease-in 0.3s;
+            }
+        }
+        .slide-equip {
+            border-bottom: 1px solid #ccc;
         }
     }
 }

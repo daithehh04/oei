@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const arrReviews = new Array(5).fill(0);
 
-export default function SlideAssets() {
+export default function SlideAssets({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
 
@@ -19,38 +19,48 @@ export default function SlideAssets() {
     return (
         <div className="relative slide-assets">
             <Swiper
+                breakpoints={{
+                    768: {
+                        spaceBetween: 16,
+                    },
+                    1024: {
+                        spaceBetween: 24,
+                    },
+                }}
                 loop="true"
                 slidesPerView="auto"
-                spaceBetween={24}
+                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="w-full relative swiper-assets"
+                className="relative w-full swiper-assets"
             >
-                {arrReviews?.map((e, index) => (
-                    <SwiperSlide key={index} className="relative">
-                        {({ isActive }) => {
-                            const active = isActive ? "active" : "";
-                            return (
-                                <div className={`item ${active}`}>
-                                    <a
-                                        href="#"
-                                        className=" block w-full h-[35.75vw]"
-                                    >
-                                        <Image
-                                            width={344}
-                                            height={426}
-                                            className="object-cover w-full h-full"
-                                            src={img}
-                                            alt="img"
-                                        />
-                                    </a>
-                                </div>
-                            );
-                        }}
-                    </SwiperSlide>
-                ))}
+                {dataSlide?.map((item, index) => {
+                    return (
+                        <SwiperSlide key={index} className="relative">
+                            {({ isActive }) => {
+                                const active = isActive ? "active" : "";
+                                return (
+                                    <div className={`item ${active}`}>
+                                        <a
+                                            href="#"
+                                            className=" block w-full h-[35.75vw] md:h-[53.6vw]"
+                                        >
+                                            <Image
+                                                width={344}
+                                                height={426}
+                                                className="object-cover w-full h-full"
+                                                src={item?.sourceUrl}
+                                                alt="img"
+                                            />
+                                        </a>
+                                    </div>
+                                );
+                            }}
+                        </SwiperSlide>
+                    );
+                })}
             </Swiper>
         </div>
     );

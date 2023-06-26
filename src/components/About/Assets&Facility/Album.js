@@ -1,21 +1,18 @@
 import React from "react";
 import AlbumSlide from "./AlbumSlide";
 
-export default function Album() {
+export default function Album({ data }) {
     return (
-        <div className="pt-[5vw] bg-member capitalize ">
-            <div className="flex items-start justify-between content mb-[3.75vw]">
-                <h2 className="text-60pc w-[44.375vw] font-[800] text-[#fff] leading-[1.33] tracking-tighter">
-                    Recent Showcasing Successful Projects
+        <div className="pt-[5vw] bg-member capitalize md:pt-[8.53vw]">
+            <div className="flex items-start justify-between content mb-[3.75vw] md:flex-col md:mb-[6.4vw]">
+                <h2 className="text-60pc w-[44.375vw] font-[800] text-[#fff] leading-[1.33] tracking-tighter md:text-[8vw] md:w-full">
+                    {data?.title}
                 </h2>
-                <p className="text-24pc w-[37.9375vw] font-[400] leading-[1.38] text-[#fff]">
-                    Our projects demonstrate how our state-of-the-art facilities
-                    played a pivotal role in delivering outstanding outcomes,
-                    combining precision, efficiency, and teamwork for successful
-                    project completion.
+                <p className="text-24pc w-[37.9375vw] font-[400] leading-[1.38] text-[#fff] md:text-[4.267vw] md:mt-[2.13vw] md:w-full lg:text-[1.65vw]">
+                    {data?.desc}
                 </p>
             </div>
-            <AlbumSlide />
+            <AlbumSlide dataSlide={data?.album} />
         </div>
     );
 }

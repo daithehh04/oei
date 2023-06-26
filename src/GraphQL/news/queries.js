@@ -40,15 +40,15 @@ const GET_NEWS = `
     query {
         posts(first:100) {
             nodes {
+                newsDetail {
+                image {
+                  sourceUrl
+                    }
+                }
                 slug
                 title
                 date
                 content
-                categories {
-                    nodes {
-                        name
-                    }
-                }
                 excerpt
                 featuredImage {
                     node {

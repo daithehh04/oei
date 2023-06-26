@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React from "react";
 import Image from "next/image";
 import img from "../../../assets/img/dowload.png";
-import img2 from "../../../assets/img/bg-value.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +41,7 @@ function initializeGSAPWithDelay(delay) {
         });
     }, delay);
 }
-export default function Values() {
+export default function Values({ data }) {
     const parentRef = useRef(null);
     useLayoutEffect(() => {
         if (!parentRef.current) {
@@ -58,15 +57,15 @@ export default function Values() {
     return (
         <div className="value pt-[7.5vw] pb-[20vw]">
             <div className="content">
-                <div className="row flex items-center ">
-                    <p className="text text-46pc font-[800] w-[53%] leading-[1.22] text-[#394854]  lg:text-[4.5vw]">
-                        The <strong>CORE VALUES</strong> our Company aims for
-                        are <strong>“TRUST & RELIABILITY”</strong>, which are
-                        instilled and maintained by not only leaders, but all
-                        employees of the Company
-                    </p>
+                <div className="flex items-center row ">
+                    <p
+                        className="text text-46pc font-[800] w-[53%] leading-[1.22] text-[#394854] lg:text-[4.5vw]"
+                        dangerouslySetInnerHTML={{
+                            __html: data?.title,
+                        }}
+                    ></p>
                     <a
-                        href="/"
+                        href={data?.profile?.url}
                         className="download flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
                     >
                         <Image
@@ -84,16 +83,18 @@ export default function Values() {
                 <div>
                     <Image
                         ref={parentRef}
-                        src={img2}
+                        src={data?.img?.sourceUrl}
                         width={500}
                         height={500}
                         alt="img"
                         className="bg-value object-cover w-[56.5625vw] h-[34.625vw] absolute bottom-[-20vw] right-[4.375vw]"
                     />
-                    <p className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-20vw] leading-[1.05] left-[8.375vw] lg:text-[3.8vw]">
-                        <strong> Solutions </strong> toward customer
-                        satisfaction
-                    </p>
+                    <p
+                        className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-20vw] leading-[1.05] left-[8.375vw] lg:text-[3.8vw]"
+                        dangerouslySetInnerHTML={{
+                            __html: data?.text,
+                        }}
+                    ></p>
                 </div>
             </div>
         </div>
