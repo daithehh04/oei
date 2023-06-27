@@ -33,8 +33,12 @@ export default function ListNewsIndustry() {
         });
     };
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const element = document.querySelector(".industries");
+        element.scrollIntoView();
     }, [activeButton]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="content">
             <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[7.46vw]">
@@ -46,7 +50,7 @@ export default function ListNewsIndustry() {
                 </h2>
             </div>
             <MainNews mainIndustry={mainIndustry} />
-            <div className="grid grid-cols-3 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] pb-[3vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
+            <div className="industries grid grid-cols-3 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] pb-[3vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
                 {nodes?.map((item) => (
                     <IndustryItem industry={item} />
                 ))}

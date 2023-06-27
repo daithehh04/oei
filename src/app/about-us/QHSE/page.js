@@ -1,16 +1,80 @@
 import { GET_HEADER_ABOUT_QHSE } from "@/GraphQL/about/queries";
-import Drilled from "@/components/About/Introduce/Drilled";
 import IndexQHSE from "@/components/About/QHSE";
-import Achievements from "@/components/About/QHSE/Achievements";
-import Certified from "@/components/About/QHSE/Certified";
-import ISO from "@/components/About/QHSE/ISO";
-import Quality from "@/components/About/QHSE/Quality";
-import QualitySlide from "@/components/About/QHSE/QualitySlide";
-import Strives from "@/components/About/QHSE/Strives";
-import Contact from "@/components/Common/Contact";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import getData from "@/utils/getData";
 import React from "react";
+
+const GET_META = `{
+    page(id: "cG9zdDoxMDM3") {
+            aboutQhse {
+                meta{
+					metaTitle
+					metaDescription
+                }
+            }
+		featuredImage{
+			node{
+				sourceUrl
+				altText
+				title
+			}
+		}
+    }
+}`;
+
+export async function generateMetadata() {
+    const data = await getData(GET_META);
+    if (!data) return;
+    const { featuredImage, aboutQhse } = data?.data?.page;
+    return {
+        title: aboutQhse?.meta?.metaTitle,
+        description: aboutQhse?.meta?.metaDescription,
+        applicationName: process.env.SITE_NAME,
+        openGraph: {
+            title: aboutQhse?.meta?.metaTitle,
+            description: aboutQhse?.meta?.metaDescription,
+            url: process.env.DOMAIN,
+            siteName: process.env.SITE_NAME,
+            images: [
+                {
+                    url: featuredImage?.node?.sourceUrl,
+                    alt:
+                        featuredImage?.node?.altText ||
+                        featuredImage?.node?.title,
+                },
+            ],
+            locale: "en_US",
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: aboutQhse?.meta?.metaTitle,
+            description: aboutQhse?.meta?.metaDescription,
+            creator: process.env.SITE_NAME,
+            images: [
+                {
+                    url: featuredImage?.node?.sourceUrl,
+                    alt:
+                        featuredImage?.node?.altText ||
+                        featuredImage?.node?.title,
+                },
+            ],
+        },
+        robots: {
+            index: false,
+            follow: true,
+            nocache: true,
+            googleBot: {
+                index: true,
+                follow: false,
+                noimageindex: true,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+            },
+        },
+    };
+}
 
 export default async function QHSE() {
     const data = await getData(GET_HEADER_ABOUT_QHSE);

@@ -8,6 +8,7 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
+                overlay: "linear-gradient(to top, #ffffff, #ffffff00)",
                 member: "linear-gradient(180deg, #4CA757 0%, #16A571 100%)",
                 sitemap:
                     "linear-gradient(0deg, rgba(22, 67, 67, 0.61), rgba(22, 67, 67, 0.61))",

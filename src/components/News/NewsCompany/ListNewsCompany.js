@@ -32,8 +32,12 @@ export default function ListNewsCompany() {
         });
     };
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const element = document.querySelector(".companys");
+        element.scrollIntoView();
     }, [activeButton]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="content">
             <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[7.46vw]">
@@ -46,7 +50,7 @@ export default function ListNewsCompany() {
             </div>
             <MainNews mainCompany={mainCompany} />
             <div>
-                <div className="mt-[6.25vw] mb-[2.5vw]">
+                <div className="companys mt-[6.25vw] mb-[2.5vw]">
                     <san className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12] lg:text-[2vw] md:text-[3.73vw]">
                         News & Event
                     </san>

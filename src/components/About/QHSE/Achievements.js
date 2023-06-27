@@ -1,5 +1,4 @@
 "use client";
-
 import { useLayoutEffect, useState } from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
@@ -629,7 +628,7 @@ export default function Achievements({ data }) {
         <>
             <section className="history pt-[6.25vw]">
                 <div className="content">
-                    <h3 className="title text-18pc font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] pb-[0.875vw]">
+                    <h3 className="title text-18pc font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] pb-[0.875vw] lg:text-[2.5vw]">
                         {data?.title}
                     </h3>
                     <div className="flex w-full wrapper">

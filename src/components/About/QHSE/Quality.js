@@ -18,10 +18,9 @@ function initializeGSAPWithDelay(delay) {
         var positionInfo = element.getBoundingClientRect();
         var positionInfo_2 = element_2.getBoundingClientRect();
         var positionInfo_3 = element_3.getBoundingClientRect();
-        var height = positionInfo.height;
+        var height = positionInfo.height + 12;
         var height_2 = positionInfo_2.height;
         var height_3 = positionInfo_3.height;
-        console.log(height);
 
         gsap.to(".quality", {
             scrollTrigger: {

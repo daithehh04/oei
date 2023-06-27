@@ -64,8 +64,12 @@ export default function ListProject({
         });
     };
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const element = document.querySelector(".projects");
+        element.scrollIntoView();
     }, [activeButton]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     return (
         <div className="list-project content">
             <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw]">
@@ -77,7 +81,7 @@ export default function ListProject({
                 </p>
             </div>
             <OutstandingProject project={prjOutStanding} />
-            <div className="row flex justify-between mt-[6.4375vw] md:flex-col">
+            <div className="row projects flex justify-between mt-[6.4375vw] md:flex-col">
                 <h2 className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] md:hidden">
                     {listProject?.title}
                 </h2>

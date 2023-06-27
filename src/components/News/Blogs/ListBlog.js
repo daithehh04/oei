@@ -33,7 +33,9 @@ export default function ListBlog() {
         });
     };
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const element = document.querySelector(".content");
+        element.scrollIntoView();
+        // window.scrollTo(0, 0);
     }, [activeButton]);
     return (
         <div className="content">
