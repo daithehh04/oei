@@ -147,6 +147,8 @@
             transform: translateX(-50%);
         }
     }
+}
+.achiev_mb {
     .history-years-vertical__circle rect {
         transition-duration: 0.4s;
         transition-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
@@ -169,6 +171,12 @@
         stroke-width: 2.5;
         opacity: 1;
         stroke-dashoffset: 0.5;
+    }
+    .circle-mb {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: 18%;
     }
 }
 

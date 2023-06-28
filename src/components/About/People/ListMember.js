@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Grid, Pagination } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
+import AOS from "aos";
 
 export default function ListMember({ data }) {
     const [indexSlider, setIndexSlider] = useState(0);
@@ -22,8 +23,17 @@ export default function ListMember({ data }) {
     const handleSlideChange = (swiper) => {
         setIndexSlider(swiper.activeIndex);
     };
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
-        <div className="relative list-member content mt-[3.75vw]">
+        <div
+            className="relative list-member content mt-[3.75vw]"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+        >
             <Swiper
                 slidesPerView={4}
                 spaceBetween={28}

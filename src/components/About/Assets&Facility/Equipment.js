@@ -1,5 +1,6 @@
 "use client";
-
+import AOS from "aos";
+import { useEffect } from "react";
 import React, { useState } from "react";
 import SlideEquipment from "./SlideEquipment";
 
@@ -10,14 +11,29 @@ export default function Equipment({ data }) {
         setSelectedTitle(title);
     };
 
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
         <div className="equipment pt-[9.31vw]">
             <div className="content">
-                <h2 className="text-primary text-[2.875vw] font-[800] leading-[1.21] tracking-tighter w-[46.625vw]">
+                <h2
+                    className="text-primary text-[2.875vw] font-[800] leading-[1.21] tracking-tighter w-[46.625vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
+                >
                     {data?.title}
                 </h2>
                 <div className="flex gap-[2.55vw] mt-[2vw]">
-                    <ul className="list-heading w-[20%] mt-[1vw]">
+                    <ul
+                        className="list-heading w-[20%] mt-[1vw]"
+                        data-aos-once="true"
+                        data-aos="fade-right"
+                        data-aos-duration="2000"
+                    >
                         {data?.listEquip?.map((item, index) => (
                             <li
                                 onClick={() => handleTitleClick(index + 1)}
@@ -29,7 +45,12 @@ export default function Equipment({ data }) {
                             </li>
                         ))}
                     </ul>
-                    <div className="list-content w-[80%]">
+                    <div
+                        className="list-content w-[80%]"
+                        data-aos-once="true"
+                        data-aos="fade-left"
+                        data-aos-duration="2000"
+                    >
                         {data?.listEquip?.map(
                             (item, index) =>
                                 selectedTitle === index + 1 && (

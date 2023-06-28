@@ -9,7 +9,6 @@ import Link from "next/link";
 // import React, { useEffect, useState } from "react";
 
 export default async function NewsDetail({ NewsItem }) {
-    // const [headings, setHeadings] = useState([]);
     const background = NewsItem?.featuredImage?.node;
     const title = NewsItem?.title;
     const header = { background, title };
@@ -39,7 +38,6 @@ export default async function NewsDetail({ NewsItem }) {
     return (
         <div className="bg-[#FAFAFA]">
             <HeaderSecond header={header} />
-            {/* {JSON.stringify(NewsItem)} */}
             <div className="content-newsDetail">
                 <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw] md:text-[6.67vw] md:mt-[16vw] lg:text-[4.67vw]">
                     {NewsItem?.title}

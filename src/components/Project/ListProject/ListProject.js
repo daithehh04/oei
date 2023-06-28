@@ -7,6 +7,7 @@ import { useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import img from "../../../assets/img/dowload.png";
 import Image from "next/image";
+import AOS from "aos";
 export default function ListProject({
     outstanding,
     listProject,
@@ -68,27 +69,54 @@ export default function ListProject({
         element.scrollIntoView();
     }, [activeButton]);
     useEffect(() => {
+        AOS.init();
+        AOS.refresh();
         window.scrollTo(0, 0);
     }, []);
     return (
         <div className="list-project content">
             <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw]">
-                <h2 className=" text-[3.75vw] text-primary leading-[1.33] font-[800] lg:text-[4.67vw] md:text-[8vw]">
+                <h2
+                    className=" text-[3.75vw] text-primary leading-[1.33] font-[800] lg:text-[4.67vw] md:text-[8vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
+                >
                     {outstanding?.title}
                 </h2>
-                <p className="w-[46.5625vw] ml-auto text-[1.5vw] font-[400] leading-[1.38] mb-[2.31vw] text-[#394854] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mb-[6.4vw] md:mt-[4.27vw] ">
+                <p
+                    className="w-[46.5625vw] ml-auto text-[1.5vw] font-[400] leading-[1.38] mb-[2.31vw] text-[#394854] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mb-[6.4vw] md:mt-[4.27vw] "
+                    data-aos-once="true"
+                    data-aos="fade-left"
+                    data-aos-duration="2000"
+                >
                     {outstanding?.desc}
                 </p>
             </div>
             <OutstandingProject project={prjOutStanding} />
             <div className="row projects flex justify-between mt-[6.4375vw] md:flex-col">
-                <h2 className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] md:hidden">
+                <h2
+                    className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] md:hidden"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
+                >
                     {listProject?.title}
                 </h2>
-                <h2 className="title text-[3.75vw] font-[800] capitalize hidden md:block md:text-[9.33vw] md:mt-[16vw]">
+                <h2
+                    className="title text-[3.75vw] font-[800] capitalize hidden md:block md:text-[9.33vw] md:mt-[16vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
+                >
                     {listProject?.titleMobile}
                 </h2>
-                <p className="text-[#394854] text-[1.125vw] w-[44.6875vw] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mt-[4.27vw]">
+                <p
+                    className="text-[#394854] text-[1.125vw] w-[44.6875vw] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mt-[4.27vw]"
+                    data-aos-once="true"
+                    data-aos="fade-left"
+                    data-aos-duration="2000"
+                >
                     {listProject?.desc}
                 </p>
             </div>

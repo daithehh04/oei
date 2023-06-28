@@ -1,5 +1,8 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function MainNews({ news }) {
     const urlImg = news?.featuredImage?.node?.sourceUrl;
@@ -11,8 +14,17 @@ export default function MainNews({ news }) {
     const year = String(date.getFullYear()); //
 
     const formattedDate = `${day}.${month}.${year}`;
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
-        <div className="main-news flex md:flex-col">
+        <div
+            className="flex main-news md:flex-col"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <Link
                 href={`/news/news&event/${encodeURIComponent(news?.slug)}`}
                 className="left w-[50%] md:w-full"
@@ -33,7 +45,7 @@ export default function MainNews({ news }) {
                             href={`/news/news&event/${encodeURIComponent(
                                 news?.slug
                             )}`}
-                            className="title text-[3.75vw] line-clamp md:text-[6.67vw] "
+                            className="title text-[3.75vw] line-clamp-3 md:text-[6.67vw] "
                         >
                             {news?.title}
                         </Link>

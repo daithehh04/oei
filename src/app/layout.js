@@ -5,6 +5,9 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/thumbs";
 import "swiper/css/free-mode";
+// aos animation
+import "aos/dist/aos.css";
+
 import "../app/global.css";
 
 import "../assets/fonts/stylesheet.css";

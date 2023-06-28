@@ -15,9 +15,9 @@ export default async function IndexQHSE() {
         data?.data?.page?.aboutQhse;
     return (
         <>
-            {/* <div className="hidden md:block">
+            <div className="hidden md:block">
                 <AchievementMb data={achivement} />
-            </div> */}
+            </div>
             <div className="block md:hidden">
                 <Achievements data={achivement} />
             </div>

@@ -1,10 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
-
+import AOS from "aos";
 import Image from "next/image";
 
 export default function SlideCertified({ dataSlide }) {
@@ -21,9 +21,17 @@ export default function SlideCertified({ dataSlide }) {
     const handleSlideChange = (swiper) => {
         setIndexSlider(swiper.activeIndex);
     };
-
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
-        <div className="relative flex items-center slide-certified border-y border-[#ccc] md:flex-col-reverse">
+        <div
+            className="relative flex items-center slide-certified border-y border-[#ccc] md:flex-col-reverse"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+        >
             <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] m-auto md:gap-x-[2.13vw]">
                 <button
                     className={`${

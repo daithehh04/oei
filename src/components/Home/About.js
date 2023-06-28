@@ -1,11 +1,12 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Image from "next/image";
 import SlideTextService from "./SlideTextService";
+import AOS from "aos";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ function initializeGSAPWithDelay(delay) {
                 scrollTrigger: {
                     trigger: box,
                     start: "top bottom",
-                    end: "top 10%",
+                    end: "top 50%",
                     scrub: true,
                 },
             });
@@ -39,18 +40,30 @@ const About = ({ data }) => {
             ctx.revert();
         };
     }, []);
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     return (
-        <div className="about relative overflow-hidden">
+        <div className="relative overflow-hidden about">
             <div className="container-about w-[95.625%] ml-auto mt-[12.625vw] md:w-[91.25%] md:mr-auto md:ml-auto">
                 <div className="wrapper flex gap-[1.3125] md:block">
                     <div className="left relative w-[42.61%] md:w-[100%]">
-                        <h2 className="sub-title text-[1.125vw] leading-normal tracking-[0.12em] uppercase font-[700] text-dateNews md:text-[3.73vw]">
+                        <h2
+                            className="sub-title text-[1.125vw] leading-normal tracking-[0.12em] uppercase font-[700] text-dateNews md:text-[3.73vw]"
+                            data-aos-once="true"
+                            data-aos="fade-right"
+                            data-aos-duration="2000"
+                        >
                             {data?.title}
                         </h2>
                         <h3
                             className="desc text-[2.875vw] leading-[1.22] tracking-tighter md:text-[6.66vw]"
                             dangerouslySetInnerHTML={{ __html: data?.desc }}
+                            data-aos-once="true"
+                            data-aos="fade-right"
+                            data-aos-duration="2000"
                         ></h3>
                         <a
                             className="btn-see w-[8.9375vw] h-[8.9375vw] rounded-full flex justify-center items-center text-[1.125vw] font-[700] leading-[2] mt-[3.75vw] uppercase bg-member text-[#fff]

@@ -1,12 +1,11 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import Image from "next/image";
-
-const arrReviews = new Array(5).fill(0);
+import AOS from "aos";
 
 export default function SlideOutstandingProject({ project }) {
     const [indexSlider, setIndexSlider] = useState(0);
@@ -23,8 +22,18 @@ export default function SlideOutstandingProject({ project }) {
         setIndexSlider(swiper.activeIndex);
     };
 
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
-        <div className="relative slide-prj text-[#394854]">
+        <div
+            className="relative slide-prj text-[#394854]"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+        >
             <Swiper
                 breakpoints={{
                     768: {

@@ -117,6 +117,7 @@ const GET_DATA_ABOUT_PAGE = `
                 title
                 text
                 role
+                name
                 signature
                 }
             manager {
@@ -237,6 +238,7 @@ const GET_DATA_PEOPLE_PAGE = `
                 text
                 role
                 signature
+                name
                 img {
                 sourceUrl
                 }

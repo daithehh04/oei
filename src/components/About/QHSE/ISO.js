@@ -1,8 +1,15 @@
-import Image from "next/image";
+"use client";
 import React from "react";
+import AOS from "aos";
+import { useEffect } from "react";
+import Image from "next/image";
 import img from "../../../assets/img/about-circle.png";
 
 export default function ISO({ data }) {
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <div className="iso relative pb-[9.75vw]">
             <div className="content">
@@ -11,8 +18,16 @@ export default function ISO({ data }) {
                     dangerouslySetInnerHTML={{
                         __html: data?.title,
                     }}
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
                 ></p>
-                <p className="text-[#394854] font-[400] text-[1.5vw] leading-[1.58] w-[37.3125vw] ml-auto lg:text-[2.5vw] lg:w-[70%] lg:mt-[2vw] md:mt-[22.66vw] md:text-[4.26vw] md:w-[78.4%]">
+                <p
+                    className="text-[#394854] font-[400] text-[1.5vw] leading-[1.58] w-[37.3125vw] ml-auto lg:text-[2.5vw] lg:w-[70%] lg:mt-[2vw] md:mt-[22.66vw] md:text-[4.26vw] md:w-[78.4%]"
+                    data-aos-once="true"
+                    data-aos="fade-left"
+                    data-aos-duration="1000"
+                >
                     {data?.text}
                 </p>
                 <Image

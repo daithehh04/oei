@@ -1,9 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
+import AOS from "aos";
 
 import Image from "next/image";
 
@@ -22,8 +23,18 @@ export default function FacilitiesSlide({ dataSlide }) {
         setIndexSlider(swiper.activeIndex);
     };
 
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
-        <div className="relative slide-facility w-[95.625%] ml-auto md:w-[94.66%] md:mr-auto">
+        <div
+            className="relative slide-facility w-[95.625%] ml-auto md:w-[94.66%] md:mr-auto"
+            data-aos-once="true"
+            data-aos="fade-left"
+            data-aos-duration="2000"
+        >
             <Swiper
                 slidesPerView={1}
                 spaceBetween={24}

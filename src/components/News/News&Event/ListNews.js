@@ -1,10 +1,10 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import NewsItem from "./NewsItem";
 import MainNews from "./MainNews";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_NEWS_EVENTS } from "@/GraphQL/news/queries";
+import AOS from "aos";
 
 export default function ListNews() {
     const [activeButton, setActiveButton] = useState(0);
@@ -36,18 +36,35 @@ export default function ListNews() {
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);
+        AOS.init();
+        AOS.refresh();
     }, []);
     return (
         <div className="content pt-[11vw]">
             <div className="head">
                 <div className="mb-[2.5vw] md:mb-[9.6vw]">
-                    <san className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12] lg:text-[2vw] md:text-[3.73vw]">
+                    <span
+                        className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12] lg:text-[2vw] md:text-[3.73vw]"
+                        data-aos-once="true"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
                         News & Event
-                    </san>
-                    <h2 className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:hidden">
+                    </span>
+                    <h2
+                        className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:hidden"
+                        data-aos-once="true"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
                         Follow Us
                     </h2>
-                    <h2 className="text-[8vw] leading-[1.167] font-[800] capitalize tracking-tighter text-primary hidden md:block">
+                    <h2
+                        className="text-[8vw] leading-[1.167] font-[800] capitalize tracking-tighter text-primary hidden md:block"
+                        data-aos-once="true"
+                        data-aos="fade-right"
+                        data-aos-duration="1000"
+                    >
                         Follow Our Journey
                     </h2>
                 </div>

@@ -32,10 +32,41 @@ export default function AchievementMb({ data }) {
         setRate(rate);
     };
     return (
-        <div>
+        <div className="achiev_mb">
             <h3 className="title pl-[2.67vw] text-[4.267vw] font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] mt-[16vw] pb-[3vw]">
                 our achievements
             </h3>
+            <div className=" circle-mb">
+                <svg
+                    className="history-years-vertical__circle"
+                    width="42.67vw"
+                    height="42.67vw"
+                    viewBox="0 0 42.67vw 42.67vw"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <rect
+                        x="0.5"
+                        y="0.5"
+                        rx="1"
+                        width="2"
+                        height="2"
+                        pathLength="1"
+                    ></rect>
+                    <rect
+                        className="js-sticky-history-progress"
+                        x="0.5"
+                        y="0.5"
+                        rx="1"
+                        width="2"
+                        height="2"
+                        pathLength="1"
+                        style={{
+                            strokeDashoffset: rate,
+                        }}
+                    ></rect>
+                </svg>
+            </div>
             <div className="achieve-mb relative content pt-[76vw]">
                 <Swiper
                     spaceBetween={10}
@@ -98,7 +129,7 @@ export default function AchievementMb({ data }) {
                                             className={`year text-primary font-[800] leading-[1.8] ${active}`}
                                         >
                                             {item?.year}
-                                            <div className=" circle">
+                                            {/* <div className=" circle">
                                                 <svg
                                                     className="history-years-vertical__circle"
                                                     width="42.67vw"
@@ -129,7 +160,7 @@ export default function AchievementMb({ data }) {
                                                         }}
                                                     ></rect>
                                                 </svg>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     );
                                 }}

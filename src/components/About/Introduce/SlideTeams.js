@@ -1,9 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Image from "next/image";
+import AOS from "aos";
 
 export default function SlideTeams({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
@@ -20,8 +21,18 @@ export default function SlideTeams({ dataSlide }) {
         setIndexSlider(swiper.activeIndex);
     };
 
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
-        <div className="relative slide-team">
+        <div
+            className="relative slide-team"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <Swiper
                 breakpoints={{
                     768: {

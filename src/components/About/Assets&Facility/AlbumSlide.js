@@ -89,7 +89,7 @@ export default function AlbumSlide({ dataSlide }) {
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
-                    className="h-fit flex flex-col items-end relative swiper-certified w-[80%] py-[2.4vw] "
+                    className="h-fit flex flex-col items-end relative swiper-certified py-[2.4vw] "
                 >
                     {dataSlide.map((item, index) => (
                         <SwiperSlide

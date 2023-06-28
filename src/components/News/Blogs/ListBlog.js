@@ -6,6 +6,7 @@ import BlogItem from "./BlogItem";
 import { useState } from "react";
 import { GET_ALL_NEWS_BLOGS } from "@/GraphQL/news/queries";
 import { useQuery } from "@apollo/client";
+import AOS from "aos";
 import { useEffect } from "react";
 
 export default function ListBlog() {
@@ -35,15 +36,29 @@ export default function ListBlog() {
     useEffect(() => {
         const element = document.querySelector(".content");
         element.scrollIntoView();
-        // window.scrollTo(0, 0);
     }, [activeButton]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <div className="content">
             <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[9.6vw]">
-                <san className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12em] lg:text-[2vw] md:text-[3.73vw]">
+                <span
+                    className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12em] lg:text-[2vw] md:text-[3.73vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                >
                     News & Event
-                </san>
-                <h2 className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:text-[8vw]">
+                </span>
+                <h2
+                    className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:text-[8vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                >
                     Blogs
                 </h2>
             </div>

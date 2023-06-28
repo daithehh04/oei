@@ -1,12 +1,9 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
-import img from "../../../assets/img/asset-1.png";
-
+import { useEffect, useRef, useState } from "react";
+import AOS from "aos";
 import Image from "next/image";
-
-const arrReviews = new Array(5).fill(0);
 
 export default function SlideAssets({ dataSlide }) {
     const [indexSlider, setIndexSlider] = useState(0);
@@ -16,8 +13,18 @@ export default function SlideAssets({ dataSlide }) {
         setIndexSlider(swiper.activeIndex);
     };
 
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
+
     return (
-        <div className="relative slide-assets">
+        <div
+            className="relative slide-assets"
+            data-aos-once="true"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+        >
             <Swiper
                 breakpoints={{
                     768: {

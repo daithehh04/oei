@@ -1,12 +1,14 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import React from "react";
 import Image from "next/image";
 import img from "../../../assets/img/dowload.png";
+import AOS from "aos";
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,6 +56,10 @@ export default function Values({ data }) {
             ctx.revert();
         };
     }, []);
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <div className="value pt-[7.5vw] pb-[20vw]">
             <div className="content">
@@ -63,10 +69,16 @@ export default function Values({ data }) {
                         dangerouslySetInnerHTML={{
                             __html: data?.title,
                         }}
+                        data-aos-once="true"
+                        data-aos="fade-right"
+                        data-aos-duration="2000"
                     ></p>
                     <a
                         href={data?.profile?.url}
                         className="download flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
+                        data-aos-once="true"
+                        data-aos="fade-left"
+                        data-aos-duration="2000"
                     >
                         <Image
                             src={img}

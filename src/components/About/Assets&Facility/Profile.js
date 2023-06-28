@@ -1,7 +1,9 @@
+"use client";
 import Image from "next/image";
-import React from "react";
 import img from "../../../assets/img/profile.png";
-import img2 from "../../../assets/img/profile-img.png";
+import React from "react";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function Profile({ data }) {
     // function fileDownloader(href) {
@@ -10,8 +12,17 @@ export default function Profile({ data }) {
     //     link.download = "file";
     //     link.click();
     // }
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
-        <div className="profile mt-[10vw] md:mt-[16.48vw]">
+        <div
+            className="profile mt-[10vw] md:mt-[16.48vw]"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+        >
             <div className="content">
                 <div className="flex gap-[2vw] md:flex-col">
                     <div className="left w-[30%] md:w-full lg:w-[40%]">

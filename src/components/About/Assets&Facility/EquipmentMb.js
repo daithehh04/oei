@@ -1,10 +1,11 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import dropdown from "../../../assets/img/dropdown.svg";
 import SlideEquipment from "./SlideEquipment";
 import { useState } from "react";
 import { useRef } from "react";
+import AOS from "aos";
 
 export default function EquipmentMb({ data }) {
     const [selectedTitle, setSelectedTitle] = useState(null);
@@ -19,13 +20,28 @@ export default function EquipmentMb({ data }) {
         }
         setClicked((prev) => !prev);
     };
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
     return (
         <div className="equipment-mb">
             <div className="content">
-                <h2 className="text-primary font-[800] leading-[1.21] tracking-tighter text-[8vw] w-full pt-[12vw] mb-[4vw]">
+                <h2
+                    className="text-primary font-[800] leading-[1.21] tracking-tighter text-[8vw] w-full pt-[12vw] mb-[4vw]"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="2000"
+                >
                     {data?.title}
                 </h2>
-                <div className="list-equip">
+                <div
+                    className="list-equip"
+                    data-aos-once="true"
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                >
                     {data?.listEquip?.map((item, index) => (
                         <div className="item-equip">
                             <div
