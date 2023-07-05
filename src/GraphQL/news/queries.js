@@ -18,6 +18,8 @@ const GET_ALL_NEWS = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -44,6 +46,7 @@ const GET_NEWS = `
                 image {
                   sourceUrl
                     }
+                    author
                 }
                 slug
                 title
@@ -53,6 +56,8 @@ const GET_NEWS = `
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -66,14 +71,42 @@ const GET_NEWS = `
     }
 `;
 
-const GET_HEADER_NEWS_PAGE = `
+const GET_HEADER_NEWS_EVENT = `
     {
         page(id: "cG9zdDo4NTk=") {
-            news {
-                background {
+            newsEvent {
+                header {
+                  background {
                     sourceUrl
+                  }
+                  title
                 }
+              groupTitle {
                 title
+                subTitle
+                subTitleMobile
+              }
+              outstandingNews {
+                ... on Post {
+                  title
+                  slug
+                  excerpt
+                  date
+                  featuredImage {
+                    node {
+                      sourceUrl
+                        altText
+                        title
+                    }
+                  }
+                  categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+                }
+              }
             }
         }
     }
@@ -89,6 +122,33 @@ const GET_HEADER_COMPANY_NEWS = `
                   }
                   title
                 }
+              groupTitle {
+                title1
+                subTitle1
+                title2
+                subTitle2
+              }
+              outstandingnews {
+                ... on Post {
+                  title
+                  slug
+                  date
+                  excerpt
+                  featuredImage {
+                    node {
+                      sourceUrl
+                        altText
+                        title
+                    }
+                  }
+                  categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+                }
+              }
             }
         }
     }
@@ -104,6 +164,31 @@ const GET_HEADER_INDUSTRY_NEWS = `
                   }
                   title
                 }
+              groupTitle {
+                title
+                subTitle
+              }
+              outstandingnews {
+                ... on Post {
+                  title
+                  slug
+                  date
+                  excerpt
+                  featuredImage {
+                    node {
+                      sourceUrl
+                        altText
+                        title
+                    }
+                  }
+                  categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+                }
+              }
             }
         }
     }
@@ -117,6 +202,31 @@ const GET_HEADER_BLOGS_NEWS = `
                 title
                 background {
                   sourceUrl
+                }
+              }
+              groupTitle {
+                title
+                subTitle
+              }
+              outstandingblog {
+                ... on Post {
+                  title
+                  slug
+                  date
+                  excerpt
+                  featuredImage {
+                    node {
+                      sourceUrl
+                        altText
+                        title
+                    }
+                  }
+                  categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
                 }
               }
             }
@@ -144,6 +254,8 @@ const GET_ALL_NEWS_BLOGS = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -181,6 +293,8 @@ const GET_ALL_NEWS_EVENTS = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -218,6 +332,8 @@ const GET_ALL_NEWS_EVENTS_PAGE = `
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -254,6 +370,8 @@ const GET_ALL_NEWS_INDUSTRY = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -291,6 +409,8 @@ const GET_ALL_NEWS_COMPANY = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 categories {
@@ -312,7 +432,7 @@ const GET_ALL_NEWS_COMPANY = gql`
 export {
     GET_ALL_NEWS,
     GET_NEWS,
-    GET_HEADER_NEWS_PAGE,
+    GET_HEADER_NEWS_EVENT,
     GET_HEADER_COMPANY_NEWS,
     GET_HEADER_INDUSTRY_NEWS,
     GET_HEADER_BLOGS_NEWS,

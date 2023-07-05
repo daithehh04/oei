@@ -20,7 +20,7 @@ function Message({ data }) {
                         src={data?.img?.sourceUrl}
                         width={500}
                         height={500}
-                        alt="CEO OEI"
+                        alt={data?.img?.altText || data?.img?.title}
                         className="object-cover w-full h-full"
                     />
                 </div>
@@ -48,7 +48,7 @@ function Message({ data }) {
                     >
                         {data?.text}
                     </p>
-                    <div className="name mt-[4.5625vw] pb-[5.75vw] w-max ml-auto">
+                    <div className="name mt-[4.5625vw] pb-[5.75vw] md:pb-[8.53vw] w-max ml-auto">
                         <p
                             className="text-[1.25vw] font-[700] leading-[1.3] text-[#fff] tracking-[-0.03em] md:text-[4.26vw] lg:text-[2vw]"
                             data-aos-once="true"

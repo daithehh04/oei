@@ -4,8 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SwiperCore, { Autoplay } from "swiper";
 
 export default function OthersProjectSlide({ projectAll }) {
+    SwiperCore.use([Autoplay]);
     const swiperRef = useRef();
     return (
         <div className="relative project-item">
@@ -20,11 +22,17 @@ export default function OthersProjectSlide({ projectAll }) {
                         spaceBetween: 78,
                     },
                 }}
+                autoplay={{
+                    delay: 3500,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
                 slidesPerView="auto"
                 spaceBetween={10}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
+                modules={[Autoplay]}
                 className="relative flex flex-col items-end w-full swiper-otherProject"
             >
                 {projectAll?.map((otherProject, index) => (
@@ -41,15 +49,21 @@ export default function OthersProjectSlide({ projectAll }) {
                                         href={`/project/${encodeURIComponent(
                                             otherProject?.slug
                                         )}`}
-                                        className="w-full h-[calc(32.5*100vw/100)] md:h-[57.86vw] "
+                                        className="w-full h-[calc(32.5*100vw/100)] md:h-[57.86vw] relative"
                                     >
                                         <Image
                                             className="object-cover w-full h-full"
                                             src={urlImg}
-                                            alt="img"
+                                            alt={
+                                                otherProject?.featuredImage
+                                                    ?.node?.altText ||
+                                                otherProject?.featuredImage
+                                                    ?.node?.title
+                                            }
                                             width={500}
                                             height={500}
                                         />
+                                        <div className="absolute top-0 bottom-0 left-0 right-0 overlay-img"></div>
                                     </Link>
                                     <div className="p-[1.5vw] bg-[#fff] md:p-[4.27vw]">
                                         <p className="text-[1.125vw] font-[400] leading-[1.44] text-[#394854] uppercase md:text-[2.93vw] lg:text-[1.65vw] md:font-[600]">

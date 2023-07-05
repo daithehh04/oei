@@ -78,7 +78,6 @@ export async function generateMetadata() {
 
 export default async function Introduce() {
     const data = await getData(GET_HEADER_ABOUT_INTRODUCE);
-
     const { header } = data?.data?.page?.aboutIntroduce;
     return (
         <>

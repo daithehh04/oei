@@ -10,10 +10,18 @@ export default function Album({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="pt-[5vw] bg-member capitalize md:pt-[8.53vw]">
+        <div className="pt-[5vw] md:bg-member capitalize md:pt-[8.53vw]">
             <div className="flex items-start justify-between content mb-[3.75vw] md:flex-col md:mb-[6.4vw]">
                 <h2
-                    className="text-60pc w-[44.375vw] font-[800] text-[#fff] leading-[1.33] tracking-tighter md:text-[8vw] md:w-full"
+                    className="text-60pc font-[800] text-primary leading-[1.33] tracking-tighter md:!text-[#fff] md:hidden md:text-[8vw] md:w-full"
+                    data-aos-once="true"
+                    data-aos="fade-right"
+                    data-aos-duration="1000"
+                >
+                    {data?.title}
+                </h2>
+                <h2
+                    className="text-60pc hidden md:block font-[800] leading-[1.33] tracking-tighter md:!text-[#fff] md:text-[8vw] md:w-full"
                     data-aos-once="true"
                     data-aos="fade-right"
                     data-aos-duration="1000"
@@ -21,7 +29,7 @@ export default function Album({ data }) {
                     {data?.title}
                 </h2>
                 <p
-                    className="text-24pc w-[37.9375vw] font-[400] leading-[1.38] text-[#fff] md:text-[4.267vw] md:mt-[2.13vw] md:w-full lg:text-[1.65vw]"
+                    className="text-24pc w-[37.9375vw] font-[400] leading-[1.38] text-[#fff] hidden md:block md:text-[4.267vw] md:mt-[2.13vw] md:w-full lg:text-[1.65vw]"
                     data-aos-once="true"
                     data-aos="fade-left"
                     data-aos-duration="1000"
@@ -29,7 +37,7 @@ export default function Album({ data }) {
                     {data?.desc}
                 </p>
             </div>
-            <AlbumSlide dataSlide={data?.album} />
+            <AlbumSlide dataSlide={data?.listProject} />
         </div>
     );
 }

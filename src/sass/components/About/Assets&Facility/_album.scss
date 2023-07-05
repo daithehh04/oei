@@ -1,0 +1,27 @@
+.album-project {
+    .img-project {
+        overflow: hidden;
+        .desc {
+            transform: translateY(-100%);
+            transition: all 0.4s ease-in;
+            z-index: 99;
+        }
+        .plus {
+            transition: all 0.3s ease-in;
+        }
+        &:hover {
+            .desc {
+                transform: translateY(0);
+            }
+            .plus {
+                opacity: 0;
+            }
+            .overlay-prj {
+                background-color: #00000040;
+            }
+        }
+    }
+    .bg-active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}

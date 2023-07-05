@@ -10,9 +10,12 @@ export default function CompanySuggets({ news }) {
 
     const formattedDate = `${day}.${month}.${year}`;
     return (
-        <div className="company-suggets pt-[2vw] pb-[1vw] border-t border-[#BDBDBD] md:pt-[6.4vw]">
-            <span className="text-[#376A66] text-[0.9292vw] uppercase md:text-12mb lg:text-[1.75vw]">
-                {formattedDate} / Event
+        <div className="company-suggets pt-[2vw] pb-[1vw] border-t border-[#BDBDBD] border-opacity-40 md:pt-[6.4vw]">
+            <span className="text-[#376A66] text-[0.9292vw] mb-[0.5vw] uppercase md:text-12mb lg:text-[1.75vw]">
+                {formattedDate}{" "}
+                <span className="uppercase">
+                    / {news?.categories?.nodes[0]?.name}
+                </span>
             </span>
             <h3>
                 <Link
@@ -26,7 +29,7 @@ export default function CompanySuggets({ news }) {
             </h3>
             <Link
                 href={`/news/company-news/${encodeURIComponent(news?.slug)}`}
-                className="text-[#394854] font-[700] text-[0.8125vw] flex justify-end items-end uppercase leading-[2.57] md:text-13mb lg:text-[1.6vw]"
+                className="text-[#394854] mt-[0.5vw] font-[700] text-[0.8125vw] flex justify-end items-end uppercase leading-[2.57] md:text-13mb lg:text-[1.6vw]"
             >
                 See More +
             </Link>

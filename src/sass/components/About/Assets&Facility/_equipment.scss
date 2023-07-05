@@ -3,11 +3,9 @@
         .heading-item {
             cursor: pointer;
             &.active {
-                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: transparent;
+                color: #fff;
+                font-weight: 800;
+                opacity: 1;
             }
             &:last-child {
                 border-bottom: none;
@@ -17,6 +15,17 @@
 }
 
 .equipment-mb {
+    .list-heading {
+        .heading-item {
+            &.active {
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
+    }
     .item-equip {
         &:first-child .question {
             border-top: none;

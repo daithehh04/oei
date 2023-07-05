@@ -1,5 +1,6 @@
 import React from "react";
 import AlbumProjectSlide from "./AlbumProjectSlide";
+import AlbumProjectSlideMb from "./AlbumProjectSlideMb";
 
 export default function AlbumProject({ imgsAlbum }) {
     return (
@@ -7,7 +8,12 @@ export default function AlbumProject({ imgsAlbum }) {
             <h3 className="text-[3.75vw] capitalize text-primary font-[800] text-center mb-[3.75vw] mt-[7.875vw] md:text-[8vw] lg:text-[4.67vw]">
                 album image project
             </h3>
-            <AlbumProjectSlide imgsAlbum={imgsAlbum} />
+            <div className="md:hidden">
+                <AlbumProjectSlide imgsAlbum={imgsAlbum} />
+            </div>
+            <div className="hidden md:block">
+                <AlbumProjectSlideMb imgsAlbum={imgsAlbum} />
+            </div>
         </div>
     );
 }

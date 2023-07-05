@@ -15,30 +15,24 @@ gsap.registerPlugin(ScrollTrigger);
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
         gsap.to(".bg-value", {
+            width: "91.25%",
             scrollTrigger: {
                 trigger: ".bg-value",
-                start: "top 10%",
-                end: "110% 10%",
+                start: "-50% 10%",
+                end: "top 10%",
                 scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".bg-value", {
-                            width: "91.25%",
-                            y: "6.25vw",
-                        });
-                        gsap.to(".text-image", {
-                            opacity: 1,
-                        });
-                    } else {
-                        gsap.to(".bg-value", {
-                            width: "56.5625vw",
-                            y: 0,
-                        });
-                        gsap.to(".text-image", {
-                            opacity: 0,
-                        });
-                    }
-                },
+                once: true,
+            },
+        });
+        gsap.to(".text-image", {
+            y: "-10.25vw",
+            opacity: 1,
+            scrollTrigger: {
+                trigger: ".bg-value",
+                start: "-50% 10%",
+                end: "top 10%",
+                scrub: true,
+                once: true,
             },
         });
     }, delay);
@@ -56,6 +50,12 @@ export default function Values({ data }) {
             ctx.revert();
         };
     }, []);
+    function fileDownloader(href) {
+        const link = document.createElement("a");
+        link.href = href;
+        link.download = "file";
+        link.click();
+    }
     useEffect(() => {
         AOS.init();
         AOS.refresh();
@@ -73,9 +73,9 @@ export default function Values({ data }) {
                         data-aos="fade-right"
                         data-aos-duration="2000"
                     ></p>
-                    <a
-                        href={data?.profile?.url}
-                        className="download flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
+                    <span
+                        onClick={() => fileDownloader(data?.profile)}
+                        className="download cursor-pointer flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
                         data-aos-once="true"
                         data-aos="fade-left"
                         data-aos-duration="2000"
@@ -90,19 +90,19 @@ export default function Values({ data }) {
                         <span className="text text-[0.6875vw] font-[400] leading-[2.18] uppercase text-[#fff] text-center lg:w-[80%] lg:text-[1.5vw] lg:leading-[1.5]">
                             download profile
                         </span>
-                    </a>
+                    </span>
                 </div>
-                <div>
+                <div className="overflow-hidden">
                     <Image
                         ref={parentRef}
                         src={data?.img?.sourceUrl}
                         width={500}
                         height={500}
-                        alt="img"
+                        alt={data?.img?.altText || data?.img?.title}
                         className="bg-value object-cover w-[56.5625vw] h-[34.625vw] absolute bottom-[-20vw] right-[4.375vw]"
                     />
                     <p
-                        className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-20vw] leading-[1.05] left-[8.375vw] lg:text-[3.8vw]"
+                        className="text-image text-[3.9375vw] w-[40.3125vw] absolute font-[700] text-[#fff] bottom-[-24vw] leading-[1.05] left-[8.375vw] lg:text-[3.8vw]"
                         dangerouslySetInnerHTML={{
                             __html: data?.text,
                         }}

@@ -7,22 +7,28 @@ export default function ProjectItem({ projectItem }) {
     return (
         <div className="relative project-item">
             <Link
-                href={`project/${encodeURIComponent(projectItem?.slug)}`}
-                className="block h-[32.5vw] md:h-[54.4vw] img-prj"
+                href={`/project/${encodeURIComponent(projectItem?.slug)}`}
+                className="block h-[32.5vw] md:h-[54.4vw] img-prj relative"
             >
                 <Image
                     src={urlImg}
                     className="w-[100%] h-[100%] object-cover "
-                    alt="img"
+                    alt={
+                        projectItem?.featuredImage.node?.altText ||
+                        projectItem?.featuredImage.node?.title
+                    }
                     width={500}
                     height={500}
                 />
+                <div className="absolute top-0 bottom-0 left-0 right-0 overlay-img"></div>
             </Link>
             <div className="info p-[1.5vw] bg-[#fff] md:pb-[6.4vw] md:pt-[4vw]">
                 <p className="text-[1.125vw] font-[400] leading-[1.44] text-[#394854] uppercase lg:text-[1.75vw] md:text-[3.2vw]">
                     {projectItem?.projectDetail?.project?.name}
                 </p>
-                <Link href={`project/${encodeURIComponent(projectItem?.slug)}`}>
+                <Link
+                    href={`/project/${encodeURIComponent(projectItem?.slug)}`}
+                >
                     <h3 className="pt-[0.625vw] text-[2vw] font-[700] leading-[1.25] tracking-tighter title-prj capitalize lg:text-[2.75vw] md:text-[5.33vw]">
                         {projectItem?.title}
                     </h3>
@@ -52,12 +58,12 @@ export default function ProjectItem({ projectItem }) {
                 <p className="text-18pc leading-normal text-[#fff] pt-[2.5vw] pl-[1.5vw] w-[37vw] lg:text-[2vw] lg:w-full lg:pr-[1vw] lg:line-clamp-4">
                     {projectItem?.projectDetail?.project?.desc}
                 </p>
-                <a
-                    href={`project/${encodeURIComponent(projectItem?.slug)}`}
+                <Link
+                    href={`/project/${encodeURIComponent(projectItem?.slug)}`}
                     className="!text-[#fff] uppercase block text-18pc font-[700] pl-[1.5vw] leading-[1.8] mt-[0.75vw] lg:text-[2vw]"
                 >
                     see more +
-                </a>
+                </Link>
             </div>
         </div>
     );

@@ -8,8 +8,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { GET_ALL_NEWS_INDUSTRY } from "@/GraphQL/news/queries";
 import AOS from "aos";
+import Loading from "@/components/Common/Loading";
+import { useRef } from "react";
 
-export default function ListNewsIndustry() {
+export default function ListNewsIndustry({ titles, mainNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_INDUSTRY, {
@@ -21,8 +23,6 @@ export default function ListNewsIndustry() {
 
     const nodes = data?.posts?.nodes;
 
-    const mainIndustry = nodes?.slice(0, 4);
-
     const pageInfo = data?.posts?.pageInfo.offsetPagination.total;
     const totalPages = Math.ceil(pageInfo / 6);
 
@@ -33,17 +33,23 @@ export default function ListNewsIndustry() {
             size: 6,
         });
     };
+    const eleRef = useRef();
     useEffect(() => {
-        const element = document.querySelector(".industries");
-        element.scrollIntoView();
+        eleRef?.current?.scrollIntoView();
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init();
         AOS.refresh();
     }, []);
+    if (!data)
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
     return (
-        <div className="content">
+        <div className="content" ref={eleRef}>
             <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[7.46vw]">
                 <span
                     className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12em] lg:text-[2vw] md:text-[3.73vw]"
@@ -51,7 +57,7 @@ export default function ListNewsIndustry() {
                     data-aos="fade-right"
                     data-aos-duration="1000"
                 >
-                    News & Event
+                    {titles?.title}
                 </span>
                 <h2
                     className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:text-[8vw]"
@@ -59,10 +65,10 @@ export default function ListNewsIndustry() {
                     data-aos="fade-right"
                     data-aos-duration="1000"
                 >
-                    Industry News
+                    {titles?.subTitle}
                 </h2>
             </div>
-            <MainNews mainIndustry={mainIndustry} />
+            <MainNews mainIndustry={mainNews} />
             <div className="industries grid grid-cols-3 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] pb-[3vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
                 {nodes?.map((item) => (
                     <IndustryItem industry={item} />

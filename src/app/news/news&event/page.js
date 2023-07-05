@@ -1,4 +1,7 @@
-import { GET_HEADER_NEWS_PAGE } from "@/GraphQL/news/queries";
+import {
+    GET_HEADER_NEWS_EVENT,
+    GET_HEADER_NEWS_PAGE,
+} from "@/GraphQL/news/queries";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import ListNews from "@/components/News/News&Event/ListNews";
 import getData from "@/utils/getData";
@@ -77,13 +80,16 @@ export async function generateMetadata() {
 }
 
 export default async function Event() {
-    const data = await getData(GET_HEADER_NEWS_PAGE);
-    const header = data?.data?.page?.news;
+    const data = await getData(GET_HEADER_NEWS_EVENT);
+    const { header, groupTitle, outstandingNews } = data?.data?.page?.newsEvent;
     return (
         <div>
             <HeaderSecond header={header} />
             <div className="bg-[#FAFAFA]">
-                <ListNews />
+                <ListNews
+                    titles={groupTitle}
+                    outstandingNews={outstandingNews}
+                />
             </div>
         </div>
     );

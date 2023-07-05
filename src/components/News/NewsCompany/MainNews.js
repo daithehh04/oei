@@ -24,12 +24,18 @@ export default function MainNews({ mainCompany }) {
                             src={urlImg}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                firstBlog?.featuredImage.node?.altText ||
+                                firstBlog?.featuredImage.node?.title
+                            }
                             className="w-full h-[40.0625vw] object-cover md:h-[70.93vw]"
                         />
                         <div className="info">
                             <span className="text-[#394854] text-[1.125vw] leading-[1.9] uppercase mt-[1.5vw] md:mt-[4.26vw] md:text-16mb lg:text-[1.75vw]">
-                                {formattedDate} / company news
+                                {formattedDate}{" "}
+                                <span className="uppercase">
+                                    / {firstBlog?.categories?.nodes[0]?.name}
+                                </span>
                             </span>
                             <h3>
                                 <Link

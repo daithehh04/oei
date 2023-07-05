@@ -8,4 +8,10 @@
         line-height: 1;
         top: -6.875vw;
     }
+    .quality-item {
+        opacity: 0.6;
+    }
+    .quality-item.active {
+        opacity: 1;
+    }
 }

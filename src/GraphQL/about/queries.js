@@ -7,6 +7,8 @@ const GET_HEADER_ABOUT_INTRODUCE = `
                 header {
                     background {
                         sourceUrl
+                        altText
+                      title
                     }
                     title
                 }
@@ -22,6 +24,8 @@ const GET_HEADER_ABOUT_QHSE = `
                 header {
                     background {
                         sourceUrl
+                        altText
+                      title
                     }
                     title
                     desc
@@ -38,6 +42,8 @@ const GET_HEADER_ABOUT_ASSETS = `
                 header {
                     background {
                         sourceUrl
+                        altText
+                      title
                     }
                     title
                 }
@@ -53,6 +59,8 @@ const GET_HEADER_ABOUT_PEOPLE = `
                 header {
                     background {
                         sourceUrl
+                        altText
+                      title
                     }
                     title
                     desc
@@ -160,12 +168,27 @@ const GET_DATA_ASSETS_PAGE = `
                     }
                 }
             }
-            album {
-                title 
-                desc
-                album {
-                sourceUrl
+            albumProject {
+              title
+              desc
+              listProject {
+                ... on Project {
+                  title
+                  slug
+                  projectDetail {
+                    project {
+                      desc
+                    }
+                  }
+                  featuredImage {
+                      node {
+                          sourceUrl
+                          altText
+                          title
+                      }
+                  }
                 }
+              }
             }
             equipment {
                 title

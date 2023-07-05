@@ -32,7 +32,6 @@ export default async function IndexHome() {
     const data = await getData();
     const { header, news, partners, service, about } =
         data?.data?.page?.homePage;
-    console.log(partners);
     return (
         <>
             <Header header={header} />
@@ -42,7 +41,7 @@ export default async function IndexHome() {
                 {/* <Member /> */}
                 <Service data={service} />
                 <Partners data={partners} />
-                <div className="w-full h-auto relative container-second-section overflow-hidden">
+                <div className="relative w-full h-auto overflow-hidden container-second-section">
                     <img
                         className="absolute background-second-section top-0 left-0 object-cover w-full h-full z-[-1]"
                         src="https://demo1.okhub.tech/wp-content/uploads/2023/06/bg-partners-1.png"

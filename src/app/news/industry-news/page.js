@@ -79,12 +79,16 @@ export async function generateMetadata() {
 export default async function Industry() {
     const data = await getData(GET_HEADER_INDUSTRY_NEWS);
 
-    const { header } = data?.data?.page?.industryNews;
+    const { header, groupTitle, outstandingnews } =
+        data?.data?.page?.industryNews;
     return (
         <>
             <HeaderSecond header={header} />
             <div className="bg-[#FAFAFA] ">
-                <ListNewsIndustry />
+                <ListNewsIndustry
+                    titles={groupTitle}
+                    mainNews={outstandingnews}
+                />
             </div>
         </>
     );

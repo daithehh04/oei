@@ -1,7 +1,9 @@
-.about .left .img {
-    width: 100%;
-    z-index: -1;
-    object-fit: contain;
+.about .left .btn-see {
+    transition: all 0.3s ease-in;
+}
+.about .left .btn-see:hover {
+    scale: 1.1;
+    cursor: pointer;
 }
 .about .right img {
     width: 100%;

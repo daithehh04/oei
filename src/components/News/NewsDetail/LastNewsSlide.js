@@ -20,6 +20,14 @@ export default function LastNewsSlide({ news }) {
         setIndexSlider(swiper.activeIndex);
     };
 
+    let category = news?.[0]?.categories?.nodes[0]?.name;
+    if (category.toString().toUpperCase() === "EVENT NEWS") {
+        category = "EVENT";
+    }
+    if (category.toString().toUpperCase() === "BLOGS") {
+        category = "BLOG";
+    }
+
     return (
         <div className="relative w-[95.625%] ml-auto">
             <Swiper
@@ -75,16 +83,14 @@ export default function LastNewsSlide({ news }) {
                                         />
                                     </div>
                                     <div className="bg-item-news py-[1.5vw] bg-white px-[1vw] md:py-[4.67vw] md:px-[2.67vw] transition-all flex flex-col gap-y-[calc(1*100vw/100)]">
-                                        <span className="text-[calc(1*100vw/100) title-date-news text-dateNews inline-block leading-[169%] font-normal uppercase line-clamp md:text-[2.67vw]">
-                                            {formattedDate} / EVENT
+                                        <span className="text-[calc(1*100vw/100)] title-date-news text-dateNews inline-block leading-[169%] font-normal uppercase line-clamp lg:text-[1.5vw] md:text-[2.67vw]">
+                                            {formattedDate}{" "}
+                                            <span>/ {category}</span>
                                         </span>
                                         <div>
-                                            <p
-                                                className="description-lastnews text-blackLastNews transition-all text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:text-[4.267vw] lg:text-[2vw]"
-                                                dangerouslySetInnerHTML={{
-                                                    __html: newsItem?.excerpt,
-                                                }}
-                                            ></p>
+                                            <p className="description-lastnews text-blackLastNews transition-all text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:text-[4.267vw] lg:text-[2vw]">
+                                                {newsItem?.title}
+                                            </p>
                                             <div className="flex justify-end mt-[calc(0.625*100vw/100)]">
                                                 <Link
                                                     href={`/news/news&event/${encodeURIComponent(
@@ -108,11 +114,7 @@ export default function LastNewsSlide({ news }) {
             </Swiper>
             <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
                 <button
-                    className={`${
-                        indexSlider === 0
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center lg:w-[6.67vw] lg:h-[6.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -120,8 +122,8 @@ export default function LastNewsSlide({ news }) {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-[1.25vw] h-[1.25vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -132,23 +134,15 @@ export default function LastNewsSlide({ news }) {
                 </button>
                 <button
                     onClick={handleNextSlide}
-                    className={`${
-                        news.length - indexSlider === 4
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center lg:w-[6.67vw] lg:h-[6.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${
-                            news.length - indexSlider === 4
-                                ? "#4CA757"
-                                : "white"
-                        }`}
-                        className="w-[1.25vw] h-[1.25vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"

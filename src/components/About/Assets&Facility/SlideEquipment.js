@@ -41,7 +41,7 @@ export default function SlideEquipment({ dataSlide }) {
                                     height={426}
                                     className="object-cover w-full h-full"
                                     src={item?.sourceUrl}
-                                    alt="img"
+                                    alt={item?.altText || item?.title}
                                 />
                             </div>
                         )}

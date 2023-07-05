@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import img from "../../../assets/img/contact.png";
 
 export default function IndustryItem({ industry }) {
     const urlImg = industry?.featuredImage.node.sourceUrl;
@@ -24,13 +23,19 @@ export default function IndustryItem({ industry }) {
                     src={urlImg}
                     width={500}
                     height={500}
-                    alt="img"
+                    alt={
+                        industry?.featuredImage.node?.altText ||
+                        industry?.featuredImage.node?.title
+                    }
                     className="object-cover h-[20.3125vw] w-[100%] md:h-[53.6vw] lg:h-[32vw]"
                 />
             </Link>
             <div className="info pt-[1.5vw] px-[1.25vw] pb-[2vw] bg-[#fff] md:p-[4.27vw]">
                 <div className="date text-[1.25vw] font-[400] text-[#376A66] md:text-[3.2vw] lg:text-[2vw]">
-                    <span>{formattedDate}</span> <span>/Event</span>
+                    <span>{formattedDate}</span>{" "}
+                    <span className="uppercase">
+                        / {industry?.categories?.nodes[0]?.name}
+                    </span>
                 </div>
                 <Link
                     href={`/news/industry-news/${encodeURIComponent(
@@ -44,7 +49,7 @@ export default function IndustryItem({ industry }) {
                     href={`/news/industry-news/${encodeURIComponent(
                         industry?.slug
                     )}`}
-                    className="uppercase text-[1.11vw] block font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57] md:text-[3.73vw] lg:text-[2vw]"
+                    className="uppercase text-[1.12vw] font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57] md:text-[3.73vw] lg:text-[2vw]"
                 >
                     See More +
                 </Link>

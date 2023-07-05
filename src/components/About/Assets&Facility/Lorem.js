@@ -6,7 +6,7 @@ export default function Lorem() {
     return (
         <div className="lorem-assets pt-[8.8175vw] pb-[9.75vw] overflow-hidden">
             <div className="content">
-                <div className="left relative">
+                <div className="relative left">
                     <h2 className="text-60pc font-[800] leading-[1.33] capitalize tracking-tighter text-primary w-[44.875vw]">
                         Lorem ipsum dolor sit amet consectetur. Aliquet fringia
                         quam vel vitae{" "}

@@ -5,8 +5,10 @@ import MainNews from "./MainNews";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_NEWS_EVENTS } from "@/GraphQL/news/queries";
 import AOS from "aos";
+import { useRef } from "react";
+import Loading from "@/components/Common/Loading";
 
-export default function ListNews() {
+export default function ListNews({ titles, outstandingNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_EVENTS, {
@@ -18,8 +20,6 @@ export default function ListNews() {
 
     const nodes = data?.posts?.nodes;
 
-    const firstNews = nodes?.[0];
-
     const pageInfo = data?.posts?.pageInfo.offsetPagination.total;
     const totalPages = Math.ceil(pageInfo / 9);
 
@@ -30,18 +30,24 @@ export default function ListNews() {
             size: 9,
         });
     };
+    const eleRef = useRef();
     useEffect(() => {
-        const element = document.querySelector(".head");
-        element.scrollIntoView();
+        eleRef?.current?.scrollIntoView(".head");
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init();
         AOS.refresh();
     }, []);
+    if (!data)
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
     return (
         <div className="content pt-[11vw]">
-            <div className="head">
+            <div ref={eleRef}>
                 <div className="mb-[2.5vw] md:mb-[9.6vw]">
                     <span
                         className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12] lg:text-[2vw] md:text-[3.73vw]"
@@ -49,7 +55,7 @@ export default function ListNews() {
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        News & Event
+                        {titles?.title}
                     </span>
                     <h2
                         className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:hidden"
@@ -57,7 +63,7 @@ export default function ListNews() {
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        Follow Us
+                        {titles?.subTitle}
                     </h2>
                     <h2
                         className="text-[8vw] leading-[1.167] font-[800] capitalize tracking-tighter text-primary hidden md:block"
@@ -65,11 +71,11 @@ export default function ListNews() {
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        Follow Our Journey
+                        {titles?.subTitleMobile}
                     </h2>
                 </div>
             </div>
-            <MainNews news={firstNews} />
+            <MainNews news={outstandingNews} />
 
             <div className="list-news grid grid-cols-3 gap-[2vw] mt-[5.4375vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
                 {nodes && nodes?.map((item) => <NewsItem newsItem={item} />)}

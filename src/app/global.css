@@ -374,7 +374,7 @@ body {
 @media screen and (max-width: 1024px) {
     .swiper-lastnews .swiper-pagination.swiper-pagination-progressbar {
         width: 74.8vw !important;
-        height: 2px;
+        height: 2.5px;
         margin-top: 7.672vw;
     }
 }

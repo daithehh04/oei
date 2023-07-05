@@ -45,6 +45,8 @@ const QUERY_ALL_PROJECTS = gql`
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 projectDetail {
@@ -81,50 +83,6 @@ const QUERY_ALL_PROJECTS = gql`
     }
 `;
 
-const GET_PROJECT_OUTSTANDING = `{
-    allProject(
-            first: 5
-            where: {
-                orderby: { field: DATE, order: DESC }
-            }
-            ) {
-            nodes {
-                slug
-                title
-                content
-                featuredImage {
-                    node {
-                        sourceUrl
-                    }
-                }
-                projectDetail {
-                    location
-                    titleLocation
-                    repeatLocation {
-                        title
-                        content
-                    }
-                    tech
-                    repeatTech {
-                        title
-                        content
-                    }
-                    imgs {
-                        sourceUrl
-                    }
-                    project {
-                        name
-                        desc
-                        repeatInfo {
-                            title
-                            content
-                        }
-                    }
-                }
-            }
-        }
-    }`;
-
 const GET_ALL_PROJECTS = `{
         allProject(
             first: 100
@@ -139,10 +97,15 @@ const GET_ALL_PROJECTS = `{
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 projectDetail {
                     location
+                    backgroundDetail {
+                    sourceUrl
+                    }
                     titleLocation
                     repeatLocation {
                         title
@@ -182,11 +145,33 @@ const GET_PROJECT_PAGE = `
       }
       outstanding {
         title
-        titleMobile
         desc
+        listProject {
+          ... on Project {
+            slug
+            title
+            projectDetail {
+              project {
+                desc
+                repeatInfo {
+                  title
+                  content
+                }
+              }
+            }
+            featuredImage {
+                      node {
+                          sourceUrl
+                          altText
+                          title
+                      }
+                  }
+          }
+        }
       }
       listProject {
         title
+        titleMobile
         desc
       }
       download {
@@ -197,6 +182,26 @@ const GET_PROJECT_PAGE = `
   }
 }
 `;
+
+const GET_FILTER_PROJECT = `{
+  allProject(first: 100) {
+    nodes {
+      date
+      location {
+        nodes {
+          name
+          slug
+        }
+      }
+      typeProject {
+        nodes {
+          name
+          slug
+        }
+      }
+    }
+  }
+}`;
 
 const QUERY_ALL_PROJECTS_PAGE = (categorySlug, year, offset, size) => `{
         allProject(
@@ -229,6 +234,8 @@ const QUERY_ALL_PROJECTS_PAGE = (categorySlug, year, offset, size) => `{
                 featuredImage {
                     node {
                         sourceUrl
+                        altText
+                        title
                     }
                 }
                 project {
@@ -251,6 +258,6 @@ export {
     QUERY_ALL_PROJECTS,
     GET_ALL_PROJECTS,
     GET_PROJECT_PAGE,
+    GET_FILTER_PROJECT,
     QUERY_ALL_PROJECTS_PAGE,
-    GET_PROJECT_OUTSTANDING,
 };

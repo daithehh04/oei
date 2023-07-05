@@ -12,7 +12,10 @@ export default function IndustrySuggets({ blog }) {
     return (
         <div className="industry-suggets md:pt-[4.27vw] md:border-t md:border-[#ccc]">
             <span className="text-[#376A66] text-[1.125vw] uppercase md:text-16mb md:leading-[2.15] lg:text-[1.75vw]">
-                {formattedDate} / company news
+                {formattedDate}{" "}
+                <span className="uppercase">
+                    / {blog?.categories?.nodes[0]?.name}
+                </span>
             </span>
             <h3>
                 <Link
@@ -32,7 +35,7 @@ export default function IndustrySuggets({ blog }) {
             />
             <Link
                 href={`/news/industry-news/${encodeURIComponent(blog?.slug)}`}
-                className="text-[#394854] mt-[2.5vw] font-[700] text-[0.8125vw] uppercase leading-[2.57] md:text-[4.267vw] lg:text-[1.75vw]"
+                className="text-[#394854] block mt-[2.5vw] font-[700] text-[1.12vw] uppercase leading-[2.57] md:leading-[1.5] md:mt-[6.4vw] md:mb-[4.27vw] md:text-[4.267vw] lg:text-[1.75vw]"
             >
                 See More +
             </Link>

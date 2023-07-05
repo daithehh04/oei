@@ -11,7 +11,7 @@ export default function OtherProject({ projectAll }) {
                 </h3>
                 <Link
                     href="/project"
-                    className="text-[1vw] uppercase text-[#fff] leading-[1.56] px-[3.125vw] py-[1.125vw] rounded-[2vw] bg-member lg:text-[1.5vw] lg:rounded-[3vw] md:hidden"
+                    className="text-[1vw] uppercase text-[#fff] leading-[1.56] px-[3.125vw] py-[1.125vw] rounded-[2vw] bg-member hover:scale-105 transition-all lg:text-[1.5vw] lg:rounded-[3vw] md:hidden"
                 >
                     See More
                 </Link>

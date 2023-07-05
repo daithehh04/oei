@@ -43,7 +43,10 @@ export default function Proactive({ data }) {
                             src={data?.left?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.left?.img?.altText ||
+                                data?.left?.img?.title
+                            }
                             className="w-full h-[34.0625vw] object-cover mt-[7.5vw] md:h-[71.73vw]"
                             data-aos-once="true"
                             data-aos="fade-right"
@@ -55,7 +58,10 @@ export default function Proactive({ data }) {
                             src={data?.right?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.right?.img?.altText ||
+                                data?.right?.img?.title
+                            }
                             className="w-full h-[34.0625vw] object-cover md:h-[71.73vw] md:mt-[6.4vw]"
                             data-aos-once="true"
                             data-aos="fade-left"

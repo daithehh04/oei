@@ -7,8 +7,10 @@ import { useQuery } from "@apollo/client";
 import { GET_ALL_NEWS_COMPANY } from "@/GraphQL/news/queries";
 import AOS from "aos";
 import { useEffect } from "react";
+import { useRef } from "react";
+import Loading from "@/components/Common/Loading";
 
-export default function ListNewsCompany() {
+export default function ListNewsCompany({ titles, mainNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_COMPANY, {
@@ -20,8 +22,6 @@ export default function ListNewsCompany() {
 
     const nodes = data?.posts?.nodes;
 
-    const mainCompany = nodes?.slice(0, 6);
-
     const pageInfo = data?.posts?.pageInfo.offsetPagination.total;
     const totalPages = Math.ceil(pageInfo / 6);
 
@@ -32,15 +32,21 @@ export default function ListNewsCompany() {
             size: 6,
         });
     };
+    const eleRef = useRef();
     useEffect(() => {
-        const element = document.querySelector(".companys");
-        element.scrollIntoView();
+        eleRef?.current?.scrollIntoView();
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);
         AOS.init();
         AOS.refresh();
     }, []);
+    if (!data)
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
     return (
         <div className="content">
             <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[7.46vw]">
@@ -50,7 +56,7 @@ export default function ListNewsCompany() {
                     data-aos="fade-right"
                     data-aos-duration="1000"
                 >
-                    News & Event
+                    {titles?.title1}
                 </span>
                 <h2
                     className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:text-[8vw]"
@@ -58,19 +64,19 @@ export default function ListNewsCompany() {
                     data-aos="fade-right"
                     data-aos-duration="1000"
                 >
-                    Company News
+                    {titles?.subTitle1}
                 </h2>
             </div>
-            <MainNews mainCompany={mainCompany} />
+            <MainNews mainCompany={mainNews} />
             <div>
-                <div className="companys mt-[6.25vw] mb-[2.5vw]">
+                <div className="mt-[6.25vw] mb-[2.5vw]" ref={eleRef}>
                     <span
                         className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12] lg:text-[2vw] md:text-[3.73vw]"
                         data-aos-once="true"
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        News & Event
+                        {titles?.title2}
                     </span>
                     <h2
                         className="text-60pc font-[800] capitalize tracking-tighter text-primary lg:text-[5vw] md:text-[8vw]"
@@ -78,7 +84,7 @@ export default function ListNewsCompany() {
                         data-aos="fade-right"
                         data-aos-duration="1000"
                     >
-                        article List
+                        {titles?.subTitle2}
                     </h2>
                 </div>
                 <div className="grid grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] md:grid-cols-1">

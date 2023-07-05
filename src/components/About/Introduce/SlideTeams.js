@@ -71,12 +71,15 @@ export default function SlideTeams({ dataSlide }) {
                                             height={426}
                                             className="object-cover w-full h-full"
                                             src={urlImg}
-                                            alt="img"
+                                            alt={
+                                                item?.img?.altText ||
+                                                item?.img?.title
+                                            }
                                         />
                                     </div>
                                     <div className="item-member transition-all duration-500 flex flex-col mt-[1.25vw]">
                                         <div>
-                                            <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal md:text-[2.93vw] lg:text-[1.5vw]">
+                                            <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal md:mt-[4.44vw] md:text-[2.93vw] lg:text-[1.5vw]">
                                                 {item?.role}
                                             </p>
                                             <p className="name-member text-[1.5vw] text-[#394854] font-[700] leading-normal md:text-[4.352vw] lg:text-[2vw] lg:mt-[1vw]">
@@ -92,11 +95,7 @@ export default function SlideTeams({ dataSlide }) {
             </Swiper>
             <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
                 <button
-                    className={`${
-                        indexSlider === 0
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    className={`border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center  lg:w-[4.67vw] lg:h-[4.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -104,8 +103,8 @@ export default function SlideTeams({ dataSlide }) {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -116,23 +115,15 @@ export default function SlideTeams({ dataSlide }) {
                 </button>
                 <button
                     onClick={handleNextSlide}
-                    className={`${
-                        dataSlide.length - indexSlider === 4
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    className={`border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[4.67vw] lg:h-[4.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${
-                            dataSlide.length - indexSlider === 4
-                                ? "#4CA757"
-                                : "white"
-                        }`}
-                        className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw] "
                     >
                         <path
                             strokeLinecap="round"

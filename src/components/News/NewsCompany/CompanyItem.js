@@ -22,15 +22,21 @@ export default function CompanyItem({ company }) {
                     src={urlImg}
                     width={500}
                     height={500}
-                    alt="img"
+                    alt={
+                        company?.featuredImage.node?.altText ||
+                        company?.featuredImage.node?.title
+                    }
                     className="object-cover h-[29.75vw] w-[100%] md:h-[53.6vw]"
                 />
             </div>
             <div className="info p-[1vw] pt-[1.5vw] md:p-[4.26vw]">
                 <div className="date text-[1.25vw] font-[400] md:text-12mb lg:text-[2vw]">
-                    <span>{formattedDate}</span> <span>/Event</span>
+                    <span>{formattedDate}</span>{" "}
+                    <span className="uppercase">
+                        / {company?.categories?.nodes[0]?.name}
+                    </span>
                 </div>
-                <h3 className="title block text-[#394854] font-[800] text-[2vw] line-clamp tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
+                <h3 className="title block text-[#394854] mt-[0.5vw] font-[800] text-[2vw] line-clamp tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
                     {company?.title}
                 </h3>
                 <Link

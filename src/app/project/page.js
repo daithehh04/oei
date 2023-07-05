@@ -2,10 +2,11 @@ import ListProject from "@/components/Project/ListProject/ListProject";
 import React from "react";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import {
-    GET_PROJECT_OUTSTANDING,
+    GET_FILTER_PROJECT,
     GET_PROJECT_PAGE,
 } from "@/GraphQL/project/queries";
 import getData from "@/utils/getData";
+import ListProjectMb from "@/components/Project/ListProject/ListProjectMb";
 
 const GET_META = `{
     page(id: "cG9zdDo4NjM=") {
@@ -81,20 +82,68 @@ export async function generateMetadata() {
 
 export default async function Project() {
     const data = await getData(GET_PROJECT_PAGE);
-    const data_prj = await getData(GET_PROJECT_OUTSTANDING);
     const { header, outstanding, listProject, download } =
         data?.data?.page?.project;
-    const prjOutStanding = data_prj?.data?.allProject?.nodes;
+    const dataFilter = await getData(GET_FILTER_PROJECT);
+    // Years
+    const yearFilter = dataFilter?.data?.allProject?.nodes?.map((item) =>
+        item.date.slice(0, 4)
+    );
+    const uniqueYears = [...new Set(yearFilter)];
+    // Location
+    const locationFilter = dataFilter?.data?.allProject?.nodes?.map(
+        (item) => item.location.nodes
+    );
+    const uniqueLocation = new Set(
+        locationFilter.map((item) => JSON.stringify(item))
+    );
+    const uniqueLocationArray = [...uniqueLocation].map((item) =>
+        JSON.parse(item)
+    );
+    // Type project
+    const prjFilter = dataFilter?.data?.allProject?.nodes?.map(
+        (item) => item.typeProject.nodes
+    );
+    const uniquePrj = new Set(prjFilter.map((item) => JSON.stringify(item)));
+    const uniquePrjArray = [...uniquePrj].map((item) => JSON.parse(item));
+    uniquePrjArray.sort((a, b) => {
+        const nameA = a[0].name.toUpperCase();
+        const nameB = b[0].name.toUpperCase();
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        return 0;
+    });
     return (
         <div className="bg-[#FAFAFA]">
             <HeaderSecond header={header} />
             <div>
-                <ListProject
-                    prjOutStanding={prjOutStanding}
-                    outstanding={outstanding}
-                    listProject={listProject}
-                    download={download}
-                />
+                <div className="md:hidden">
+                    <ListProject
+                        prjOutStanding={outstanding?.listProject}
+                        outstanding={outstanding}
+                        listProject={listProject}
+                        download={download}
+                        yearFilter={uniqueYears}
+                        filterLocation={uniqueLocationArray}
+                        filterPrj={uniquePrjArray}
+                    />
+                </div>
+
+                <div className="hidden md:block">
+                    <ListProjectMb
+                        prjOutStanding={outstanding?.listProject}
+                        outstanding={outstanding}
+                        listProject={listProject}
+                        download={download}
+                        yearFilter={uniqueYears}
+                        filterLocation={uniqueLocationArray}
+                        filterPrj={uniquePrjArray}
+                    />
+                </div>
             </div>
         </div>
     );

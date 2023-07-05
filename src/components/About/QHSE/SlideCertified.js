@@ -34,11 +34,7 @@ export default function SlideCertified({ dataSlide }) {
         >
             <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] m-auto md:gap-x-[2.13vw]">
                 <button
-                    className={`${
-                        indexSlider === 0
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
+                    className={`bg-transparent border border-solid hover:bg-greenPrimary border-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -46,8 +42,8 @@ export default function SlideCertified({ dataSlide }) {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
-                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -58,23 +54,15 @@ export default function SlideCertified({ dataSlide }) {
                 </button>
                 <button
                     onClick={handleNextSlide}
-                    className={`${
-                        dataSlide.length - indexSlider === 4
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
+                    className={`bg-transparent border border-solid hover:bg-greenPrimary border-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${
-                            dataSlide.length - indexSlider === 4
-                                ? "#4CA757"
-                                : "white"
-                        }`}
-                        className="w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        stroke={`#4CA757`}
+                        className="arrow-icon w-[1.3vw] h-[1.3vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -96,7 +84,6 @@ export default function SlideCertified({ dataSlide }) {
                 slidesPerView="auto"
                 spaceBetween={10}
                 onSlideChange={handleSlideChange}
-                modules={[Pagination]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
@@ -115,7 +102,7 @@ export default function SlideCertified({ dataSlide }) {
                                         height={426}
                                         className="object-cover w-full h-full"
                                         src={item?.sourceUrl}
-                                        alt="img"
+                                        alt={item?.altText || item?.title}
                                     />
                                 </div>
                             </Link>

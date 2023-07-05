@@ -1,12 +1,11 @@
 "use client";
 
-import imgPlus from "../../assets/img/plus.png";
+import imgPlus from "../../assets/img/Add.svg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
-
-const arrOtherProject = new Array(7).fill(0);
+import Link from "next/link";
 
 export default function SlideServiceMb({ data }) {
     const swiperRef = useRef();
@@ -14,6 +13,12 @@ export default function SlideServiceMb({ data }) {
     return (
         <div className="relative slide-service">
             <Swiper
+                breakpoints={{
+                    768: {
+                        spaceBetween: 24,
+                        slidesPerView: 2,
+                    },
+                }}
                 slidesPerView="auto"
                 spaceBetween={10}
                 onBeforeInit={(swiper) => {
@@ -24,44 +29,59 @@ export default function SlideServiceMb({ data }) {
                 {data?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="relative item-serviceMb pt-[8vw] !h-[83.46vw]"
+                        className="relative item-serviceMb pt-[8vw] lg:h-[56vw] lg:w-[50%] md:w-[75%] md:h-[83.46vw]"
                     >
                         {({ isActive }) => (
                             <div className="h-full">
-                                <a href="/" className="w-full h-full">
+                                <Link
+                                    href={`/service/${encodeURIComponent(
+                                        item?.slug
+                                    )}`}
+                                    className="block w-full h-full"
+                                >
                                     <div
                                         className={`service-item h-full 
                                         }`}
                                     >
                                         <Image
-                                            src={item?.img?.sourceUrl}
+                                            src={
+                                                item?.featuredImage?.node
+                                                    ?.sourceUrl
+                                            }
                                             alt="img"
                                             width={500}
                                             height={500}
                                         />
-                                        <div className="detail absolute !text-[3.8vw] pl-[2vw]">
-                                            <p>{item?.desc}</p>
-                                            <a
-                                                href="#"
-                                                className="mt-[1vw] !text-[4vw]"
+                                        <div className="detail absolute lg:!text-[2vw] md:!text-[3.8vw] pl-[1.5vw] md:p-[2vw] leading-150">
+                                            <p
+                                                className="line-clamp-4"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: item?.excerpt,
+                                                }}
+                                            ></p>
+                                            <Link
+                                                href={`/service/${encodeURIComponent(
+                                                    item?.slug
+                                                )}`}
+                                                className="mt-[2vw] block lg:!text-[2.25vw] md:!text-[4vw] uppercase"
                                             >
-                                                {item?.btnSee}
-                                            </a>
+                                                See more +
+                                            </Link>
                                         </div>
-                                        <div className="plus !w-[12.43vw] !h-[12.43vw]">
+                                        <div className="plus lg:w-[7vw] lg:h-[7vw] md:!w-[12.43vw] md:!h-[12.43vw]">
                                             <Image
                                                 src={imgPlus}
                                                 width={20}
                                                 height={20}
                                                 alt="img"
-                                                className="!w-[5.04vw] !h-[5.04vw]"
+                                                className="object-contain lg:!w-[3.04vw] lg:!h-[3.04vw] md:!w-[5.04vw] md:!h-[5.04vw]"
                                             />
                                         </div>
-                                        <p className="text !text-[4.26vw]">
-                                            {item?.text}
+                                        <p className="text lg:text-[2.25vw] md:!text-[4.26vw]">
+                                            {item?.title}
                                         </p>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         )}
                     </SwiperSlide>

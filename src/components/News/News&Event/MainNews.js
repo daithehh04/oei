@@ -31,21 +31,27 @@ export default function MainNews({ news }) {
             >
                 <img
                     src={urlImg}
-                    alt="img"
+                    alt={
+                        news?.featuredImage.node?.altText ||
+                        news?.featuredImage.node?.title
+                    }
                     className="w-[100%] h-[38.5vw] object-cover md:h-[70.93vw] lg:h-auto"
                 />
             </Link>
             <div className="right w-[50%] pt-[2.5vw] px-[3.75vw] pb-[3.75vw] flex flex-col justify-between md:w-full md:pt-[6.4vw] md:pb-[8.53vw] md:px-[2.66vw]">
                 <div className="top">
                     <p className="uppercase text-[1.25vw] md:text-[4.26vw]">
-                        <span>{formattedDate}</span> / <span>event</span>
+                        <span>{formattedDate}</span> /{" "}
+                        <span>
+                            {news?.categories?.nodes[0]?.name.slice(0, 5)}
+                        </span>
                     </p>
                     <h3>
                         <Link
                             href={`/news/news&event/${encodeURIComponent(
                                 news?.slug
                             )}`}
-                            className="title text-[3.75vw] line-clamp-3 md:text-[6.67vw] "
+                            className="title text-[3.5vw] line-clamp-3 md:text-[6.67vw] lg:line-clamp-3 md:line-clamp-3"
                         >
                             {news?.title}
                         </Link>
@@ -53,7 +59,7 @@ export default function MainNews({ news }) {
                 </div>
                 <div className="bottom md:mt-[8.53vw]">
                     <p
-                        className="text w-[28.125vw] text-[1.125vw] md:text-14mb md:w-full lg:text-[2vw] lg:w-full"
+                        className="text w-[28.125vw] text-[1.125vw] md:text-14mb md:w-full lg:text-[2vw] lg:w-full lg:line-clamp-4 md:line-clamp-5"
                         dangerouslySetInnerHTML={{
                             __html: news?.excerpt,
                         }}

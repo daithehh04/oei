@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ProjectItem from "./ProjectItem";
 import OutstandingProject from "./OutStandingProject";
 import { QUERY_ALL_PROJECTS } from "@/GraphQL/project/queries";
@@ -8,11 +8,16 @@ import { useEffect } from "react";
 import img from "../../../assets/img/dowload.png";
 import Image from "next/image";
 import AOS from "aos";
+import Loading from "@/components/Common/Loading";
+
 export default function ListProject({
     outstanding,
     listProject,
     download,
     prjOutStanding,
+    yearFilter,
+    filterLocation,
+    filterPrj,
 }) {
     const initLocation = ["an_thuan", "da_nang", "ha_noi"];
     const initTypeProject = ["loai_1", "loai_2", "loai_3", "loai_4"];
@@ -21,6 +26,8 @@ export default function ListProject({
     const [year, setYear] = useState(null);
     const [location, setLocation] = useState(initLocation);
     const [typeProject, setTypeProject] = useState(initTypeProject);
+
+    const parentRef = useRef(null);
 
     const { data, refetch } = useQuery(QUERY_ALL_PROJECTS, {
         variables: {
@@ -31,6 +38,18 @@ export default function ListProject({
             size: 6,
         },
     });
+
+    const eleRef = useRef();
+
+    useEffect(() => {
+        eleRef?.current?.scrollIntoView();
+    }, [activeButton]);
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+        window.scrollTo(0, 0);
+    }, []);
 
     const nodes = data?.allProject?.nodes;
 
@@ -64,18 +83,29 @@ export default function ListProject({
             size: 6,
         });
     };
-    useEffect(() => {
-        const element = document.querySelector(".projects");
-        element.scrollIntoView();
-    }, [activeButton]);
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-        window.scrollTo(0, 0);
-    }, []);
+
+    function fileDownloader(href) {
+        const link = document.createElement("a");
+        link.href = href;
+        link.download = "file";
+        link.click();
+    }
+
+    if (
+        !data &&
+        !year &&
+        location === initLocation &&
+        typeProject === initTypeProject
+    )
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
+
     return (
-        <div className="list-project content">
-            <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw]">
+        <div className="list-project">
+            <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw] content">
                 <h2
                     className=" text-[3.75vw] text-primary leading-[1.33] font-[800] lg:text-[4.67vw] md:text-[8vw]"
                     data-aos-once="true"
@@ -94,22 +124,17 @@ export default function ListProject({
                 </p>
             </div>
             <OutstandingProject project={prjOutStanding} />
-            <div className="row projects flex justify-between mt-[6.4375vw] md:flex-col">
+            <div
+                className="row projects flex justify-between mt-[6.4375vw] md:flex-col content"
+                ref={eleRef}
+            >
                 <h2
-                    className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] md:hidden"
+                    className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] mt-[-1.5vw] md:hidden"
                     data-aos-once="true"
                     data-aos="fade-right"
                     data-aos-duration="2000"
                 >
                     {listProject?.title}
-                </h2>
-                <h2
-                    className="title text-[3.75vw] font-[800] capitalize hidden md:block md:text-[9.33vw] md:mt-[16vw]"
-                    data-aos-once="true"
-                    data-aos="fade-right"
-                    data-aos-duration="2000"
-                >
-                    {listProject?.titleMobile}
                 </h2>
                 <p
                     className="text-[#394854] text-[1.125vw] w-[44.6875vw] lg:text-[2vw] md:w-full md:text-[4.267vw] md:mt-[4.27vw]"
@@ -121,7 +146,10 @@ export default function ListProject({
                 </p>
             </div>
 
-            <div className="filter flex items-center md:justify-between gap-[1.5vw] mt-[-1.5vw] mb-[7.125vw] md:mt-[6.4vw] md:gap-[2.13vw]">
+            <div
+                className="filter flex items-center md:justify-between gap-[1.5vw] pt-[-1.5vw] pb-[7.125vw] md:pt-[6.4vw] md:gap-[2.13vw] content"
+                ref={parentRef}
+            >
                 <div className="project ">
                     <select
                         name="project"
@@ -132,10 +160,11 @@ export default function ListProject({
                         <option value="" hidden>
                             Project
                         </option>
-                        <option value="loai_1">Loại 1</option>
-                        <option value="loai_2">Loại 2</option>
-                        <option value="loai_3">Loại 3</option>
-                        <option value="loai_4">Loại 4</option>
+                        {filterPrj?.map((item) => (
+                            <option value={item?.[0]?.slug}>
+                                {item?.[0]?.name}
+                            </option>
+                        ))}
                     </select>
                 </div>
                 <div className="year ">
@@ -151,13 +180,9 @@ export default function ListProject({
                         <option value="" hidden>
                             Year
                         </option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
+                        {yearFilter?.map((item) => (
+                            <option value={item}>{item}</option>
+                        ))}
                     </select>
                 </div>
                 <div className="location">
@@ -170,19 +195,21 @@ export default function ListProject({
                         <option value="" hidden>
                             Location
                         </option>
-                        <option value="ha_noi">HÀ NỘI</option>
-                        <option value="da_nang">ĐÀ NẴNG</option>
-                        <option value="an_thuan">AN THUẬN</option>
+                        {filterLocation?.map((item) => (
+                            <option value={item?.[0].slug}>
+                                {item?.[0].name}
+                            </option>
+                        ))}
                     </select>
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1">
+            <div className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1 content">
                 {nodes?.map((item) => (
                     <ProjectItem projectItem={item} />
                 ))}
             </div>
-            <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">
+            <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw] content">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <button
                         className="btn cursor-pointer w-[3vw] h-[3vw] rounded-full bg-[#fff] outline-none text-[1.1vw] font-[600] text-[#2b2b2b] mr-[1.5vw] border-none md:w-[10.66vw] md:h-[10.66vw] md:text-16mb md:mr-[4.26vw] lg:w-[6vw] lg:h-[6vw] lg:text-[2vw]"
@@ -199,17 +226,16 @@ export default function ListProject({
                 ))}
             </div>
 
-            <div className="flex items-center pb-[8.09vw] lg:hidden">
+            <div className="flex items-center pb-[8.09vw] content lg:hidden">
                 <p
-                    className="dload text-[2.875vw] font-[800] w-[53%] leading-[1.22] text-[#333333] lg:text-[4.5vw]"
+                    className="dload text-[2.875vw] font-[800] w-[58vw] leading-[1.22] text-[#333333] lg:text-[4.5vw]"
                     dangerouslySetInnerHTML={{
                         __html: download?.text,
                     }}
                 ></p>
-                <a
-                    href={download?.url}
-                    download
-                    className="download flex items-center justify-center bg-member w-[9.4375vw] h-[9.4375vw] rounded-full flex-col ml-[25vw]"
+                <span
+                    onClick={() => fileDownloader(download?.url)}
+                    className="download cursor-pointer flex items-center justify-center bg-member w-[9.4375vw] h-[9.4375vw] rounded-full flex-col ml-auto mr-[4vw]"
                 >
                     <Image
                         src={img}
@@ -221,7 +247,7 @@ export default function ListProject({
                     <span className="text text-[0.6875vw] font-[400] leading-[2.18] uppercase text-[#fff] text-center lg:w-[80%] lg:text-[1.5vw] lg:leading-[1.5]">
                         download profile
                     </span>
-                </a>
+                </span>
             </div>
         </div>
     );

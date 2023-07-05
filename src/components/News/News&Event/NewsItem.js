@@ -21,11 +21,18 @@ export default function NewsItem({ newsItem }) {
                 <img
                     src={urlImg}
                     className="object-cover h-[20.25vw] w-[100%] md:h-[53.6vw] lg:h-[32vw]"
+                    alt={
+                        newsItem?.featuredImage.node?.altText ||
+                        newsItem?.featuredImage.node?.title
+                    }
                 />
             </div>
-            <div className="info p-[1.375vw] md:p-[4.26vw]">
-                <div className="date text-[1.25vw] text-[#376A66] font-[400] md:text-[3.2vw] lg:text-[2vw]">
-                    <span>{formattedDate} </span> <span>/Event</span>
+            <div className="info pt-[1.5vw] px-[1.42vw] pb-[1.96vw] md:p-[4.26vw]">
+                <div className="date text-[1.25vw] text-[#376A66] font-[400] leading-[1.69] md:text-[3.2vw] lg:text-[2vw] opacity-80">
+                    <span>{formattedDate} </span>{" "}
+                    <span className="uppercase">
+                        / {newsItem?.categories?.nodes[0]?.name.slice(0, 5)}
+                    </span>
                 </div>
                 <h3 className="title text-[1.5625vw] text-[#394854] font-[700] mt-[1vw] line-clamp md:text-18mb lg:text-[2vw]">
                     {newsItem?.title}

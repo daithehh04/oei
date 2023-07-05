@@ -11,9 +11,11 @@
 
 .service {
     overflow: hidden;
+
     .list-serviceMb {
         padding-top: 40px;
     }
+
     .list-service {
         gap: calc(0.6875 * 100vw / 100);
         grid-template-columns:
@@ -28,22 +30,24 @@
             )
             calc(11.875 * 100vw / 100);
         grid-template-rows:
-            calc(0.8125 * 100vw / 100) calc(12.125 * 100vw / 100) calc(
-                16 * 100vw / 100
-            )
-            calc(12.25 * 100vw / 100) calc(1.875 * 100vw / 100);
+            calc(0.8125 * 100vw / 100) calc(12.125 * 100vw / 100)
+            calc(16 * 100vw / 100) calc(12.25 * 100vw / 100) calc(1.875 * 100vw /
+                    100);
         grid-template-areas:
             ". . . s3 s3 s3 . . . ."
             "s1 s2 s2 s3 s3 s3 s4 s4 s4 ."
             "s5 s5 s6 s6 s6 s7 s7 s8 s8 s8"
             "s5 s5 s9 s9 s10 s10 s10 s10 s11 s11"
             ". . . . s10 s10 s10 s10 . .";
+
         .title {
             transform: translateX(-100%);
+
             h2 {
                 line-height: 1.5;
                 color: $title-color;
             }
+
             h3 {
                 letter-spacing: -0.05em;
                 background: $bg-primary;
@@ -53,6 +57,7 @@
                 text-fill-color: transparent;
             }
         }
+
         .service-item {
             cursor: pointer;
             position: relative;
@@ -61,10 +66,12 @@
             transition: all 0.3s linear;
             overflow: hidden;
             z-index: 2;
+
             &:hover {
                 scale: 1.3 !important;
                 z-index: 99;
             }
+
             &:hover .plus {
                 opacity: 0;
                 visibility: hidden;
@@ -75,15 +82,18 @@
             }
 
             &:hover .text {
-                font-size: 1.25vw;
+                font-size: 1.5vw;
             }
+
             .text {
+                font-weight: 700;
                 position: absolute;
                 bottom: 17px;
                 color: $white-text;
                 padding: 0 16px;
                 transition: all 0.3s linear;
             }
+
             .plus {
                 border-radius: 50%;
                 background: rgba(0, 0, 0, 0.6);
@@ -98,20 +108,23 @@
                 transform: translateX(-50%);
                 transition: all 0.3s linear;
             }
+
             img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
+
             .detail {
                 transform: translateY(-150%);
                 font-weight: $fw-400;
                 line-height: 1.44;
                 color: $white-text;
                 transition: all 0.4s linear;
-                top: 2vw;
+                top: 1.25vw;
                 margin-left: 1vw;
                 margin-right: 3vw;
+
                 a {
                     display: block;
                     font-size: 1vw;
@@ -121,18 +134,21 @@
                     color: #ffffff;
                 }
             }
+
             &.title {
                 &:hover {
                     scale: none !important;
                 }
             }
         }
+
         .item-1,
         .item-4,
         .item-5,
         .item-8 {
             transform: translateX(-200%);
         }
+
         .item-2,
         .item-3,
         .item-6,
@@ -141,34 +157,42 @@
         .item-10 {
             transform: translateX(200%);
         }
+
         .item-1,
         .item-2,
         .item-3 {
             .text {
                 font-weight: $fw-700;
-                font-size: 0.875vw;
+                font-size: 0.9375vw;
                 line-height: 1.43;
                 text-transform: capitalize;
             }
+
             .plus {
                 width: 2.1875vw;
                 height: 2.1875vw;
             }
+
             &:hover .text {
                 font-size: 1vw;
             }
+
             .detail {
-                top: 1vw;
+                top: 0.875vw;
                 font-size: 0.875vw;
+
                 a {
+                    margin-top: 0.75vw;
                     font-size: 0.875vw;
                 }
             }
         }
+
         .item-9 {
             overflow: visible;
             cursor: unset;
             background: #dbe9e3;
+
             .text {
                 font-size: 1.25vw;
                 margin-left: 10px;
@@ -176,24 +200,29 @@
                 right: -15px;
                 top: 0;
                 bottom: 0;
-                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
+                color: #16a571;
                 transform: rotate(-90deg) translateY(100%);
                 z-index: 9;
             }
+
             &:hover {
                 scale: unset !important;
                 z-index: 1;
             }
+
             &:hover .text {
                 font-size: 1.25vw;
             }
         }
+
         .item-7 {
             .text {
                 font-size: 1.125vw;
+            }
+            &:hover {
+                .text {
+                    font-size: 1.35vw;
+                }
             }
         }
 
@@ -202,17 +231,33 @@
                 width: 3.5vw;
                 height: 3.5vw;
             }
+            .text {
+                font-size: 1.375vw;
+            }
+            &:hover {
+                .text {
+                    font-size: 1.5vw;
+                }
+            }
         }
+
         .item-5,
         .item-6 {
             font-size: 1vw;
+            &:hover {
+                .text {
+                    font-size: 1.25vw;
+                }
+            }
         }
+
         .item-8 {
             cursor: unset;
             background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+
             &:hover {
                 scale: unset !important;
                 z-index: 1;
@@ -221,6 +266,7 @@
             .num {
                 display: flex;
                 gap: 13px;
+
                 span {
                     font-weight: $fw-700;
                     font-size: 6.25vw;
@@ -229,22 +275,26 @@
                     text-transform: uppercase;
                     color: $white-text;
                 }
+
                 img {
                     margin-top: 24px;
                 }
             }
+
             .text {
                 font-weight: $fw-400;
                 font-size: 1vw;
                 line-height: 1.26;
                 text-transform: uppercase;
                 color: #ffffff;
-                bottom: 38px;
+                bottom: 2vw;
             }
+
             &:hover .text {
                 font-size: 1vw;
             }
         }
+
         .item-10 {
             transform: translateX(50%);
             margin-left: 40%;
@@ -258,11 +308,13 @@
             align-items: center;
             justify-content: center;
             background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            transition: all 0.3s ease-in;
             &:hover {
-                scale: unset !important;
+                scale: 1.1 !important;
             }
         }
     }
+
     .title {
         grid-area: s1;
         display: flex;
@@ -270,33 +322,43 @@
         justify-content: center;
         flex-direction: column;
     }
+
     .item-1 {
         grid-area: s2;
     }
+
     .item-2 {
         grid-area: s3;
     }
+
     .item-3 {
         grid-area: s4;
     }
+
     .item-4 {
         grid-area: s5;
     }
+
     .item-5 {
         grid-area: s6;
     }
+
     .item-6 {
         grid-area: s7;
     }
+
     .item-9 {
         grid-area: s8;
     }
+
     .item-8 {
         grid-area: s9;
     }
+
     .item-7 {
         grid-area: s10;
     }
+
     .item-10 {
         grid-area: s11;
     }
@@ -329,6 +391,7 @@
     from {
         -moz-transform: translateX(-100%);
     }
+
     to {
         -moz-transform: translateX(100%);
     }
@@ -339,6 +402,7 @@
     from {
         -webkit-transform: translateX(-100%);
     }
+
     to {
         -webkit-transform: translateX(100%);
     }
@@ -350,6 +414,7 @@
         -webkit-transform: translateX(-100%);
         transform: translateX(-100%);
     }
+
     to {
         -moz-transform: translateX(100%);
         -webkit-transform: translateX(100%);
@@ -357,11 +422,15 @@
     }
 }
 
-//
-.slide-service {
-    .list-service {
-        .item-serviceMb {
-            width: 75%;
+@include tablet {
+    .service {
+        .list-service {
+            .service-item:hover {
+                scale: 1 !important;
+            }
         }
+    }
+    .service .list-service .service-item:hover .text {
+        font-size: 2.25vw;
     }
 }

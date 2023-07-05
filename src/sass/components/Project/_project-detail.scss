@@ -2,12 +2,14 @@
     .wp-block-image {
         width: 100%;
         img {
-            margin-top: 8.67vw;
             width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
     p {
+        margin-bottom: 1vw;
+        margin-top: 1.5vw;
         font-weight: 400;
         font-size: 1.125vw;
         color: #394854;
@@ -15,7 +17,6 @@
     }
     h3 {
         margin-top: 4.125vw;
-        margin-bottom: 1.5vw;
         font-weight: 800;
         font-size: 2.875vw;
         background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
@@ -24,14 +25,34 @@
         background-clip: text;
         text-fill-color: transparent;
     }
-    .wp-block-gallery.is-layout-flex {
-        margin-top: 2.875vw;
-        margin-bottom: 2.5vw;
+    .wp-block-columns.is-layout-flex {
         display: flex;
         gap: 1.375vw;
         img {
             margin-top: 0;
             object-fit: cover;
+        }
+    }
+    .wp-block-gallery.is-layout-flex {
+        display: flex;
+        gap: 1.375vw;
+        img {
+            margin-top: 0;
+            object-fit: cover;
+        }
+        .wp-block-image.size-full {
+            width: 50%;
+            img {
+                object-fit: cover;
+                height: 31.06vw;
+            }
+        }
+    }
+    .wp-block-column.is-layout-flow {
+        width: 50%;
+        img {
+            object-fit: cover;
+            height: 31.06vw;
         }
     }
 }
@@ -49,13 +70,9 @@
 
 @include mobile {
     .content-projectDetail {
-        .wp-block-image {
-            img {
-                margin-top: 10.67vw;
-                height: 83.46vw;
-            }
-        }
         p {
+            margin-top: 4.27vw;
+            margin-bottom: 4.27vw;
             font-size: 3.73vw;
         }
         h3 {
@@ -64,12 +81,15 @@
             margin-bottom: 4.27vw;
             font-size: 6.67vw;
         }
+
+        .wp-block-column.is-layout-flow,
         .wp-block-gallery.is-layout-flex {
-            margin-top: 4.27vw;
-            margin-bottom: 4.27vw;
             img {
                 height: 36vw;
             }
+        }
+        .wp-block-columns .is-layout-flex {
+            display: flex;
         }
     }
 }

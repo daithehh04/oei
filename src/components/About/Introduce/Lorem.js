@@ -9,7 +9,7 @@ export default function Lorem({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="lorem-introduce pt-[6.25vw] pb-[4.5625vw] overflow-hidden">
+        <div className="lorem-introduce pt-[6.25vw] pb-[4.5625vw] md:pt-[16vw] overflow-hidden">
             <div className="content">
                 <h2
                     className="w-[50.1875vw] text-46pc font-[800] leading-[1.22] text-primary tracking-tighter lg:text-[4.5vw] lg:w-[80%] md:text-[6.66vw] md:w-[100%]"
@@ -25,7 +25,10 @@ export default function Lorem({ data }) {
                             src={data?.left?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.left?.img?.altText ||
+                                data?.left?.img?.title
+                            }
                             className="object-cover w-full"
                             data-aos-once="true"
                             data-aos="fade-right"
@@ -73,7 +76,10 @@ export default function Lorem({ data }) {
                             src={data?.right?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.right?.img?.altText ||
+                                data?.right?.img?.title
+                            }
                             className="object-cover w-full"
                             data-aos-once="true"
                             data-aos="fade-left"

@@ -24,12 +24,22 @@ export default function MainBlog({ mainBlogs }) {
                         src={urlImg}
                         width={500}
                         height={500}
-                        alt="img"
+                        alt={
+                            firstBlog?.featuredImage.node?.altText ||
+                            firstBlog?.featuredImage.node?.title
+                        }
                         className="w-full h-[30.4375vw] object-cover md:h-[70.93vw]"
                     />
                     <div className="info">
                         <span className="text-[#376A66] text-[1.125vw] uppercase mt-[1.5vw] md:text-16mb md:mt-[4.26vw] lg:text-[1.75vw]">
-                            {formattedDate} / company news
+                            {formattedDate}{" "}
+                            <span className="uppercase">
+                                /{" "}
+                                {firstBlog?.categories?.nodes[0]?.name.slice(
+                                    0,
+                                    4
+                                )}
+                            </span>
                         </span>
                         <h3>
                             <Link
@@ -51,7 +61,7 @@ export default function MainBlog({ mainBlogs }) {
                             href={`/news/blogs/${encodeURIComponent(
                                 firstBlog?.slug
                             )}`}
-                            className="text-[#394854] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]"
+                            className="text-[#394854] md:mb-[4.27vw] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]"
                         >
                             See More +
                         </Link>

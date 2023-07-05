@@ -59,7 +59,9 @@ export default function SlideAssets({ dataSlide }) {
                                                 height={426}
                                                 className="object-cover w-full h-full"
                                                 src={item?.sourceUrl}
-                                                alt="img"
+                                                alt={
+                                                    item?.altText || item?.title
+                                                }
                                             />
                                         </a>
                                     </div>

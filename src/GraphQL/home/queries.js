@@ -62,14 +62,17 @@ const GET_DATA_HOME = gql`
                 service {
                     title
                     subTitle
-                    listService {
-                        img {
-                            sourceUrl
+                    outstandingService {
+                        ... on Service {
+                            title
+                            slug
+                            excerpt
+                            featuredImage {
+                                node {
+                                    sourceUrl
+                                }
+                            }
                         }
-                        altImg
-                        desc
-                        btnSee
-                        text
                     }
                     background {
                         sourceUrl
@@ -182,9 +185,6 @@ const GET_DATA_HOME_PAGE = `
                     title
                     desc
                     btnSee
-                    imgLeft {
-                        sourceUrl
-                    }
                     repeatImg {
                         img {
                             sourceUrl
@@ -196,14 +196,19 @@ const GET_DATA_HOME_PAGE = `
                 service {
                     title
                     subTitle
-                    listService {
-                        img {
+                    outstandingService {
+                    ... on Service {
+                        title
+                        slug
+                        excerpt
+                        featuredImage {
+                        node {
                             sourceUrl
+                            altText
+                            title
                         }
-                        altImg
-                        desc
-                        btnSee
-                        text
+                        }
+                    }
                     }
                     background {
                         sourceUrl

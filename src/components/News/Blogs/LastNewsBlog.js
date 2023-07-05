@@ -1,6 +1,9 @@
 import React from "react";
-import LastNews from "../NewsDetail/LastNews";
+import dynamic from "next/dynamic";
+const LastNews = dynamic(() => import("../NewsDetail/LastNews"), {
+    ssr: false,
+});
 
-export default function LastNewsBlog({ data }) {
-    return <LastNews news={data} />;
+export default function LastNewsBlog({ data, slug }) {
+    return <LastNews news={data} slug={slug} />;
 }

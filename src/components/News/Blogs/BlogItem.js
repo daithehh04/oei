@@ -20,13 +20,19 @@ export default function BlogItem({ blog }) {
                     src={urlImg}
                     width={500}
                     height={500}
-                    alt="img"
+                    alt={
+                        blog?.featuredImage.node?.altText ||
+                        blog?.featuredImage.node?.title
+                    }
                     className="object-cover h-[29.75vw] w-[100%] md:h-[53.6vw]"
                 />
             </Link>
             <div className="info p-[1vw] pt-[1.5vw] md:p-[4.267vw]">
-                <div className="date text-[1.125vw] font-[400] md:text-12mb lg:text-[1.75vw]">
-                    <span>{formattedDate}</span> <span>/Event</span>
+                <div className="date text-[1.125vw] text-[#394854] font-[400] md:text-12mb lg:text-[1.75vw]">
+                    <span>{formattedDate}</span>{" "}
+                    <span className="uppercase">
+                        / {blog?.categories?.nodes[0]?.name.slice(0, 4)}
+                    </span>
                 </div>
                 <Link
                     href={`/news/blogs/${encodeURIComponent(blog?.slug)}`}

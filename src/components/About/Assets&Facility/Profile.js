@@ -6,12 +6,12 @@ import AOS from "aos";
 import { useEffect } from "react";
 
 export default function Profile({ data }) {
-    // function fileDownloader(href) {
-    //     const link = document.createElement("a");
-    //     link.href = href;
-    //     link.download = "file";
-    //     link.click();
-    // }
+    function fileDownloader(href) {
+        const link = document.createElement("a");
+        link.href = href;
+        link.download = "file";
+        link.click();
+    }
     useEffect(() => {
         AOS.init();
         AOS.refresh();
@@ -44,10 +44,16 @@ export default function Profile({ data }) {
                                 alt="img"
                                 className="w-[1.625vw h-[1.625vw] object-contain md:w-[6.23vw] md:h-[6.23vw] lg:w-[3.2vw] lg:h-[3.2vw] "
                             />
-                            <span className="text-[#394854] text-18pc font-[700] uppercase leading-[2] lg:text-[1.75vw] md:hidden">
+                            <span
+                                onClick={() => fileDownloader(data?.left?.url)}
+                                className="text-[#394854] text-18pc font-[700] uppercase leading-[2] lg:text-[1.75vw] md:hidden"
+                            >
                                 {data?.left?.label}
                             </span>
-                            <span className="text-[#394854] text-[3.2vw] font-[700] uppercase leading-[2] hidden md:block">
+                            <span
+                                onClick={() => fileDownloader(data?.left?.url)}
+                                className="text-[#394854] text-[3.2vw] font-[700] uppercase leading-[2] hidden md:block"
+                            >
                                 {data?.left.labelMobile}
                             </span>
                         </div>
@@ -68,7 +74,7 @@ export default function Profile({ data }) {
                         <h2 className="text-[2.875vw] font-[800] text-primary pb-[0.62vw] tracking-tighter leading-[1.213] border-b-2 border-[#979797] md:text-[8vw] md:pb-[2.13vw]">
                             {data?.right?.title}
                         </h2>
-                        <div className="mt-[0.75vw] pb-[1.44vw]">
+                        <div className="mt-[0.75vw] pb-[1.44vw] h-[20vw] lg:h-[30vw] md:h-[70vw] overflow-y-auto">
                             {data?.right?.listItem?.map((item) => (
                                 <div className="flex items-center w-[93.33%] py-[1.15vw] border-b border-[#ccc] md:py-[4.27vw] cursor-pointer">
                                     <Image
@@ -78,10 +84,15 @@ export default function Profile({ data }) {
                                         alt="img"
                                         className="w-[1.625vw h-[1.625vw] object-contain md:w-[6.23vw] md:h-[6.23vw] lg:w-[3.2vw] lg:h-[3.2vw]"
                                     />
-                                    <span className="text-[#394854] text-[1vw] leading-[1.68] uppercase ml-[0.62vw] md:text-[3.2vw] md:ml-[1.23vw] md:line-clamp-1 lg:text-[1.55vw]">
+                                    <span
+                                        onClick={() =>
+                                            fileDownloader(item?.url)
+                                        }
+                                        className="text-[#394854] text-[1vw] leading-[1.68] uppercase ml-[0.62vw] md:text-[3.2vw] md:ml-[1.23vw] md:line-clamp-1 lg:text-[1.55vw]"
+                                    >
                                         {item?.text}
                                     </span>
-                                    <span className="text-[#434447] text-[0.875vw] font-[300] leading-normal ml-auto md:text-[2.75vw] lg:text-[1.45vw]">
+                                    <span className="text-[#434447] text-[0.875vw] font-[300] leading-normal ml-auto md:text-[2.75vw] lg:text-[1.45vw] md:hidden">
                                         {item?.date}
                                     </span>
                                 </div>

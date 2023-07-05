@@ -13,7 +13,7 @@ export default function Strives({ data }) {
         <div className="strives relative overflow-hidden pb-[8.5vw] lg:pb-[10vw] md:pb-[12vw]">
             <div className="content">
                 <h2
-                    className="title text-46pc text-[#394854] font-[800] leading-[1.22] tracking-tighter w-[44.6875vw] ml-[30%] z-10 absolute top-[8.625vw] lg:text-[4vw] lg:w-[60%] lg:ml-[16%] md:text-[6.66vw] md:w-[80.8%] md:ml-[10%] md:top-[17.6vw]"
+                    className="title text-46pc mt-[4.38vw] md:mt-[15vw] text-[#394854] font-[800] leading-[1.22] tracking-tighter w-[61.0625vw] z-10 lg:text-[4vw] lg:w-[80%] md:text-[6.66vw] md:w-full"
                     dangerouslySetInnerHTML={{
                         __html: data?.title,
                     }}
@@ -21,13 +21,16 @@ export default function Strives({ data }) {
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 ></h2>
-                <div className="imgs flex gap-[3.125vw] pt-[18.1875vw] md:pt-[43.73vw] items-baseline lg:flex-col">
+                <div className="imgs flex gap-[3.125vw] pt-[2.5vw] md:pt-[4.27vw] items-baseline lg:flex-col">
                     <div>
                         <Image
                             src={data?.listItem?.[0]?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.listItem?.[0]?.img?.altText ||
+                                data?.listItem?.[0]?.img?.title
+                            }
                             className="w-full h-[34.8125vw] object-cover lg:h-[54vw] md:h-[70.93vw]"
                             data-aos-once="true"
                             data-aos="fade-right"
@@ -48,7 +51,10 @@ export default function Strives({ data }) {
                             src={data?.listItem?.[1]?.img?.sourceUrl}
                             width={500}
                             height={500}
-                            alt="img"
+                            alt={
+                                data?.listItem?.[1]?.img?.altText ||
+                                data?.listItem?.[1]?.img?.title
+                            }
                             className="w-full h-[26.375vw] object-cover lg:h-[46vw] md:h-[60vw]"
                             data-aos-once="true"
                             data-aos="fade-left"

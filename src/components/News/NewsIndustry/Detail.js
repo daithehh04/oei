@@ -9,10 +9,18 @@ export default function Detail({ slug, data }) {
     const lastNews = nodes?.filter(
         (item) => item?.categories?.nodes[0]?.name === "Industry News"
     );
+    const type = "news&event";
+    const result = lastNews?.filter((item) => item?.slug !== NewsItem?.slug);
+    if (!data)
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
     return (
-        <div className="pb-[7.5vw]">
+        <div className="pb-[7.5vw] bg-[#FAFAFA] md:pb-[20vw]">
             <NewsDetail NewsItem={NewsItem} />
-            <LastNewsIndustry data={lastNews} />
+            <LastNewsIndustry data={result} slug={type} />
         </div>
     );
 }

@@ -3,10 +3,10 @@ import twitter from "../../../assets/img/twitter.png";
 import fb from "../../../assets/img/fb.png";
 import linkedin from "../../../assets/img/linkedin.png";
 
-import dropdown from "../../../assets/img/arrow-down.png";
 import HeaderSecond from "@/components/Common/HeaderSecond";
 import Link from "next/link";
-// import React, { useEffect, useState } from "react";
+import TableContent from "./TableContent";
+import Loading from "@/components/Common/Loading";
 
 export default async function NewsDetail({ NewsItem }) {
     const background = NewsItem?.featuredImage?.node;
@@ -21,29 +21,32 @@ export default async function NewsDetail({ NewsItem }) {
 
     const formattedDate = `${day}.${month}.${year}`;
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         var headings = document.querySelectorAll("h3, h4");
-    //         setHeadings(headings);
-
-    //         headings.forEach(function (heading, index) {
-    //             var level = parseInt(heading.tagName.charAt(1));
-    //             var title = heading.innerText;
-    //             var slug = "tieu-de-" + (index + 1);
-
-    //             heading.id = slug;
-    //         });
-    //     }, 2000);
-    // }, []);
+    let category = NewsItem?.categories?.nodes[0]?.name;
+    if (category.toString().toUpperCase() === "EVENT NEWS") {
+        category = "EVENT";
+    }
+    if (category.toString().toUpperCase() === "BLOGS") {
+        category = "BLOG";
+    }
+    if (!NewsItem)
+        return (
+            <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
+                <Loading />
+            </div>
+        );
     return (
-        <div className="bg-[#FAFAFA]">
+        <>
             <HeaderSecond header={header} />
             <div className="content-newsDetail">
                 <h2 className="text-[2.875vw] text-primary font-[800] tracking-tighter leading-[1.22] mt-[6.25vw] mb-[1vw] md:text-[6.67vw] md:mt-[16vw] lg:text-[4.67vw]">
                     {NewsItem?.title}
                 </h2>
-                <span className="text-[1.25w] font-[400] leading-[1.69] text-[#376A66] md:text-[4.8vw] md:mt-[2.67vw]">
-                    {formattedDate} / EVENT
+                <span className="text-[1.269vw] font-[400] leading-[1.69] text-[#376A66] md:text-[4.8vw] md:mt-[2.67vw]">
+                    {formattedDate}{" "}
+                    <span className="uppercase"> / {category} </span>
+                </span>
+                <span className="text-[#376A66] capitalize text-[1.269vw] md:text-[4.8vw]">
+                    - {NewsItem?.newsDetail?.author}
                 </span>
                 <div className="w-[100%] h-[1px] bg-neutral-200 mt-[1vw] mb-[2vw]"></div>
                 <Image
@@ -54,48 +57,7 @@ export default async function NewsDetail({ NewsItem }) {
                     className="h-[35.4375vw] w-full object-cover mt-[2vw] md:h-[50vw] md:mt-[4.63vw]"
                 />
                 {/* Table content */}
-                <div className="table-content p-[2vw] bg-[#fff] w-[60%] mb-[2vw] md:w-full md:p-[4.27vw] md:mt-[7.73vw]">
-                    <div className="flex items-center justify-between">
-                        <span className="text-[2vw] text-[#394854] font-[800] leading-[1.25] tracking-tighter mb-[1.5vw] md:text-[6.4vw] lg:text-[4vw]">
-                            Table of Contents
-                        </span>
-                        <Image
-                            src={dropdown}
-                            alt="drop-down"
-                            width={50}
-                            height={50}
-                            className="w-[0.75vw] h-[1vw] object-contain lg:w-[1.35vw] lg:h-[1.85vw] md:w-[2.13vw] md:h-[3.73vw]"
-                        />
-                    </div>
-                    {/* Table content */}
-                    {/* <div id="table-of-contents">
-                        <ul>
-                            {headings.map((heading, index) => {
-                                const level = parseInt(
-                                    heading.tagName.charAt(1)
-                                );
-                                const title = heading.innerText;
-                                const slug = "tieu-de-" + (index + 1);
-
-                                return (
-                                    <li key={slug}>
-                                        <a href={`#${slug}`}>{title}</a>
-                                    </li>
-                                );
-                            })}
-                        </ul>
-                    </div> */}
-                    {/* {titles.map((item, index) => (
-                        <a href={`#element-${index + 1}`}>
-                            <h3
-                                className="text-[1.125vw] font-[600] leading-[1.83] text-[#394854] mt-[1vw]"
-                                key={index}
-                            >
-                                {item.textContent}
-                            </h3>
-                        </a>
-                    ))} */}
-                </div>
+                <TableContent />
 
                 {/* Content news */}
                 <div
@@ -144,6 +106,6 @@ export default async function NewsDetail({ NewsItem }) {
                     </ul>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

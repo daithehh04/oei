@@ -34,12 +34,8 @@
         outline: none;
     }
 
-    .select select option:hover {
-        background-color: #e0e0e0;
-    }
-
-    .select > option {
-        padding: 8px;
+    .select option {
+        font-size: 1vw;
     }
 
     .select > option:selected {
@@ -66,10 +62,20 @@
                     }
                     .desc {
                         transform: translateY(-100%);
-                        transition: all linear 0.2s;
+                        transition: all linear 0.4s;
                     }
                     &:hover .desc {
                         transform: translateY(0);
+                    }
+                    .overlay-img {
+                        background-color: #00000033;
+                        opacity: 0;
+                        transition: all 0.4s ease-in;
+                    }
+                    &:hover {
+                        .overlay-img {
+                            opacity: 1;
+                        }
                     }
                 }
                 .prj.active {
@@ -134,6 +140,9 @@
             background-size: 1.27vw;
             background-position: 85% center;
             font-size: 1.85vw;
+            option {
+                font-size: 2vw;
+            }
         }
     }
 }
@@ -144,6 +153,9 @@
             background-size: 2.67vw;
             background-position: 85% center;
             font-size: 3.2vw;
+            option {
+                font-size: 3.67vw;
+            }
         }
     }
 }

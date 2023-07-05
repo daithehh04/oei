@@ -6,12 +6,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import imgPlusNum from "../../assets/img/+.png";
-import imgPlus from "../../assets/img/plus.png";
+import imgPlus from "../../assets/img/Add.svg";
 
 import SlideTextService from "./SlideTextService";
 import { useRef } from "react";
 import { useLayoutEffect } from "react";
 import SlideServiceMb from "./SlideServiceMb";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,8 +25,9 @@ function initializeGSAPWithDelay(delay) {
                 scrollTrigger: {
                     trigger: box,
                     start: "top bottom",
-                    end: "top 20%",
+                    end: "top 60%",
                     scrub: true,
+                    once: true,
                 },
             });
         });
@@ -55,19 +57,10 @@ const Service = ({ data }) => {
         }, 100);
     };
 
-    const altText = data?.altImg || "img";
-    var sectionStyle = {
-        width: "100%",
-        height: "auto",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${data?.background.sourceUrl})`,
-    };
-
     return (
-        <div className="service" style={sectionStyle} ref={parentRef}>
+        <div className="relative service" ref={parentRef}>
             <div className="content">
-                <div className="list-service pt-[9.4375vw] grid md:hidden">
+                <div className="list-service pt-[9.4375vw] grid lg:hidden">
                     <div className="service-item title">
                         <h2 className="text-[1.125vw] font-[700] uppercase tracking-[0.12em]">
                             {data?.title}
@@ -77,24 +70,38 @@ const Service = ({ data }) => {
                         </h3>
                     </div>
 
-                    {data?.listService.map((item, index) => (
-                        <div
+                    {data?.outstandingService?.map((item, index) => (
+                        <Link
+                            href={`/service/${encodeURIComponent(item?.slug)}`}
                             className={`service-item item-${index + 1}`}
                             onMouseEnter={handleEnterOverlay}
                             onMouseLeave={handleLeaveOverlay}
                             key={index}
                         >
                             <Image
-                                src={item?.img?.sourceUrl}
-                                alt={altText}
+                                src={item?.featuredImage?.node?.sourceUrl}
+                                alt={
+                                    item?.featuredImage?.node?.altText ||
+                                    item?.featuredImage?.node?.title
+                                }
                                 width={500}
                                 height={500}
                             />
-                            <div className="detail absolute text-[1vw]">
-                                <p>{item?.desc}</p>
-                                <a href="#" className="mt-[1vw]">
-                                    {item?.btnSee}
-                                </a>
+                            <div className="detail absolute text-[1vw] ">
+                                <p
+                                    className="line-clamp-3"
+                                    dangerouslySetInnerHTML={{
+                                        __html: item?.excerpt,
+                                    }}
+                                ></p>
+                                <Link
+                                    href={`/service/${encodeURIComponent(
+                                        item?.slug
+                                    )}`}
+                                    className="block mt-[1vw] uppercase"
+                                >
+                                    See more +
+                                </Link>
                             </div>
                             <div className="plus w-[2.875vw] h-[2.875vw]">
                                 <Image
@@ -103,8 +110,8 @@ const Service = ({ data }) => {
                                     className="!w-[1.125vw] !h-[1.125vw]"
                                 />
                             </div>
-                            <p className="text text-[1vw]">{item?.text}</p>
-                        </div>
+                            <p className="text text-[1vw]">{item?.title}</p>
+                        </Link>
                     ))}
 
                     {data?.item1.map((item, index) => (
@@ -135,16 +142,16 @@ const Service = ({ data }) => {
                     ))}
 
                     {data?.item3.map((item, index) => (
-                        <a
-                            href="#"
+                        <Link
+                            href={`/service`}
                             className="service-item item-10 text-[1.125vw] text-[#fff] uppercase"
                             key={index}
                         >
                             <span>{item?.text}</span>
-                        </a>
+                        </Link>
                     ))}
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                     <div className="flex items-end justify-between">
                         <div>
                             <h2 className="text-[3.73vw] font-[700] text-subtileNew uppercase mt-[19.2vw]">
@@ -154,18 +161,25 @@ const Service = ({ data }) => {
                                 Our Service
                             </h3>
                         </div>
-                        <a
-                            href="#"
+                        <Link
+                            href={`/service`}
                             className="block text-[4.26vw] text-blackBtnNews uppercase font-[800]"
                         >
                             See All +
-                        </a>
+                        </Link>
                     </div>
-                    <SlideServiceMb data={data?.listService} />
+                    <SlideServiceMb data={data?.outstandingService} />
                 </div>
             </div>
             <SlideTextService text={data?.textBottom} />
             <div className={`${over_lay}`}></div>
+            <Image
+                src={data?.background.sourceUrl}
+                width={500}
+                height={500}
+                alt="img"
+                className="absolute top-0 bottom-0 left-0 right-0 object-cover w-full h-full -z-10"
+            />
         </div>
     );
 };

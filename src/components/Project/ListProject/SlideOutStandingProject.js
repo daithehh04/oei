@@ -11,6 +11,7 @@ export default function SlideOutstandingProject({ project }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
 
+    console.log(project);
     const handleNextSlide = () => {
         swiperRef.current?.slideNext();
     };
@@ -60,7 +61,7 @@ export default function SlideOutstandingProject({ project }) {
                                         href={`project/${encodeURIComponent(
                                             item?.slug
                                         )}`}
-                                        className=" block w-full h-[37.125vw] img-outstanding md:h-[56.75vw]"
+                                        className=" block w-full h-[37.125vw] relative img-outstanding md:h-[56.75vw]"
                                     >
                                         <Image
                                             width={344}
@@ -70,10 +71,15 @@ export default function SlideOutstandingProject({ project }) {
                                                 item?.featuredImage?.node
                                                     ?.sourceUrl
                                             }
-                                            alt="img"
+                                            alt={
+                                                item?.featuredImage.node
+                                                    ?.altText ||
+                                                item?.featuredImage.node?.title
+                                            }
                                         />
+                                        <div className="absolute top-0 bottom-0 left-0 right-0 overlay-img"></div>
                                     </Link>
-                                    <div className="info-block flex items-center justify-between p-[1.5vw] md:px-[1.5vw] md:pt-[4.27vw] md:pb-[5vw] bg-[#fff]">
+                                    <div className="info-block flex items-center justify-between p-[1.5vw] md:px-[2.67vw] md:pt-[4.27vw] md:pb-[5vw] bg-[#fff]">
                                         <div className="info">
                                             <p className="text-[1.125vw] font-[400] leading-[1.44] text-[#394854] uppercase lg:text-[1.85vw] md:text-[3.2vw]">
                                                 {
@@ -116,7 +122,7 @@ export default function SlideOutstandingProject({ project }) {
                                                 0{index + 1}
                                             </span>
                                             <span className="text-[1.5vw] font-[400] lg:text-[3vw]">
-                                                /5
+                                                /0{project?.length}
                                             </span>
                                         </div>
                                         <div className="flex flex-col gap-[1.5vw] lg:ml-[2vw] md:hidden">
@@ -187,7 +193,7 @@ export default function SlideOutstandingProject({ project }) {
                                                     0{index + 1}
                                                 </span>
                                                 <span className="text-[5.867vw] font-[400]">
-                                                    /5
+                                                    /0{project?.length}
                                                 </span>
                                             </div>
 

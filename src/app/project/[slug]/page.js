@@ -9,11 +9,70 @@ import img from "../../../assets/img/about-circle.png";
 import Image from "next/image";
 import Contact from "@/components/Common/Contact";
 
+export async function generateMetadata({ params }) {
+    const data = await getData(GET_ALL_PROJECTS);
+    if (!data) return;
+    const projectDetail = data?.data?.allProject?.nodes.find(
+        (e) => e?.slug === params?.slug
+    );
+    const { featuredImage, title, excerpt } = projectDetail;
+    return {
+        title: title,
+        description: excerpt,
+        applicationName: process.env.SITE_NAME,
+        openGraph: {
+            title: title,
+            description: excerpt,
+            url: process.env.DOMAIN,
+            siteName: process.env.SITE_NAME,
+            images: [
+                {
+                    url: featuredImage?.node?.sourceUrl,
+                    alt:
+                        featuredImage?.node?.altText ||
+                        featuredImage?.node?.title,
+                },
+            ],
+            locale: "en_US",
+            type: "website",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: title,
+            description: excerpt,
+            creator: process.env.SITE_NAME,
+            images: [
+                {
+                    url: featuredImage?.node?.sourceUrl,
+                    alt:
+                        featuredImage?.node?.altText ||
+                        featuredImage?.node?.title,
+                },
+            ],
+        },
+        robots: {
+            index: false,
+            follow: true,
+            nocache: true,
+            googleBot: {
+                index: true,
+                follow: false,
+                noimageindex: true,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
+            },
+        },
+    };
+}
+
 export default async function ProjectDetail(context) {
     const data = await getData(GET_ALL_PROJECTS);
     const nodes = data?.data?.allProject?.nodes;
     const slug = context.params.slug;
     const projectItem = nodes?.find((e) => e?.slug === slug);
+
+    const result = nodes?.filter((item) => item?.slug !== projectItem?.slug);
 
     const background = projectItem?.featuredImage?.node;
     const title = projectItem?.title;
@@ -36,7 +95,7 @@ export default async function ProjectDetail(context) {
                         <ul className="grid grid-cols-2 mt-[4.375vw] gap-x-[2.6875vw]">
                             {projectItem?.projectDetail?.repeatLocation?.map(
                                 (item) => (
-                                    <li className="py-[1vw] border-t border-[#BDBDBD]">
+                                    <li className="pt-[1vw] pb-[2vw] border-t border-[#BDBDBD]">
                                         <span className="text-[1.25vw] text-[#3A5469] font-[700] leading-[2.25] lg:text-[1.85vw] md:text-[3.733vw] md:leading-[1.67]">
                                             {item?.title}
                                         </span>
@@ -62,7 +121,7 @@ export default async function ProjectDetail(context) {
                         <ul className="mt-[2vw]">
                             {projectItem?.projectDetail?.repeatTech?.map(
                                 (item) => (
-                                    <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff] md:py-[4.27vw]">
+                                    <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff] border-opacity-50 md:py-[4.27vw]">
                                         <span className="text-[1.25vw] tracking-tighter capitalize font-[700] lg:text-[1.85vw] md:text-[4.26vw]">
                                             {item?.title}
                                         </span>
@@ -76,7 +135,14 @@ export default async function ProjectDetail(context) {
                     </div>
                 </div>
             </div>
-            <div className="content">
+            <Image
+                src={projectItem?.projectDetail?.backgroundDetail?.sourceUrl}
+                width={500}
+                height={500}
+                alt="img"
+                className="object-cover content mt-[8.69vw] h-[41vw] md:h-[83.44vw] md:mt-[10.67vw]"
+            />
+            <div className="w-[67.5%] md:w-[94.66%] ml-auto mr-auto">
                 <div
                     className="content-projectDetail"
                     dangerouslySetInnerHTML={{ __html: projectItem?.content }}
@@ -84,7 +150,7 @@ export default async function ProjectDetail(context) {
             </div>
             <AlbumProject imgsAlbum={imgsAlbum} />
             <Contact />
-            <OtherProject projectAll={nodes} />
+            <OtherProject projectAll={result} />
         </div>
     );
 }

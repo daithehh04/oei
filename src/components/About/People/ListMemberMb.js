@@ -56,7 +56,10 @@ export default function ListMemberMb({ data }) {
                                         height={426}
                                         className="object-cover w-full h-full"
                                         src={item?.img?.sourceUrl}
-                                        alt="img"
+                                        alt={
+                                            item?.img?.altText ||
+                                            item?.img?.title
+                                        }
                                     />
                                 </div>
                                 <div className="item-member bg-white transition-all duration-500 flex flex-col mt-[1.25vw]">
@@ -76,11 +79,7 @@ export default function ListMemberMb({ data }) {
             </Swiper>
             <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
                 <button
-                    className={`${
-                        indexSlider === 0
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -88,7 +87,7 @@ export default function ListMemberMb({ data }) {
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${indexSlider === 0 ? "#4CA757" : "white"}`}
+                        stroke={`#4CA757`}
                         className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
@@ -100,22 +99,14 @@ export default function ListMemberMb({ data }) {
                 </button>
                 <button
                     onClick={handleNextSlide}
-                    className={`${
-                        data?.listPeople.length - indexSlider === 1
-                            ? "bg-transparent border border-solid border-greenPrimary cursor-not-allowed"
-                            : "bg-greenPrimary cursor-pointer"
-                    } w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
-                        stroke={`${
-                            data?.listPeople.length - indexSlider === 1
-                                ? "#4CA757"
-                                : "white"
-                        }`}
+                        stroke={`#4CA757`}
                         className="w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path

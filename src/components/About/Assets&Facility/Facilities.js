@@ -19,7 +19,7 @@ export default function Facilities({ data }) {
             >
                 {data?.title}
             </h2>
-            <div className="pb-[5vw] md:pb-[16vw] lg:pb-[10vw]">
+            <div className="pb-[7.5vw] md:pb-[16vw] lg:pb-[10vw]">
                 <FacilitiesSlide dataSlide={data?.listAssets} />
             </div>
         </div>
