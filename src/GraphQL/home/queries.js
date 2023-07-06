@@ -224,9 +224,6 @@ const GET_DATA_HOME_PAGE = `
                         number
                         text
                     }
-                    item3 {
-                        text
-                    }
                     textBottom
                 }
                 partners {

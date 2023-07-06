@@ -59,14 +59,9 @@ export default function SlideServiceMb({ data }) {
                                                     __html: item?.excerpt,
                                                 }}
                                             ></p>
-                                            <Link
-                                                href={`/service/${encodeURIComponent(
-                                                    item?.slug
-                                                )}`}
-                                                className="mt-[2vw] block lg:!text-[2.25vw] md:!text-[4vw] uppercase"
-                                            >
+                                            <div className="mt-[2vw] block lg:!text-[2.25vw] md:!text-[4vw] uppercase">
                                                 See more +
-                                            </Link>
+                                            </div>
                                         </div>
                                         <div className="plus lg:w-[7vw] lg:h-[7vw] md:!w-[12.43vw] md:!h-[12.43vw]">
                                             <Image

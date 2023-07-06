@@ -58,20 +58,20 @@ export default function FacilitiesSlide({ dataSlide }) {
                                 <Image
                                     width={344}
                                     height={426}
-                                    className="object-cover w-[50%] h-auto max-h-[31.25vw] md:w-full"
+                                    className="object-cover !w-[50%] h-auto max-h-[31.25vw] md:!w-full"
                                     src={item?.img?.sourceUrl}
                                     alt={item?.img?.altText || item?.img?.title}
                                 />
-                                <div className="w-[50%] md:w-full">
+                                <div className="!w-[50%] md:!w-full">
                                     <div className="h-full">
-                                        <div className="pb-[1.94vw] h-[25%] border-b border-[#ccc] md:pb-[4.27vw] lg:pb-0">
+                                        <div className="pb-[1.94vw] !h-[25%] border-b border-[#ccc] md:pb-[4.27vw] lg:pb-0">
                                             <h3 className="text-[#394854] text-[2vw] font-[800] leading-[1.375] tracking-tighter pl-[3.63vw] w-[85%] md:text-[4.8vw] md:w-full md:mt-[2.67vw] md:pl-0 lg:text-[2.25vw]">
                                                 {item?.heading}
                                             </h3>
                                         </div>
 
                                         {item?.listItem?.map((item) => (
-                                            <div className="pb-[1.94vw] h-[25%] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc] md:flex-col md:items-start md:gap-0 md:py-[4.27vw] md:pl-0">
+                                            <div className="pb-[1.94vw] !h-[25%] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc] md:flex-col md:items-start md:gap-0 md:py-[4.27vw] md:pl-0">
                                                 <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter md:text-[4.26vw] md:leading-[1.5] lg:text-[1.85vw]">
                                                     {item?.title}
                                                 </span>

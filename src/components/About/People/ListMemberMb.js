@@ -46,7 +46,7 @@ export default function ListMemberMb({ data }) {
                 {data?.listPeople?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-news w-[75%]"
+                        className="!h-fit relative slide-item-news !w-[75%]"
                     >
                         {({ isActive }) => (
                             <Link href="/">

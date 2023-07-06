@@ -57,7 +57,7 @@ export default function ListMember({ data }) {
                     >
                         {({ isActive }) => (
                             <Link href="/">
-                                <div className="w-full h-[calc(26.625*100vw/100)] img-team ">
+                                <div className="w-full !h-[calc(26.625*100vw/100)] img-team ">
                                     <Image
                                         width={344}
                                         height={426}

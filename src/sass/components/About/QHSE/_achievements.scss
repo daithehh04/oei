@@ -178,18 +178,22 @@
         transform: translateX(-50%);
         margin-top: 18%;
     }
-    // .year {
-    //     color: #f2f2f3;
-    // }
-    // .year.active {
-    //     background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-    //     -webkit-background-clip: text;
-    //     -webkit-text-fill-color: transparent;
-    //     background-clip: text;
-    //     text-fill-color: transparent;
-    //     position: fixed;
-    //     z-index: 99;
-    // }
+    .year {
+        color: #f2f2f3;
+    }
+    .year.active {
+        background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        position: fixed;
+        z-index: 99;
+    }
+
+    .gallery-thumbs .swiper-slide {
+        width: 50%;
+    }
 }
 
 @include tablet {

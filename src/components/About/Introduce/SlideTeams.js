@@ -61,11 +61,11 @@ export default function SlideTeams({ dataSlide }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-news w-[25%] md:w-[60%]"
+                            className="!h-fit relative slide-item-news !w-[25%] md:!w-[60%]"
                         >
                             {({ isActive }) => (
                                 <div>
-                                    <div className="w-full h-[calc(26.625*100vw/100)] img-team md:h-[73.6vw] lg:h-[35vw]">
+                                    <div className="w-full !h-[calc(26.625*100vw/100)] img-team md:!h-[73.6vw] lg:!h-[35vw]">
                                         <Image
                                             width={344}
                                             height={426}

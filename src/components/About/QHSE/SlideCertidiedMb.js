@@ -86,7 +86,7 @@ export default function SlideCertifiedMb({ dataSlide }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`#4CA757`}
-                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] lg:w-[2.25vw] lg:h-[2.25vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"

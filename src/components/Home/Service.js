@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import imgPlusNum from "../../assets/img/+.png";
 import imgPlus from "../../assets/img/Add.svg";
+import bgCommon from "../../assets/img/bg-common.svg";
 
 import SlideTextService from "./SlideTextService";
 import { useRef } from "react";
@@ -94,14 +95,9 @@ const Service = ({ data }) => {
                                         __html: item?.excerpt,
                                     }}
                                 ></p>
-                                <Link
-                                    href={`/service/${encodeURIComponent(
-                                        item?.slug
-                                    )}`}
-                                    className="block mt-[1vw] uppercase"
-                                >
+                                <div className="block mt-[1vw] uppercase font-[700]">
                                     See more +
-                                </Link>
+                                </div>
                             </div>
                             <div className="plus w-[2.875vw] h-[2.875vw]">
                                 <Image
@@ -141,15 +137,12 @@ const Service = ({ data }) => {
                         </div>
                     ))}
 
-                    {data?.item3.map((item, index) => (
-                        <Link
-                            href={`/service`}
-                            className="service-item item-10 text-[1.125vw] text-[#fff] uppercase"
-                            key={index}
-                        >
-                            <span>{item?.text}</span>
-                        </Link>
-                    ))}
+                    <Link
+                        href={`/service`}
+                        className="service-item item-10 text-[1.125vw] text-[#fff] uppercase"
+                    >
+                        <span>See More</span>
+                    </Link>
                 </div>
                 <div className="hidden lg:block">
                     <div className="flex items-end justify-between">
@@ -174,7 +167,7 @@ const Service = ({ data }) => {
             <SlideTextService text={data?.textBottom} />
             <div className={`${over_lay}`}></div>
             <Image
-                src={data?.background.sourceUrl}
+                src={bgCommon}
                 width={500}
                 height={500}
                 alt="img"

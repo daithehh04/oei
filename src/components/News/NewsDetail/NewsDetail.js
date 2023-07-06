@@ -1,12 +1,10 @@
 import Image from "next/image";
-import twitter from "../../../assets/img/twitter.png";
-import fb from "../../../assets/img/fb.png";
-import linkedin from "../../../assets/img/linkedin.png";
-
 import HeaderSecond from "@/components/Common/HeaderSecond";
-import Link from "next/link";
 import TableContent from "./TableContent";
 import Loading from "@/components/Common/Loading";
+import TwitterShare from "./TwitterShare";
+import FacebookShare from "./FacebookShare";
+import LinkedInShare from "./LinkedInShare";
 
 export default async function NewsDetail({ NewsItem }) {
     const background = NewsItem?.featuredImage?.node;
@@ -69,41 +67,20 @@ export default async function NewsDetail({ NewsItem }) {
                     <span className="uppercase text-[0.875vw] text-[#394854] font-[700] leading-[1.43] md:text-[3.46vw] lg:text-[2vw]">
                         share on it:
                     </span>
-                    <ul className="flex items-center gap-[0.5vw] md:gap-[2.13vw]">
-                        <li>
-                            <Link href="#">
-                                <Image
-                                    src={twitter}
-                                    alt="twitter"
-                                    width={50}
-                                    height={50}
-                                    className="w-[1vw] h-[1.5vw] object-contain lg:w-[1.75vw] lg:h-[2.5vw] md:w-[5vw] md:h-[6.4vw]"
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="#">
-                                <Image
-                                    src={fb}
-                                    alt="fb"
-                                    width={50}
-                                    height={50}
-                                    className="w-[1.5vw] h-[1.5vw] object-contain lg:w-[2.5vw] lg:h-[2.5vw] md:w-[6.4vw] md:h-[6.4vw]"
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="#">
-                                <Image
-                                    src={linkedin}
-                                    alt="linkedin"
-                                    width={50}
-                                    height={50}
-                                    className="w-[1.5vw] h-[1.5vw] object-contain lg:w-[2.5vw] lg:h-[2.5vw] md:w-[6.4vw] md:h-[6.4vw]"
-                                />
-                            </Link>
-                        </li>
-                    </ul>
+                    <div className="flex items-center gap-[0.5vw] md:gap-[2.13vw]">
+                        <TwitterShare
+                            url={NewsItem?.slug}
+                            quote={NewsItem?.title}
+                        />
+                        <FacebookShare
+                            url="http://localhost:3000/news/blogs/project-management-technical-and-engineering-service"
+                            quote={NewsItem?.title}
+                        />
+                        <LinkedInShare
+                            url={NewsItem?.slug}
+                            quote={NewsItem?.title}
+                        />
+                    </div>
                 </div>
             </div>
         </>

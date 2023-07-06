@@ -24,10 +24,8 @@ export default function AchievementMb({ data }) {
     const [rate, setRate] = useState(1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-    const handleSlide = () => {
-        const ac = document.querySelector(
-            ".swiper-slide-active.swiper-slide-visible"
-        );
+    const handleSlide = (swiper) => {
+        const ac = document.querySelector(".swiper-slide-thumb-active");
 
         const y = document.querySelector(".achiv-mb .year");
         const minYear = +y.innerHTML.slice(0, 4);
@@ -35,7 +33,6 @@ export default function AchievementMb({ data }) {
         const yearNow = +year.innerHTML.slice(0, 4);
         const num = yearNow - minYear;
         const lengthSlide = data?.listProject?.length - 1;
-
         let rate = 1 - num / lengthSlide;
         if (rate < 0) {
             rate = 0;
@@ -44,7 +41,13 @@ export default function AchievementMb({ data }) {
             rate = 1;
         }
         setRate(rate);
+        if (!swiper1Ref.current) return;
+        swiper1Ref.current.slideTo(swiper.realIndex);
     };
+
+    const swiper1Ref = useRef();
+    const swiper2Ref = useRef();
+
     return (
         <div className="overflow-hidden achiev_mb">
             <h3 className="title pl-[2.67vw] text-[4.267vw] font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] mt-[16vw] pb-[3vw]">
@@ -88,6 +91,9 @@ export default function AchievementMb({ data }) {
                         thumbs={{ swiper: thumbsSwiper }}
                         modules={[FreeMode, Thumbs]}
                         onSlideChange={handleSlide}
+                        onBeforeInit={(swiper) => {
+                            swiper2Ref.current = swiper;
+                        }}
                         className=""
                     >
                         {data?.listProject?.map((item, index) => (
@@ -125,13 +131,16 @@ export default function AchievementMb({ data }) {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-                    <div className="absolute top-[18vw] text-center w-full text-[21vw]">
+                    <div className="absolute top-[18vw] text-center w-full text-[21vw] gallery-thumbs">
                         <Swiper
                             onSwiper={setThumbsSwiper}
                             centeredSlides={true}
                             spaceBetween={10}
                             slidesPerView="auto"
                             modules={[FreeMode, Navigation, Thumbs]}
+                            onBeforeInit={(swiper) => {
+                                swiper1Ref.current = swiper;
+                            }}
                             className="achiv-mb"
                         >
                             {data?.listProject?.map((item, index) => (
@@ -140,7 +149,7 @@ export default function AchievementMb({ data }) {
                                         const active = isActive ? "active" : "";
                                         return (
                                             <div
-                                                className={`year text-primary font-[800] leading-[1.8] ${active}`}
+                                                className={`year font-[800] leading-[1.8] ${active}`}
                                             >
                                                 {item?.year}
                                             </div>

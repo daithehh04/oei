@@ -28,7 +28,7 @@ function initializeGSAPWithDelay(delay) {
                 scrollTrigger: {
                     trigger: box,
                     start: "top 60%",
-                    end: "bottom 60%",
+                    end: "bottom 50%",
                     onEnter: () => {
                         box.classList.add("active");
                     },
@@ -50,7 +50,7 @@ function initializeGSAPWithDelay(delay) {
                 trigger: ".quality",
                 pin: ".quality",
                 start: "top top",
-                end: "70% top",
+                end: "60% top",
                 scrub: true,
             },
         });
