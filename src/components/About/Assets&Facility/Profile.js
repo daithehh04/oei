@@ -57,18 +57,6 @@ export default function Profile({ data }) {
                                 {data?.left.labelMobile}
                             </span>
                         </div>
-                        <a
-                            href="#"
-                            className="text-18pc block font-[700] text-primary uppercase mt-[1.06vw] lg:text-[1.75vw] md:hidden"
-                        >
-                            See more +
-                        </a>
-                        <a
-                            href="#"
-                            className="hidden font-[700] text-[#394854] uppercase text-[3.73vw] md:block pt-[2.26vw]"
-                        >
-                            See more +
-                        </a>
                     </div>
                     <div className="right w-[70%] md:w-full md:mt-[10.67vw] lg:w-[60%]">
                         <h2 className="text-[2.875vw] font-[800] text-primary pb-[0.62vw] tracking-tighter leading-[1.213] border-b-2 border-[#979797] md:text-[8vw] md:pb-[2.13vw]">

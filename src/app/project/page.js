@@ -117,6 +117,13 @@ export default async function Project() {
         }
         return 0;
     });
+
+    let arrFilterPrj = [];
+    let arrFilterLocation = [];
+
+    uniquePrjArray?.map((item) => arrFilterPrj.push(item?.[0]?.slug));
+    uniqueLocationArray?.map((item) => arrFilterLocation.push(item?.[0]?.slug));
+
     return (
         <div className="bg-[#FAFAFA]">
             <HeaderSecond header={header} />
@@ -130,6 +137,8 @@ export default async function Project() {
                         yearFilter={uniqueYears}
                         filterLocation={uniqueLocationArray}
                         filterPrj={uniquePrjArray}
+                        arrFilterPrj={arrFilterPrj}
+                        arrFilterLocation={arrFilterLocation}
                     />
                 </div>
 
@@ -142,6 +151,8 @@ export default async function Project() {
                         yearFilter={uniqueYears}
                         filterLocation={uniqueLocationArray}
                         filterPrj={uniquePrjArray}
+                        arrFilterPrj={arrFilterPrj}
+                        arrFilterLocation={arrFilterLocation}
                     />
                 </div>
             </div>

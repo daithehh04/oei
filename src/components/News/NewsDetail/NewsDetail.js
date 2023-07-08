@@ -69,15 +69,15 @@ export default async function NewsDetail({ NewsItem }) {
                     </span>
                     <div className="flex items-center gap-[0.5vw] md:gap-[2.13vw]">
                         <TwitterShare
-                            url={NewsItem?.slug}
+                            url={NewsItem?.link}
                             quote={NewsItem?.title}
                         />
                         <FacebookShare
-                            url="http://localhost:3000/news/blogs/project-management-technical-and-engineering-service"
+                            url={NewsItem?.link}
                             quote={NewsItem?.title}
                         />
                         <LinkedInShare
-                            url={NewsItem?.slug}
+                            url={NewsItem?.link}
                             quote={NewsItem?.title}
                         />
                     </div>

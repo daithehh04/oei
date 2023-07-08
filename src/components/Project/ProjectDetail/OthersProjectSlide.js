@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SwiperCore, { Autoplay } from "swiper";

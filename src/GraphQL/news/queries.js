@@ -50,6 +50,7 @@ const GET_NEWS = `
                 }
                 slug
                 title
+                link
                 date
                 content
                 excerpt

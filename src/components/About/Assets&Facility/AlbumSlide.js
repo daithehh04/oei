@@ -169,12 +169,9 @@ export default function AlbumSlide({ dataSlide }) {
                                                         ?.desc
                                                 }
                                             </p>
-                                            <a
-                                                href="#"
-                                                className="block mt-[0.75vw] text-[#fff] uppercase font-[700] lg:text-[2.25vw] md:text-[3vw] md:mt-[2vw]"
-                                            >
+                                            <span className="block mt-[0.75vw] text-[1.125vw] text-[#fff] uppercase font-[700] lg:text-[2.25vw] md:text-[3vw] md:mt-[2vw]">
                                                 see more +
-                                            </a>
+                                            </span>
                                         </div>
                                         <div className="absolute top-0 bottom-0 left-0 right-0 overlay-prj"></div>
                                     </div>

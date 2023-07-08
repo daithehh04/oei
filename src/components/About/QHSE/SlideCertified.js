@@ -95,17 +95,15 @@ export default function SlideCertified({ dataSlide }) {
                         className="!h-fit relative slide-item-certified w-[25%] lg:w-[33%] md:w-[60%]"
                     >
                         {({ isActive }) => (
-                            <Link href="/" className="w-full">
-                                <div className="w-full h-[28.625vw] img-certified md:h-[78.93vw]">
-                                    <Image
-                                        width={344}
-                                        height={426}
-                                        className="object-cover w-full h-full"
-                                        src={item?.sourceUrl}
-                                        alt={item?.altText || item?.title}
-                                    />
-                                </div>
-                            </Link>
+                            <div className="w-full h-[28.625vw] img-certified md:h-[78.93vw]">
+                                <Image
+                                    width={344}
+                                    height={426}
+                                    className="object-cover w-full h-full"
+                                    src={item?.sourceUrl}
+                                    alt={item?.altText || item?.title}
+                                />
+                            </div>
                         )}
                     </SwiperSlide>
                 ))}

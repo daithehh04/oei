@@ -7,6 +7,12 @@ export default function Vision({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
         <div className="vision relative pt-[6.25vw] md:pt-[19.2vw] ">

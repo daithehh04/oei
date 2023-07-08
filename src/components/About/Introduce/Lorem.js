@@ -7,9 +7,15 @@ export default function Lorem({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
-        <div className="lorem-introduce pt-[6.25vw] pb-[4.5625vw] md:pt-[16vw] overflow-hidden">
+        <div className="lorem-introduce pt-[6.25vw] pb-[4.5625vw] md:pt-[16vw] md:pb-[13.33vw] overflow-hidden">
             <div className="content">
                 <h2
                     className="w-[50.1875vw] text-46pc font-[800] leading-[1.22] text-primary tracking-tighter lg:text-[4.5vw] lg:w-[80%] md:text-[6.66vw] md:w-[100%]"
@@ -20,7 +26,7 @@ export default function Lorem({ data }) {
                     {data?.title}
                 </h2>
                 <div className="flex justify-between w-[95%] ml-auto md:flex-col-reverse md:w-[100%]">
-                    <div className="left w-[39.375vw] mt-[7.25vw] md:w-[80.53vw] md:mr-auto md:mt-[8.53vw]">
+                    <div className="left w-[39.375vw] mt-[7.25vw] md:w-full md:mt-[6.4vw]">
                         <Image
                             src={data?.left?.img?.sourceUrl}
                             width={500}
@@ -62,7 +68,7 @@ export default function Lorem({ data }) {
                             data-aos-duration="1400"
                         ></p>
                     </div>
-                    <div className="right w-[36.9375vw] mt-[3.75vw] md:flex md:flex-col-reverse md:w-[80.53vw] md:mt-[6.4vw] md:ml-auto">
+                    <div className="right w-[36.9375vw] mt-[3.75vw] md:flex md:flex-col-reverse md:w-full md:mt-[6.4vw]">
                         <p
                             className="text mb-[5.875vw] md:mt-[4.26vw]"
                             dangerouslySetInnerHTML={{

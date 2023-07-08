@@ -10,6 +10,9 @@
             &:last-child {
                 border-bottom: none;
             }
+            &:hover {
+                opacity: 1;
+            }
         }
     }
 }
@@ -53,8 +56,11 @@
                 height: auto;
             }
             & > img {
-                opacity: 0;
-                visibility: hidden;
+                rotate: 180deg;
+            }
+        }
+        .question {
+            img {
                 transition: all ease-in 0.3s;
             }
         }

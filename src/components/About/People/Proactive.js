@@ -8,6 +8,12 @@ export default function Proactive({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
         <div className="proactive">

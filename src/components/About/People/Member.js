@@ -36,7 +36,7 @@ function Member({ data }) {
                 {data?.subTitle}
             </h3>
             <p
-                className="text-[1.125vw] w-[44.3125vw] font-[400] leading-[1.5] mt-[1.5vw] ml-auto md:ml-0 md:w-[100%] md:text-[4.26vw] lg:text-[1.75vw]"
+                className="text-[1.125vw] text-[#394854] w-[44.3125vw] font-[400] leading-[1.5] mt-[1.5vw] ml-auto md:ml-0 md:w-[100%] md:text-[4.26vw] lg:text-[1.75vw]"
                 data-aos-once="true"
                 data-aos="fade-left"
                 data-aos-duration="2000"

@@ -55,6 +55,7 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
                 text-fill-color: transparent;
+                line-height: 1.06;
             }
         }
 
@@ -68,7 +69,7 @@
             z-index: 2;
 
             &:hover {
-                scale: 1.3 !important;
+                scale: 1.2 !important;
                 z-index: 99;
             }
 
@@ -79,6 +80,7 @@
 
             &:hover .detail {
                 transform: translateY(0);
+                opacity: 1;
             }
 
             &:hover .text {
@@ -117,6 +119,7 @@
 
             .detail {
                 transform: translateY(-150%);
+                opacity: 0;
                 font-weight: $fw-400;
                 line-height: 1.44;
                 color: $white-text;
@@ -125,8 +128,7 @@
                 margin-left: 1vw;
                 margin-right: 3vw;
 
-                a {
-                    display: block;
+                .btn-see {
                     font-size: 1vw;
                     font-weight: $fw-700;
                     line-height: 1.29;
@@ -138,6 +140,16 @@
             &.title {
                 &:hover {
                     scale: none !important;
+                }
+            }
+            .overlay-service {
+                background: rgba(0, 0, 0, 0.2);
+                opacity: 0;
+                transition: all 0.3s ease-in;
+            }
+            &:hover {
+                .overlay-service {
+                    opacity: 0.8;
                 }
             }
         }
@@ -174,16 +186,18 @@
             }
 
             &:hover .text {
-                font-size: 1vw;
+                font-size: 0.875vw !important;
             }
 
-            .detail {
-                top: 0.875vw;
-                font-size: 0.875vw;
-
-                a {
-                    margin-top: 0.75vw;
-                    font-size: 0.875vw;
+            &:hover {
+                scale: 1.7 !important;
+                .detail {
+                    top: 0.75vw;
+                    font-size: 0.75vw;
+                    .btn-see {
+                        margin-top: 0.65vw;
+                        font-size: 0.65vw;
+                    }
                 }
             }
         }
@@ -220,8 +234,17 @@
                 font-size: 1.125vw;
             }
             &:hover {
+                scale: 1.55 !important;
                 .text {
-                    font-size: 1.35vw;
+                    font-size: 1.15vw;
+                }
+                .detail {
+                    top: 0.75vw;
+                    font-size: 0.85vw;
+                    .btn-see {
+                        margin-top: 0.75vw;
+                        font-size: 0.85vw;
+                    }
                 }
             }
         }
@@ -234,9 +257,21 @@
             .text {
                 font-size: 1.375vw;
             }
+            .detail {
+                font-size: 1.5vw;
+                .btn-see {
+                    font-size: 1.25vw;
+                }
+            }
             &:hover {
                 .text {
                     font-size: 1.5vw;
+                }
+                .detail {
+                    font-size: 1vw;
+                    .btn-see {
+                        font-size: 0.95vw;
+                    }
                 }
             }
         }
@@ -245,8 +280,17 @@
         .item-6 {
             font-size: 1vw;
             &:hover {
+                scale: 1.6 !important;
                 .text {
-                    font-size: 1.25vw;
+                    font-size: 1vw;
+                }
+                .detail {
+                    top: 0.75vw;
+                    font-size: 0.75vw;
+                    .btn-see {
+                        margin-top: 0.75vw;
+                        font-size: 0.75vw;
+                    }
                 }
             }
         }
@@ -432,5 +476,17 @@
     }
     .service .list-service .service-item:hover .text {
         font-size: 2.25vw;
+    }
+}
+
+@include mobile {
+    .service {
+        .list-service {
+            .service-item {
+                .text {
+                    padding: 0 10px;
+                }
+            }
+        }
     }
 }

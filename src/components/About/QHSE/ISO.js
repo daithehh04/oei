@@ -9,9 +9,15 @@ export default function ISO({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
-        <div className="iso relative pb-[9.75vw] border-t border-[#ccc]">
+        <div className="iso relative pb-[9.75vw] border-t border-[#ccc] overflow-hidden">
             <div className="content">
                 <p
                     className="title text-46pc leading-[1.22] text-[#394854] font-[800] tracking-tighter w-[44.625vw] pt-[10.6875vw] lg:text-[3.8vw] lg:w-[80%] md:text-[8vw] md:w-full"
@@ -35,7 +41,7 @@ export default function ISO({ data }) {
                     width={500}
                     height={500}
                     alt="img"
-                    className="w-[58.9375vw] object-cover absolute top-[-2vw] left-0 rotate-[54deg] md:hidden"
+                    className="w-[58.9375vw] object-cover absolute top-[-2vw] left-0 rotate-[54deg] -z-1 md:hidden"
                 />
             </div>
         </div>

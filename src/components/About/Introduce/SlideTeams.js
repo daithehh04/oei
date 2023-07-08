@@ -61,7 +61,7 @@ export default function SlideTeams({ dataSlide }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-news !w-[25%] md:!w-[60%]"
+                            className="!h-fit relative slide-item-news md:!w-[60%]"
                         >
                             {({ isActive }) => (
                                 <div>

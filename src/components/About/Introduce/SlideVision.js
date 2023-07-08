@@ -81,7 +81,7 @@ export default function SlideVision({ dataSlide }) {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] border-opacity-50 !w-[80%] md:!w-[96.44%] md:ml-auto pl-[4vw] md:pl-0"
+                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] border-opacity-50 !w-[80%] md:!w-[96.44%] md:ml-auto !pl-[4vw] md:pl-0"
             >
                 <div>
                     {dataSlide?.map((item, index) => (

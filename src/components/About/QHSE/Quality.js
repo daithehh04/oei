@@ -52,6 +52,17 @@ function initializeGSAPWithDelay(delay) {
                 start: "top top",
                 end: "60% top",
                 scrub: true,
+                onToggle: (self) => {
+                    if (self.isActive) {
+                        gsap.to(`.title`, {
+                            opacity: 0,
+                        });
+                    } else {
+                        gsap.to(`.title`, {
+                            opacity: 1,
+                        });
+                    }
+                },
             },
         });
     }, delay);

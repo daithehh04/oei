@@ -8,7 +8,7 @@ function Dynamic({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="dynamic mt-[8.625vw] ">
+        <div className="dynamic mt-[8.625vw] overflow-hidden">
             <div className="content">
                 <div className="flex w-full wrapper md:flex-col">
                     <div className="title w-[50%] md:w-full">

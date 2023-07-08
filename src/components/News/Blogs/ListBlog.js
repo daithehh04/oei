@@ -42,6 +42,12 @@ export default function ListBlog({ titles, mainBlog }) {
         AOS.init();
         AOS.refresh();
     }, []);
+    AOS.init({
+        disable: function () {
+            var maxWidth = 768;
+            return window.innerWidth < maxWidth;
+        },
+    });
     if (!data)
         return (
             <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">

@@ -26,6 +26,12 @@ export default function ListMember({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
         <div
@@ -56,7 +62,7 @@ export default function ListMember({ data }) {
                         className="relative slide-item-news !h-[33.25vw] !m-0"
                     >
                         {({ isActive }) => (
-                            <Link href="/">
+                            <div>
                                 <div className="w-full !h-[calc(26.625*100vw/100)] img-team ">
                                     <Image
                                         width={344}
@@ -69,7 +75,7 @@ export default function ListMember({ data }) {
                                         }
                                     />
                                 </div>
-                                <div className="item-member mt-[1vw] bg-white transition-all duration-500 flex flex-col ">
+                                <div className="item-member pt-[1vw] transition-all duration-500 flex flex-col ">
                                     <div>
                                         <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal ">
                                             {item?.role}
@@ -79,7 +85,7 @@ export default function ListMember({ data }) {
                                         </p>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )}
                     </SwiperSlide>
                 ))}

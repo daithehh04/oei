@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import Image from "next/image";
+import img from "../../../assets/img/ardown.svg";
 
 export default function AchievementMb({ data }) {
     const [visible, setVisible] = useState(false);
@@ -43,14 +45,55 @@ export default function AchievementMb({ data }) {
         setRate(rate);
         if (!swiper1Ref.current) return;
         swiper1Ref.current.slideTo(swiper.realIndex);
+        setClick(null);
+        handleClickSee();
     };
 
     const swiper1Ref = useRef();
     const swiper2Ref = useRef();
 
+    // const handleClick = () => {
+    //     setSee(!see);
+    //     const elements = document.querySelectorAll("#oei-prj");
+    //     const toggleButton = document.querySelectorAll("#see");
+    //     const arrowdown = document.querySelectorAll("#arrow-down");
+    //     elements.forEach((e, index) => {
+    //         if (see) {
+    //             e.style.overflow = "hidden";
+    //             toggleButton[index].textContent = "See more";
+    //             arrowdown[index].style.rotate = "0deg";
+    //         } else {
+    //             e.style.overflow = "unset";
+    //             toggleButton[index].textContent = "Close";
+    //             arrowdown[index].style.rotate = "180deg";
+    //         }
+    //     });
+    // };
+    const contentEl = useRef();
+    const [click, setClick] = useState(null);
+    const handleClickSee = (e) => {
+        if (click === e) {
+            setClick(null);
+        } else {
+            setClick(e);
+        }
+        const elements = document.querySelectorAll("#oei-prj");
+        const toggleButton = document.querySelectorAll("#see");
+        const arrowdown = document.querySelectorAll("#arrow-down");
+        elements.forEach((i, index) => {
+            if ((click && click === index + 1) || e !== index + 1) {
+                toggleButton[index].textContent = "See more";
+                arrowdown[index].style.rotate = "0deg";
+            } else {
+                toggleButton[index].textContent = "Close";
+                arrowdown[index].style.rotate = "180deg";
+            }
+        });
+    };
+
     return (
-        <div className="overflow-hidden achiev_mb">
-            <h3 className="title pl-[2.67vw] text-[4.267vw] font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] mt-[16vw] pb-[3vw]">
+        <div className="achiev_mb">
+            <h3 className="title pl-[2.67vw] text-[4.267vw] font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] pt-[16vw] pb-[3vw]">
                 {data?.title}
             </h3>
             <div className=" circle-mb">
@@ -102,8 +145,11 @@ export default function AchievementMb({ data }) {
                                     const active = isActive ? "active" : "";
                                     return (
                                         <div className={`${active} flex `}>
-                                            <div className="left w-[70%] pr-[8.53vw] border-r border-[#ccc]">
-                                                <span className="text-[#376A66] font-[900]">
+                                            <div
+                                                className="relative w-full pb-[16vw]"
+                                                id={`oei-prj`}
+                                            >
+                                                <span className="text-[#376A66] font-[900] text-[3.7333vw]">
                                                     {item?.year}
                                                 </span>
                                                 <h3 className="text-[5.33vw] text-primary font-[800] leading-[1.25]">
@@ -112,18 +158,63 @@ export default function AchievementMb({ data }) {
                                                 <p className="text text-[#394854] text-[3.73vw] leading-[1.57] mt-[2.13vw]">
                                                     {item?.desc}
                                                 </p>
-                                            </div>
-                                            <div className="right relative w-[30%] pl-[8.53vw] text-[#394854] h-[46vw] overflow-hidden">
-                                                <p className=" text-[5.33vw] font-[800] leading-[1.25] line-clamp-5">
-                                                    {item?.heading}
-                                                </p>
                                                 <div
-                                                    className="text-[3.73vw] mt-[2.13vw]"
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: item?.content,
-                                                    }}
+                                                    className={`absolute bottom-[16vw] h-[5.4vw] left-0 right-0 bg-overlay ${
+                                                        click === index + 1
+                                                            ? "opacity-0"
+                                                            : "opacity-40"
+                                                    }`}
                                                 ></div>
-                                                <div className="absolute top-0 bottom-0 right-0 w-[70%] h-full overlay-achiv bg-white opacity-50"></div>
+                                                <div
+                                                    className="text-hidden"
+                                                    ref={contentEl}
+                                                    style={
+                                                        click === index + 1
+                                                            ? {
+                                                                  height: contentEl
+                                                                      .current
+                                                                      .scrollHeight,
+                                                              }
+                                                            : {
+                                                                  height: 0,
+                                                                  overflow:
+                                                                      "hidden",
+                                                              }
+                                                    }
+                                                >
+                                                    <p className=" text-[5.33vw]  text-[#394854] font-[800] leading-[1.25] mt-[2.13vw pt-[5.67vw]">
+                                                        {item?.heading}
+                                                    </p>
+                                                    <div
+                                                        className="content-text text-[3.73vw] mt-[2.13vw] text-[#394854]"
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: item?.content,
+                                                        }}
+                                                    ></div>
+                                                </div>
+                                                <div
+                                                    className="absolute bottom-0 z-10 flex flex-col items-center justify-center left-[50%] -translate-x-1/2 cursor-pointer"
+                                                    onClick={() =>
+                                                        handleClickSee(
+                                                            index + 1
+                                                        )
+                                                    }
+                                                >
+                                                    <span
+                                                        className="text-primary text-[3.73vw] font-[400]"
+                                                        id="see"
+                                                    >
+                                                        See more
+                                                    </span>
+                                                    <Image
+                                                        src={img}
+                                                        width={50}
+                                                        height={50}
+                                                        alt="img"
+                                                        className="transition-all w-[6.4vw] h-[5.33vw] object-cover"
+                                                        id="arrow-down"
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
                                     );

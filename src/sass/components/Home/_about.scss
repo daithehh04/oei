@@ -13,8 +13,8 @@
 
 .about .right {
     gap: 10px;
-    grid-template-columns: 19.07% 26.89% 27.94% 12.19% 4.18% 9.73%;
-    grid-template-rows: 17.93% 4.62% 21.74% 18.75% 8.56% 8.83% 5.98% 13.59%;
+    grid-template-columns: 10vw 14.19vw 14.75vw 6.33vw 2.17vw 5vw;
+    grid-template-rows: 8.25vw 2.13vw 10vw 6.82vw 4.44vw 3.56vw 2.22vw 6.28vw;
     grid-template-areas:
         ". . . m1 m1 ."
         "m2 m3 m3 . . ."
@@ -145,31 +145,9 @@
     object-fit: cover;
 }
 
-// @include tablet {
-//     .about .wrapper {
-//         display: block;
-//     }
-
-//     .about {
-//         .left,
-//         .right {
-//             width: 100%;
-//         }
-//         .left {
-//             .img {
-//                 right: -15%;
-//                 left: unset;
-//             }
-//         }
-//     }
-// }
-
-// @include mobile {
-//     .about {
-//         .left {
-//             .img {
-//                 top: 50%;
-//             }
-//         }
-//     }
-// }
+@include mobile {
+    .about .right {
+        grid-template-columns: 17.68vw 25.08vw 26.08vw 11.19vw 3.84vw 8.84vw;
+        grid-template-rows: 14.59vw 3.76vw 17.68vw 15.25vw 7.85vw 6.29vw 3.93vw 11.1vw;
+    }
+}

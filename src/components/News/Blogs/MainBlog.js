@@ -19,7 +19,10 @@ export default function MainBlog({ mainBlogs }) {
     return (
         <div className="main-blog">
             <div className="flex gap-[1.875vw] md:flex-col">
-                <div className="item w-[50%] md:w-full">
+                <Link
+                    href={`/news/blogs/${encodeURIComponent(firstBlog?.slug)}`}
+                    className="item w-[50%] md:w-full"
+                >
                     <Image
                         src={urlImg}
                         width={500}
@@ -41,15 +44,8 @@ export default function MainBlog({ mainBlogs }) {
                                 )}
                             </span>
                         </span>
-                        <h3>
-                            <Link
-                                href={`/news/blogs/${encodeURIComponent(
-                                    firstBlog?.slug
-                                )}`}
-                                className="text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.5vw]"
-                            >
-                                {firstBlog?.title}
-                            </Link>
+                        <h3 className="title text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.5vw]">
+                            {firstBlog?.title}
                         </h3>
                         <p
                             className="text-[#394854] leading-[1.44] mt-[1.5vw] text-[1.125vw] md:text-14mb lg:text-[1.875vw]"
@@ -57,16 +53,11 @@ export default function MainBlog({ mainBlogs }) {
                                 __html: firstBlog?.excerpt,
                             }}
                         />
-                        <Link
-                            href={`/news/blogs/${encodeURIComponent(
-                                firstBlog?.slug
-                            )}`}
-                            className="text-[#394854] md:mb-[4.27vw] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]"
-                        >
+                        <div className="text-[#394854] md:mb-[4.27vw] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]">
                             See More +
-                        </Link>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <div className="w-[50%] grid grid-cols-2 gap-x-[1.875vw] gap-y-[1.5vw] md:w-full">
                     {arrBlogs?.map((item) => (
                         <BlogSuggets blog={item} />

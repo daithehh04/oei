@@ -40,6 +40,12 @@ export default function ListNewsCompany({ titles, mainNews }) {
         window.scrollTo(0, 0);
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     if (!data)
         return (

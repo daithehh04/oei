@@ -9,24 +9,27 @@ import img from "../../../assets/img/dowload.png";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import AOS from "aos";
 
 gsap.registerPlugin(ScrollTrigger);
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
+        const clientHeight = document.getElementById("list-proj").clientHeight;
         gsap.to(".filter-mb", {
             scrollTrigger: {
                 trigger: ".filter-mb",
                 start: "top top",
-                end: "50000 top",
+                end: `${clientHeight} top`,
                 scrub: true,
                 onToggle: (self) => {
                     if (self.isActive) {
                         gsap.to(".filter-mb", {
                             position: "fixed",
-                            top: 0,
-                            left: 0,
-                            right: 0,
+                            top: "16vw",
+                            left: "0",
+                            right: "0",
+                            width: "100%",
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
                             background: "#fff",
                             zIndex: 99,
                         });
@@ -34,6 +37,8 @@ function initializeGSAPWithDelay(delay) {
                         gsap.to(".filter-mb", {
                             position: "static",
                             background: "#FAFAFA",
+                            paddingLeft: 0,
+                            paddingRight: 0,
                         });
                     }
                 },
@@ -49,9 +54,11 @@ export default function ListProjectMb({
     yearFilter,
     filterLocation,
     filterPrj,
+    arrFilterPrj,
+    arrFilterLocation,
 }) {
-    const initLocation = ["an_thuan", "da_nang", "ha_noi"];
-    const initTypeProject = ["loai_1", "loai_2", "loai_3", "loai_4"];
+    const initLocation = arrFilterLocation;
+    const initTypeProject = arrFilterPrj;
     const [activeButton, setActiveButton] = useState(0);
 
     const [year, setYear] = useState(null);
@@ -74,22 +81,40 @@ export default function ListProjectMb({
 
     useEffect(() => {
         eleRef?.current?.scrollIntoView();
-    }, [activeButton, initLocation, initTypeProject, year]);
+    }, [activeButton]);
 
-    useLayoutEffect(() => {
-        AOS.init();
-        AOS.refresh();
-
+    useEffect(() => {
         if (!parentRefMb.current) {
             return;
         }
+
         let ctx = gsap.context(() => {
-            initializeGSAPWithDelay(10);
+            initializeGSAPWithDelay(2000);
         }, parentRefMb);
         return () => {
             ctx.revert();
         };
     }, []);
+
+    useEffect(() => {
+        function checkScreenSize() {
+            var screenWidth = window.innerWidth;
+            if (screenWidth < 768) {
+                if (!parentRefMb.current) {
+                    return;
+                }
+                let ctx = gsap.context(() => {
+                    initializeGSAPWithDelay(2000);
+                }, parentRefMb);
+                return () => {
+                    ctx.revert();
+                };
+            }
+        }
+
+        window.onload = checkScreenSize;
+        window.onresize = checkScreenSize;
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -134,7 +159,6 @@ export default function ListProjectMb({
         link.download = "file";
         link.click();
     }
-
     return (
         <div className="list-project">
             <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw] content">
@@ -233,7 +257,10 @@ export default function ListProjectMb({
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1 content">
+            <div
+                className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1 content"
+                id="list-proj"
+            >
                 {nodes?.map((item) => (
                     <ProjectItem projectItem={item} />
                 ))}
@@ -262,7 +289,7 @@ export default function ListProjectMb({
                         __html: download?.text,
                     }}
                 ></p>
-                <span
+                <div
                     onClick={() => fileDownloader(download?.url)}
                     className="download cursor-pointer flex items-center justify-center bg-member w-[9.4375vw] h-[9.4375vw] rounded-full flex-col ml-[25vw]"
                 >
@@ -276,7 +303,7 @@ export default function ListProjectMb({
                     <span className="text text-[0.6875vw] font-[400] leading-[2.18] uppercase text-[#fff] text-center lg:w-[80%] lg:text-[1.5vw] lg:leading-[1.5]">
                         download profile
                     </span>
-                </span>
+                </div>
             </div>
         </div>
     );

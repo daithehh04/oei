@@ -8,7 +8,8 @@ import { useLayoutEffect } from "react";
 export default function TableContent() {
     const [tableOfContents, setTableOfContents] = useState([]);
     useLayoutEffect(() => {
-        const headings = document.querySelectorAll("h3, h4, h5");
+        const all = document.querySelector(".content-news");
+        const headings = all.querySelectorAll("h3, h4, h5");
         const arr = [];
 
         headings.forEach((heading, index) => {

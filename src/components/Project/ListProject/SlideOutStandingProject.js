@@ -11,7 +11,6 @@ export default function SlideOutstandingProject({ project }) {
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
 
-    console.log(project);
     const handleNextSlide = () => {
         swiperRef.current?.slideNext();
     };
@@ -87,15 +86,10 @@ export default function SlideOutstandingProject({ project }) {
                                                         ?.name
                                                 }
                                             </p>
-                                            <Link
-                                                href={`project/${encodeURIComponent(
-                                                    item?.slug
-                                                )}`}
-                                            >
-                                                <h3 className="pt-[0.625vw] text-[2vw] font-[700] leading-[1.25] tracking-tighter title-prj capitalize lg:text-[2.5vw] md:text-[5.33vw]">
-                                                    {item?.title}
-                                                </h3>
-                                            </Link>
+
+                                            <h3 className="pt-[0.625vw] text-[2vw] font-[700] leading-[1.25] tracking-tighter title-prj capitalize lg:text-[2.5vw] md:text-[5.33vw]">
+                                                {item?.title}
+                                            </h3>
                                             <p className="hidden md:block md:!line-clamp-2 md:text-[3.73vw] text-[#394854] md:mt-[1.6vw] md:mb-[4.27vw]">
                                                 {
                                                     item?.projectDetail?.project

@@ -72,6 +72,7 @@ export default function LastNewsSlide({ news }) {
                                     href={`/news/news&event/${encodeURIComponent(
                                         newsItem?.slug
                                     )}`}
+                                    className="relative"
                                 >
                                     <div className="w-full h-[16vw] md:h-[47.2vw] lg:h-[32vw]">
                                         <Image
@@ -106,6 +107,10 @@ export default function LastNewsSlide({ news }) {
                                             </div>
                                         </div>
                                     </div>
+                                    {indexSlider < news?.length - 4 &&
+                                        indexSlider + 3 === index && (
+                                            <div className="absolute top-0 left-0 w-full h-full bg-white opacity-50"></div>
+                                        )}
                                 </Link>
                             )}
                         </SwiperSlide>

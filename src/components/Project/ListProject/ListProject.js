@@ -18,9 +18,11 @@ export default function ListProject({
     yearFilter,
     filterLocation,
     filterPrj,
+    arrFilterPrj,
+    arrFilterLocation,
 }) {
-    const initLocation = ["an_thuan", "da_nang", "ha_noi"];
-    const initTypeProject = ["loai_1", "loai_2", "loai_3", "loai_4"];
+    const initLocation = arrFilterLocation;
+    const initTypeProject = arrFilterPrj;
     const [activeButton, setActiveButton] = useState(0);
 
     const [year, setYear] = useState(null);

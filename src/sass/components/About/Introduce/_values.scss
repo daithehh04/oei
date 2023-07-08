@@ -36,6 +36,12 @@
         }
         opacity: 0;
     }
+    .text-image_mb {
+        strong {
+            -webkit-text-stroke: 1px #fff;
+            color: transparent;
+        }
+    }
 }
 
 @include tablet {

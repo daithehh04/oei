@@ -149,6 +149,7 @@
     }
 }
 .achiev_mb {
+    background: #fafafa;
     .history-years-vertical__circle rect {
         transition-duration: 0.4s;
         transition-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
@@ -193,6 +194,15 @@
 
     .gallery-thumbs .swiper-slide {
         width: 50%;
+    }
+
+    #oei-prj .text-hidden {
+        transition: all 0.3s ease-in;
+        .content-text {
+            p {
+                margin-top: 2.533vw;
+            }
+        }
     }
 }
 

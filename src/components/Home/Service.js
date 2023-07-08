@@ -74,7 +74,9 @@ const Service = ({ data }) => {
                     {data?.outstandingService?.map((item, index) => (
                         <Link
                             href={`/service/${encodeURIComponent(item?.slug)}`}
-                            className={`service-item item-${index + 1}`}
+                            className={`service-item relative item-${
+                                index + 1
+                            }`}
                             onMouseEnter={handleEnterOverlay}
                             onMouseLeave={handleLeaveOverlay}
                             key={index}
@@ -88,14 +90,14 @@ const Service = ({ data }) => {
                                 width={500}
                                 height={500}
                             />
-                            <div className="detail absolute text-[1vw] ">
+                            <div className="detail absolute z-10 text-[1vw] ">
                                 <p
                                     className="line-clamp-3"
                                     dangerouslySetInnerHTML={{
                                         __html: item?.excerpt,
                                     }}
                                 ></p>
-                                <div className="block mt-[1vw] uppercase font-[700]">
+                                <div className="btn-see block mt-[1vw] uppercase font-[700]">
                                     See more +
                                 </div>
                             </div>
@@ -106,7 +108,10 @@ const Service = ({ data }) => {
                                     className="!w-[1.125vw] !h-[1.125vw]"
                                 />
                             </div>
-                            <p className="text text-[1vw]">{item?.title}</p>
+                            <p className="text text-[1vw] z-10">
+                                {item?.title}
+                            </p>
+                            <div className="absolute top-0 bottom-0 left-0 right-0 overlay-service"></div>
                         </Link>
                     ))}
 
@@ -148,10 +153,10 @@ const Service = ({ data }) => {
                     <div className="flex items-end justify-between">
                         <div>
                             <h2 className="text-[3.73vw] font-[700] text-subtileNew uppercase mt-[19.2vw]">
-                                we provide service
+                                {data?.titleMobile}
                             </h2>
                             <h3 className="text-[9.33vw] font-[800] text-primary capitalize leading-[1.19] mt-[2.133vw]">
-                                Our Service
+                                {data?.subtitleMobile}
                             </h3>
                         </div>
                         <Link

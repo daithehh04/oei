@@ -52,14 +52,14 @@ export default function SlideServiceMb({ data }) {
                                             width={500}
                                             height={500}
                                         />
-                                        <div className="detail absolute lg:!text-[2vw] md:!text-[3.8vw] pl-[1.5vw] md:p-[2vw] leading-150">
+                                        <div className="detail absolute lg:!text-[2vw] md:!text-[3.8vw] md:px-[10px] leading-150">
                                             <p
                                                 className="line-clamp-4"
                                                 dangerouslySetInnerHTML={{
                                                     __html: item?.excerpt,
                                                 }}
                                             ></p>
-                                            <div className="mt-[2vw] block lg:!text-[2.25vw] md:!text-[4vw] uppercase">
+                                            <div className="mt-[2vw] block lg:!text-[2.25vw] md:!text-[4vw] uppercase font-[700]">
                                                 See more +
                                             </div>
                                         </div>
@@ -72,7 +72,7 @@ export default function SlideServiceMb({ data }) {
                                                 className="object-contain lg:!w-[3.04vw] lg:!h-[3.04vw] md:!w-[5.04vw] md:!h-[5.04vw]"
                                             />
                                         </div>
-                                        <p className="text lg:text-[2.25vw] md:!text-[4.26vw]">
+                                        <p className="text lg:text-[2.25vw] md:!text-[4.26vw] md: p-0">
                                             {item?.title}
                                         </p>
                                     </div>

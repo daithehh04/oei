@@ -95,7 +95,7 @@ export default async function ProjectDetail(context) {
                         <ul className="grid grid-cols-2 mt-[4.375vw] gap-x-[2.6875vw]">
                             {projectItem?.projectDetail?.repeatLocation?.map(
                                 (item) => (
-                                    <li className="pt-[1vw] pb-[2vw] border-t border-[#BDBDBD]">
+                                    <li className="pt-[1vw] pb-[2vw] border-t border-[#BDBDBD] border-opacity-50 md:pt-[4.27vw] md:pb-[7.4vw]">
                                         <span className="text-[1.25vw] text-[#3A5469] font-[700] leading-[2.25] lg:text-[1.85vw] md:text-[3.733vw] md:leading-[1.67]">
                                             {item?.title}
                                         </span>

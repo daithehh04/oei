@@ -48,9 +48,6 @@ const GET_DATA_HOME = gql`
                     title
                     desc
                     btnSee
-                    imgLeft {
-                        sourceUrl
-                    }
                     repeatImg {
                         img {
                             sourceUrl
@@ -62,6 +59,8 @@ const GET_DATA_HOME = gql`
                 service {
                     title
                     subTitle
+                    titleMobile
+                    subtitleMobile
                     outstandingService {
                         ... on Service {
                             title
@@ -74,9 +73,6 @@ const GET_DATA_HOME = gql`
                             }
                         }
                     }
-                    background {
-                        sourceUrl
-                    }
                     item1 {
                         img {
                             sourceUrl
@@ -86,9 +82,6 @@ const GET_DATA_HOME = gql`
                     }
                     item2 {
                         number
-                        text
-                    }
-                    item3 {
                         text
                     }
                     textBottom

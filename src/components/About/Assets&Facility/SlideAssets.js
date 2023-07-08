@@ -4,8 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
 import AOS from "aos";
 import Image from "next/image";
+import SwiperCore, { Autoplay } from "swiper";
 
 export default function SlideAssets({ dataSlide }) {
+    SwiperCore.use([Autoplay]);
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
 
@@ -36,6 +38,11 @@ export default function SlideAssets({ dataSlide }) {
                 }}
                 loop="true"
                 slidesPerView="auto"
+                autoplay={{
+                    delay: 3500,
+                    disableOnInteraction: false,
+                }}
+                modules={[Autoplay]}
                 spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
@@ -50,10 +57,7 @@ export default function SlideAssets({ dataSlide }) {
                                 const active = isActive ? "active" : "";
                                 return (
                                     <div className={`item ${active}`}>
-                                        <a
-                                            href="#"
-                                            className=" block w-full h-[35.75vw] md:h-[53.6vw]"
-                                        >
+                                        <div className=" block w-full h-[35.75vw] md:h-[53.6vw]">
                                             <Image
                                                 width={344}
                                                 height={426}
@@ -63,7 +67,7 @@ export default function SlideAssets({ dataSlide }) {
                                                     item?.altText || item?.title
                                                 }
                                             />
-                                        </a>
+                                        </div>
                                     </div>
                                 );
                             }}

@@ -11,8 +11,8 @@ export default function Dynamic({ data }) {
     }, []);
     return (
         <div className="dynamic-assets">
-            <div className="content">
-                <div className="flex items-start justify-between pt-[6.12vw] md:flex-col md:pt-[16vw]">
+            <div>
+                <div className="flex items-start justify-between pt-[6.12vw] md:flex-col md:pt-[16vw] content">
                     <h2
                         className="text-60pc text-primary w-[31.0625vw] tracking-tighter leading-[1.22] font-[800] md:w-full md:text-[8vw]"
                         data-aos-once="true"
@@ -30,7 +30,7 @@ export default function Dynamic({ data }) {
                         {data?.desc}
                     </p>
                 </div>
-                <div className="mt-[6.44vw] md:mt-[5.33vw]">
+                <div className="mt-[6.44vw] md:mt-[5.33vw] w-[95.625%] ml-auto md:w-[97.33%]">
                     <SlideAssets dataSlide={data?.album} />
                 </div>
             </div>

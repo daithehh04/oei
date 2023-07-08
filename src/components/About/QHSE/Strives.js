@@ -8,9 +8,15 @@ export default function Strives({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
     return (
-        <div className="strives relative overflow-hidden pb-[8.5vw] lg:pb-[10vw] md:pb-[12vw]">
+        <div className="strives relative overflow-hidden pb-[8.5vw] lg:pb-[10vw] md:pb-[12vw] ">
             <div className="content">
                 <h2
                     className="title text-46pc mt-[4.38vw] md:mt-[15vw] text-[#394854] font-[800] leading-[1.22] tracking-tighter w-[61.0625vw] z-10 lg:text-[4vw] lg:w-[80%] md:text-[6.66vw] md:w-full"

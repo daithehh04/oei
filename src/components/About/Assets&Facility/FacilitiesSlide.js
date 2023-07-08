@@ -26,6 +26,12 @@ export default function FacilitiesSlide({ dataSlide }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
 
     return (
@@ -54,11 +60,11 @@ export default function FacilitiesSlide({ dataSlide }) {
                         className="!h-fit relative slide-item-news"
                     >
                         {({ isActive }) => (
-                            <Link href="/" className="flex md:flex-col">
+                            <div className="flex md:flex-col">
                                 <Image
                                     width={344}
                                     height={426}
-                                    className="object-cover !w-[50%] h-auto max-h-[31.25vw] md:!w-full"
+                                    className="object-cover !w-[50%] h-auto max-h-[31.25vw] md:!w-full md:!h-[58.93vw] md:max-h-max"
                                     src={item?.img?.sourceUrl}
                                     alt={item?.img?.altText || item?.img?.title}
                                 />
@@ -82,7 +88,7 @@ export default function FacilitiesSlide({ dataSlide }) {
                                         ))}
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )}
                     </SwiperSlide>
                 ))}

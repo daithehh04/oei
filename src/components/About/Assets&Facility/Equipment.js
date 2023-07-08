@@ -14,6 +14,12 @@ export default function Equipment({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
     }, []);
 
     return (
@@ -37,7 +43,7 @@ export default function Equipment({ data }) {
                         {data?.listEquip?.map((item, index) => (
                             <li
                                 onClick={() => handleTitleClick(index + 1)}
-                                className={`heading-item text-[#fff] opacity-75 text-24pc leading-[1.27] capitalize pb-[1.57vw] py-[3vw] border-b border-[#ccc] lg:text-[2.25vw] ${
+                                className={`heading-item text-[#fff] opacity-75 text-24pc leading-[1.27] capitalize pb-[1.57vw] py-[3vw] border-b border-[#fff] border-opacity-50 lg:text-[2.25vw] ${
                                     selectedTitle === index + 1 ? "active" : ""
                                 }`}
                             >
