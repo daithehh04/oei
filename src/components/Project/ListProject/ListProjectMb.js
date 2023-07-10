@@ -61,7 +61,7 @@ export default function ListProjectMb({
 
     const eleRef = useRef();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         eleRef?.current?.scrollIntoView();
     }, [activeButton]);
 

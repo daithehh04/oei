@@ -49,7 +49,7 @@ export default function ListMemberMb({ data }) {
                         className="!h-fit relative slide-item-news !w-[75%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                     >
                         {({ isActive }) => (
-                            <Link href="/">
+                            <div>
                                 <div className="w-full img-team md:h-[84vw] lg:h-[35vw]">
                                     <Image
                                         width={344}
@@ -72,7 +72,7 @@ export default function ListMemberMb({ data }) {
                                         </p>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )}
                     </SwiperSlide>
                 ))}

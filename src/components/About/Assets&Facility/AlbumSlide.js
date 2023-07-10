@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
-import { Pagination } from "swiper";
+import { FreeMode, Pagination } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
 import plus from "../../../assets/img/Add.svg";
@@ -116,10 +116,11 @@ export default function AlbumSlide({ dataSlide }) {
                     }}
                     slidesPerView="auto"
                     onSlideChange={handleSlideChange}
-                    modules={[Pagination]}
+                    modules={[Pagination, FreeMode]}
                     onBeforeInit={(swiper) => {
                         swiperRef.current = swiper;
                     }}
+                    freeMode={true}
                     className="h-fit flex flex-col items-end relative py-[3.48vw] "
                 >
                     {dataSlide.map((item, index) => (

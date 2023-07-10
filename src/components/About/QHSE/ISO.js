@@ -29,7 +29,7 @@ export default function ISO({ data }) {
                     data-aos-duration="1000"
                 ></p>
                 <p
-                    className="text-[#394854] font-[400] text-[1.5vw] leading-[1.58] w-[37.3125vw] ml-auto lg:text-[2.5vw] lg:w-[70%] lg:mt-[2vw] md:mt-[22.66vw] md:text-[4.26vw] md:w-[78.4%]"
+                    className="text-[#394854] font-[400] text-[1.5vw] leading-[1.58] w-[37.3125vw] ml-auto lg:text-[2.5vw] lg:w-[70%] lg:mt-[2vw] md:mt-[16vw] md:text-[4.26vw] md:w-[78.4%]"
                     data-aos-once="true"
                     data-aos="fade-left"
                     data-aos-duration="1000"
