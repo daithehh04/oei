@@ -10,24 +10,25 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import AOS from "aos";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Loading from "@/components/Common/Loading";
 
 gsap.registerPlugin(ScrollTrigger);
-function initializeGSAPWithDelay(delay) {
-    setTimeout(() => {
-        const filterElement = document.querySelector(".filter-mb");
-        const filterPosition = filterElement.offsetTop;
+// function initializeGSAPWithDelay(delay) {
+//     setTimeout(() => {
+//         const filterElement = document.querySelector(".filter-mb");
+//         const filterPosition = filterElement.offsetTop;
 
-        window.addEventListener("scroll", function () {
-            var scrollPosition =
-                window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollPosition >= filterPosition) {
-                filterElement.classList.add("sticky");
-            } else {
-                filterElement.classList.remove("sticky");
-            }
-        });
-    }, delay);
-}
+//         window.addEventListener("scroll", function () {
+//             var scrollPosition =
+//                 window.pageYOffset || document.documentElement.scrollTop;
+//             if (scrollPosition >= filterPosition) {
+//                 filterElement.classList.add("sticky");
+//             } else {
+//                 filterElement.classList.remove("sticky");
+//             }
+//         });
+//     }, delay);
+// }
 export default function ListProjectMb({
     outstanding,
     listProject,
@@ -69,33 +70,45 @@ export default function ListProjectMb({
         if (!parentRefMb.current) {
             return;
         }
-        let ctx = gsap.context(() => {
-            initializeGSAPWithDelay(2000);
-        }, parentRefMb);
-        return () => {
-            ctx.revert();
-        };
+        // let ctx = gsap.context(() => {
+        //     initializeGSAPWithDelay(2000);
+        // }, parentRefMb);
+        // return () => {
+        //     ctx.revert();
+        // };
+        const filterElement = document.querySelector(".filter-mb");
+        const filterPosition = filterElement.offsetTop;
+
+        window.addEventListener("scroll", function () {
+            var scrollPosition =
+                window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollPosition >= filterPosition) {
+                filterElement.classList.add("sticky");
+            } else {
+                filterElement.classList.remove("sticky");
+            }
+        });
     }, []);
 
-    useEffect(() => {
-        function checkScreenSize() {
-            var screenWidth = window.innerWidth;
-            if (screenWidth < 768) {
-                if (!parentRefMb.current) {
-                    return;
-                }
-                let ctx = gsap.context(() => {
-                    initializeGSAPWithDelay(2000);
-                }, parentRefMb);
-                return () => {
-                    ctx.revert();
-                };
-            }
-        }
+    // useEffect(() => {
+    //     function checkScreenSize() {
+    //         var screenWidth = window.innerWidth;
+    //         if (screenWidth < 768) {
+    //             if (!parentRefMb.current) {
+    //                 return;
+    //             }
+    //             let ctx = gsap.context(() => {
+    //                 initializeGSAPWithDelay(2000);
+    //             }, parentRefMb);
+    //             return () => {
+    //                 ctx.revert();
+    //             };
+    //         }
+    //     }
 
-        window.onload = checkScreenSize;
-        window.onresize = checkScreenSize;
-    });
+    //     window.onload = checkScreenSize;
+    //     window.onresize = checkScreenSize;
+    // });
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -140,6 +153,7 @@ export default function ListProjectMb({
         link.download = "file";
         link.click();
     }
+
     return (
         <div className="list-project">
             <div className="flex mt-[6.25vw] md:flex-col md:mt-[16vw] content">
