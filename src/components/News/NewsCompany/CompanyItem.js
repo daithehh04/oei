@@ -36,7 +36,7 @@ export default function CompanyItem({ company }) {
                         / {company?.categories?.nodes[0]?.name}
                     </span>
                 </div>
-                <h3 className="title block text-[#394854] mt-[0.5vw] font-[800] text-[2vw] line-clamp tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
+                <h3 className="title text-[#394854] mt-[0.5vw] font-[800] text-[2vw] line-clamp-2 min-h-[5vw] tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
                     {company?.title}
                 </h3>
                 <Link

@@ -43,7 +43,7 @@ export default function MainNews({ mainIndustry }) {
                             href={`/news/industry-news/${encodeURIComponent(
                                 firstBlog?.slug
                             )}`}
-                            className="text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.25vw] "
+                            className="text-[#394854] block font-[800] text-[2vw] !line-clamp-4 leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.25vw] "
                         >
                             {firstBlog?.title}
                         </Link>
@@ -58,7 +58,7 @@ export default function MainNews({ mainIndustry }) {
                         href={`/news/industry-news/${encodeURIComponent(
                             firstBlog?.slug
                         )}`}
-                        className="text-[#394854] block mt-[2.5vw] font-[700] text-[0.8125vw] uppercase leading-[2.57] md:text-18mb lg:text-[1.75vw] lg:mt-[1vw]"
+                        className="text-[#394854] block mt-[2.5vw] font-[700] text-[1.12vw] uppercase leading-[2.57] md:text-18mb lg:text-[1.75vw] lg:mt-[1vw]"
                     >
                         See More +
                     </Link>

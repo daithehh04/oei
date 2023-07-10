@@ -64,6 +64,13 @@
                 width: 26.66vw;
                 height: 26.66vw;
             }
+            .text {
+                strong {
+                    background: unset;
+                    -webkit-text-fill-color: unset;
+                    color: #4ca757 !important;
+                }
+            }
         }
     }
 }

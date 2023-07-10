@@ -8,41 +8,23 @@ import { useEffect } from "react";
 import img from "../../../assets/img/dowload.png";
 import Image from "next/image";
 import { gsap } from "gsap";
+import AOS from "aos";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
-        const clientHeight = document.getElementById("list-proj").clientHeight;
-        gsap.to(".filter-mb", {
-            scrollTrigger: {
-                trigger: ".filter-mb",
-                start: "top top",
-                end: `${clientHeight} top`,
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".filter-mb", {
-                            position: "fixed",
-                            top: "16vw",
-                            left: "0",
-                            right: "0",
-                            width: "100%",
-                            paddingLeft: "10px",
-                            paddingRight: "10px",
-                            background: "#fff",
-                            zIndex: 99,
-                        });
-                    } else {
-                        gsap.to(".filter-mb", {
-                            position: "static",
-                            background: "#FAFAFA",
-                            paddingLeft: 0,
-                            paddingRight: 0,
-                        });
-                    }
-                },
-            },
+        const filterElement = document.querySelector(".filter-mb");
+        const filterPosition = filterElement.offsetTop;
+
+        window.addEventListener("scroll", function () {
+            var scrollPosition =
+                window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollPosition >= filterPosition) {
+                filterElement.classList.add("sticky");
+            } else {
+                filterElement.classList.remove("sticky");
+            }
         });
     }, delay);
 }
@@ -87,7 +69,6 @@ export default function ListProjectMb({
         if (!parentRefMb.current) {
             return;
         }
-
         let ctx = gsap.context(() => {
             initializeGSAPWithDelay(2000);
         }, parentRefMb);
@@ -213,8 +194,8 @@ export default function ListProjectMb({
                         <option value="" hidden>
                             Project
                         </option>
-                        {filterPrj?.map((item) => (
-                            <option value={item?.[0]?.slug}>
+                        {filterPrj?.map((item, index) => (
+                            <option value={item?.[0]?.slug} key={index}>
                                 {item?.[0]?.name}
                             </option>
                         ))}
@@ -233,8 +214,10 @@ export default function ListProjectMb({
                         <option value="" hidden>
                             Year
                         </option>
-                        {yearFilter?.map((item) => (
-                            <option value={item}>{item}</option>
+                        {yearFilter?.map((item, index) => (
+                            <option value={item} key={index}>
+                                {item}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -248,8 +231,8 @@ export default function ListProjectMb({
                         <option value="" hidden>
                             Location
                         </option>
-                        {filterLocation?.map((item) => (
-                            <option value={item?.[0].slug}>
+                        {filterLocation?.map((item, index) => (
+                            <option value={item?.[0].slug} key={index}>
                                 {item?.[0].name}
                             </option>
                         ))}

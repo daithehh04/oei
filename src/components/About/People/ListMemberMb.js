@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
-import { Pagination } from "swiper";
+import { Pagination, FreeMode } from "swiper";
 import Link from "next/link";
 
 import Image from "next/image";
@@ -23,7 +23,7 @@ export default function ListMemberMb({ data }) {
     };
 
     return (
-        <div className="relative slide-team content mt-[6.59vw]">
+        <div className="relative slide-team mt-[6.59vw]">
             <Swiper
                 breakpoints={{
                     768: {
@@ -32,12 +32,12 @@ export default function ListMemberMb({ data }) {
                     },
                 }}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
                 }}
-                modules={[Pagination]}
+                freeMode={true}
+                modules={[Pagination, FreeMode]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
@@ -46,7 +46,7 @@ export default function ListMemberMb({ data }) {
                 {data?.listPeople?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-news !w-[75%]"
+                        className="!h-fit relative slide-item-news !w-[75%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                     >
                         {({ isActive }) => (
                             <Link href="/">
@@ -77,7 +77,7 @@ export default function ListMemberMb({ data }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] pl-[2.66vw]">
                 <button
                     className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}

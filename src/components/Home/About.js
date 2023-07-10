@@ -11,19 +11,23 @@ import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
+let mm = gsap.matchMedia();
+
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
         const boxes = document.querySelectorAll(".item-about");
         boxes.forEach((box) => {
-            gsap.to(box, {
-                x: "0",
-                scrollTrigger: {
-                    trigger: box,
-                    start: "top bottom",
-                    end: "top 50%",
-                    scrub: true,
-                    once: true,
-                },
+            mm.add("(min-width: 768px)", () => {
+                gsap.to(box, {
+                    x: "0",
+                    scrollTrigger: {
+                        trigger: box,
+                        start: "top bottom",
+                        end: "top 50%",
+                        scrub: true,
+                        once: true,
+                    },
+                });
             });
         });
     }, delay);
@@ -48,7 +52,7 @@ const About = ({ data }) => {
 
     return (
         <div className="relative overflow-hidden about">
-            <div className="container-about w-[95.625%] ml-auto mt-[12.625vw] md:w-[91.25%] md:mr-auto md:ml-auto">
+            <div className="container-about w-[95.625%] ml-auto mt-[12.625vw] md:w-[91.25%] md:mr-auto md:ml-auto md:mt-[29.6vw]">
                 <div className="wrapper relative flex gap-[1.3125vw] md:w-full md:block">
                     <div className="left relative w-[40.61%] md:w-[100%]">
                         <h2

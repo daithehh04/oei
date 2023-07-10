@@ -44,7 +44,7 @@ export default function MainBlog({ mainBlogs }) {
                                 )}
                             </span>
                         </span>
-                        <h3 className="title text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.5vw]">
+                        <h3 className="title text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-20mb lg:text-[2.5vw] line-clamp-3">
                             {firstBlog?.title}
                         </h3>
                         <p
@@ -53,7 +53,7 @@ export default function MainBlog({ mainBlogs }) {
                                 __html: firstBlog?.excerpt,
                             }}
                         />
-                        <div className="text-[#394854] md:mb-[4.27vw] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]">
+                        <div className="see-more text-[#394854] md:mb-[4.27vw] font-[700] text-[1.11vw] block uppercase leading-[2.57] mt-[1vw] md:text-18mb lg:text-[2vw]">
                             See More +
                         </div>
                     </div>

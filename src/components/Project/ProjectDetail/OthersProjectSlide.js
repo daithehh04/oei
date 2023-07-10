@@ -4,13 +4,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, { Autoplay, FreeMode } from "swiper";
 
 export default function OthersProjectSlide({ projectAll }) {
     SwiperCore.use([Autoplay]);
     const swiperRef = useRef();
     return (
-        <div className="relative project-item">
+        <div className="relative project-item w-[91.25%] ml-auto mr-auto md:w-full">
             <Swiper
                 breakpoints={{
                     768: {
@@ -28,17 +28,17 @@ export default function OthersProjectSlide({ projectAll }) {
                 }}
                 loop={true}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                modules={[Autoplay]}
-                className="relative flex flex-col items-end w-full swiper-otherProject"
+                freeMode={true}
+                modules={[Autoplay, FreeMode]}
+                className="relative flex flex-col items-end w-full swiper-otherProject "
             >
                 {projectAll?.map((otherProject, index) => (
                     <SwiperSlide
                         key={index}
-                        className="relative slide-item-otherProject md:w-[80%]"
+                        className="relative slide-item-otherProject md:w-[80%] md:ml-[2.66vw] md:last:mr-[2.66vw]"
                     >
                         {({ isActive }) => {
                             const urlImg =
@@ -77,7 +77,7 @@ export default function OthersProjectSlide({ projectAll }) {
                                                 otherProject?.slug
                                             )}`}
                                         >
-                                            <h3 className="pt-[0.625vw] text-[2vw] font-[700] leading-[1.25] tracking-tighter title-other_prj lg:text-[3vw] md:text-[5.96vw]">
+                                            <h3 className="pt-[0.625vw] text-[2vw] font-[700] leading-[1.25] tracking-tighter title-other_prj lg:text-[3vw] md:text-[5.96vw] md:line-clamp-2 md:min-h-[15.5vw]">
                                                 {otherProject?.title}
                                             </h3>
                                         </Link>

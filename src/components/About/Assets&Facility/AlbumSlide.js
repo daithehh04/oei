@@ -104,7 +104,7 @@ export default function AlbumSlide({ dataSlide }) {
                     </svg>
                 </button>
             </div>
-            <div className="w-[80%] pl-[2.5vw] border-l border-[#ccc] md:pl-[2.67vw] md:py-[6.27vw] md:mb-[8.53vw] md:border-l-0 md:border-b md:border-[#fff] md:border-opacity-50 md:w-full">
+            <div className="w-[80%] pl-[2.5vw] border-l md:pl-0 border-[#ccc] md:py-[6.27vw] md:mb-[8.53vw] md:border-l-0 md:border-b md:border-[#fff] md:border-opacity-50 md:w-full">
                 <Swiper
                     breakpoints={{
                         768: {
@@ -115,7 +115,6 @@ export default function AlbumSlide({ dataSlide }) {
                         },
                     }}
                     slidesPerView="auto"
-                    spaceBetween={10}
                     onSlideChange={handleSlideChange}
                     modules={[Pagination]}
                     onBeforeInit={(swiper) => {
@@ -126,7 +125,7 @@ export default function AlbumSlide({ dataSlide }) {
                     {dataSlide.map((item, index) => (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-project w-[33%] lg:w-[50%] md:w-[70%]"
+                            className="!h-fit relative slide-item-project !w-[33%] lg:!w-[50%] md:!w-[70%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                         >
                             {({ isActive }) => (
                                 <Link
@@ -169,7 +168,7 @@ export default function AlbumSlide({ dataSlide }) {
                                                         ?.desc
                                                 }
                                             </p>
-                                            <span className="block mt-[0.75vw] text-[1.125vw] text-[#fff] uppercase font-[700] lg:text-[2.25vw] md:text-[3vw] md:mt-[2vw]">
+                                            <span className="block mt-[0.75vw] text-[1.125vw] text-[#fff] uppercase font-[700] lg:text-[2.25vw] md:text-[3.73vw] md:mt-[2vw]">
                                                 see more +
                                             </span>
                                         </div>

@@ -30,7 +30,7 @@ export default function Dynamic({ data }) {
                         {data?.desc}
                     </p>
                 </div>
-                <div className="mt-[6.44vw] md:mt-[5.33vw] w-[95.625%] ml-auto md:w-[97.33%]">
+                <div className="mt-[6.44vw] md:mt-[5.33vw] w-[95.625%] ml-auto md:w-full">
                     <SlideAssets dataSlide={data?.album} />
                 </div>
             </div>

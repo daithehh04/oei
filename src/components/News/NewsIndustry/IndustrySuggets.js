@@ -22,7 +22,7 @@ export default function IndustrySuggets({ blog }) {
                     href={`/news/industry-news/${encodeURIComponent(
                         blog?.slug
                     )}`}
-                    className="text-[#394854] font-[800] text-[2vw] leading-[1.25] tracking-tighter mt-[0.5vw] md:text-25mb lg:text-[2.25vw]"
+                    className="text-[#394854] block font-[800] text-[2vw] leading-[1.25] !line-clamp-2 min-h-[5vw] tracking-tighter mt-[0.5vw] md:text-25mb lg:text-[2.25vw]"
                 >
                     {blog?.title}
                 </Link>

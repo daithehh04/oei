@@ -43,12 +43,11 @@ export default function SlideAssets({ dataSlide }) {
                     disableOnInteraction: false,
                 }}
                 modules={[Autoplay]}
-                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="relative w-full swiper-assets"
+                className="relative w-full swiper-assets "
             >
                 {dataSlide?.map((item, index) => {
                     return (
@@ -57,7 +56,7 @@ export default function SlideAssets({ dataSlide }) {
                                 const active = isActive ? "active" : "";
                                 return (
                                     <div className={`item ${active}`}>
-                                        <div className=" block w-full h-[35.75vw] md:h-[53.6vw]">
+                                        <div className=" block w-full h-[35.75vw] md:h-[53.6vw] md:pl-[2.66vw]">
                                             <Image
                                                 width={344}
                                                 height={426}

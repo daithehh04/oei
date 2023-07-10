@@ -13,7 +13,7 @@ export default function IndustryItem({ industry }) {
 
     const formattedDate = `${day}.${month}.${year}`;
     return (
-        <div href="#" className="block company-item">
+        <div className="block company-item">
             <Link
                 href={`/news/industry-news/${encodeURIComponent(
                     industry?.slug
@@ -41,7 +41,7 @@ export default function IndustryItem({ industry }) {
                     href={`/news/industry-news/${encodeURIComponent(
                         industry?.slug
                     )}`}
-                    className="title block text-[#394854] font-[800] text-[1.58vw] line-clamp tracking-tighter leading-[1.25] mt-[1vw] md:text-[4.8vw] lg:text-[2.25vw]"
+                    className="title block text-[#394854] font-[800] text-[1.58vw] !line-clamp-2 tracking-tighter leading-[1.25] min-h-[4vw] mt-[1vw] md:text-[4.8vw] lg:text-[2.25vw]"
                 >
                     {industry?.title}
                 </Link>

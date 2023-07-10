@@ -122,7 +122,7 @@ export default async function ProjectDetail(context) {
                             {projectItem?.projectDetail?.repeatTech?.map(
                                 (item) => (
                                     <li className="pt-[1vw] pb-[1.5vw] border-t border-[#fff] border-opacity-50 md:py-[4.27vw]">
-                                        <span className="text-[1.25vw] tracking-tighter capitalize font-[700] lg:text-[1.85vw] md:text-[4.26vw]">
+                                        <span className="text-[1.25vw] tracking-tighter leading-[1.5] capitalize font-[700] lg:text-[1.85vw] md:text-[4.26vw]">
                                             {item?.title}
                                         </span>
                                         <p className="text-[1.5vw] font-[400] leading-[1.38] mt-[0.625vw] lg:text-[2vw] md:text-[4.8vw] md:mt-0">

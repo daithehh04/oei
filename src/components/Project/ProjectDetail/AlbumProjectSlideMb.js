@@ -28,7 +28,7 @@ export default function AlbumProjectSlideMb({ imgsAlbum }) {
 
     return (
         <div
-            className="relative slide-team content"
+            className="relative slide-team"
             data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -41,7 +41,6 @@ export default function AlbumProjectSlideMb({ imgsAlbum }) {
                     },
                 }}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
@@ -57,7 +56,7 @@ export default function AlbumProjectSlideMb({ imgsAlbum }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-certified md:w-[70%]"
+                            className="!h-fit relative slide-item-certified md:w-[70%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                         >
                             {({ isActive }) => (
                                 <div className="w-full h-[34.8125vw] img-certified md:h-[57.06vw] lg:h-[44vw]">
@@ -74,7 +73,7 @@ export default function AlbumProjectSlideMb({ imgsAlbum }) {
                     );
                 })}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] md:pl-[2.66vw]">
                 <button
                     className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}

@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function OtherProject({ projectAll }) {
     return (
-        <div className="content pb-[6.875vw]">
-            <div className="flex justify-between items-center mb-[2vw] mt-[6.875vw]">
+        <div className=" pb-[6.875vw]">
+            <div className="flex justify-between items-baseline mb-[2vw] mt-[6.875vw] content">
                 <h3 className="text-[3.75vw] capitalize text-primary font-[800] md:text-[8vw] lg:text-[4.67vw]">
                     project Others
                 </h3>

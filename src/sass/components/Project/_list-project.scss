@@ -89,7 +89,8 @@
 }
 
 .slide-item__otherProject {
-    &:hover .title-other_prj {
+    .title-other_prj:hover,
+    a:hover {
         background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -98,6 +99,19 @@
     }
 }
 
+.filter-mb {
+    transition: all 0.4s ease;
+}
+
+.filter-mb.sticky {
+    position: sticky;
+    top: 16vw;
+    z-index: 99;
+    background-color: #fafafa;
+    width: 100%;
+    padding-left: 2.66vw;
+    padding-right: 2.66vw;
+}
 @include mobile {
     .list-project {
         .slide-prj {

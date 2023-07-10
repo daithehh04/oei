@@ -29,7 +29,7 @@ export default function SlideServiceMb({ data }) {
                 {data?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="relative item-serviceMb pt-[8vw] lg:h-[56vw] lg:w-[50%] md:w-[75%] md:h-[83.46vw]"
+                        className="relative item-serviceMb pt-[8vw] lg:!h-[56vw] lg:w-[50%] md:w-[75%] md:!h-[83.46vw]"
                     >
                         {({ isActive }) => (
                             <div className="h-full">

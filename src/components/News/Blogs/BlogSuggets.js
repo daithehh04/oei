@@ -37,16 +37,10 @@ export default function BlogSuggets({ blog }) {
                         / {blog?.categories?.nodes[0]?.name.slice(0, 4)}
                     </span>
                 </div>
-                <h3
-                    href="#"
-                    className="title block text-[#394854] font-[800] text-[1.25vw] tracking-tighter leading-[1.25] mt-[1vw] md:text-[2.75vw] lg:text-[1.65vw]"
-                >
+                <h3 className="title text-[#394854] font-[800] text-[1.25vw] tracking-tighter !line-clamp-2 min-h-[3.2vw] leading-[1.25] mt-[1vw] md:text-[2.75vw] lg:text-[1.65vw]">
                     {blog?.title}
                 </h3>
-                <a
-                    href={`/news/blogs/${encodeURIComponent(blog?.slug)}`}
-                    className="uppercase text-[0.8125vw] font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57] md:text-[2vw] lg:mt-0 lg:text-[1.45vw]"
-                >
+                <a className="uppercase text-[0.8125vw] font-[700] flex items-end justify-end mt-[1vw] text-[#3A5469] leading-[2.57] md:text-[2vw] lg:mt-0 lg:text-[1.45vw]">
                     See More +
                 </a>
             </div>

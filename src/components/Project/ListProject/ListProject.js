@@ -162,8 +162,8 @@ export default function ListProject({
                         <option value="" hidden>
                             Project
                         </option>
-                        {filterPrj?.map((item) => (
-                            <option value={item?.[0]?.slug}>
+                        {filterPrj?.map((item, index) => (
+                            <option value={item?.[0]?.slug} key={index}>
                                 {item?.[0]?.name}
                             </option>
                         ))}
@@ -182,8 +182,10 @@ export default function ListProject({
                         <option value="" hidden>
                             Year
                         </option>
-                        {yearFilter?.map((item) => (
-                            <option value={item}>{item}</option>
+                        {yearFilter?.map((item, index) => (
+                            <option value={item} key={index}>
+                                {item}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -197,8 +199,8 @@ export default function ListProject({
                         <option value="" hidden>
                             Location
                         </option>
-                        {filterLocation?.map((item) => (
-                            <option value={item?.[0].slug}>
+                        {filterLocation?.map((item, index) => (
+                            <option value={item?.[0].slug} key={index}>
                                 {item?.[0].name}
                             </option>
                         ))}

@@ -28,7 +28,7 @@ export default function SlideCertifiedMb({ dataSlide }) {
 
     return (
         <div
-            className="relative slide-team content border-t border-[#ccc]"
+            className="relative slide-team border-t border-[#ccc]"
             data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -45,7 +45,6 @@ export default function SlideCertifiedMb({ dataSlide }) {
                     },
                 }}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
@@ -59,7 +58,7 @@ export default function SlideCertifiedMb({ dataSlide }) {
                 {dataSlide?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-certified w-[55%] md:pl-0 md:py-[8vw]"
+                        className="!h-fit relative slide-item-certified w-[55%] md:py-[8vw] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                     >
                         {({ isActive }) => (
                             <div className="w-full h-[28.625vw] img-certified md:h-[78.93vw]">
@@ -75,7 +74,7 @@ export default function SlideCertifiedMb({ dataSlide }) {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] ">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] md:pl-[2.66vw]">
                 <button
                     className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}

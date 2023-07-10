@@ -150,4 +150,18 @@
         grid-template-columns: 17.68vw 25.08vw 26.08vw 11.19vw 3.84vw 8.84vw;
         grid-template-rows: 14.59vw 3.76vw 17.68vw 15.25vw 7.85vw 6.29vw 3.93vw 11.1vw;
     }
+    .about .right .id-1 {
+        transform: translateX(0);
+    }
+
+    .about .right .id-2,
+    .about .right .id-6,
+    .about .right .id-4 {
+        transform: translateX(0);
+    }
+    .about .right .id-5,
+    .about .right .id-3,
+    .about .right .id-7 {
+        transform: translateX(0);
+    }
 }

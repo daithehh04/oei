@@ -81,7 +81,7 @@ export default function SlideVision({ dataSlide }) {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] border-opacity-50 !w-[80%] md:!w-[96.44%] md:ml-auto !pl-[4vw] md:pl-0"
+                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] border-opacity-50 !w-[80%] md:!w-[96.44%] md:ml-auto !pl-[4vw] md:!pl-0"
             >
                 <div>
                     {dataSlide?.map((item, index) => (
@@ -122,7 +122,7 @@ export default function SlideVision({ dataSlide }) {
                 width={500}
                 height={500}
                 alt="background"
-                className="absolute bottom-0 left-0 right-0 object-cover w-full h-full -z-2"
+                className="absolute bottom-[50%] left-0 right-0 object-cover w-full h-full -z-2"
             />
         </div>
     );

@@ -82,7 +82,7 @@ export default async function Introduce() {
     return (
         <>
             <HeaderSecond header={header} />
-            <main>
+            <main className="overflow-hidden">
                 <IndexIntroduce />
             </main>
         </>

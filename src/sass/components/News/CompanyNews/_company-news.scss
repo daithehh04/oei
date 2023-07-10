@@ -14,7 +14,8 @@
 
 .main-company {
     .info {
-        a:hover {
+        a:hover,
+        .title:hover {
             cursor: pointer;
             background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
             -webkit-background-clip: text;

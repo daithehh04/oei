@@ -22,7 +22,7 @@ export default function CompanySuggets({ news }) {
                     href={`/news/company-news/${encodeURIComponent(
                         news?.slug
                     )}`}
-                    className=" block text-[#394854] font-[800] text-[1.25vw] leading-[1.35] md:text-18mb lg:text-[2vw]"
+                    className=" block text-[#394854] font-[800] text-[1.25vw] leading-[1.35] !line-clamp-2 md:text-18mb lg:text-[2vw]"
                 >
                     {news?.title}
                 </Link>

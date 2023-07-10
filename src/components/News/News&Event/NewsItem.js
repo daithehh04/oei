@@ -34,7 +34,7 @@ export default function NewsItem({ newsItem }) {
                         / {newsItem?.categories?.nodes[0]?.name.slice(0, 5)}
                     </span>
                 </div>
-                <h3 className="title text-[1.5625vw] text-[#394854] font-[700] mt-[1vw] line-clamp md:text-18mb lg:text-[2vw]">
+                <h3 className="title text-[1.5625vw] text-[#394854] font-[700] mt-[1vw] line-clamp-2 min-h-[4.7vw] md:text-18mb lg:text-[2vw]">
                     {newsItem?.title}
                 </h3>
                 <a

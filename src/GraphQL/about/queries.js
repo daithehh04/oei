@@ -103,9 +103,7 @@ const GET_DATA_ABOUT_PAGE = `
               value {
                 title
                 text
-                profile {
-                  url
-                }
+                profile
                 img {
                   sourceUrl
                 }

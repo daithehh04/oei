@@ -21,7 +21,7 @@ export default function LastNews({ news, slug }) {
                 </Link>
                 <Link
                     href={`/news/${slug}`}
-                    className="text-[4.267vw] hidden md:block uppercase text-[#394854] leading-[1.25] font-[800]"
+                    className="text-[4.267vw] hidden md:block uppercase text-[#394854] leading-[2] font-[800]"
                 >
                     See More +
                 </Link>

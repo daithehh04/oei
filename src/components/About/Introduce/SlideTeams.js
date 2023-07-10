@@ -28,7 +28,7 @@ export default function SlideTeams({ dataSlide }) {
 
     return (
         <div
-            className="relative slide-team"
+            className="relative slide-team w-[91.25%] ml-auto mr-auto md:w-full"
             data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="1000"
@@ -45,7 +45,6 @@ export default function SlideTeams({ dataSlide }) {
                     },
                 }}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
@@ -61,7 +60,7 @@ export default function SlideTeams({ dataSlide }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="!h-fit relative slide-item-news md:!w-[60%]"
+                            className="!h-fit relative slide-item-news md:!w-[60%] md:pl-[2.66vw] md:last:mr-[2.66vw]"
                         >
                             {({ isActive }) => (
                                 <div>
@@ -93,7 +92,7 @@ export default function SlideTeams({ dataSlide }) {
                     );
                 })}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] md:pl-[2.66vw]">
                 <button
                     className={`border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center  lg:w-[4.67vw] lg:h-[4.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}

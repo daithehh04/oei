@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
-import { Pagination } from "swiper";
+import { Pagination, FreeMode } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ export default function LastNewsSlide({ news }) {
     }
 
     return (
-        <div className="relative w-[95.625%] ml-auto">
+        <div className="relative w-[95.625%] ml-auto md:w-full">
             <Swiper
                 breakpoints={{
                     768: {
@@ -41,17 +41,17 @@ export default function LastNewsSlide({ news }) {
                         spaceBetween: 24,
                     },
                 }}
+                freeMode={true}
                 slidesPerView={"auto"}
-                spaceBetween={18}
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
                 }}
-                modules={[Pagination]}
+                modules={[Pagination, FreeMode]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="relative flex flex-col items-end h-fit swiper-lastnews "
+                className="relative flex flex-col items-end h-fit swiper-lastnews"
             >
                 {news?.map((newsItem, index) => {
                     const urlImg = newsItem?.featuredImage.node.sourceUrl;
@@ -65,7 +65,7 @@ export default function LastNewsSlide({ news }) {
                     return (
                         <SwiperSlide
                             key={index}
-                            className="relative slide-item-lastnews md:w-[80%]"
+                            className="relative slide-item-lastnews md:w-[80%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                         >
                             {({ isActive }) => (
                                 <Link
@@ -89,7 +89,7 @@ export default function LastNewsSlide({ news }) {
                                             <span>/ {category}</span>
                                         </span>
                                         <div>
-                                            <p className="description-lastnews text-blackLastNews transition-all text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:text-[4.267vw] lg:text-[2vw]">
+                                            <p className="text-blackLastNews text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:line-clamp-2 md:text-[4.267vw] lg:text-[2vw] md:min-h-[12vw]">
                                                 {newsItem?.title}
                                             </p>
                                             <div className="flex justify-end mt-[calc(0.625*100vw/100)]">
@@ -117,7 +117,7 @@ export default function LastNewsSlide({ news }) {
                     );
                 })}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] md:pl-[2.66vw]">
                 <button
                     className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[calc(3.75*100vw/100)] select-none btn-slide-member  h-[calc(3.75*100vw/100)] rounded-full flex justify-center items-center lg:w-[6.67vw] lg:h-[6.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
