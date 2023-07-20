@@ -51,13 +51,11 @@ export default function ListNewsIndustry({ titles, mainNews, othersNews }) {
             },
         });
     }, []);
-    // others News img
     const imgNews = [
         othersNews.newsEvent.sourceUrl,
         othersNews.companyNews.sourceUrl,
         othersNews.blogs.sourceUrl,
     ];
-    // const typeNews = ["news event", "company news", "blogs"];
     const typeNews = [
         {
             title: "news event",

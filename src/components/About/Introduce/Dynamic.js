@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import AOS from "aos";
-import img from "../../../assets/img/dynamic.png";
 import Image from "next/image";
 
 function Dynamic({ data }) {

@@ -97,8 +97,8 @@ export default function SlideCertified({ dataSlide }) {
                         {({ isActive }) => (
                             <div className="w-full h-[28.625vw] img-certified md:h-[78.93vw]">
                                 <Image
-                                    width={344}
-                                    height={426}
+                                    width={1000}
+                                    height={1000}
                                     className="object-cover w-full h-full"
                                     src={item?.sourceUrl}
                                     alt={item?.altText || item?.title}

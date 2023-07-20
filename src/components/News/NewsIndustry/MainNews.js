@@ -1,7 +1,6 @@
 import React from "react";
 import IndustrySuggets from "./IndustrySuggets";
 import Image from "next/image";
-import img from "../../../assets/img/industry-news.png";
 import Link from "next/link";
 
 export default function MainNews({ mainIndustry }) {
@@ -65,8 +64,8 @@ export default function MainNews({ mainIndustry }) {
                 </div>
             </div>
             <div className="mt-[4.625vw] grid grid-cols-3 gap-[1.875vw] md:grid-cols-1 lg:mt-[3vw]">
-                {arrBlogs?.map((item) => (
-                    <IndustrySuggets blog={item} />
+                {arrBlogs?.map((item, index) => (
+                    <IndustrySuggets blog={item} key={index} />
                 ))}
             </div>
         </div>
