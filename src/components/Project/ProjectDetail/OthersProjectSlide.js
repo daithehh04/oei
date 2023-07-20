@@ -50,10 +50,10 @@ export default function OthersProjectSlide({ projectAll }) {
                                         href={`/project/${encodeURIComponent(
                                             otherProject?.slug
                                         )}`}
-                                        className="w-full h-[21.5625vw] md:h-[57.86vw] relative"
+                                        className="relative w-full"
                                     >
                                         <Image
-                                            className="object-cover w-full h-full"
+                                            className="object-cover w-full h-[21.5625vw] lg:h-[30vw] md:h-[57.86vw]"
                                             src={urlImg}
                                             alt={
                                                 otherProject?.featuredImage
@@ -78,7 +78,7 @@ export default function OthersProjectSlide({ projectAll }) {
                                                 otherProject?.slug
                                             )}`}
                                         >
-                                            <h3 className="pt-[0.625vw] text-[1.6875vw] font-[700] leading-[1.25] tracking-tighter title-other_prj line-clamp-1 md:line-clamp-2 lg:text-[3vw] md:text-[4.46vw]">
+                                            <h3 className="pt-[0.625vw] text-[1.6875vw] font-[700] text-primary leading-[1.25] tracking-tighter title-other_prj line-clamp-1 md:line-clamp-2 lg:text-[3vw] md:text-[4.46vw]">
                                                 {otherProject?.title}
                                             </h3>
                                         </Link>

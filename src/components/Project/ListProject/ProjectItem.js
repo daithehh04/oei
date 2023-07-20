@@ -29,7 +29,7 @@ export default function ProjectItem({ projectItem }) {
                 <Link
                     href={`/project/${encodeURIComponent(projectItem?.slug)}`}
                 >
-                    <h3 className="pt-[0.625vw] text-[1.6875vw] font-[700] leading-[1.25] tracking-tighter title-prj capitalize lg:text-[2.75vw] md:text-[5.33vw]">
+                    <h3 className="pt-[0.625vw] text-[1.6875vw] text-[#394854] md:text-primary font-[700] leading-[1.25] tracking-tighter title-prj capitalize lg:text-[2.75vw] md:text-[5.33vw]">
                         {projectItem?.title}
                     </h3>
                     <p className="hidden md:block md:!line-clamp-3 md:text-[3.73vw] text-[#394854] md:mt-[1.6vw] md:mb-[4.27vw]">
