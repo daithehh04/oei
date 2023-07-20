@@ -31,7 +31,12 @@ export default function Dynamic({ data }) {
                 </div>
                 <div className="mt-[2.5vw] md:mt-[5.33vw] content">
                     <div className="flex gap-[1.87vw] h-[39.3125vw] md:h-auto md:gap-[2.13vw] md:flex-col-reverse">
-                        <div className="left w-[52.43vw] h-full md:w-full">
+                        <div
+                            className="left w-[52.43vw] h-full md:w-full"
+                            data-aos-once="true"
+                            data-aos="fade-right"
+                            data-aos-duration="1000"
+                        >
                             <Image
                                 src={data?.img1.sourceUrl}
                                 width={1000}
@@ -40,7 +45,12 @@ export default function Dynamic({ data }) {
                                 className="block object-cover w-full h-full md:h-[43.7vw]"
                             />
                         </div>
-                        <div className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw]">
+                        <div
+                            className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw]"
+                            data-aos-once="true"
+                            data-aos="fade-left"
+                            data-aos-duration="1000"
+                        >
                             <Image
                                 src={data?.img2.sourceUrl}
                                 width={1000}

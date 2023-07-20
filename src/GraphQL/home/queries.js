@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client";
-
 const GET_DATA_HOME_PAGE = `
     {
         page(id: "cG9zdDoxOQ==") {

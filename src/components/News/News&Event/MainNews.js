@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function MainNews({ news }) {
     const urlImg = news?.featuredImage?.node?.sourceUrl;
@@ -29,7 +30,9 @@ export default function MainNews({ news }) {
                 href={`/news/news&event/${encodeURIComponent(news?.slug)}`}
                 className="left w-[50%] md:w-full"
             >
-                <img
+                <Image
+                    width={1000}
+                    height={1000}
                     src={urlImg}
                     alt={
                         news?.featuredImage.node?.altText ||

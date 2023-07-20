@@ -65,7 +65,7 @@ export default function FacilitiesSlide({ dataSlide }) {
                                         }
                                     />
                                 </div>
-                                <div className="bg-white px-[1.31vw] min-h-[17.81vw] pt-[1.25vw] line-clamp-4 pb-[1.75vw] md:min-h-[46.5vw] md:pt-[2.67vw] md:px-[3.47vw] md:pb-[4.27vw]">
+                                <div className="bg-white px-[1.31vw] min-h-[17.81vw] lg:min-h-[28vw] pt-[1.25vw] pb-[1.75vw] md:min-h-[46.5vw] md:pt-[2.67vw] md:px-[3.47vw] md:pb-[4.27vw]">
                                     <h3 className="title text-[#394854] font-[700] leading-[1.37] text-[1.6875vw] md:text-[4.8vw] lg:text-[2.75vw] lg:mt-[1vw] line-clamp-3">
                                         {item?.title}
                                     </h3>

@@ -18,7 +18,7 @@ export default function Profile({ data }) {
     }, []);
     return (
         <div
-            className="profile mt-[10vw] md:mt-[16.48vw]"
+            className="profile mt-[8.06vw] md:mt-[16vw]"
             data-aos-once="true"
             data-aos="fade-up"
             data-aos-duration="2000"
