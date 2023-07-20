@@ -37,7 +37,7 @@ export default function ListProject({
             typeProjectSlug: typeProject,
             year: +year,
             offset: 0,
-            size: 6,
+            size: 9,
         },
     });
 
@@ -56,7 +56,7 @@ export default function ListProject({
     const nodes = data?.allProject?.nodes;
 
     const pageInfo = data?.allProject?.pageInfo.offsetPagination.total;
-    const totalPages = Math.ceil(pageInfo / 6);
+    const totalPages = Math.ceil(pageInfo / 9);
 
     const handleSelect = (e) => {
         const value = e.target.value;
@@ -81,8 +81,8 @@ export default function ListProject({
     const handleClick = (buttonIndex) => {
         setActiveButton(buttonIndex);
         refetch({
-            offset: buttonIndex * 6,
-            size: 6,
+            offset: buttonIndex * 9,
+            size: 9,
         });
     };
 
@@ -131,7 +131,7 @@ export default function ListProject({
                 ref={eleRef}
             >
                 <h2
-                    className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] mt-[-1.5vw] md:hidden"
+                    className="title text-[3.75vw] font-[800] capitalize lg:text-[4.67vw] mt-[-1vw] md:hidden"
                     data-aos-once="true"
                     data-aos="fade-right"
                     data-aos-duration="2000"
@@ -149,7 +149,7 @@ export default function ListProject({
             </div>
 
             <div
-                className="filter flex items-center md:justify-between gap-[1.5vw] pt-[-1.5vw] pb-[7.125vw] md:pt-[6.4vw] md:gap-[2.13vw] content"
+                className="filter flex items-center md:justify-between gap-[1.5vw] mt-[-1.75vw] pb-[2.5vw] md:pt-[6.4vw] md:gap-[2.13vw] content"
                 ref={parentRef}
             >
                 <div className="project ">
@@ -208,9 +208,9 @@ export default function ListProject({
                 </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1 content">
-                {nodes?.map((item) => (
-                    <ProjectItem projectItem={item} />
+            <div className="grid grid-cols-3 gap-[1.87vw] lg:grid-cols-2 md:grid-cols-1 content">
+                {nodes?.map((item, index) => (
+                    <ProjectItem projectItem={item} key={index} />
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw] content">

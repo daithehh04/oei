@@ -9,8 +9,9 @@ import AOS from "aos";
 import { useEffect } from "react";
 import { useRef } from "react";
 import Loading from "@/components/Common/Loading";
+import CategoryNews from "@/components/Common/CategoryNews";
 
-export default function ListNewsCompany({ titles, mainNews }) {
+export default function ListNewsCompany({ titles, mainNews, othersNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_COMPANY, {
@@ -47,6 +48,27 @@ export default function ListNewsCompany({ titles, mainNews }) {
             },
         });
     }, []);
+    // others News img
+    const imgNews = [
+        othersNews.newsEvent.sourceUrl,
+        othersNews.industryNews.sourceUrl,
+        othersNews.blogs.sourceUrl,
+    ];
+    // const typeNews = ["news event", "industry news", "blogs"];
+    const typeNews = [
+        {
+            title: "news event",
+            slug: "news&event",
+        },
+        {
+            title: "industry news",
+            slug: "industry-news",
+        },
+        {
+            title: "blogs",
+            slug: "blogs",
+        },
+    ];
     if (!data)
         return (
             <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
@@ -55,7 +77,7 @@ export default function ListNewsCompany({ titles, mainNews }) {
         );
     return (
         <div className="content">
-            <div className="pt-[6.25vw] mb-[2.5vw] md:mb-[7.46vw]">
+            <div className="pt-[5.25vw] mb-[2.5vw] md:mb-[7.46vw]">
                 <span
                     className="text-[1.125vw] text-[#376A66] font-[700] leading-normal uppercase tracking-[0.12em] lg:text-[2vw] md:text-[3.73vw]"
                     data-aos-once="true"
@@ -93,9 +115,9 @@ export default function ListNewsCompany({ titles, mainNews }) {
                         {titles?.subTitle2}
                     </h2>
                 </div>
-                <div className="grid grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] md:grid-cols-1">
-                    {nodes?.map((item) => (
-                        <CompanyItem company={item} />
+                <div className="grid grid-cols-3 lg:grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] md:grid-cols-1">
+                    {nodes?.map((item, index) => (
+                        <CompanyItem company={item} key={index} />
                     ))}
                 </div>
                 <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[8vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">
@@ -116,6 +138,7 @@ export default function ListNewsCompany({ titles, mainNews }) {
                     ))}
                 </div>
             </div>
+            <CategoryNews imgNews={imgNews} typeNews={typeNews} />
         </div>
     );
 }

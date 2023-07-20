@@ -50,12 +50,6 @@ export default function Values({ data }) {
             ctx.revert();
         };
     }, []);
-    function fileDownloader(href) {
-        const link = document.createElement("a");
-        link.href = href;
-        link.download = "file";
-        link.click();
-    }
     useEffect(() => {
         AOS.init();
         AOS.refresh();
@@ -65,7 +59,7 @@ export default function Values({ data }) {
             <div className="content">
                 <div className="flex items-center row ">
                     <p
-                        className="text text-46pc font-[800] w-[53%] leading-[1.22] text-[#394854] lg:text-[4.5vw]"
+                        className="text text-46pc font-[800] w-[53%] lg:w-full leading-[1.22] text-[#394854] lg:text-[4.5vw]"
                         dangerouslySetInnerHTML={{
                             __html: data?.title,
                         }}
@@ -73,24 +67,6 @@ export default function Values({ data }) {
                         data-aos="fade-right"
                         data-aos-duration="2000"
                     ></p>
-                    <span
-                        onClick={() => fileDownloader(data?.profile)}
-                        className="download cursor-pointer flex items-center justify-center bg-member w-[47%] flex-col ml-[25vw]"
-                        data-aos-once="true"
-                        data-aos="fade-left"
-                        data-aos-duration="2000"
-                    >
-                        <Image
-                            src={img}
-                            width={100}
-                            height={100}
-                            alt="img"
-                            className="img-dl w-[40%] object-cover"
-                        />
-                        <span className="text text-[0.6875vw] font-[400] leading-[2.18] uppercase text-[#fff] text-center lg:w-[80%] lg:text-[1.5vw] lg:leading-[1.5]">
-                            download profile
-                        </span>
-                    </span>
                 </div>
                 <div className="overflow-hidden">
                     <Image

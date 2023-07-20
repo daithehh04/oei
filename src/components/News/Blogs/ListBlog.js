@@ -10,27 +10,28 @@ import AOS from "aos";
 import { useEffect } from "react";
 import Loading from "@/components/Common/Loading";
 import { useRef } from "react";
+import CategoryNews from "@/components/Common/CategoryNews";
 
-export default function ListBlog({ titles, mainBlog }) {
+export default function ListBlog({ titles, mainBlog, othersNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_BLOGS, {
         variables: {
             offset: 0,
-            size: 6,
+            size: 9,
         },
     });
 
     const nodes = data?.posts?.nodes;
 
     const pageInfo = data?.posts?.pageInfo.offsetPagination.total;
-    const totalPages = Math.ceil(pageInfo / 6);
+    const totalPages = Math.ceil(pageInfo / 9);
 
     const handleClick = (buttonIdex) => {
         setActiveButton(buttonIdex);
         refetch({
-            offset: buttonIdex * 6,
-            size: 6,
+            offset: buttonIdex * 9,
+            size: 9,
         });
     };
     const eleRef = useRef();
@@ -48,6 +49,28 @@ export default function ListBlog({ titles, mainBlog }) {
             return window.innerWidth < maxWidth;
         },
     });
+
+    // others News img
+    const imgNews = [
+        othersNews.newsEvent.sourceUrl,
+        othersNews.companyNews.sourceUrl,
+        othersNews.industryNews.sourceUrl,
+    ];
+    // const typeNews = ["news event", "company news", "industry news"];
+    const typeNews = [
+        {
+            title: "news event",
+            slug: "news&event",
+        },
+        {
+            title: "company news",
+            slug: "company-news",
+        },
+        {
+            title: "industry news",
+            slug: "industry-news",
+        },
+    ];
     if (!data)
         return (
             <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
@@ -75,9 +98,9 @@ export default function ListBlog({ titles, mainBlog }) {
                 </h2>
             </div>
             <MainBlog mainBlogs={mainBlog} />
-            <div className="grid grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] md:mt-[6.4vw] md:grid-cols-1 md:gap-[2.67vw]">
-                {nodes?.map((item) => (
-                    <BlogItem blog={item} />
+            <div className="grid grid-cols-3 lg:grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] md:mt-[6.4vw] md:grid-cols-1 md:gap-[2.67vw]">
+                {nodes?.map((item, index) => (
+                    <BlogItem blog={item} key={index} />
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">
@@ -96,6 +119,7 @@ export default function ListBlog({ titles, mainBlog }) {
                     </button>
                 ))}
             </div>
+            <CategoryNews imgNews={imgNews} typeNews={typeNews} />
         </div>
     );
 }

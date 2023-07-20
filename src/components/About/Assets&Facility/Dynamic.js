@@ -2,8 +2,10 @@
 import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
-import SlideAssets from "./SlideAssets";
-
+import img1 from "../../../assets/img/assets1.png";
+import img2 from "../../../assets/img/assets2.png";
+import img3 from "../../../assets/img/assets3.png";
+import Image from "next/image";
 export default function Dynamic({ data }) {
     useEffect(() => {
         AOS.init();
@@ -30,8 +32,35 @@ export default function Dynamic({ data }) {
                         {data?.desc}
                     </p>
                 </div>
-                <div className="mt-[6.44vw] md:mt-[5.33vw] w-[95.625%] ml-auto md:w-full">
-                    <SlideAssets dataSlide={data?.album} />
+                <div className="mt-[2.5vw] md:mt-[5.33vw] content">
+                    {/* <SlideAssets dataSlide={data?.album} /> */}
+                    <div className="flex gap-[1.87vw] h-[39.3125vw] md:h-auto md:gap-[2.13vw] md:flex-col-reverse">
+                        <div className="left w-[52.43vw] h-full md:w-full">
+                            <Image
+                                src={img1}
+                                width={1000}
+                                height={1000}
+                                alt="img1"
+                                className="block object-cover w-full h-full md:h-[43.7vw]"
+                            />
+                        </div>
+                        <div className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw]">
+                            <Image
+                                src={img2}
+                                width={1000}
+                                height={1000}
+                                alt="img2"
+                                className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
+                            />
+                            <Image
+                                src={img3}
+                                width={1000}
+                                height={1000}
+                                alt="img3"
+                                className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

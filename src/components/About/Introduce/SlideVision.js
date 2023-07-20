@@ -76,6 +76,7 @@ export default function SlideVision({ dataSlide }) {
             <Swiper
                 slidesPerView="auto"
                 spaceBetween={0}
+                loop={true}
                 onSlideChange={handleSlideChange}
                 modules={[Pagination]}
                 onBeforeInit={(swiper) => {
@@ -89,30 +90,37 @@ export default function SlideVision({ dataSlide }) {
                             key={index}
                             className="relative slide-item-vision !w-[28%] md:!w-[55%]"
                         >
-                            {({ isActive }) => (
-                                <div className="pb-[8.3125vw] pt-[6.03125vw]">
-                                    <div className="w-full">
-                                        <p className="text-vision  text-[1vw] text-[#E3FCE6] w-[80%] min-h-[4.5vw] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw] md:min-h-[30vw] line-clamp-3 md:line-clamp-4">
-                                            {item?.text}
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center my-[2vw]">
-                                        <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] flex items-center justify-center lg:h-[4vw]">
-                                            <Image
-                                                src={img}
-                                                alt="img"
-                                                width={20}
-                                                height={20}
-                                                className="!object-contain"
-                                            />
+                            {({ isActive }) => {
+                                const active = isActive ? "active" : "";
+                                return (
+                                    <div
+                                        className={`pb-[8.3125vw] pt-[6.03125vw] item-vision ${active}`}
+                                    >
+                                        <div className="w-full">
+                                            <p className="text-vision text-[1vw] text-[#E3FCE6] w-[80%] min-h-[6vw] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw] md:min-h-[30vw] line-clamp-4 md:line-clamp-4">
+                                                {item?.text}
+                                            </p>
                                         </div>
-                                        <div className="h-[1px] w-[100%] bg-[#fff]"></div>
+                                        <div className="flex items-center my-[2vw]">
+                                            <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] flex items-center justify-center lg:h-[4vw]">
+                                                <Image
+                                                    src={img}
+                                                    alt="img"
+                                                    width={20}
+                                                    height={20}
+                                                    className="!object-contain"
+                                                />
+                                            </div>
+                                            <div className="h-[1px] w-[100%] bg-[#fff]"></div>
+                                        </div>
+                                        <div className=" text-start year-vision text-[3.75vw] uppercase leading-[1.58] max-w-[80%] line-clamp-4 ml-[-3vw] md:ml-0 md:pb-[10.66vw] md:text-[10.66vw] lg:text-[6vw]">
+                                            {`${index < 10}`
+                                                ? `0${item?.year}`
+                                                : item?.year}
+                                        </div>
                                     </div>
-                                    <div className=" text-start year-vision text-[3.75vw] uppercase leading-[1.58] ml-[-3vw] md:ml-0 md:pb-[10.66vw] md:text-[10.66vw] lg:text-[6vw]">
-                                        {item?.year}
-                                    </div>
-                                </div>
-                            )}
+                                );
+                            }}
                         </SwiperSlide>
                     ))}
                 </div>
@@ -122,7 +130,7 @@ export default function SlideVision({ dataSlide }) {
                 width={500}
                 height={500}
                 alt="background"
-                className="absolute bottom-[50%] left-0 right-0 object-cover w-full h-full -z-2"
+                className="absolute bottom-[50%] left-0 right-0 object-cover w-full h-full -z-2 md:hidden opacity-70"
             />
         </div>
     );

@@ -4,10 +4,12 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import img from "../../../assets/img/db-arr.svg";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function initializeGSAPWithDelay(delay) {
+function initializeGSAPWithDelay(delay, data) {
     setTimeout(function () {
         gsap.to(".history-events", {
             scrollTrigger: {
@@ -27,560 +29,183 @@ function initializeGSAPWithDelay(delay) {
                 },
             },
         });
-        gsap.to(".year-2016", {
-            scrollTrigger: {
-                trigger: ".year-2016",
-                start: "-1000px 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: 0,
-                        });
-                        gsap.to(".num-16", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: 0,
-                        });
-                        gsap.to(".num-16", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2017", {
-            scrollTrigger: {
-                trigger: ".year-2017",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-18.75vw",
-                        });
-                        gsap.to(".num-17", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-37.5vw",
-                        });
-                        gsap.to(".num-17", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2018", {
-            scrollTrigger: {
-                trigger: ".year-2018",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-37.5vw",
-                        });
-                        gsap.to(".num-18", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-56.25vw",
-                        });
-                        gsap.to(".num-18", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2019", {
-            scrollTrigger: {
-                trigger: ".year-2019",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-56.25vw",
-                        });
-                        gsap.to(".num-19", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-75vw",
-                        });
-                        gsap.to(".num-19", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2020", {
-            scrollTrigger: {
-                trigger: ".year-2020",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-75vw",
-                        });
-                        gsap.to(".num-20", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-93.75vw",
-                        });
-                        gsap.to(".num-20", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2021", {
-            scrollTrigger: {
-                trigger: ".year-2021",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-93.75vw",
-                        });
-                        gsap.to(".num-21", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-112.5vw",
-                        });
-                        gsap.to(".num-21", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2022", {
-            scrollTrigger: {
-                trigger: ".year-2022",
-                start: "top 50%",
-                end: "bottom 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-112.5vw",
-                        });
-                        gsap.to(".num-22", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-131.25vw",
-                        });
-                        gsap.to(".num-22", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        gsap.to(".year-2023", {
-            scrollTrigger: {
-                trigger: ".year-2023",
-                start: "top 50%",
-                end: "2000px 50%",
-                scrub: true,
-                onToggle: (self) => {
-                    if (self.isActive) {
-                        gsap.to(".year-right", {
-                            y: "-131.25vw",
-                        });
-                        gsap.to(".num-23", {
-                            backgroundImage:
-                                "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                            backgroundClip: "text",
-                            textFillColor: "transparent",
-                        });
-                    } else {
-                        gsap.to(".year-right", {
-                            y: "-150vw",
-                        });
-                        gsap.to(".num-23", {
-                            backgroundImage: "unset",
-                            WebkitBackgroundClip: "unset",
-                            WebkitTextFillColor: "unset",
-                            backgroundClip: "unset",
-                            textFillColor: "unset",
-                            color: "#ededed",
-                        });
-                    }
-                },
-            },
-        });
-        // ==================== Active Scroll Post ======================
-        const divElements_2016 = document.querySelectorAll(
-            'div[data-year="2016"]'
-        );
-        divElements_2016.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
+        // first year
+        data?.listProject?.slice(0, 1)?.map((item, index) => {
+            gsap.to(`.year-${item?.year.toString().slice(2, 4)}`, {
                 scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
+                    trigger: `.year-${item?.year}`,
+                    start: "-1000px 50%",
                     end: "bottom 50%",
                     scrub: true,
                     onToggle: (self) => {
                         if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
+                            gsap.to(".year-right", {
+                                y: 0,
                             });
+                            gsap.to(
+                                `.num-${item?.year.toString().slice(2, 4)}`,
+                                {
+                                    backgroundImage:
+                                        "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                    backgroundClip: "text",
+                                    textFillColor: "transparent",
+                                }
+                            );
                         } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
+                            gsap.to(".year-right", {
+                                y: 0,
                             });
+                            gsap.to(
+                                `.num-${item?.year.toString().slice(2, 4)}`,
+                                {
+                                    backgroundImage: "unset",
+                                    WebkitBackgroundClip: "unset",
+                                    WebkitTextFillColor: "unset",
+                                    backgroundClip: "unset",
+                                    textFillColor: "unset",
+                                    color: "#ededed",
+                                }
+                            );
                         }
                     },
                 },
             });
         });
+        // years
+        data?.listProject
+            ?.slice(1, data?.listProject.length - 1)
+            ?.map((item, index) => {
+                gsap.to(`.year-${item?.year.toString().slice(2, 4)}`, {
+                    scrollTrigger: {
+                        trigger: `.year-${item?.year}`,
+                        start: "top 50%",
+                        end: "bottom 50%",
+                        scrub: true,
+                        onToggle: (self) => {
+                            if (self.isActive) {
+                                gsap.to(".year-right", {
+                                    y: `${-15 * (index + 1)}vw`,
+                                });
+                                gsap.to(
+                                    `.num-${item?.year.toString().slice(2, 4)}`,
+                                    {
+                                        backgroundImage:
+                                            "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        backgroundClip: "text",
+                                        textFillColor: "transparent",
+                                    }
+                                );
+                            } else {
+                                gsap.to(".year-right", {
+                                    y: `${-15 * (index + 2)}vw`,
+                                });
+                                gsap.to(
+                                    `.num-${item?.year.toString().slice(2, 4)}`,
+                                    {
+                                        backgroundImage: "unset",
+                                        WebkitBackgroundClip: "unset",
+                                        WebkitTextFillColor: "unset",
+                                        backgroundClip: "unset",
+                                        textFillColor: "unset",
+                                        color: "#ededed",
+                                    }
+                                );
+                            }
+                        },
+                    },
+                });
+            });
 
-        const divElements_2017 = document.querySelectorAll(
-            'div[data-year="2017"]'
-        );
-        divElements_2017.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
+        // last year
+        data?.listProject
+            ?.slice(data?.listProject.length - 1, data?.listProject.length)
+            ?.map((item, index) => {
+                gsap.to(`.year-${item?.year.toString().slice(2, 4)}`, {
+                    scrollTrigger: {
+                        trigger: `.year-${item?.year}`,
+                        start: "top 50%",
+                        end: "2000px 50%",
+                        scrub: true,
+                        onToggle: (self) => {
+                            if (self.isActive) {
+                                gsap.to(".year-right", {
+                                    y: `${
+                                        -15 * (data?.listProject.length - 1)
+                                    }vw`,
+                                });
+                                gsap.to(
+                                    `.num-${item?.year.toString().slice(2, 4)}`,
+                                    {
+                                        backgroundImage:
+                                            "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
+                                        WebkitBackgroundClip: "text",
+                                        WebkitTextFillColor: "transparent",
+                                        backgroundClip: "text",
+                                        textFillColor: "transparent",
+                                    }
+                                );
+                            } else {
+                                gsap.to(".year-right", {
+                                    y: `${-15 * data?.listProject.length}vw`,
+                                });
+                                gsap.to(
+                                    `.num-${item?.year.toString().slice(2, 4)}`,
+                                    {
+                                        backgroundImage: "unset",
+                                        WebkitBackgroundClip: "unset",
+                                        WebkitTextFillColor: "unset",
+                                        backgroundClip: "unset",
+                                        textFillColor: "unset",
+                                        color: "#ededed",
+                                    }
+                                );
+                            }
+                        },
                     },
-                },
+                });
             });
-        });
-        const divElements_2018 = document.querySelectorAll(
-            'div[data-year="2018"]'
-        );
-        divElements_2018.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
+        // ==================== Active Scroll Post ======================
+
+        data?.listProject?.map((item) => {
+            gsap.to(`.item-${item?.year.toString().slice(2, 4)}`, {
                 scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
+                    trigger: `.item-${item?.year.toString().slice(2, 4)}`,
                     start: "top 50%",
                     end: "bottom 50%",
                     scrub: true,
                     onToggle: (self) => {
                         if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
+                            gsap.to(
+                                `.item-${item?.year
+                                    .toString()
+                                    .slice(2, 4)}_title`,
+                                {
+                                    backgroundImage:
+                                        "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
+                                    WebkitBackgroundClip: "text",
+                                    WebkitTextFillColor: "transparent",
+                                    backgroundClip: "text",
+                                    textFillColor: "transparent",
+                                }
+                            );
                         } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
-                    },
-                },
-            });
-        });
-        // 2019
-        const divElements_2019 = document.querySelectorAll(
-            'div[data-year="2019"]'
-        );
-        divElements_2019.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
-                    },
-                },
-            });
-        });
-        // 2020
-        const divElements_2020 = document.querySelectorAll(
-            'div[data-year="2020"]'
-        );
-        divElements_2020.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
-                    },
-                },
-            });
-        });
-        // 2021
-        const divElements_2021 = document.querySelectorAll(
-            'div[data-year="2021"]'
-        );
-        divElements_2021.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
-                    },
-                },
-            });
-        });
-        // 2022
-        const divElements_2022 = document.querySelectorAll(
-            'div[data-year="2022"]'
-        );
-        divElements_2022.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
-                        }
-                    },
-                },
-            });
-        });
-        // 2023
-        const divElements_2023 = document.querySelectorAll(
-            'div[data-year="2023"]'
-        );
-        divElements_2023.forEach((item) => {
-            gsap.to(`.${item.classList[1]}`, {
-                scrollTrigger: {
-                    trigger: `.${item.classList[1]}`,
-                    start: "top 50%",
-                    end: "bottom 50%",
-                    scrub: true,
-                    onToggle: (self) => {
-                        if (self.isActive) {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage:
-                                    "linear-gradient(180deg, #4ca757 0%, #16a571 100%)",
-                                WebkitBackgroundClip: "text",
-                                WebkitTextFillColor: "transparent",
-                                backgroundClip: "text",
-                                textFillColor: "transparent",
-                            });
-                        } else {
-                            gsap.to(`.${item.classList[1]}_title`, {
-                                backgroundImage: "unset",
-                                WebkitBackgroundClip: "unset",
-                                WebkitTextFillColor: "unset",
-                                backgroundClip: "unset",
-                                textFillColor: "unset",
-                                color: "#3A5469",
-                            });
+                            gsap.to(
+                                `.item-${item?.year
+                                    .toString()
+                                    .slice(2, 4)}_title`,
+                                {
+                                    backgroundImage: "unset",
+                                    WebkitBackgroundClip: "unset",
+                                    WebkitTextFillColor: "unset",
+                                    backgroundClip: "unset",
+                                    textFillColor: "unset",
+                                    color: "#3A5469",
+                                }
+                            );
                         }
                     },
                 },
@@ -616,23 +241,68 @@ export default function Achievements({ data }) {
     // =================== Scroll number year ========================
     useLayoutEffect(() => {
         let ctx = gsap.context(() => {
-            initializeGSAPWithDelay(1000);
+            initializeGSAPWithDelay(1000, data);
         }, containerRef);
 
         return () => {
             ctx.revert();
         };
     }, []);
+    // Scroll Button
+    const [showScrollUp, setShowScrollUp] = useState(false);
+    const [showScrollDown, setShowScrollDown] = useState(false);
+    const sectionRef = useRef(null);
+    const sectionDRef = useRef(null);
+    const prevScrollTopRef = useRef(0);
 
+    const handleScrollBtn = () => {
+        const ele = document.querySelector("#history");
+        const heightEle = ele.clientHeight;
+        const scrollTop = window.pageYOffset;
+
+        if (scrollTop < prevScrollTopRef.current) {
+            setShowScrollUp(true);
+            setShowScrollDown(false);
+        } else {
+            setShowScrollUp(false);
+            setShowScrollDown(true);
+        }
+        if (scrollTop > heightEle || scrollTop < 1000) {
+            setShowScrollUp(false);
+            setShowScrollDown(false);
+        }
+
+        prevScrollTopRef.current = scrollTop;
+    };
+    const handleScrollUp = () => {
+        const section = sectionRef.current;
+        section.scrollIntoView();
+    };
+
+    const handleScrollDown = () => {
+        const section = sectionDRef.current;
+        section.scrollIntoView();
+    };
+    useEffect(() => {
+        window.addEventListener("scroll", handleScrollBtn);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollBtn);
+        };
+    }, []);
     return (
         <>
-            <section className="history pt-[6.25vw]">
+            <section
+                className="history pt-[6.25vw]"
+                ref={sectionRef}
+                id="history"
+            >
                 <div className="content">
                     <h3 className="title text-18pc font-[800] leading-normal tracking-tighter text-[#3A5469] uppercase border-b border-[#ccc] pb-[0.875vw] lg:text-[2.5vw]">
                         {data?.title}
                     </h3>
                     <div className="flex w-full wrapper">
-                        <div className="years sticky h-[100vh] flex items-center mr-auto w-[41.0625vw]">
+                        <div className="years sticky h-[100vh] flex items-center mr-auto w-[36.5vw]">
                             <div className="years-content">
                                 <div className="number">
                                     <div className="year-left">20</div>
@@ -640,9 +310,10 @@ export default function Achievements({ data }) {
                                         {data?.listProject?.map(
                                             (item, index) => (
                                                 <p
-                                                    className={`num num-${
-                                                        index + 16
-                                                    }`}
+                                                    className={`num num-${item?.year
+                                                        .toString()
+                                                        .slice(2, 4)}`}
+                                                    key={index}
                                                 >
                                                     {item?.year
                                                         .toString()
@@ -655,9 +326,9 @@ export default function Achievements({ data }) {
                                 <div className="circle">
                                     <svg
                                         className="history-years-vertical__circle"
-                                        width="31.25vw"
-                                        height="31.25vw"
-                                        viewBox="0 0 31.25vw 31.25vw"
+                                        width="27.44vw"
+                                        height="27.44vw"
+                                        viewBox="0 0 27.44vw 27.44vw"
                                         fill="none"
                                         xmlns="http://www.w3.org/2000/svg"
                                     >
@@ -686,25 +357,29 @@ export default function Achievements({ data }) {
                             </div>
                         </div>
                         <div
-                            className="history-events w-[41.8125vw] ml-auto"
+                            className="history-events w-[52.25vw] ml-auto"
                             ref={containerRef}
                         >
                             {data?.listProject?.map((item, index) => (
-                                <div className={`year-${index + 2016}`}>
+                                <div
+                                    className={`year-${item?.year}`}
+                                    key={index}
+                                >
                                     <div
-                                        className={`history-item item-${
-                                            index + 16
+                                        className={`history-item item-${item?.year
+                                            .toString()
+                                            .slice(2, 4)}
                                         }`}
-                                        data-year={`${index + 2016}`}
+                                        data-year={`${item?.year}`}
                                     >
                                         <div>
                                             <span className="time">
                                                 {item?.year}
                                             </span>
                                             <h4
-                                                className={`item-${
-                                                    index + 16
-                                                }_title`}
+                                                className={`item-${item?.year
+                                                    .toString()
+                                                    .slice(2, 4)}_title`}
                                             >
                                                 {item?.title}
                                             </h4>
@@ -729,6 +404,37 @@ export default function Achievements({ data }) {
                         </div>
                     </div>
                 </div>
+                {showScrollUp && (
+                    <button
+                        className="scroll-btn btn-up fixed text-[1vw] text-[#394854] right-[25%] bottom-[10px] flex flex-col items-center animate-bounce"
+                        onClick={handleScrollUp}
+                    >
+                        <Image
+                            src={img}
+                            width={50}
+                            height={50}
+                            alt="arrow down"
+                            className="rotate-180 w-[1vw] h-[1vw] "
+                        />
+                        Skip now
+                    </button>
+                )}
+                {showScrollDown && (
+                    <button
+                        className="scroll-btn btn-down fixed text-[1vw] text-[#394854] right-[25%] bottom-[10px] flex flex-col items-center animate-bounce"
+                        onClick={handleScrollDown}
+                    >
+                        <Image
+                            src={img}
+                            width={50}
+                            height={50}
+                            alt="arrow up"
+                            className="w-[1vw] h-[1vw] "
+                        />
+                        Skip now
+                    </button>
+                )}
+                <span ref={sectionDRef}></span>
             </section>
         </>
     );

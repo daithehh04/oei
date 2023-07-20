@@ -3,7 +3,7 @@ import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
 import Image from "next/image";
-import img from "../../../assets/img/about-circle.png";
+import img from "../../../assets/img/circle-infi.png";
 
 export default function ISO({ data }) {
     useEffect(() => {
@@ -38,10 +38,10 @@ export default function ISO({ data }) {
                 </p>
                 <Image
                     src={img}
-                    width={500}
-                    height={500}
+                    width={1000}
+                    height={1000}
                     alt="img"
-                    className="w-[58.9375vw] object-cover absolute top-[-2vw] left-0 rotate-[54deg] -z-1 md:hidden"
+                    className="w-[58.9375vw] object-cover absolute top-[-2vw] left-0 -z-1 md:hidden"
                 />
             </div>
         </div>

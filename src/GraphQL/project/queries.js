@@ -56,11 +56,6 @@ const QUERY_ALL_PROJECTS = gql`
                         title
                         content
                     }
-                    tech
-                    repeatTech {
-                        title
-                        content
-                    }
                     imgs {
                         sourceUrl
                     }
@@ -103,21 +98,20 @@ const GET_ALL_PROJECTS = `{
                 }
                 projectDetail {
                     location
-                    backgroundDetail {
-                    sourceUrl
+                    imgs {
+                        sourceUrl
                     }
                     titleLocation
                     repeatLocation {
                         title
                         content
                     }
-                    tech
-                    repeatTech {
+                    imgProjects {
                         title
-                        content
-                    }
-                    imgs {
-                        sourceUrl
+                        desc
+                        imgs {
+                            sourceUrl
+                        }
                     }
                     project {
                         name

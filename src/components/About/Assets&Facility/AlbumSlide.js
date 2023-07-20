@@ -23,8 +23,8 @@ export default function AlbumSlide({ dataSlide }) {
     };
 
     return (
-        <div className="album-project relative flex items-start border-y border-[#ccc] md:border-[#fff] md:border-opacity-50 border-opacity-50 md:flex-col-reverse">
-            <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] md:hidden md:flex-row m-auto md:gap-x-[2.13vw] md:!pb-[10vw]">
+        <div className="album-project relative flex items-start border-y border-[#D9D9D9] md:border-[#D9D9D9] md:border-b-transparent md:border-opacity-50 border-opacity-50 md:flex-col-reverse">
+            <div className="flex flex-col gap-y-[1.5vw] gap-x-[calc(1.5*100vw/100)] btn-action items-center justify-center w-[20%] md:w-full md:flex-row m-auto md:gap-x-[2.13vw]">
                 <button
                     className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
                     onClick={handlePrevSlide}
@@ -35,7 +35,7 @@ export default function AlbumSlide({ dataSlide }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`#4CA757`}
-                        className="arrow-icon w-[1.3vw] h-[1.3vw] lg:w-[3vw] lg:h-[3vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        className="arrow-icon w-[1.3vw] h-[1.3vw] lg:w-[2.5vw] lg:h-[2.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -54,7 +54,7 @@ export default function AlbumSlide({ dataSlide }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`#4CA757`}
-                        className="arrow-icon w-[1.3vw] h-[1.3vw] lg:w-[3vw] lg:h-[3vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        className="arrow-icon w-[1.3vw] h-[1.3vw] lg:w-[2.5vw] lg:h-[2.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -64,47 +64,7 @@ export default function AlbumSlide({ dataSlide }) {
                     </svg>
                 </button>
             </div>
-            <div className="hidden md:flex gap-y-[24px] pl-[2.67vw] gap-x-[calc(1.5*100vw/100)] md:flex-row md:gap-x-[2.13vw] md:!pb-[10vw]">
-                <button
-                    className={`bg-active w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
-                    onClick={handlePrevSlide}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="white"
-                        className="w-[1.3vw] h-[1.3vw] lg:w-[4vw] lg:h-[4vw] md:w-[3vw] md:h-[3vw]"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M15.75 19.5L8.25 12l7.5-7.5"
-                        />
-                    </svg>
-                </button>
-                <button
-                    onClick={handleNextSlide}
-                    className={`bg-active w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center lg:w-[6vw] lg:h-[6vw] md:w-[10.67vw] md:h-[10.67vw]`}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="white"
-                        className="w-[1.3vw] h-[1.3vw] lg:w-[4vw] lg:h-[4vw] md:w-[3vw] md:h-[3vw]"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                        />
-                    </svg>
-                </button>
-            </div>
-            <div className="w-[80%] pl-[2.5vw] border-l md:pl-0 border-[#ccc] md:py-[6.27vw] md:mb-[8.53vw] md:border-l-0 md:border-b md:border-[#fff] md:border-opacity-50 md:w-full">
+            <div className="w-[80%] pl-[2.5vw] border-l md:pl-0 border-[#D9D9D9] md:py-[6.27vw] md:mb-[8.53vw] md:border-l-0 md:border-b md:border-[#D9D9D9] md:border-opacity-50 md:w-full">
                 <Swiper
                     breakpoints={{
                         768: {
@@ -137,8 +97,8 @@ export default function AlbumSlide({ dataSlide }) {
                                 >
                                     <div className="w-full h-[34.8125vw] img-project md:h-[94.93vw] lg:h-[48vw] relative">
                                         <Image
-                                            width={344}
-                                            height={426}
+                                            width={500}
+                                            height={500}
                                             className="object-cover w-full h-full"
                                             src={
                                                 item?.featuredImage?.node

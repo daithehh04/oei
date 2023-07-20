@@ -93,10 +93,10 @@ export default function AlbumSlide({ imgsAlbum }) {
                             >
                                 {({ isActive }) => (
                                     <Link href="/" className="w-full">
-                                        <div className="w-full h-[34.8125vw] img-certified md:h-[57.06vw] lg:h-[44vw]">
+                                        <div className="w-full h-[27.62vw] img-certified md:h-[57.06vw] lg:h-[40vw]">
                                             <Image
-                                                width={344}
-                                                height={426}
+                                                width={500}
+                                                height={500}
                                                 className="object-cover w-full h-full"
                                                 src={urlImg}
                                                 alt={

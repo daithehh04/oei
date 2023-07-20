@@ -10,11 +10,29 @@
     }
     .heading {
         z-index: 99;
-        -webkit-text-stroke: 1px green;
-        text-stroke: 1px green;
+        -webkit-text-stroke: 2.5px #1f8b36;
+        text-stroke: 2.5px #1f8b36;
         color: transparent;
         white-space: nowrap;
         line-height: 1;
         bottom: -5.625vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .strives {
+        .heading {
+            -webkit-text-stroke: 2px #1f8b36;
+            text-stroke: 2px #1f8b36;
+        }
+    }
+}
+
+@include tablet {
+    .strives {
+        .heading {
+            -webkit-text-stroke: 1px #1f8b36;
+            text-stroke: 1px #1f8b36;
+        }
     }
 }

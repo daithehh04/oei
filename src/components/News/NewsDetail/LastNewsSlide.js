@@ -1,6 +1,6 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pagination, FreeMode } from "swiper";
 import Link from "next/link";
 import Image from "next/image";
@@ -74,7 +74,7 @@ export default function LastNewsSlide({ news }) {
                                     )}`}
                                     className="relative"
                                 >
-                                    <div className="w-full h-[16vw] md:h-[47.2vw] lg:h-[32vw]">
+                                    <div className="w-full h-[16vw] md:h-[47.2vw] lg:h-[28vw]">
                                         <Image
                                             className="object-cover w-full h-full"
                                             src={urlImg}
@@ -83,13 +83,13 @@ export default function LastNewsSlide({ news }) {
                                             height={500}
                                         />
                                     </div>
-                                    <div className="bg-item-news py-[1.5vw] bg-white px-[1vw] md:py-[4.67vw] md:px-[2.67vw] transition-all flex flex-col gap-y-[calc(1*100vw/100)]">
+                                    <div className="bg-item-news py-[1.5vw] bg-white px-[1vw] md:py-[4.67vw] md:px-[2.67vw] transition-all flex flex-col gap-y-[calc(1*100vw/100)] min-h-[11.8vw]">
                                         <span className="text-[calc(1*100vw/100)] title-date-news text-dateNews inline-block leading-[169%] font-normal uppercase line-clamp lg:text-[1.5vw] md:text-[2.67vw]">
                                             {formattedDate}{" "}
                                             <span>/ {category}</span>
                                         </span>
                                         <div>
-                                            <p className="text-blackLastNews text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] md:line-clamp-2 md:text-[4.267vw] lg:text-[2vw] md:min-h-[12vw]">
+                                            <p className="text-blackLastNews text-[calc(1.25*100vw/100)] font-bold tracking-[-0.03em] leading-[130%] line-clamp-2 md:text-[4.267vw] lg:text-[2vw] md:min-h-[12vw]">
                                                 {newsItem?.title}
                                             </p>
                                             <div className="flex justify-end mt-[calc(0.625*100vw/100)]">

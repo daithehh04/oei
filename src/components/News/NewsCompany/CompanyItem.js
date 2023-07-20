@@ -26,7 +26,7 @@ export default function CompanyItem({ company }) {
                         company?.featuredImage.node?.altText ||
                         company?.featuredImage.node?.title
                     }
-                    className="object-cover h-[29.75vw] w-[100%] md:h-[53.6vw]"
+                    className="object-cover h-[20.3vw] w-[100%] lg:h-[30vw] md:h-[53.6vw]"
                 />
             </div>
             <div className="info p-[1vw] pt-[1.5vw] md:p-[4.26vw]">
@@ -36,14 +36,14 @@ export default function CompanyItem({ company }) {
                         / {company?.categories?.nodes[0]?.name}
                     </span>
                 </div>
-                <h3 className="title text-[#394854] mt-[0.5vw] font-[800] text-[2vw] line-clamp-2 min-h-[5vw] tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
+                <h3 className="title text-[#394854] mt-[0.5vw] font-[800] text-[1.586vw] line-clamp-2 min-h-[4vw] tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
                     {company?.title}
                 </h3>
                 <Link
                     href={`/news/company-news/${encodeURIComponent(
                         company?.slug
                     )}`}
-                    className="uppercase text-[1.11vw] font-[700] block mt-[1vw] text-[#3A5469] leading-[2.57] md:text-14mb md:flex md:items-end md:justify-end lg:text-[2vw]"
+                    className="uppercase text-[1.11vw] font-[700] mt-[1vw] text-[#3A5469] leading-[2.57] md:text-14mb flex items-end justify-end lg:text-[2vw]"
                 >
                     See More +
                 </Link>

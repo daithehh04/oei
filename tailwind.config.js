@@ -8,6 +8,8 @@ module.exports = {
     theme: {
         extend: {
             backgroundImage: {
+                overlayNews:
+                    "linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.35) 100%)",
                 overlay: "linear-gradient(to top, #ffffff, #ffffff00)",
                 member: "linear-gradient(180deg, #4CA757 0%, #16A571 100%)",
                 sitemap:

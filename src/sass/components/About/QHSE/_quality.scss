@@ -1,8 +1,8 @@
 .quality {
     .title {
         z-index: 99;
-        -webkit-text-stroke: 1px #fff;
-        text-stroke: 1px #fff;
+        -webkit-text-stroke: 2.5px #fff;
+        text-stroke: 2.5px #fff;
         color: transparent;
         white-space: nowrap;
         line-height: 1;
@@ -16,5 +16,23 @@
     }
     .quality-item.active {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .quality {
+        .title {
+            -webkit-text-stroke: 2px #fff;
+            text-stroke: 2px #fff;
+        }
+    }
+}
+
+@include tablet {
+    .quality {
+        .title {
+            -webkit-text-stroke: 1px #fff;
+            text-stroke: 1px #fff;
+        }
     }
 }

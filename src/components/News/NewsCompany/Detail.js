@@ -1,7 +1,11 @@
 import React from "react";
-import NewsDetail from "../NewsDetail/NewsDetail";
+// import NewsDetail from "../NewsDetail/NewsDetail";
+const NewsDetail = dynamic(() => import("../NewsDetail/NewsDetail"), {
+    ssr: false,
+});
 import LastNewsCompany from "./LastNewsCompany";
 import Loading from "@/components/Common/Loading";
+import dynamic from "next/dynamic";
 
 export default function Detail({ slug, data }) {
     const nodes = data?.data?.posts?.nodes;

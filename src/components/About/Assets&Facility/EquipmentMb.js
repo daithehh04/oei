@@ -26,10 +26,10 @@ export default function EquipmentMb({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="equipment-mb">
+        <div className="equipment-mb bg-member pb-[10vw]">
             <div className="content">
                 <h2
-                    className="text-primary font-[800] leading-[1.21] tracking-tighter text-[8vw] w-full pt-[12vw] mb-[4vw]"
+                    className="text-[#fff] font-[800] leading-[1.21] tracking-tighter text-[8vw] w-full pt-[12vw] mb-[4vw]"
                     data-aos-once="true"
                     data-aos="fade-right"
                     data-aos-duration="2000"
@@ -43,14 +43,14 @@ export default function EquipmentMb({ data }) {
                     data-aos-duration="2000"
                 >
                     {data?.listEquip?.map((item, index) => (
-                        <div className="item-equip">
+                        <div className="item-equip" key={index}>
                             <div
                                 onClick={() => handleTitleClick(index + 1)}
-                                className={`flex items-center justify-between question py-[4.58vw] border-t border-[#ccc] cursor-pointer ${
+                                className={`flex items-center justify-between question py-[4.58vw] border-t border-[#C2C2C2] cursor-pointer ${
                                     selectedTitle === index + 1 ? "active" : ""
                                 }`}
                             >
-                                <span className="text-[#676767] text-[4.8vw] capitalize leading-[1.83] opacity-75">
+                                <span className=" text-[#fff] text-[4.8vw] capitalize leading-[1.83] opacity-75">
                                     {item?.title}
                                 </span>
                                 <Image
@@ -58,7 +58,7 @@ export default function EquipmentMb({ data }) {
                                     width={50}
                                     height={50}
                                     alt="img"
-                                    className="object-contain w-[4vw] h-[4vw]"
+                                    className="object-contain w-[4vw] h-[4vw] text-[#fff]"
                                 />
                             </div>
                             <div
@@ -73,11 +73,11 @@ export default function EquipmentMb({ data }) {
                                         : { height: "0px", overflow: "hidden" }
                                 }
                             >
-                                <div className="w-full top pt-[4.48vw] border-t border-[#ccc]">
-                                    <h3 className="name text-[#394854] text-[6.66vw] font-[800] leading-[1.21] tracking-tighter">
+                                <div className="w-full top pt-[4.48vw] border-t border-[#C2C2C2]">
+                                    <h3 className="name text-[#fff] text-[6.66vw] font-[800] leading-[1.21] tracking-tighter">
                                         {item?.title}
                                     </h3>
-                                    <p className="desc text-[#333] text-[3.73vw] mt-[2.13vw] leading-normal">
+                                    <p className="desc text-[#fff] text-[3.73vw] mt-[2.13vw] leading-normal">
                                         {item?.text}
                                     </p>
                                 </div>

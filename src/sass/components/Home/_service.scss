@@ -123,7 +123,7 @@
                 font-weight: $fw-400;
                 line-height: 1.44;
                 color: $white-text;
-                transition: all 0.4s linear;
+                transition: transform 0.45s linear;
                 top: 1.25vw;
                 margin-left: 1vw;
                 margin-right: 3vw;
@@ -157,7 +157,7 @@
         .item-1,
         .item-4,
         .item-5,
-        .item-8 {
+        .item-9 {
             transform: translateX(-200%);
         }
 
@@ -165,7 +165,7 @@
         .item-3,
         .item-6,
         .item-7,
-        .item-9,
+        .item-8,
         .item-10 {
             transform: translateX(200%);
         }
@@ -199,33 +199,6 @@
                         font-size: 0.65vw;
                     }
                 }
-            }
-        }
-
-        .item-9 {
-            overflow: visible;
-            cursor: unset;
-            background: #dbe9e3;
-
-            .text {
-                font-size: 1.25vw;
-                margin-left: 10px;
-                width: 100%;
-                right: -15px;
-                top: 0;
-                bottom: 0;
-                color: #16a571;
-                transform: rotate(-90deg) translateY(100%);
-                z-index: 9;
-            }
-
-            &:hover {
-                scale: unset !important;
-                z-index: 1;
-            }
-
-            &:hover .text {
-                font-size: 1.25vw;
             }
         }
 
@@ -277,7 +250,8 @@
         }
 
         .item-5,
-        .item-6 {
+        .item-6,
+        .item-8 {
             font-size: 1vw;
             &:hover {
                 scale: 1.6 !important;
@@ -295,7 +269,7 @@
             }
         }
 
-        .item-8 {
+        .item-9 {
             cursor: unset;
             background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
             display: flex;
@@ -391,11 +365,11 @@
         grid-area: s7;
     }
 
-    .item-9 {
+    .item-8 {
         grid-area: s8;
     }
 
-    .item-8 {
+    .item-9 {
         grid-area: s9;
     }
 

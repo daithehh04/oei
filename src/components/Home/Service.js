@@ -26,7 +26,7 @@ function initializeGSAPWithDelay(delay) {
                 scrollTrigger: {
                     trigger: box,
                     start: "top bottom",
-                    end: "top 60%",
+                    end: "top 10%",
                     scrub: true,
                     once: true,
                 },
@@ -60,9 +60,9 @@ const Service = ({ data }) => {
 
     return (
         <div className="relative service" ref={parentRef}>
-            <div className="content">
-                <div className="list-service pt-[9.4375vw] grid lg:hidden">
-                    <div className="service-item title">
+            <div>
+                <div className="list-service pt-[9.4375vw] content grid lg:hidden">
+                    <div className="service-item title ">
                         <h2 className="text-[1.125vw] font-[700] uppercase tracking-[0.12em]">
                             {data?.title}
                         </h2>
@@ -115,20 +115,8 @@ const Service = ({ data }) => {
                         </Link>
                     ))}
 
-                    {data?.item1.map((item, index) => (
-                        <div className="service-item item-9" key={index}>
-                            <Image
-                                src={item?.img?.sourceUrl}
-                                alt="img"
-                                width={500}
-                                height={500}
-                            />
-                            <p className="text text-[1vw]">{item?.text}</p>
-                        </div>
-                    ))}
-
                     {data?.item2.map((item, index) => (
-                        <div className="service-item item-8" key={index}>
+                        <div className="service-item item-9" key={index}>
                             <div className="num">
                                 <span>{item?.number}</span>
                                 <Image
@@ -150,7 +138,7 @@ const Service = ({ data }) => {
                     </Link>
                 </div>
                 <div className="hidden lg:block">
-                    <div className="flex items-end justify-between">
+                    <div className="flex items-end justify-between content">
                         <div>
                             <h2 className="text-[3.73vw] font-[700] text-subtileNew uppercase mt-[19.2vw]">
                                 {data?.titleMobile}

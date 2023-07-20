@@ -7,8 +7,9 @@ import { GET_ALL_NEWS_EVENTS } from "@/GraphQL/news/queries";
 import AOS from "aos";
 import { useRef } from "react";
 import Loading from "@/components/Common/Loading";
+import CategoryNews from "@/components/Common/CategoryNews";
 
-export default function ListNews({ titles, outstandingNews }) {
+export default function ListNews({ titles, outstandingNews, othersNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_EVENTS, {
@@ -45,6 +46,28 @@ export default function ListNews({ titles, outstandingNews }) {
             },
         });
     }, []);
+    // others News img
+    const imgNews = [
+        othersNews.companyNews.sourceUrl,
+        othersNews.industryNews.sourceUrl,
+        othersNews.blogs.sourceUrl,
+    ];
+    // const typeNews = ["company news", "industry news", "blogs"];
+    const typeNews = [
+        {
+            title: "company news",
+            slug: "company-news",
+        },
+        {
+            title: "industry news",
+            slug: "industry-news",
+        },
+        {
+            title: "blogs",
+            slug: "blogs",
+        },
+    ];
+
     if (!data)
         return (
             <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
@@ -84,7 +107,10 @@ export default function ListNews({ titles, outstandingNews }) {
             <MainNews news={outstandingNews} />
 
             <div className="list-news grid grid-cols-3 gap-[2vw] mt-[5.4375vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
-                {nodes && nodes?.map((item) => <NewsItem newsItem={item} />)}
+                {nodes &&
+                    nodes?.map((item, index) => (
+                        <NewsItem newsItem={item} key={index} />
+                    ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[8vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">
                 {Array.from({ length: totalPages }, (_, index) => (
@@ -102,6 +128,7 @@ export default function ListNews({ titles, outstandingNews }) {
                     </button>
                 ))}
             </div>
+            <CategoryNews imgNews={imgNews} typeNews={typeNews} />
         </div>
     );
 }

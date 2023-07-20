@@ -103,9 +103,25 @@ const GET_DATA_ABOUT_PAGE = `
               value {
                 title
                 text
-                profile
                 img {
                   sourceUrl
+                }
+              }
+              listService {
+                title
+                subTitle
+                desc
+                listService {
+                 		... on Service {
+                      slug
+                      featuredImage {
+                        node {
+                          sourceUrl
+                        }
+                      }
+                      title
+                      excerpt
+                    }
                 }
               }
               dynamic {
@@ -114,30 +130,11 @@ const GET_DATA_ABOUT_PAGE = `
                 listItem {
                   text
                 }
+                image {
+                  sourceUrl
+                }
               }
-              message {
-                img {
-                    sourceUrl
-                }
-                role
-                title
-                text
-                role
-                name
-                signature
-                }
-            manager {
-                title
-                listManager {
-                    img {
-                    sourceUrl
-                }
-                role
-                name
-                }
-                }
             }
-            
         }
     }
 `;
@@ -155,16 +152,13 @@ const GET_DATA_ASSETS_PAGE = `
             }
             facilities {
                 title
-                listAssets {
-                    img {
-                    sourceUrl
-                    }
-                    heading
-                    listItem {
-                    title
-                    content
-                    }
+                listItem {
+                img {
+                  sourceUrl
                 }
+                title
+                desc
+              }
             }
             albumProject {
               title
@@ -271,6 +265,7 @@ const GET_DATA_PEOPLE_PAGE = `
                 }
                 role
                 name
+                linkLinkedin
                 }
             }
             }

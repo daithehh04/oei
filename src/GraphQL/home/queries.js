@@ -73,13 +73,6 @@ const GET_DATA_HOME = gql`
                             }
                         }
                     }
-                    item1 {
-                        img {
-                            sourceUrl
-                        }
-                        altImg
-                        text
-                    }
                     item2 {
                         number
                         text
@@ -139,7 +132,6 @@ const GET_DATA_HOME_PAGE = `
                         altText
                         title
                     }
-                    phoneNumber
                     slideHeader {
                         itemImage {
                             sourceUrl
@@ -202,16 +194,6 @@ const GET_DATA_HOME_PAGE = `
                         }
                         }
                     }
-                    }
-                    background {
-                        sourceUrl
-                    }
-                    item1 {
-                        img {
-                            sourceUrl
-                        }
-                        altImg
-                        text
                     }
                     item2 {
                         number

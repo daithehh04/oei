@@ -13,16 +13,35 @@
             }
         }
         .category {
+            counter-reset: e;
             ul {
-                list-style: inside;
                 li {
-                    font-weight: $fw-600;
-                    font-size: 1.125vw;
-                    line-height: 1.5;
-                    color: #394854;
-                    margin-bottom: 1vw;
-                    &::marker {
-                        padding-inline-start: 0;
+                    display: flex;
+                    align-items: flex-start;
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                    &:first-child {
+                        padding-top: 0;
+                    }
+                    &::before {
+                        margin-top: 0.5vw;
+                        padding-right: 5.88vw;
+                        counter-increment: e;
+                        content: "0" counter(e) ".";
+                        font-size: 1.125vw;
+                    }
+                    &:hover {
+                        background: linear-gradient(
+                            180deg,
+                            #4ca757 0%,
+                            #16a571 100%
+                        );
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        text-fill-color: transparent;
+                        font-weight: 800;
                     }
                 }
             }
@@ -36,7 +55,12 @@
             .category {
                 ul {
                     li {
-                        font-size: 2vw;
+                        font-size: 2.25vw;
+                        align-items: center;
+                        &::before {
+                            margin-top: 0;
+                            font-size: 1.75vw;
+                        }
                     }
                 }
             }
@@ -50,7 +74,12 @@
             .category {
                 ul {
                     li {
+                        align-items: center;
                         font-size: 4.26vw;
+                        &::before {
+                            margin-top: 0;
+                            font-size: 2.25vw;
+                        }
                     }
                 }
             }

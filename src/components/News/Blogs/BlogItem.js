@@ -26,7 +26,7 @@ export default function BlogItem({ blog }) {
                     blog?.featuredImage.node?.altText ||
                     blog?.featuredImage.node?.title
                 }
-                className="object-cover h-[29.75vw] w-[100%] md:h-[53.6vw]"
+                className="object-cover h-[20.3vw] lg:h-[30vw] w-[100%] md:h-[53.6vw]"
             />
             <div className="info p-[1vw] pt-[1.5vw] md:p-[4.267vw]">
                 <div className="date text-[1.125vw] text-[#394854] font-[400] md:text-12mb lg:text-[1.75vw]">
@@ -35,10 +35,10 @@ export default function BlogItem({ blog }) {
                         / {blog?.categories?.nodes[0]?.name.slice(0, 4)}
                     </span>
                 </div>
-                <h3 className="title block text-[#394854] font-[800] text-[2vw] !line-clamp-2 min-h-[5.6vw] tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
+                <h3 className="title block text-[#394854] font-[800] text-[1.586vw] !line-clamp-2 min-h-[4vw] tracking-tighter leading-[1.25] md:text-18mb lg:text-[2.5vw]">
                     {blog?.title}
                 </h3>
-                <a className="uppercase cursor-pointer text-[1.11vw] font-[700] block mt-[1vw] text-[#3A5469] leading-[2.57] md:text-14mb md:flex md:items-end md:justify-end lg:text-[2vw]">
+                <a className="uppercase cursor-pointer text-[1.11vw] font-[700] mt-[1vw] text-[#3A5469] leading-[2.57] md:text-14mb flex items-end justify-end lg:text-[2vw]">
                     See More +
                 </a>
             </div>

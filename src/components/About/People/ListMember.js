@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Grid, Pagination } from "swiper";
 import Link from "next/link";
+import linked from "../../../assets/img/linkedin.svg";
 import Image from "next/image";
 import AOS from "aos";
 
@@ -42,7 +43,7 @@ export default function ListMember({ data }) {
         >
             <Swiper
                 slidesPerView={4}
-                spaceBetween={28}
+                spaceBetween={30}
                 grid={{
                     rows: 2,
                 }}
@@ -75,15 +76,27 @@ export default function ListMember({ data }) {
                                         }
                                     />
                                 </div>
-                                <div className="item-member pt-[1vw] transition-all duration-500 flex flex-col ">
-                                    <div>
-                                        <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal ">
-                                            {item?.role}
-                                        </p>
+                                <div className="item-member pt-[1vw] transition-all duration-500 flex items-start justify-between">
+                                    <div className="flex flex-col">
                                         <p className="name-member text-[1.5vw] text-[#394854] font-[700] leading-normal ">
                                             {item?.name}
                                         </p>
+                                        <p className="desc-member text-[1vw] text-[#394854] font-[400] leading-normal ">
+                                            {item?.role}
+                                        </p>
                                     </div>
+                                    <Link
+                                        href={item?.linkLinkedin}
+                                        target="_blank"
+                                    >
+                                        <Image
+                                            src={linked}
+                                            width={50}
+                                            height={50}
+                                            alt="linkedin"
+                                            className="w-[1.6875vw] pt-[0.5vw] mr-[0.5vw] object-cover"
+                                        />
+                                    </Link>
                                 </div>
                             </div>
                         )}

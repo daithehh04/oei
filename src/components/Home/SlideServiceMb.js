@@ -4,6 +4,7 @@ import imgPlus from "../../assets/img/Add.svg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
+import { FreeMode } from "swiper";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,21 +16,22 @@ export default function SlideServiceMb({ data }) {
             <Swiper
                 breakpoints={{
                     768: {
-                        spaceBetween: 24,
                         slidesPerView: 2,
                     },
                 }}
+                spaceBetween={0}
                 slidesPerView="auto"
-                spaceBetween={10}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
+                freeMode={true}
+                modules={[FreeMode]}
                 className="list-service"
             >
                 {data?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="relative item-serviceMb pt-[8vw] lg:!h-[56vw] lg:w-[50%] md:w-[75%] md:!h-[83.46vw]"
+                        className="relative item-serviceMb pt-[8vw] lg:!h-[56vw] lg:w-[50%] md:w-[75%] md:!h-[83.46vw] pl-[2.66vw] last:pr-[2.66vw]"
                     >
                         {({ isActive }) => (
                             <div className="h-full">

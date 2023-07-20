@@ -15,7 +15,7 @@ export default function Vision({ data }) {
         });
     }, []);
     return (
-        <div className="vision relative pt-[6.25vw] md:pt-[19.2vw] ">
+        <div className="vision relative pt-[5.06vw] md:pt-[19.2vw] ">
             <div className="flex items-center justify-between row content md:flex-col md:items-start">
                 <h3
                     className="iso text-[3.75vw] font-[800] capitalize leading-[1.33] text-[#fff] md:text-[8vw] lg:text-[6vw]"

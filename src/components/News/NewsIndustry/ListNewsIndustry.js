@@ -10,8 +10,9 @@ import { GET_ALL_NEWS_INDUSTRY } from "@/GraphQL/news/queries";
 import AOS from "aos";
 import Loading from "@/components/Common/Loading";
 import { useRef } from "react";
+import CategoryNews from "@/components/Common/CategoryNews";
 
-export default function ListNewsIndustry({ titles, mainNews }) {
+export default function ListNewsIndustry({ titles, mainNews, othersNews }) {
     const [activeButton, setActiveButton] = useState(0);
 
     const { data, refetch } = useQuery(GET_ALL_NEWS_INDUSTRY, {
@@ -20,6 +21,8 @@ export default function ListNewsIndustry({ titles, mainNews }) {
             size: 6,
         },
     });
+
+    console.log(othersNews);
 
     const nodes = data?.posts?.nodes;
 
@@ -48,6 +51,27 @@ export default function ListNewsIndustry({ titles, mainNews }) {
             },
         });
     }, []);
+    // others News img
+    const imgNews = [
+        othersNews.newsEvent.sourceUrl,
+        othersNews.companyNews.sourceUrl,
+        othersNews.blogs.sourceUrl,
+    ];
+    // const typeNews = ["news event", "company news", "blogs"];
+    const typeNews = [
+        {
+            title: "news event",
+            slug: "news&event",
+        },
+        {
+            title: "company news",
+            slug: "company-news",
+        },
+        {
+            title: "blogs",
+            slug: "blogs",
+        },
+    ];
     if (!data)
         return (
             <div className="fixed top-0 bottom-0 left-0 right-0 flex items-center justify-center bg-slate-50">
@@ -76,8 +100,8 @@ export default function ListNewsIndustry({ titles, mainNews }) {
             </div>
             <MainNews mainIndustry={mainNews} />
             <div className="industries grid grid-cols-3 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] pb-[3vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
-                {nodes?.map((item) => (
-                    <IndustryItem industry={item} />
+                {nodes?.map((item, index) => (
+                    <IndustryItem industry={item} key={index} />
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center  md:mt-[8vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">
@@ -96,6 +120,7 @@ export default function ListNewsIndustry({ titles, mainNews }) {
                     </button>
                 ))}
             </div>
+            <CategoryNews imgNews={imgNews} typeNews={typeNews} />
         </div>
     );
 }

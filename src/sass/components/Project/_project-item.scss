@@ -15,16 +15,6 @@
         transition: all 0.4s linear;
     }
     &:hover {
-        .title-prj {
-            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-        }
-        .desc {
-            transform: translateY(0);
-        }
         .img-prj {
             .overlay-img {
                 opacity: 1;

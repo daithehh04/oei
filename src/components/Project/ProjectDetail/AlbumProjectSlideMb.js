@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useRef, useState } from "react";
-import { Pagination } from "swiper";
+import { Pagination, FreeMode } from "swiper";
 import Image from "next/image";
 import AOS from "aos";
 
@@ -45,7 +45,8 @@ export default function AlbumProjectSlideMb({ imgsAlbum }) {
                 pagination={{
                     type: "progressbar",
                 }}
-                modules={[Pagination]}
+                freeMode={true}
+                modules={[Pagination, FreeMode]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}

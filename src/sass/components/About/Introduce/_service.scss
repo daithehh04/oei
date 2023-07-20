@@ -1,0 +1,22 @@
+.slide-service {
+    .btn-slide {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    &:hover {
+        .btn-slide {
+            opacity: 1;
+        }
+    }
+    .item-service {
+        &:hover {
+            .info {
+                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+            }
+            .title,
+            .desc {
+                color: #fff;
+            }
+        }
+    }
+}

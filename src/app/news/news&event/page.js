@@ -81,7 +81,8 @@ export async function generateMetadata() {
 
 export default async function Event() {
     const data = await getData(GET_HEADER_NEWS_EVENT);
-    const { header, groupTitle, outstandingNews } = data?.data?.page?.newsEvent;
+    const { header, groupTitle, outstandingNews, othersNews } =
+        data?.data?.page?.newsEvent;
     return (
         <div>
             <HeaderSecond header={header} />
@@ -89,6 +90,7 @@ export default async function Event() {
                 <ListNews
                     titles={groupTitle}
                     outstandingNews={outstandingNews}
+                    othersNews={othersNews}
                 />
             </div>
         </div>

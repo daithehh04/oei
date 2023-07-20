@@ -2,6 +2,7 @@
 import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
+import img from "../../../assets/img/circle-infi.png";
 import Image from "next/image";
 
 export default function Strives({ data }) {
@@ -27,6 +28,13 @@ export default function Strives({ data }) {
                     data-aos="fade-up"
                     data-aos-duration="1000"
                 ></h2>
+                <Image
+                    src={img}
+                    width={1000}
+                    height={1000}
+                    alt="circle"
+                    className="absolute top-[-12vw] right-[-20vw] rotate-45 md:hidden w-[61vw] h-[53.2vw] object-contain"
+                />
                 <div className="imgs flex gap-[3.125vw] pt-[2.5vw] md:pt-[4.27vw] items-baseline lg:flex-col">
                     <div>
                         <Image
@@ -78,8 +86,8 @@ export default function Strives({ data }) {
                     </div>
                 </div>
 
-                <span className="heading text-[12.5vw] font-[900] uppercase absolute right-0 md:hidden">
-                    OEi GROUP
+                <span className="heading text-[12.5vw] font-[900] uppercase absolute right-[5.31vw] md:right-0 md:hidden">
+                    OEi JSC
                 </span>
             </div>
         </div>

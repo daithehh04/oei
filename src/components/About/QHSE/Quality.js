@@ -84,8 +84,8 @@ export default function Quality({ data }) {
             ref={containerRef}
         >
             <div className="content">
-                <span className="title text-[12.5vw] font-[900] uppercase absolute right-0 md:hidden">
-                    OEi GROUP
+                <span className="title text-[12.5vw] font-[900] uppercase absolute right-[5.31vw] md:right-0 md:hidden">
+                    OEi JSC
                 </span>
                 <div className="container-quality pt-[9.3125vw] flex items-start lg:flex-col">
                     <div className="left text-60pc text-[#fff] font-[800] leading-[1.33] tracking-tighter w-[40.375vw] lg:w-[80%] lg:text-[4.8vw] md:text-[8vw] md:pb-[8vw] lg:pb-[5vw]">
@@ -95,6 +95,7 @@ export default function Quality({ data }) {
                         <div className="right list-quality w-[44.8125vw] ml-auto relative lg:w-full">
                             {data?.listItem?.map((item, index) => (
                                 <div
+                                    key={index}
                                     className={`flex items-start pb-[2vw] border-b border-[#fff] border-opacity-50 quality-item pt-[1vw] md:py-[6.4vw] lg:pb-[4vw]`}
                                 >
                                     <span className="text-[2vw] text-[#fff] font-[800] tracking-tighter xl:text-[3vw] lg:text-[3.5vw] md:text-[6.67vw]">

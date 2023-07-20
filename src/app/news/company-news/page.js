@@ -79,7 +79,7 @@ export async function generateMetadata() {
 export default async function Company() {
     const data = await getData(GET_HEADER_COMPANY_NEWS);
 
-    const { header, groupTitle, outstandingnews } =
+    const { header, groupTitle, outstandingnews, othersNews } =
         data?.data?.page?.companyNews;
     return (
         <>
@@ -88,6 +88,7 @@ export default async function Company() {
                 <ListNewsCompany
                     titles={groupTitle}
                     mainNews={outstandingnews}
+                    othersNews={othersNews}
                 />
             </div>
         </>

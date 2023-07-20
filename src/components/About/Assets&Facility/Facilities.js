@@ -10,7 +10,7 @@ export default function Facilities({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="mt-[22.8125vw] md:mt-[44vw] lg:mt-[26vw]">
+        <div className="pt-[22.8125vw] md:pt-[68vw] lg:pt-[26vw] bg-[#FAFAFA]">
             <h2
                 className="text-60pc text-primary font-[800] leading-[1.33] tracking-tighter w-[58vw] mb-[2.5vw] content md:text-[8vw] md:w-full"
                 data-aos-once="true"
@@ -20,7 +20,7 @@ export default function Facilities({ data }) {
                 {data?.title}
             </h2>
             <div className="pb-[7.5vw] md:pb-[16vw] lg:pb-[10vw]">
-                <FacilitiesSlide dataSlide={data?.listAssets} />
+                <FacilitiesSlide dataSlide={data?.listItem} />
             </div>
         </div>
     );

@@ -20,12 +20,12 @@
 .equipment-mb {
     .list-heading {
         .heading-item {
-            &.active {
-                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: transparent;
+            &.active span {
+                opacity: 1;
+                color: #fff;
+            }
+            &:hover span {
+                opacity: 1;
             }
         }
     }
@@ -34,23 +34,26 @@
             border-top: none;
         }
         &:last-child .question {
-            border-bottom: 1px solid #ccc;
+            // border-bottom: 1px solid #c2c2c2;
         }
         &:last-child .answer .top {
-            border-top: none;
+            border-top: 1px solid #c2c2c2;
         }
         .question + .answer {
             height: 0;
             overflow: hidden;
             transition: height ease-in 0.3s;
         }
+        &:hover {
+            span {
+                color: #fff;
+                opacity: 1;
+            }
+        }
         .question.active {
             span {
-                background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: transparent;
+                color: #fff;
+                opacity: 1;
             }
             & + .answer {
                 height: auto;
@@ -65,7 +68,7 @@
             }
         }
         .slide-equip {
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid #c2c2c2;
         }
     }
 }

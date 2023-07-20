@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -12,15 +13,18 @@ export default function NewsItem({ newsItem }) {
     const year = String(date.getFullYear()); //
 
     const formattedDate = `${day}.${month}.${year}`;
+
     return (
         <Link
             href={`/news/news&event/${encodeURIComponent(news?.slug)}`}
             className="news-item"
         >
             <div>
-                <img
+                <Image
+                    width={500}
+                    height={500}
                     src={urlImg}
-                    className="object-cover h-[20.25vw] w-[100%] md:h-[53.6vw] lg:h-[32vw]"
+                    className="object-cover h-[20.25vw] w-[100%] md:h-[53.6vw] lg:h-[30vw]"
                     alt={
                         newsItem?.featuredImage.node?.altText ||
                         newsItem?.featuredImage.node?.title

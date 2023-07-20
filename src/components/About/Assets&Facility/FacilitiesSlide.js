@@ -1,14 +1,13 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useRef, useState } from "react";
-import { Pagination } from "swiper";
-import Link from "next/link";
-import AOS from "aos";
-
+import { useRef, useState } from "react";
+import { Pagination, FreeMode } from "swiper";
+import img from "../../../assets/img/assets1.png";
 import Image from "next/image";
 
 export default function FacilitiesSlide({ dataSlide }) {
+    const arrFacilities = new Array(10).fill(0);
     const [indexSlider, setIndexSlider] = useState(0);
     const swiperRef = useRef();
     const handleNextSlide = () => {
@@ -23,32 +22,26 @@ export default function FacilitiesSlide({ dataSlide }) {
         setIndexSlider(swiper.activeIndex);
     };
 
-    useEffect(() => {
-        AOS.init();
-        AOS.refresh();
-        AOS.init({
-            disable: function () {
-                var maxWidth = 768;
-                return window.innerWidth < maxWidth;
-            },
-        });
-    }, []);
-
     return (
-        <div
-            className="relative slide-facility w-[95.625%] ml-auto md:w-[94.66%] md:mr-auto"
-            data-aos-once="true"
-            data-aos="fade-left"
-            data-aos-duration="2000"
-        >
+        <div className="relative slide-team mt-[2.5vw] w-[91.25%] ml-auto mr-auto md:w-full">
             <Swiper
-                slidesPerView={1}
-                spaceBetween={24}
+                slidesPerView="auto"
                 onSlideChange={handleSlideChange}
                 pagination={{
                     type: "progressbar",
                 }}
-                modules={[Pagination]}
+                breakpoints={{
+                    768: {
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        spaceBetween: 30,
+                        slidesPerView: 3,
+                    },
+                }}
+                freeMode={true}
+                spaceBetween={0}
+                modules={[Pagination, FreeMode]}
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
@@ -57,45 +50,38 @@ export default function FacilitiesSlide({ dataSlide }) {
                 {dataSlide?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-news"
+                        className="!h-fit relative slide-item-news lg:!w-[60%] md:!w-[80%] md:pl-[2.66vw] md:last:pr-[2.66vw]"
                     >
                         {({ isActive }) => (
-                            <div className="flex md:flex-col">
-                                <Image
-                                    width={344}
-                                    height={426}
-                                    className="object-cover !w-[50%] h-auto max-h-[31.25vw] md:!w-full md:!h-[58.93vw] md:max-h-max"
-                                    src={item?.img?.sourceUrl}
-                                    alt={item?.img?.altText || item?.img?.title}
-                                />
-                                <div className="!w-[50%] md:!w-full">
-                                    <div className="h-full">
-                                        <div className="pb-[1.94vw] !h-[25%] border-b border-[#ccc] md:pb-[4.27vw] lg:pb-0">
-                                            <h3 className="text-[#394854] text-[2vw] font-[800] leading-[1.375] tracking-tighter pl-[3.63vw] w-[85%] md:text-[4.8vw] md:w-full md:mt-[2.67vw] md:pl-0 lg:text-[2.25vw]">
-                                                {item?.heading}
-                                            </h3>
-                                        </div>
-
-                                        {item?.listItem?.map((item) => (
-                                            <div className="pb-[1.94vw] !h-[25%] pt-[2.5vw] pl-[3.63vw] flex items-center justify-between gap-[5.62vw] border-b border-[#ccc] md:flex-col md:items-start md:gap-0 md:py-[4.27vw] md:pl-0">
-                                                <span className="text-[#3A5469] text-[1.25vw] font-[700] leading-[2.25] tracking-tighter md:text-[4.26vw] md:leading-[1.5] lg:text-[1.85vw]">
-                                                    {item?.title}
-                                                </span>
-                                                <p className="text-[#394854] leading-normal text-[1.125vw] md:text-[3.73vw] lg:text-[1.65vw]">
-                                                    {item?.content}
-                                                </p>
-                                            </div>
-                                        ))}
-                                    </div>
+                            <div>
+                                <div className="w-full img-team h-[20.5625vw] md:h-[58.93vw] lg:h-[40vw]">
+                                    <Image
+                                        width={500}
+                                        height={500}
+                                        className="object-cover w-full h-full"
+                                        src={item?.img?.sourceUrl}
+                                        alt={
+                                            item?.img?.altText ||
+                                            item?.img?.title
+                                        }
+                                    />
+                                </div>
+                                <div className="bg-white px-[1.31vw] min-h-[17.81vw] pt-[1.25vw] line-clamp-4 pb-[1.75vw] md:min-h-[46.5vw] md:pt-[2.67vw] md:px-[3.47vw] md:pb-[4.27vw]">
+                                    <h3 className="title text-[#394854] font-[700] leading-[1.37] text-[1.6875vw] md:text-[4.8vw] lg:text-[2.75vw] lg:mt-[1vw] line-clamp-3">
+                                        {item?.title}
+                                    </h3>
+                                    <p className="desc text-[#394854] font-[400] leading-normal mt-[0.5vw] md:mt-[2.13vw] line-clamp-4 text-[1.125vw] md:text-[3.73vw] lg:text-[2vw] md:line-clamp-3">
+                                        {item?.desc}
+                                    </p>
                                 </div>
                             </div>
                         )}
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10]">
+            <div className="flex gap-x-[calc(1.5*100vw/100)] mt-[calc(2.5*100vw/100)] absolute bottom-0 translate-y-1/2 z-[10] md:pl-[2.6vw]">
                 <button
-                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw] lg:w-[6vw] lg:h-[6vw]`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center lg:w-[6.67vw] lg:h-[6.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                     onClick={handlePrevSlide}
                 >
                     <svg
@@ -104,7 +90,7 @@ export default function FacilitiesSlide({ dataSlide }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`#4CA757`}
-                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] lg:w-[2.5vw] lg:h-[2.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"
@@ -115,7 +101,7 @@ export default function FacilitiesSlide({ dataSlide }) {
                 </button>
                 <button
                     onClick={handleNextSlide}
-                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] select-none btn-slide-member h-[3.75vw] rounded-full flex justify-center items-center md:w-[10.66vw] md:h-[10.66vw] lg:w-[6vw] lg:h-[6vw]`}
+                    className={`bg-transparent border border-solid border-greenPrimary hover:bg-greenPrimary w-[3.75vw] h-[3.75vw] select-none btn-slide-member rounded-full flex justify-center items-center lg:w-[6.67vw] lg:h-[6.67vw] md:w-[10.66vw] md:h-[10.66vw]`}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +109,7 @@ export default function FacilitiesSlide({ dataSlide }) {
                         viewBox="0 0 24 24"
                         strokeWidth="1.5"
                         stroke={`#4CA757`}
-                        className="arrow-icon w-[1.5vw] h-[1.5vw] md:w-[2.93vw] md:h-[2.93vw]"
+                        className="arrow-icon w-[1.5vw] h-[1.5vw] lg:w-[2.5vw] lg:h-[2.5vw] md:w-[2.93vw] md:h-[2.93vw]"
                     >
                         <path
                             strokeLinecap="round"

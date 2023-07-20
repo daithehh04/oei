@@ -10,7 +10,6 @@ const GET_GLOBAL_NAVBAR = `
 					altText
 					title
 				}
-				phoneNumber
 				navbar {
 					titleNav
 					href

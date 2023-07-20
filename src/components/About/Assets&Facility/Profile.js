@@ -63,8 +63,11 @@ export default function Profile({ data }) {
                             {data?.right?.title}
                         </h2>
                         <div className="mt-[0.75vw] pb-[1.44vw] h-[20vw] lg:h-[30vw] md:h-[70vw] overflow-y-auto">
-                            {data?.right?.listItem?.map((item) => (
-                                <div className="flex items-center w-[93.33%] py-[1.15vw] border-b border-[#ccc] md:py-[4.27vw] cursor-pointer">
+                            {data?.right?.listItem?.map((item, index) => (
+                                <div
+                                    key={index}
+                                    className="flex items-center w-[93.33%] py-[1.15vw] border-b border-[#ccc] md:py-[4.27vw] cursor-pointer"
+                                >
                                     <Image
                                         src={img}
                                         width={50}

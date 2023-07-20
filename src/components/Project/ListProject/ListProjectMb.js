@@ -258,8 +258,8 @@ export default function ListProjectMb({
                 className="grid grid-cols-2 gap-[4.875vw] md:grid-cols-1 content"
                 id="list-proj"
             >
-                {nodes?.map((item) => (
-                    <ProjectItem projectItem={item} />
+                {nodes?.map((item, index) => (
+                    <ProjectItem projectItem={item} key={index} />
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw] content">

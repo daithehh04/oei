@@ -12,77 +12,83 @@
 }
 
 .about .right {
-    gap: 10px;
-    grid-template-columns: 10vw 14.19vw 14.75vw 6.33vw 2.17vw 5vw;
-    grid-template-rows: 8.25vw 2.13vw 10vw 6.82vw 4.44vw 3.56vw 2.22vw 6.28vw;
+    gap: 8px;
+    grid-template-columns: 6.5vw 3.81vw 8.94vw 16.12vw 16.52vw 7.09vw 2.43vw 5.6vw;
+    grid-template-rows: 6.06vw 3.18vw 2.38vw 11.19vw 9.67vw 4.97vw 4vw 3.07vw 7.03vw 1.19vw;
     grid-template-areas:
-        ". . . m1 m1 ."
-        "m2 m3 m3 . . ."
-        "m2 m3 m3 m4 m4 m4"
-        ". m3 m3 m4 m4 m4"
-        "m5 . m6 m4 m4 m4"
-        "m5 . m6 . . ."
-        ". . m6 . . ."
-        ". . m6 m7 . .";
+        ". . . . . m6 m6 ."
+        ". m1 m1 . . m6 m6 ."
+        ". m1 m1 m2 m2 . . ."
+        ". m1 m1 m2 m2 m3 m3 m3"
+        ". . . m2 m2 m3 m3 m3"
+        ". . m4 m4 m5 m3 m3 m3"
+        ". . m4 m4 m5 . . ."
+        "m7 m7 m4 m4 m5 . . ."
+        "m7 m7 m4 m4 m5 m8 . ."
+        ". . . . m5 m8 . .";
 }
 
-.about .right .id-5 {
-    grid-area: m1;
+.about .right .id-6 {
+    grid-area: m6;
     background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
     border-radius: 0px 20.0903px 0px 0px;
 }
 
 .about .right .id-1 {
-    grid-area: m2;
+    grid-area: m1;
 }
 
 .about .right .id-2 {
-    grid-area: m3;
+    grid-area: m2;
 }
 
 .about .right .id-3 {
-    grid-area: m4;
+    grid-area: m3;
 }
 
-.about .right .id-6 {
+.about .right .id-5 {
     grid-area: m5;
 }
 
 .about .right .id-4 {
-    grid-area: m6;
+    grid-area: m4;
 }
 
 .about .right .id-7 {
     grid-area: m7;
 }
 
-.about .right .id-6 {
+.about .right .id-8 {
+    grid-area: m8;
+}
+
+.about .right .id-7 {
     background: #ebeef0;
     border-radius: 0px 0px 0px 20.0903px;
     z-index: 2;
 }
 
-.about .right .id-7 {
+.about .right .id-8 {
     background: #ebeef0;
     border-radius: 0px 0px 20.0903px 0px;
     z-index: 2;
 }
 
-.about .right .id-1 {
-    transform: translateX(-400%);
-}
-
+.about .right .id-1,
 .about .right .id-2,
-.about .right .id-6,
-.about .right .id-4 {
+.about .right .id-4,
+.about .right .id-7 {
     transform: translateX(-100%);
 }
 .about .right .id-5,
 .about .right .id-3,
-.about .right .id-7 {
+.about .right .id-6,
+.about .right .id-8 {
     transform: translateX(100%);
 }
-
+.about .right .id-1 {
+    transform: translateX(-400%);
+}
 .about .left .desc {
     margin-top: 16px;
     font-weight: 800;
@@ -147,8 +153,16 @@
 
 @include mobile {
     .about .right {
-        grid-template-columns: 17.68vw 25.08vw 26.08vw 11.19vw 3.84vw 8.84vw;
-        grid-template-rows: 14.59vw 3.76vw 17.68vw 15.25vw 7.85vw 6.29vw 3.93vw 11.1vw;
+        grid-template-columns: 17.68vw 24.45vw 26.07vw 11.19vw 3.83vw 8.84vw;
+        grid-template-rows: 14.58vw 3.76vw 17.677vw 15.25vw 6.91vw 11.16vw 11.1vw;
+        grid-template-areas:
+            " . . . m6 m6 ."
+            "m1 m2 m2 . . ."
+            "m1 m2 m2 m3 m3 m3"
+            ". m2 m2 m3 m3 m3"
+            "m4 m4 m5 m3 m3 m3"
+            "m4 m4 m5 . . ."
+            "m4 m4 m5 m8 . .";
     }
     .about .right .id-1 {
         transform: translateX(0);
@@ -161,7 +175,7 @@
     }
     .about .right .id-5,
     .about .right .id-3,
-    .about .right .id-7 {
+    .about .right .id-8 {
         transform: translateX(0);
     }
 }

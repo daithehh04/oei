@@ -42,6 +42,7 @@ export default function Equipment({ data }) {
                     >
                         {data?.listEquip?.map((item, index) => (
                             <li
+                                key={index}
                                 onClick={() => handleTitleClick(index + 1)}
                                 className={`heading-item text-[#fff] opacity-75 text-24pc leading-[1.27] capitalize pb-[1.57vw] py-[3vw] border-b border-[#fff] border-opacity-50 lg:text-[2.25vw] ${
                                     selectedTitle === index + 1 ? "active" : ""
@@ -60,7 +61,10 @@ export default function Equipment({ data }) {
                         {data?.listEquip?.map(
                             (item, index) =>
                                 selectedTitle === index + 1 && (
-                                    <div className="flex justify-between wrapper">
+                                    <div
+                                        className="flex justify-between wrapper"
+                                        key={index}
+                                    >
                                         <div className="left w-[22.67vw] lg:w-[27vw]">
                                             <h3 className="name text-[#fff] text-[2.875vw] font-[800] leading-[1.21] tracking-tighter mt-[4.5vw] lg:text-[3.25vw]">
                                                 {item?.title}

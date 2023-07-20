@@ -63,8 +63,8 @@ export default function SlideOutstandingProject({ project }) {
                                         className=" block w-full h-[37.125vw] relative img-outstanding md:h-[56.75vw]"
                                     >
                                         <Image
-                                            width={344}
-                                            height={426}
+                                            width={1500}
+                                            height={1000}
                                             className="object-cover w-full h-full"
                                             src={
                                                 item?.featuredImage?.node
@@ -99,7 +99,10 @@ export default function SlideOutstandingProject({ project }) {
                                             <div className="flex items-center mt-[1vw] gap-[2.5vw] lg:flex-wrap md:flex-wrap lg:gap-x-0 md:gap-x-0 md:gap-y-[2.67vw]">
                                                 {item?.projectDetail?.project?.repeatInfo?.map(
                                                     (item, index) => (
-                                                        <div className="flex flex-col owner lg:w-[50%] md:w-[50%]">
+                                                        <div
+                                                            className="flex flex-col owner lg:w-[50%] md:w-[50%]"
+                                                            key={index}
+                                                        >
                                                             <span className="text-[0.875vw] font-[400] md:text-[3.2vw] md:leading-[1.75] lg:text-[1.75vw] ">
                                                                 {item?.title}
                                                             </span>
@@ -113,10 +116,20 @@ export default function SlideOutstandingProject({ project }) {
                                         </div>
                                         <div className="flex gap-[0.5vw] items-end text-primary w-[25%] border-t pt-[0.5vw] border-greenPrimary md:hidden">
                                             <span className="text-[4vw] leading-[1] lg:text-[6vw] font-[700]">
-                                                0{index + 1}
+                                                {`${
+                                                    index < 9
+                                                        ? `0${index + 1}`
+                                                        : { index } + 1
+                                                }`}
+                                                {/* 0{index + 1} */}
                                             </span>
                                             <span className="text-[1.5vw] font-[400] lg:text-[3vw]">
-                                                /0{project?.length}
+                                                {`/${
+                                                    project?.length < 10
+                                                        ? `0${project?.length}`
+                                                        : project?.length
+                                                }`}
+                                                {/* /0{project?.length} */}
                                             </span>
                                         </div>
                                         <div className="flex flex-col gap-[1.5vw] lg:ml-[2vw] md:hidden">
@@ -184,10 +197,20 @@ export default function SlideOutstandingProject({ project }) {
 
                                             <div className="flex gap-[0.5vw] items-end text-primary">
                                                 <span className="text-[16vw] leading-[1] font-[700] uppercase">
-                                                    0{index + 1}
+                                                    {`${
+                                                        index < 9
+                                                            ? `0${index + 1}`
+                                                            : { index } + 1
+                                                    }`}
+                                                    {/* 0{index + 1} */}
                                                 </span>
                                                 <span className="text-[5.867vw] font-[400]">
-                                                    /0{project?.length}
+                                                    {`/${
+                                                        project?.length < 10
+                                                            ? `0${project?.length}`
+                                                            : project?.length
+                                                    }`}
+                                                    {/* /0{project?.length} */}
                                                 </span>
                                             </div>
 

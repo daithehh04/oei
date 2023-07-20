@@ -22,7 +22,6 @@ export default function TableContent() {
             arr.push({ level, title, slug });
         });
 
-        console.log(headings);
         setTableOfContents(arr);
     }, []);
 

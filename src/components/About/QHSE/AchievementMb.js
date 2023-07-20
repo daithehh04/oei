@@ -52,23 +52,6 @@ export default function AchievementMb({ data }) {
     const swiper1Ref = useRef();
     const swiper2Ref = useRef();
 
-    // const handleClick = () => {
-    //     setSee(!see);
-    //     const elements = document.querySelectorAll("#oei-prj");
-    //     const toggleButton = document.querySelectorAll("#see");
-    //     const arrowdown = document.querySelectorAll("#arrow-down");
-    //     elements.forEach((e, index) => {
-    //         if (see) {
-    //             e.style.overflow = "hidden";
-    //             toggleButton[index].textContent = "See more";
-    //             arrowdown[index].style.rotate = "0deg";
-    //         } else {
-    //             e.style.overflow = "unset";
-    //             toggleButton[index].textContent = "Close";
-    //             arrowdown[index].style.rotate = "180deg";
-    //         }
-    //     });
-    // };
     const contentEl = useRef();
     const [click, setClick] = useState(null);
     const handleClickSee = (e) => {

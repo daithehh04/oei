@@ -26,7 +26,7 @@ export default function Lorem({ data }) {
                     {data?.title}
                 </h2>
                 <div className="flex justify-between w-[95%] ml-auto md:flex-col-reverse md:w-[100%]">
-                    <div className="left w-[39.375vw] mt-[7.25vw] md:w-full md:mt-[6.4vw]">
+                    <div className="left w-[43vw] mt-[2.5vw] md:w-full md:mt-[6.4vw]">
                         <Image
                             src={data?.left?.img?.sourceUrl}
                             width={500}
@@ -35,13 +35,13 @@ export default function Lorem({ data }) {
                                 data?.left?.img?.altText ||
                                 data?.left?.img?.title
                             }
-                            className="object-cover w-full"
+                            className="object-cover w-full h-[32vw] md:h-[77vw]"
                             data-aos-once="true"
                             data-aos="fade-right"
                             data-aos-duration="2000"
                         />
                         <p
-                            className="text mt-[3.75vw]"
+                            className="text mt-[2vw] md:mt-[4.27vw]"
                             dangerouslySetInnerHTML={{
                                 __html: data?.left?.text1,
                             }}
@@ -68,9 +68,9 @@ export default function Lorem({ data }) {
                             data-aos-duration="1400"
                         ></p>
                     </div>
-                    <div className="right w-[36.9375vw] mt-[3.75vw] md:flex md:flex-col-reverse md:w-full md:mt-[6.4vw]">
+                    <div className="right w-[36.9375vw] mt-[2.5vw] md:flex md:flex-col-reverse md:w-full md:mt-[6.4vw]">
                         <p
-                            className="text mb-[5.875vw] md:mt-[4.26vw]"
+                            className="text mb-[2vw] md:mt-[4.26vw]"
                             dangerouslySetInnerHTML={{
                                 __html: data?.right?.text,
                             }}
@@ -86,7 +86,7 @@ export default function Lorem({ data }) {
                                 data?.right?.img?.altText ||
                                 data?.right?.img?.title
                             }
-                            className="object-cover w-full"
+                            className="object-cover w-full h-[42vw] md:h-[77vw]"
                             data-aos-once="true"
                             data-aos="fade-left"
                             data-aos-duration="2000"

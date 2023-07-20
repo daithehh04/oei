@@ -79,12 +79,17 @@ export async function generateMetadata() {
 export default async function Blogs() {
     const data = await getData(GET_HEADER_BLOGS_NEWS);
 
-    const { header, groupTitle, outstandingblog } = data?.data?.page?.blogs;
+    const { header, groupTitle, outstandingblog, othersNews } =
+        data?.data?.page?.blogs;
     return (
         <>
             <HeaderSecond header={header} />
             <div className="bg-[#FAFAFA] ">
-                <ListBlog titles={groupTitle} mainBlog={outstandingblog} />
+                <ListBlog
+                    titles={groupTitle}
+                    mainBlog={outstandingblog}
+                    othersNews={othersNews}
+                />
             </div>
         </>
     );

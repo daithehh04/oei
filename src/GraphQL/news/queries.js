@@ -72,6 +72,40 @@ const GET_NEWS = `
     }
 `;
 
+const GET_NEWS_2 = gql`
+    query {
+        posts(first: 100) {
+            nodes {
+                newsDetail {
+                    image {
+                        sourceUrl
+                    }
+                    author
+                }
+                slug
+                title
+                link
+                date
+                content
+                excerpt
+                featuredImage {
+                    node {
+                        sourceUrl
+                        altText
+                        title
+                    }
+                }
+                categories {
+                    nodes {
+                        name
+                        id
+                    }
+                }
+            }
+        }
+    }
+`;
+
 const GET_HEADER_NEWS_EVENT = `
     {
         page(id: "cG9zdDo4NTk=") {
@@ -106,6 +140,17 @@ const GET_HEADER_NEWS_EVENT = `
                         id
                     }
                 }
+                }
+              }
+              othersNews {
+                companyNews {
+                  sourceUrl
+                }
+                industryNews {
+                  sourceUrl
+                }
+                blogs {
+                  sourceUrl
                 }
               }
             }
@@ -150,6 +195,17 @@ const GET_HEADER_COMPANY_NEWS = `
                 }
                 }
               }
+              othersNews {
+                newsEvent {
+                  sourceUrl
+                }
+                industryNews {
+                  sourceUrl
+                }
+                blogs {
+                  sourceUrl
+                }
+              }
             }
         }
     }
@@ -190,6 +246,17 @@ const GET_HEADER_INDUSTRY_NEWS = `
                 }
                 }
               }
+              othersNews {
+                newsEvent {
+                  sourceUrl
+                }
+                companyNews {
+                  sourceUrl
+                }
+                blogs {
+                  sourceUrl
+                }
+              }
             }
         }
     }
@@ -228,6 +295,17 @@ const GET_HEADER_BLOGS_NEWS = `
                         id
                     }
                 }
+                }
+              }
+              othersNews {
+                companyNews {
+                  sourceUrl
+                }
+                newsEvent {
+                  sourceUrl
+                }
+                industryNews {
+                  sourceUrl
                 }
               }
             }
@@ -442,4 +520,5 @@ export {
     GET_ALL_NEWS_BLOGS,
     GET_ALL_NEWS_INDUSTRY,
     GET_ALL_NEWS_EVENTS_PAGE,
+    GET_NEWS_2,
 };

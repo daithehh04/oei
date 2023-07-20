@@ -9,10 +9,13 @@ import OurTeams from "./OurTeams";
 import getData from "@/utils/getData";
 import { GET_DATA_ABOUT_PAGE } from "@/GraphQL/about/queries";
 import Loading from "@/components/Common/Loading";
+import img from "../../../assets/img/bg-common.png";
+import Image from "next/image";
+import Service from "./Service";
 
 export default async function IndexIntroduce() {
     const data = await getData(GET_DATA_ABOUT_PAGE);
-    const { introduce, vision, value, dynamic, message, manager } =
+    const { introduce, vision, value, listService, dynamic } =
         data?.data?.page?.aboutIntroduce;
     if (!data)
         return (
@@ -31,12 +34,16 @@ export default async function IndexIntroduce() {
                 <ValuesMb data={value} />
             </div>
 
-            <div className="bg-common pt-[16.5vw] mt-[60vw] relative lg:pt-[35vw] md:pt-[190vw] md:mt-[26vw]">
-                <div className="absolute top-[-28vw] right-[4.375vw] md:right-[2.667vw] content">
-                    <Message data={message} />
-                </div>
+            <div className="pt-[20vw] relative">
+                <Service data={listService} />
                 <Dynamic data={dynamic} />
-                <OurTeams data={manager} />
+                <Image
+                    src={img}
+                    width={1000}
+                    height={1000}
+                    alt="img"
+                    className="absolute top-0 bottom-0 w-full h-full object-cover left-0 right-0 z-[-1] background-service"
+                />
             </div>
         </div>
     );
