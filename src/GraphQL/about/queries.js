@@ -146,9 +146,15 @@ const GET_DATA_ASSETS_PAGE = `
             assets {
                 title
                 desc
-                album {
-                sourceUrl
+                 img1 {
+                  sourceUrl
                 }
+              img2 {
+                sourceUrl
+              }
+              img3 {
+                sourceUrl
+              }
             }
             facilities {
                 title

@@ -2,9 +2,6 @@
 import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
-import img1 from "../../../assets/img/assets1.png";
-import img2 from "../../../assets/img/assets2.png";
-import img3 from "../../../assets/img/assets3.png";
 import Image from "next/image";
 export default function Dynamic({ data }) {
     useEffect(() => {
@@ -33,30 +30,29 @@ export default function Dynamic({ data }) {
                     </p>
                 </div>
                 <div className="mt-[2.5vw] md:mt-[5.33vw] content">
-                    {/* <SlideAssets dataSlide={data?.album} /> */}
                     <div className="flex gap-[1.87vw] h-[39.3125vw] md:h-auto md:gap-[2.13vw] md:flex-col-reverse">
                         <div className="left w-[52.43vw] h-full md:w-full">
                             <Image
-                                src={img1}
+                                src={data?.img1.sourceUrl}
                                 width={1000}
                                 height={1000}
-                                alt="img1"
+                                alt={data?.img1.altText || data?.img1.title}
                                 className="block object-cover w-full h-full md:h-[43.7vw]"
                             />
                         </div>
                         <div className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw]">
                             <Image
-                                src={img2}
+                                src={data?.img2.sourceUrl}
                                 width={1000}
                                 height={1000}
-                                alt="img2"
+                                alt={data?.img2.altText || data?.img2.title}
                                 className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
                             />
                             <Image
-                                src={img3}
+                                src={data?.img3.sourceUrl}
                                 width={1000}
                                 height={1000}
-                                alt="img3"
+                                alt={data?.img3.altText || data?.img3.title}
                                 className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
                             />
                         </div>

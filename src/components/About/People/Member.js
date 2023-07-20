@@ -45,8 +45,8 @@ function Member({ data }) {
             </p>
             <Image
                 src={data?.img?.sourceUrl}
-                width={500}
-                height={500}
+                width={1000}
+                height={1000}
                 alt={data?.img?.altText || data?.img?.title}
                 className="w-[100%] h-[39.5625vw] object-cover mt-[2vw] md:mt-[5.86vw] md:h-[66.66vw]"
                 data-aos-once="true"

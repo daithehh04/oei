@@ -3,7 +3,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
 import { Pagination, FreeMode } from "swiper";
-import img from "../../../assets/img/assets1.png";
 import Image from "next/image";
 
 export default function FacilitiesSlide({ dataSlide }) {

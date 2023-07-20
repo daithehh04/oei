@@ -5,7 +5,6 @@ import { useRef, useState } from "react";
 import { Pagination } from "swiper";
 import Link from "next/link";
 
-import img from "../../../assets/img/album.png";
 import Image from "next/image";
 
 const arrTeams = new Array(10).fill(0);
