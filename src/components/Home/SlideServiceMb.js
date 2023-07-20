@@ -54,7 +54,7 @@ export default function SlideServiceMb({ data }) {
                                             width={500}
                                             height={500}
                                         />
-                                        <div className="detail absolute lg:!text-[2vw] md:!text-[3.8vw] md:px-[10px] leading-150">
+                                        <div className="detail absolute lg:!text-[2vw] md:!text-[3.8vw] md:px-[2.66vw] leading-150">
                                             <p
                                                 className="line-clamp-4"
                                                 dangerouslySetInnerHTML={{
@@ -74,7 +74,7 @@ export default function SlideServiceMb({ data }) {
                                                 className="object-contain lg:!w-[3.04vw] lg:!h-[3.04vw] md:!w-[5.04vw] md:!h-[5.04vw]"
                                             />
                                         </div>
-                                        <p className="text lg:text-[2.25vw] md:!text-[4.26vw] md: p-0">
+                                        <p className="text lg:text-[2.25vw] md:!text-[4.26vw] md:p-0">
                                             {item?.title}
                                         </p>
                                     </div>

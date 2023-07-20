@@ -30,7 +30,7 @@ export default function CompanyItem({ company }) {
                 />
             </div>
             <div className="info p-[1vw] pt-[1.5vw] md:p-[4.26vw]">
-                <div className="date text-[1.25vw] font-[400] md:text-12mb lg:text-[2vw]">
+                <div className="date text-[1.25vw] font-[400] md:text-12mb lg:text-[2vw] text-[#376A66]">
                     <span>{formattedDate}</span>{" "}
                     <span className="uppercase">
                         / {company?.categories?.nodes[0]?.name}

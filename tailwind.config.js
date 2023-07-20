@@ -33,6 +33,7 @@ module.exports = {
                 btnNews: "0px 0px 50px rgba(73, 178, 93, 0.16)",
             },
             colors: {
+                bgPartners: "rgba(255, 255, 255, 0.94)",
                 gray02: "rgba(217, 217, 217, 0.2)",
                 white02: "rgba(255, 255, 255, 0.7)",
                 white025: "rgba(255, 255, 255, 0.25)",

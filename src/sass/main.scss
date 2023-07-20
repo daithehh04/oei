@@ -6,12 +6,9 @@
 // ============== Layout ==============
 @import "./layout/header";
 
-// ============== Pages ==============
-
 // ============== Home ==============
 @import "./components/Home/header";
 @import "./components/Home/about";
-@import "./components/Home/partners";
 @import "./components/Home/service";
 @import "./components/Home/slide-partners";
 
@@ -19,10 +16,7 @@
 
 // Introduce of About
 @import "./components/About/Introduce/solution";
-@import "./components/About/Introduce/drilled";
 @import "./components/About/Introduce/dynamic";
-@import "./components/About/Introduce/slide-team";
-@import "./components/About/Introduce/our-teams";
 @import "./components/About/Introduce/values";
 @import "./components/About/Introduce/vision";
 @import "./components/About/Introduce/lorem";
