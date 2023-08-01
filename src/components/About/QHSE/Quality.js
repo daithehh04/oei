@@ -50,7 +50,7 @@ function initializeGSAPWithDelay(delay) {
                 trigger: ".quality",
                 pin: ".quality",
                 start: "top top",
-                end: "60% top",
+                end: "70% top",
                 scrub: true,
                 onToggle: (self) => {
                     if (self.isActive) {
@@ -84,8 +84,8 @@ export default function Quality({ data }) {
             ref={containerRef}
         >
             <div className="content">
-                <span className="title text-[12.5vw] font-[900] uppercase absolute right-[5.31vw] md:right-0 md:hidden">
-                    OEi JSC
+                <span className="title text-[8.5vw] font-[900] uppercase absolute right-[32.8vw] md:right-0 md:hidden">
+                    OEi
                 </span>
                 <div className="container-quality pt-[9.3125vw] flex items-start lg:flex-col">
                     <div className="left text-60pc text-[#fff] font-[800] leading-[1.33] tracking-tighter w-[40.375vw] lg:w-[80%] lg:text-[4.8vw] md:text-[8vw] md:pb-[8vw] lg:pb-[5vw]">

@@ -100,7 +100,14 @@ export default function ListBlog({ titles, mainBlog, othersNews }) {
             <MainBlog mainBlogs={mainBlog} />
             <div className="grid grid-cols-3 lg:grid-cols-2 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] md:mt-[6.4vw] md:grid-cols-1 md:gap-[2.67vw]">
                 {nodes?.map((item, index) => (
-                    <BlogItem blog={item} key={index} />
+                    <div
+                        data-aos-once="true"
+                        data-aos="fade-up"
+                        data-aos-duration="2000"
+                        key={index}
+                    >
+                        <BlogItem blog={item} />
+                    </div>
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[6.4vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">

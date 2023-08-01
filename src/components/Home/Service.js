@@ -22,13 +22,20 @@ function initializeGSAPWithDelay(delay) {
         const boxes = document.querySelectorAll(".service-item");
         boxes.forEach((box) => {
             gsap.to(box, {
-                x: "0",
+                // x: "0",
                 scrollTrigger: {
                     trigger: box,
                     start: "top bottom",
-                    end: "top 10%",
+                    end: "top 70%",
                     scrub: true,
                     once: true,
+                    onToggle: (self) => {
+                        if (self.isActive) {
+                            gsap.to(box, {
+                                x: 0,
+                            });
+                        }
+                    },
                 },
             });
         });

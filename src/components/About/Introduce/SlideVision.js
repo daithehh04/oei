@@ -2,7 +2,7 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef, useState } from "react";
-import { Pagination } from "swiper";
+import { Pagination, Autoplay } from "swiper";
 
 import img from "../../../assets/img/cir.svg";
 import img2 from "../../../assets/img/bg-grid-2.svg";
@@ -73,58 +73,65 @@ export default function SlideVision({ dataSlide }) {
                     </svg>
                 </button>
             </div>
-            <Swiper
-                slidesPerView="auto"
-                spaceBetween={0}
-                loop={true}
-                onSlideChange={handleSlideChange}
-                modules={[Pagination]}
-                onBeforeInit={(swiper) => {
-                    swiperRef.current = swiper;
-                }}
-                className="h-fit flex flex-col items-end relative swiper-vision border-l border-[#fff] border-opacity-50 !w-[80%] md:!w-[96.44%] md:ml-auto !pl-[4vw] md:!pl-0"
-            >
-                <div>
-                    {dataSlide?.map((item, index) => (
-                        <SwiperSlide
-                            key={index}
-                            className="relative slide-item-vision !w-[28%] md:!w-[55%]"
-                        >
-                            {({ isActive }) => {
-                                const active = isActive ? "active" : "";
-                                return (
-                                    <div
-                                        className={`pb-[8.3125vw] pt-[6.03125vw] item-vision ${active}`}
-                                    >
-                                        <div className="w-full">
-                                            <p className="text-vision text-[1vw] text-[#E3FCE6] w-[80%] min-h-[6vw] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw] md:min-h-[30vw] line-clamp-4 md:line-clamp-4">
-                                                {item?.text}
-                                            </p>
-                                        </div>
-                                        <div className="flex items-center my-[2vw]">
-                                            <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] flex items-center justify-center lg:h-[4vw]">
-                                                <Image
-                                                    src={img}
-                                                    alt="img"
-                                                    width={20}
-                                                    height={20}
-                                                    className="!object-contain"
-                                                />
+            <div className="!w-[80%] !pl-[4vw] md:!pl-0 md:!w-[96.44%] md:ml-auto  border-l border-[#fff] border-opacity-50">
+                <Swiper
+                    slidesPerView="auto"
+                    spaceBetween={0}
+                    loop={true}
+                    onSlideChange={handleSlideChange}
+                    modules={[Pagination, Autoplay]}
+                    onBeforeInit={(swiper) => {
+                        swiperRef.current = swiper;
+                    }}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    }}
+                    speed={1000}
+                    className="relative flex flex-col items-end h-fit swiper-vision "
+                >
+                    <div>
+                        {dataSlide?.map((item, index) => (
+                            <SwiperSlide
+                                key={index}
+                                className="relative slide-item-vision !w-[28%] md:!w-[55%]"
+                            >
+                                {({ isActive }) => {
+                                    const active = isActive ? "active" : "";
+                                    return (
+                                        <div
+                                            className={`pb-[8.3125vw] pt-[6.03125vw] item-vision ${active}`}
+                                        >
+                                            <div className="w-full">
+                                                <p className="text-vision text-[1vw] text-[#E3FCE6] w-[80%] min-h-[6vw] m-auto md:pt-[10.66vw] md:text-[3.2vw] lg:text-[1.5vw] md:min-h-[30vw] line-clamp-4 md:line-clamp-4">
+                                                    {item?.text}
+                                                </p>
                                             </div>
-                                            <div className="h-[1px] w-[100%] bg-[#fff]"></div>
+                                            <div className="flex items-center my-[2vw]">
+                                                <div className="w-[1.8125vw] h-[1.8125vw] md:w-[7.73vw] md:h-[7.73vw] lg:w-[4vw] flex items-center justify-center lg:h-[4vw]">
+                                                    <Image
+                                                        src={img}
+                                                        alt="img"
+                                                        width={20}
+                                                        height={20}
+                                                        className="!object-contain"
+                                                    />
+                                                </div>
+                                                <div className="h-[1px] w-[100%] bg-[#fff]"></div>
+                                            </div>
+                                            <div className=" text-start year-vision text-[3.75vw] uppercase leading-[1.58] max-w-[80%] line-clamp-4 ml-[-3vw] md:ml-0 md:pb-[10.66vw] md:text-[10.66vw] lg:text-[6vw]">
+                                                {`${index < 10}`
+                                                    ? `0${item?.year}`
+                                                    : item?.year}
+                                            </div>
                                         </div>
-                                        <div className=" text-start year-vision text-[3.75vw] uppercase leading-[1.58] max-w-[80%] line-clamp-4 ml-[-3vw] md:ml-0 md:pb-[10.66vw] md:text-[10.66vw] lg:text-[6vw]">
-                                            {`${index < 10}`
-                                                ? `0${item?.year}`
-                                                : item?.year}
-                                        </div>
-                                    </div>
-                                );
-                            }}
-                        </SwiperSlide>
-                    ))}
-                </div>
-            </Swiper>
+                                    );
+                                }}
+                            </SwiperSlide>
+                        ))}
+                    </div>
+                </Swiper>
+            </div>
             <Image
                 src={img2}
                 width={500}

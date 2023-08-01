@@ -87,12 +87,12 @@ export default function SlideCertified({ dataSlide }) {
                 onBeforeInit={(swiper) => {
                     swiperRef.current = swiper;
                 }}
-                className="flex flex-col items-end relative swiper-certified w-[80%] p-[5vw] pl-[3.75vw] pr-0 border-l border-[#ccc] md:pl-0 md:py-[8vw]"
+                className="flex flex-col items-end relative swiper-certified !w-[80%] !p-[5vw] !pl-[3.75vw] !pr-0 border-l border-[#ccc] md:!pl-0 md:!py-[8vw]"
             >
                 {dataSlide?.map((item, index) => (
                     <SwiperSlide
                         key={index}
-                        className="!h-fit relative slide-item-certified w-[25%] lg:w-[33%] md:w-[60%]"
+                        className="!h-fit relative slide-item-certified !w-[25%] lg:!w-[33%] md:!w-[60%]"
                     >
                         {({ isActive }) => (
                             <div className="w-full h-[28.625vw] img-certified md:h-[78.93vw]">

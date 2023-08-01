@@ -109,7 +109,14 @@ export default function ListNews({ titles, outstandingNews, othersNews }) {
             <div className="list-news grid grid-cols-3 gap-[2vw] mt-[5.4375vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
                 {nodes &&
                     nodes?.map((item, index) => (
-                        <NewsItem newsItem={item} key={index} />
+                        <div
+                            data-aos-once="true"
+                            data-aos="fade-up"
+                            data-aos-duration="2000"
+                            key={index}
+                        >
+                            <NewsItem newsItem={item} />
+                        </div>
                     ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center md:mt-[8vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">

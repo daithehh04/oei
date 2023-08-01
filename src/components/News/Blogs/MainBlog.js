@@ -1,8 +1,9 @@
 import React from "react";
 import BlogSuggets from "./BlogSuggets";
 import Image from "next/image";
-import img from "../../../assets/img/contact.png";
 import Link from "next/link";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function MainBlog({ mainBlogs }) {
     const firstBlog = mainBlogs?.[0];
@@ -16,8 +17,23 @@ export default function MainBlog({ mainBlogs }) {
     const year = String(date.getFullYear()); //
 
     const formattedDate = `${day}.${month}.${year}`;
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
+    }, []);
     return (
-        <div className="main-blog">
+        <div
+            className="main-blog"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <div className="flex gap-[1.875vw] md:flex-col">
                 <Link
                     href={`/news/blogs/${encodeURIComponent(firstBlog?.slug)}`}
@@ -59,8 +75,8 @@ export default function MainBlog({ mainBlogs }) {
                     </div>
                 </Link>
                 <div className="w-[50%] grid grid-cols-2 gap-x-[1.875vw] gap-y-[1.5vw] md:w-full">
-                    {arrBlogs?.map((item) => (
-                        <BlogSuggets blog={item} />
+                    {arrBlogs?.map((item, index) => (
+                        <BlogSuggets blog={item} key={index} />
                     ))}
                 </div>
             </div>

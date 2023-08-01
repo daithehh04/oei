@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import IndustrySuggets from "./IndustrySuggets";
 import Image from "next/image";
 import Link from "next/link";
+import AOS from "aos";
 
 export default function MainNews({ mainIndustry }) {
     const firstBlog = mainIndustry?.[0];
@@ -15,8 +16,24 @@ export default function MainNews({ mainIndustry }) {
     const year = String(date.getFullYear()); //
 
     const formattedDate = `${day}.${month}.${year}`;
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
+    }, []);
     return (
-        <div className="main-industry">
+        <div
+            className="main-industry"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <div className="flex gap-x-[1.875vw] justify-between md:flex-col">
                 <div className="w-[66%] md:w-full lg:w-[58%]">
                     <Image

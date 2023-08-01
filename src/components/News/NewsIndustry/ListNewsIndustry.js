@@ -99,7 +99,14 @@ export default function ListNewsIndustry({ titles, mainNews, othersNews }) {
             <MainNews mainIndustry={mainNews} />
             <div className="industries grid grid-cols-3 gap-x-[2vw] gap-y-[2.5vw] mt-[2.5vw] pb-[3vw] md:grid-cols-1 md:gap-[2.67vw] lg:grid-cols-2">
                 {nodes?.map((item, index) => (
-                    <IndustryItem industry={item} key={index} />
+                    <div
+                        data-aos-once="true"
+                        data-aos="fade-up"
+                        data-aos-duration="2000"
+                        key={index}
+                    >
+                        <IndustryItem industry={item} />
+                    </div>
                 ))}
             </div>
             <div className="pagination mt-[3vw] pb-[5vw] text-center  md:mt-[8vw] md:pb-[16vw] lg:mt-[5vw] lg:pb-[8vw]">

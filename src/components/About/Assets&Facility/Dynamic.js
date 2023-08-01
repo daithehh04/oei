@@ -13,7 +13,7 @@ export default function Dynamic({ data }) {
             <div>
                 <div className="flex items-start justify-between pt-[6.12vw] md:flex-col md:pt-[16vw] content">
                     <h2
-                        className="text-60pc text-primary w-[31.0625vw] tracking-tighter leading-[1.22] font-[800] md:w-full md:text-[8vw]"
+                        className="text-60pc text-primary w-[47.0625vw] tracking-tighter leading-[1.22] font-[800] md:w-full md:text-[8vw]"
                         data-aos-once="true"
                         data-aos="fade-right"
                         data-aos-duration="1000"

@@ -15,13 +15,24 @@ gsap.registerPlugin(ScrollTrigger);
 function initializeGSAPWithDelay(delay) {
     setTimeout(() => {
         gsap.to(".bg-value", {
-            width: "91.25%",
+            // width: "91.25%",
             scrollTrigger: {
                 trigger: ".bg-value",
                 start: "-50% 10%",
                 end: "top 10%",
                 scrub: true,
                 once: true,
+                onToggle: (self) => {
+                    if (self.isActive) {
+                        gsap.to(".bg-value", {
+                            width: "91.25%",
+                        });
+                    } else {
+                        gsap.to(".bg-value", {
+                            width: initial,
+                        });
+                    }
+                },
             },
         });
         gsap.to(".text-image", {

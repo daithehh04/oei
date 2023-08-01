@@ -30,8 +30,8 @@ export default async function IndexAssets() {
             <div className="hidden md:block">
                 <EquipmentMb data={equipment} />
             </div>
-            <Album data={albumProject} />
             <Profile data={profile} />
+            <Album data={albumProject} />
             <div className="pb-[7.86vw] mt-[5vw]">
                 <Contact />
             </div>

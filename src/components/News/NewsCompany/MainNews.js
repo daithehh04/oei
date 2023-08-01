@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CompanySuggets from "./CompanySuggets";
 import Image from "next/image";
 import Link from "next/link";
+import AOS from "aos";
 
 export default function MainNews({ mainCompany }) {
     const firstBlog = mainCompany?.[0];
@@ -15,8 +16,23 @@ export default function MainNews({ mainCompany }) {
     const year = String(date.getFullYear()); //
 
     const formattedDate = `${day}.${month}.${year}`;
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+        AOS.init({
+            disable: function () {
+                var maxWidth = 768;
+                return window.innerWidth < maxWidth;
+            },
+        });
+    }, []);
     return (
-        <div className="main-company flex gap-x-[1.875vw] justify-between md:flex-col">
+        <div
+            className="main-company flex gap-x-[1.875vw] justify-between md:flex-col"
+            data-aos-once="true"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <Link
                 href={`/news/company-news/${encodeURIComponent(
                     firstBlog?.slug
@@ -63,8 +79,8 @@ export default function MainNews({ mainCompany }) {
                 <span className="text-[2vw] font-[800] text-[#394854] leading-[1.25] mb-[1vw] md:text-24mb lg:text-[3vw]">
                     Most Commented
                 </span>
-                {arrBlogs?.map((item) => (
-                    <CompanySuggets news={item} />
+                {arrBlogs?.map((item, index) => (
+                    <CompanySuggets news={item} key={index} />
                 ))}
             </div>
         </div>

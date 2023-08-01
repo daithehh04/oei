@@ -434,7 +434,7 @@ export default function Achievements({ data }) {
                         Skip now
                     </button>
                 )}
-                <span ref={sectionDRef}></span>
+                <span ref={sectionDRef} id="bottom"></span>
             </section>
         </>
     );

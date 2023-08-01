@@ -47,8 +47,8 @@ export default function Strives({ data }) {
                             }
                             className="w-full h-[34.8125vw] object-cover lg:h-[54vw] md:h-[70.93vw]"
                             data-aos-once="true"
-                            data-aos="fade-right"
-                            data-aos-duration="1000"
+                            data-aos="fade-up"
+                            data-aos-duration="2000"
                         />
                         <p
                             className="text-[#394854] text-[1.5vw] font-[400] w-[39.4375vw] leading-[1.58] mt-[3.75vw] lg:text-[2.4vw] md:text-[3.73vw] md:mt-[4.26vw] md:w-full lg:w-full"
@@ -71,8 +71,8 @@ export default function Strives({ data }) {
                             }
                             className="w-full h-[26.375vw] object-cover lg:h-[46vw] md:h-[60vw]"
                             data-aos-once="true"
-                            data-aos="fade-left"
-                            data-aos-duration="1000"
+                            data-aos="fade-up"
+                            data-aos-duration="2000"
                         />
                         <p
                             className="text-[#394854] text-[1.5vw] font-[400] w-[39.4375vw] leading-[1.58] mt-[3.75vw] lg:text-[2.4vw] lg:w-full md:text-[3.73vw] md:mt-[4.26vw] md:w-full"
@@ -86,8 +86,8 @@ export default function Strives({ data }) {
                     </div>
                 </div>
 
-                <span className="heading text-[12.5vw] font-[900] uppercase absolute right-[5.31vw] md:right-0 md:hidden">
-                    OEi JSC
+                <span className="heading text-[8.5vw] font-[900] uppercase absolute right-[32.8vw] md:right-0 md:hidden">
+                    OEi
                 </span>
             </div>
         </div>

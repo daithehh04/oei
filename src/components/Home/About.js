@@ -19,13 +19,20 @@ function initializeGSAPWithDelay(delay) {
         boxes.forEach((box) => {
             mm.add("(min-width: 768px)", () => {
                 gsap.to(box, {
-                    x: "0",
+                    // x: "0",
                     scrollTrigger: {
                         trigger: box,
-                        start: "top bottom",
-                        end: "top 50%",
+                        start: "top 90%",
+                        end: "top 40%",
                         scrub: true,
                         once: true,
+                        onToggle: (self) => {
+                            if (self.isActive) {
+                                gsap.to(box, {
+                                    x: 0,
+                                });
+                            }
+                        },
                     },
                 });
             });
@@ -53,7 +60,7 @@ const About = ({ data }) => {
     return (
         <div className="relative overflow-hidden about">
             <div className="container-about w-[95.625%] ml-auto mt-[12.625vw] md:w-[91.25%] md:mr-auto md:ml-auto md:mt-[29.6vw]">
-                <div className="relative flex wrapper md:w-full md:block">
+                <div className="relative flex wrapper md:w-full md:block gap-[2vw]">
                     <div className="left absolute w-[32.5625vw] md:w-[100%] md:relative">
                         <h2
                             className="sub-title text-[1.125vw] leading-normal tracking-[0.12em] uppercase font-[700] text-dateNews md:text-[3.73vw]"
