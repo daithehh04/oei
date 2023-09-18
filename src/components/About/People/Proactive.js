@@ -79,8 +79,8 @@ export default function Proactive({ data }) {
                             data-aos="fade-left"
                             data-aos-duration="2000"
                         >
-                            {data?.right?.listItem?.map((item) => (
-                                <li>{item?.text}</li>
+                            {data?.right?.listItem?.map((item, index) => (
+                                <li key={index}>{item?.text}</li>
                             ))}
                         </ul>
                     </div>

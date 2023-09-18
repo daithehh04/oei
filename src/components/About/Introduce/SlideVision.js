@@ -73,7 +73,7 @@ export default function SlideVision({ dataSlide }) {
                     </svg>
                 </button>
             </div>
-            <div className="!w-[80%] !pl-[4vw] md:!pl-0 md:!w-[96.44%] md:ml-auto  border-l border-[#fff] border-opacity-50">
+            <div className="!w-[80%] !pl-[4vw] md:!pl-0 md:!w-[100%] md:ml-auto border-l border-[#fff] md:border-l-0 border-opacity-50">
                 <Swiper
                     slidesPerView="auto"
                     spaceBetween={0}

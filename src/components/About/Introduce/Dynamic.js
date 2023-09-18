@@ -44,16 +44,16 @@ function Dynamic({ data }) {
                             data-aos-duration="1000"
                         />
                     </div>
-                    <div className="right w-[44.6875vw] ml-auto lg:w-full lg:mt-[3vw] md:mt-[6.63vw]">
+                    <div
+                        className="right w-[44.6875vw] ml-auto lg:w-full lg:mt-[3vw] md:mt-[6.63vw]"
+                        data-aos-once="true"
+                        data-aos="fade-left"
+                        data-aos-duration="1000"
+                    >
                         <div className="category">
                             <ul>
                                 {data?.listItem?.map((item, index) => (
                                     <li
-                                        data-aos-once="true"
-                                        data-aos="fade-up"
-                                        data-aos-duration={`1000+${
-                                            (index + 1) * 500
-                                        }`}
                                         key={index}
                                         className="py-[1.5vw] md:pt-[3vw] hover:border-[#394854] hover:border-opacity-50 md:pb-[3.6vw] font-[600] text-[2vw] tracking-[-0.1rem] leading-[1.25] text-[#394854] border-b border-[#ccc]"
                                     >

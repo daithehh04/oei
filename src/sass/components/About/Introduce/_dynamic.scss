@@ -29,7 +29,7 @@
                         padding-right: 5.88vw;
                         counter-increment: e;
                         content: "0" counter(e) ".";
-                        font-size: 1.125vw;
+                        font-size: 1.5vw;
                     }
                     &:hover {
                         background: linear-gradient(
@@ -41,7 +41,7 @@
                         -webkit-text-fill-color: transparent;
                         background-clip: text;
                         text-fill-color: transparent;
-                        font-weight: 800;
+                        // font-weight: 800;
                     }
                 }
             }
@@ -78,7 +78,7 @@
                         font-size: 4.26vw;
                         &::before {
                             margin-top: 0;
-                            font-size: 2.25vw;
+                            font-size: 3.2vw;
                         }
                     }
                 }

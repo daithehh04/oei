@@ -12,7 +12,17 @@ const GET_GLOBAL_NAVBAR = `
 				}
 				navbar {
 					titleNav
-					href
+                        href
+                        branch{
+                            titleItemNav
+                            hrefItemNav
+							imageItemNav{
+								sourceUrl
+								altText
+								title
+							}
+							descriptionItemNav
+                        }
 				}
 			}
 		}

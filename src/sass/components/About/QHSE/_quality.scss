@@ -9,13 +9,16 @@
         top: -4.7vw;
     }
     .quality-item {
-        opacity: 0.6;
+        // opacity: 0.6;
         &:last-child {
             border-bottom: none;
         }
     }
     .quality-item.active {
         opacity: 1;
+    }
+    ::-webkit-scrollbar {
+        width: 0;
     }
 }
 

@@ -22,6 +22,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-scroll-trigger": "^0.6.14",
+    "smoothscroll-polyfill": "^0.4.4",
     "swiper": "^8.4.6"
   },
   "devDependencies": {

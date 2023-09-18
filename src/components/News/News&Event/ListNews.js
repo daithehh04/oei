@@ -33,7 +33,9 @@ export default function ListNews({ titles, outstandingNews, othersNews }) {
     };
     const eleRef = useRef();
     useEffect(() => {
-        eleRef?.current?.scrollIntoView(".head");
+        eleRef?.current?.scrollIntoView({
+            behavior: "smooth",
+        });
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);

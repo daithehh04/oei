@@ -15,7 +15,7 @@ function Message({ data }) {
                 <p className="ceo-message text-[1.125vw] uppercase absolute top-0 w-[63%] border-b border-[#fff] text-[#fff] font-[400] mt-[2.14vw] leading-normal ml-[35%] md:ml-[3vw] md:w-[93%] md:text-[3.73vw] md:top-[50%] lg:text-[1.75vw]">
                     {data?.role}
                 </p>
-                <div className="left w-[50%] h-[41.9375vw] md:w-full lg:h-auto">
+                <div className="left w-[40.48%] h-[35.9375vw] md:w-full lg:h-auto">
                     <Image
                         src={data?.img?.sourceUrl}
                         width={500}
@@ -24,7 +24,7 @@ function Message({ data }) {
                         className="object-cover w-full h-full"
                     />
                 </div>
-                <div className="right w-[50%] md:w-full bg-member px-[4.375vw] text-[#fff]">
+                <div className="right w-[59.52%] md:w-full bg-member px-[4.375vw] text-[#fff]">
                     <Image
                         src={img2}
                         width={100}
@@ -41,14 +41,14 @@ function Message({ data }) {
                         {data?.title}
                     </h3>
                     <p
-                        className="desc text-[#fff] text-[1.5vw] font-[400] leading-[1.38] w-[32.4375vw] mt-[1.5vw] line-clamp-7 md:w-[100%] md:text-[4.26vw] md:mt-[2.13vw] lg:text-[2vw]"
+                        className="desc text-[#fff] text-[1.275vw] font-[400] leading-[1.38] w-full mt-[1.5vw] line-clamp-7 md:w-[100%] md:text-[4.26vw] md:mt-[2.13vw] lg:text-[2vw]"
                         data-aos-once="true"
                         data-aos="fade-up"
                         data-aos-duration="1200"
                     >
                         {data?.text}
                     </p>
-                    <div className="name mt-[2.5vw] pb-[3.45vw] md:pb-[8.53vw] w-max ml-auto">
+                    <div className="name mt-[2.5vw] md:pb-[8.53vw] w-max ml-auto">
                         <p
                             className="text-[1.25vw] font-[700] leading-[1.3] text-[#fff] tracking-[-0.03em] md:text-[4.26vw] lg:text-[2vw]"
                             data-aos-once="true"

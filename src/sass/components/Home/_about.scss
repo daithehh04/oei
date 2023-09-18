@@ -79,18 +79,18 @@
 .about .right .id-4,
 .about .right .id-7 {
     transform: translateX(-100%);
-    transition: transform 0.25s linear;
+    transition: transform 0.45s ease-out;
 }
 .about .right .id-5,
 .about .right .id-3,
 .about .right .id-6,
 .about .right .id-8 {
     transform: translateX(100%);
-    transition: transform 0.25s linear;
+    transition: transform 0.45s ease-out;
 }
 .about .right .id-1 {
     transform: translateX(-400%);
-    transition: transform 0.4s linear;
+    transition: transform 0.55s ease-out;
 }
 .about .left .desc {
     margin-top: 16px;

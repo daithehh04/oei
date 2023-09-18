@@ -165,7 +165,7 @@ const Service = ({ data }) => {
                 </div>
             </div>
             <SlideTextService text={data?.textBottom} />
-            <div className={`${over_lay}`}></div>
+            {/* <div className={`${over_lay}`}></div> */}
             <Image
                 src={bgCommon}
                 width={500}

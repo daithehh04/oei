@@ -10,7 +10,7 @@ export default function Facilities({ data }) {
         AOS.refresh();
     }, []);
     return (
-        <div className="pt-[22.8125vw] md:pt-[68vw] lg:pt-[26vw] bg-[#FAFAFA]">
+        <div className="pt-[7.44vw] md:pt-[16vw] lg:pt-[12vw] bg-[#FAFAFA]">
             <h2
                 className="text-60pc text-primary font-[800] leading-[1.33] tracking-tighter w-[58vw] mb-[2.5vw] content md:text-[8vw] md:w-full"
                 data-aos-once="true"

@@ -1,7 +1,7 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper";
+import { Autoplay, FreeMode } from "swiper";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -14,6 +14,7 @@ export default function SlidePartners({ dataSlide }) {
                 slidesPerView={3}
                 spaceBetween={32}
                 loop={true}
+                centeredSlides={true}
                 breakpoints={{
                     768: {
                         slidesPerView: 4,
@@ -25,11 +26,12 @@ export default function SlidePartners({ dataSlide }) {
                     },
                 }}
                 autoplay={{
-                    delay: 0,
+                    delay: 1,
                     disableOnInteraction: false,
                 }}
-                speed={1000}
-                modules={[Autoplay]}
+                speed={1500}
+                freeMode={true}
+                modules={[Autoplay, FreeMode]}
                 onBeforeInit={(swiper) => {
                     if (!swiper.params) return;
                     swiperRef.current = swiper;

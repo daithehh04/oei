@@ -32,21 +32,21 @@
     .item-vision.active {
         .text-vision {
             color: #fff;
-            font-weight: 500;
+            font-weight: 700;
             opacity: 1;
-            scale: 1.1;
+            scale: 1.2;
         }
     }
     .item-vision {
         .text-vision {
-            font-weight: 500;
+            font-weight: 700;
             opacity: 0.7;
             transition: all 0.3s ease;
             &:hover {
                 color: #fff;
                 opacity: 1;
-                font-weight: 500;
-                scale: 1.1;
+                font-weight: 700;
+                scale: 1.2;
             }
         }
     }
@@ -71,5 +71,25 @@
         border-left: 0;
         width: 97.33%;
         margin-right: 0 !important;
+    }
+    .slide-vision .swiper-slide {
+        .item-vision.active {
+            .text-vision {
+                font-weight: 600;
+
+                scale: 1;
+            }
+        }
+        .item-vision {
+            .text-vision {
+                font-weight: 600;
+
+                &:hover {
+                    font-weight: 600;
+
+                    scale: 1;
+                }
+            }
+        }
     }
 }

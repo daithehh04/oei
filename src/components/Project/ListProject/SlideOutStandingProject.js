@@ -185,7 +185,7 @@ export default function SlideOutstandingProject({ project }) {
                                                     viewBox="0 0 24 24"
                                                     strokeWidth="1.5"
                                                     stroke={"#D9D9D9"}
-                                                    className="w-[10.6vw] h-[10.6vw]"
+                                                    className="w-[5.23vw] h-[5.23vw]"
                                                 >
                                                     <path
                                                         strokeLinecap="round"
@@ -196,7 +196,7 @@ export default function SlideOutstandingProject({ project }) {
                                             </button>
 
                                             <div className="flex gap-[0.5vw] items-end text-primary">
-                                                <span className="text-[16vw] leading-[1] font-[700] uppercase">
+                                                <span className="text-[12vw] leading-[1] font-[700] uppercase">
                                                     {`${
                                                         index < 9
                                                             ? `0${index + 1}`
@@ -204,7 +204,7 @@ export default function SlideOutstandingProject({ project }) {
                                                     }`}
                                                     {/* 0{index + 1} */}
                                                 </span>
-                                                <span className="text-[5.867vw] font-[400]">
+                                                <span className="text-[5.333vw] font-[400]">
                                                     {`/${
                                                         project?.length < 10
                                                             ? `0${project?.length}`
@@ -224,7 +224,7 @@ export default function SlideOutstandingProject({ project }) {
                                                     viewBox="0 0 24 24"
                                                     strokeWidth="1.5"
                                                     stroke={"#D9D9D9"}
-                                                    className="w-[10.6vw] h-[10.6vw]"
+                                                    className="w-[5.23vw] h-[5.23vw]"
                                                 >
                                                     <path
                                                         strokeLinecap="round"

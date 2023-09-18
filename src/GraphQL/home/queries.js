@@ -1,6 +1,6 @@
 const GET_DATA_HOME_PAGE = `
-    {
-        page(id: "cG9zdDoxOQ==") {
+{
+    page(id: "cG9zdDoxOQ==") {
             homePage {
                 header {
                     logoImage {
@@ -8,17 +8,20 @@ const GET_DATA_HOME_PAGE = `
                         altText
                         title
                     }
+                    language
                     slideHeader {
                         itemImage {
                             sourceUrl
                             altText
                             title
                         }
+                        circleImage{
+                            sourceUrl
+                            altText
+                            title
+                        }
                         itemTitle
                         itemDescription
-                    }
-                    navbar {
-                        titleNav
                     }
                     contentActive {
                         item1 {
@@ -36,9 +39,7 @@ const GET_DATA_HOME_PAGE = `
                                 title
                             }
                             description
-                            link {
-                                url
-                            }
+                            linkDownload
                         }
                     }
                 }
@@ -53,25 +54,41 @@ const GET_DATA_HOME_PAGE = `
                     }
                     textBottom
                 }
-
+                member{
+                    subTitle
+                    title
+                    listMember{
+                    descriptionMember
+                    logoMember{
+                        sourceUrl
+                        title
+                        altText
+                    }
+                    }
+                    listExperience{
+                    title
+                    number
+                    }
+                    description
+                }
                 service {
                     title
                     subTitle
                     titleMobile
                     subtitleMobile
                     outstandingService {
-                    ... on Service {
-                        title
-                        slug
-                        excerpt
-                        featuredImage {
-                        node {
-                            sourceUrl
-                            altText
+                        ... on Service {
                             title
+                            slug
+                            excerpt
+                            featuredImage {
+                                node {
+                                    sourceUrl
+                                    altText
+                                    title
+                                }
+                            }
                         }
-                        }
-                    }
                     }
                     item2 {
                         number
@@ -79,17 +96,9 @@ const GET_DATA_HOME_PAGE = `
                     }
                     textBottom
                 }
-                partners {
-                    title
-                    desc
-                    partnersRow {
-                        img {
-                            sourceUrl
-                        }
-                    }
-                     background {
-                    sourceUrl
-                  }
+                map{
+                    countProject
+                    description
                 }
                 news {
                     subTitle
@@ -117,8 +126,23 @@ const GET_DATA_HOME_PAGE = `
                             }
                         }
                     }
+                    category
                     filterCategory {
                         id
+                    }
+                }
+                partners {
+                    title
+                    desc
+                    partnersRow {
+                        img {
+                            sourceUrl
+                        }
+                    }
+                    background{
+                        sourceUrl
+                        altText
+                        title
                     }
                 }
             }

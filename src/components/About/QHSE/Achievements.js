@@ -4,11 +4,12 @@ import { useRef } from "react";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import img from "../../../assets/img/db-arr.svg";
+import img from "../../../assets/img/db-arr2.svg";
+import smoothscroll from 'smoothscroll-polyfill';
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
-
+smoothscroll.polyfill();
 function initializeGSAPWithDelay(delay, data) {
     setTimeout(function () {
         gsap.to(".history-events", {
@@ -18,13 +19,37 @@ function initializeGSAPWithDelay(delay, data) {
                 end: "bottom bottom",
                 onToggle: (self) => {
                     if (self.isActive) {
+                        const ov = document.querySelector("#overlay-year");
+                        ov.classList.add("overlay-year");
                         gsap.to(".overlay-year", {
+                            opacity: 1,
                             height: "10vw",
                         });
                     } else {
                         gsap.to(".overlay-year", {
+                            opacity: 0,
                             height: 0,
                         });
+                        const ov = document.querySelector("#overlay-year");
+                        ov.classList.remove("overlay-year");
+                    }
+                },
+            },
+        });
+        gsap.to(".history-events", {
+            scrollTrigger: {
+                trigger: ".history-events",
+                start: "top 50%",
+                end: "bottom 50%",
+                onToggle: (self) => {
+                    const ele = document.querySelector(".history-events")
+                    const ele_1 = document.querySelector(".year-right")
+                    if (self.isActive) {
+                        gsap.to(".years-content", {
+                            opacity: 1,
+                        });
+                        // ele_1.classList.remove("ani_0")
+                        ele.classList.remove("animate")
                     }
                 },
             },
@@ -231,6 +256,21 @@ export default function Achievements({ data }) {
         }
         setRate(rate);
     };
+    
+    // ===== Start fix animation scroll Year =====
+    const handleScrollYear = () => {
+        const eScroll = document.querySelector(".history.hid")
+        if (eScroll) {
+        }
+    }
+    useEffect(() => {
+        window.addEventListener("scroll", handleScrollYear);
+        return () => {
+            window.removeEventListener("scroll", handleScrollYear);
+        };
+    }, []);
+    // ===== End fix animation scroll Year =====
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
@@ -274,18 +314,32 @@ export default function Achievements({ data }) {
 
         prevScrollTopRef.current = scrollTop;
     };
+
+    const numRef = useRef();
+
     const handleScrollUp = () => {
-        const section = sectionRef.current;
-        section.scrollIntoView();
+        // numRef.current.classList.add("ani_0");
+        numRef.current.style.opacity = 0;
+        containerRef.current.classList.add("animate")
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
     };
 
     const handleScrollDown = () => {
+        // numRef.current.classList.add("ani_0");
+        numRef.current.style.opacity = 0;
+        containerRef.current.classList.add("animate")
         const section = sectionDRef.current;
-        section.scrollIntoView();
+        section.scrollIntoView({
+            behavior: "smooth",
+        });
     };
+   
     useEffect(() => {
         window.addEventListener("scroll", handleScrollBtn);
-
         return () => {
             window.removeEventListener("scroll", handleScrollBtn);
         };
@@ -303,10 +357,10 @@ export default function Achievements({ data }) {
                     </h3>
                     <div className="flex w-full wrapper">
                         <div className="years sticky h-[100vh] flex items-center mr-auto w-[36.5vw]">
-                            <div className="years-content">
+                            <div className="years-content" ref={numRef}>
                                 <div className="number">
                                     <div className="year-left">20</div>
-                                    <div className="year-right">
+                                    <div className="year-right" >
                                         {data?.listProject?.map(
                                             (item, index) => (
                                                 <p
@@ -400,13 +454,16 @@ export default function Achievements({ data }) {
                                     </div>
                                 </div>
                             ))}
-                            <div className="overlay-year"></div>
+                            <div
+                                className="overlay-year"
+                                id="overlay-year"
+                            ></div>
                         </div>
                     </div>
                 </div>
                 {showScrollUp && (
                     <button
-                        className="scroll-btn btn-up fixed text-[1vw] text-[#394854] right-[25%] bottom-[10px] flex flex-col items-center animate-bounce"
+                        className="scroll-btn btn-up fixed text-[1.125vw] text-primary font-[700] right-[73%] bottom-[10px] flex flex-col items-center animate-bounce"
                         onClick={handleScrollUp}
                     >
                         <Image
@@ -421,7 +478,7 @@ export default function Achievements({ data }) {
                 )}
                 {showScrollDown && (
                     <button
-                        className="scroll-btn btn-down fixed text-[1vw] text-[#394854] right-[25%] bottom-[10px] flex flex-col items-center animate-bounce"
+                        className="scroll-btn btn-down fixed text-[1.125vw] text-primary font-[700] right-[73%] bottom-[10px] flex flex-col items-center animate-bounce"
                         onClick={handleScrollDown}
                     >
                         <Image
@@ -429,7 +486,7 @@ export default function Achievements({ data }) {
                             width={50}
                             height={50}
                             alt="arrow up"
-                            className="w-[1vw] h-[1vw] "
+                            className="w-[1vw] h-[1vw]"
                         />
                         Skip now
                     </button>

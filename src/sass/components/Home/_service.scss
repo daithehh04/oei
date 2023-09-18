@@ -1,469 +1,466 @@
-.service .over-lay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
-    z-index: 2;
-    transition: all 0.3s ease-in;
-}
+// .service .over-lay {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     background: rgba(0, 0, 0, 0.2);
+//     z-index: 2;
+//     transition: all 0.3s ease-in;
+// }
 
 .service {
-    overflow: hidden;
-    .list-serviceMb {
-        padding-top: 40px;
-    }
+  overflow: hidden;
+  .list-serviceMb {
+    padding-top: 40px;
+  }
 
-    .list-service {
-        gap: calc(0.6875 * 100vw / 100);
-        grid-template-columns:
-            calc(22.25 * 100vw / 100) calc(5 * 100vw / 100) calc(
-                11.125 * 100vw / 100
-            )
-            calc(5.4375 * 100vw / 100) calc(3.5 * 100vw / 100) calc(
-                7.6875 * 100vw / 100
-            )
-            calc(12.125 * 100vw / 100) calc(0.6875 * 100vw / 100) calc(
-                3.5625 * 100vw / 100
-            )
-            calc(11.875 * 100vw / 100);
-        grid-template-rows:
-            calc(0.8125 * 100vw / 100) calc(12.125 * 100vw / 100)
-            calc(16 * 100vw / 100) calc(12.25 * 100vw / 100) calc(1.875 * 100vw /
-                    100);
-        grid-template-areas:
-            ". . . s3 s3 s3 . . . ."
-            "s1 s2 s2 s3 s3 s3 s4 s4 s4 ."
-            "s5 s5 s6 s6 s6 s7 s7 s8 s8 s8"
-            "s5 s5 s9 s9 s10 s10 s10 s10 s11 s11"
-            ". . . . s10 s10 s10 s10 . .";
-
-        .title {
-            transform: translateX(-100%);
-
-            h2 {
-                line-height: 1.5;
-                color: $title-color;
-            }
-
-            h3 {
-                letter-spacing: -0.05em;
-                background: $bg-primary;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-                text-fill-color: transparent;
-                line-height: 1.06;
-            }
-        }
-
-        .service-item {
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: flex-start;
-            transition: all 0.35s linear;
-            overflow: hidden;
-            z-index: 2;
-
-            &:hover {
-                scale: 1.2 !important;
-                z-index: 99;
-            }
-
-            &:hover .plus {
-                opacity: 0;
-                visibility: hidden;
-            }
-
-            &:hover .detail {
-                transform: translateY(0);
-                opacity: 1;
-            }
-
-            &:hover .text {
-                font-size: 1.5vw;
-            }
-
-            .text {
-                font-weight: 700;
-                position: absolute;
-                bottom: 17px;
-                color: $white-text;
-                padding: 0 16px;
-                transition: all 0.3s linear;
-            }
-
-            .plus {
-                border-radius: 50%;
-                background: rgba(0, 0, 0, 0.6);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                line-height: 2.875vw;
-                color: #fff;
-                position: absolute;
-                top: 45%;
-                left: 50%;
-                transform: translateX(-50%);
-                transition: all 0.3s linear;
-            }
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-
-            .detail {
-                transform: translateY(-150%);
-                opacity: 0;
-                font-weight: $fw-400;
-                line-height: 1.44;
-                color: $white-text;
-                transition: transform 0.45s linear;
-                // transition: opacity 0.45s linear;
-                top: 1.25vw;
-                margin-left: 1vw;
-                margin-right: 3vw;
-
-                .btn-see {
-                    font-size: 1vw;
-                    font-weight: $fw-700;
-                    line-height: 1.29;
-                    text-transform: uppercase;
-                    color: #ffffff;
-                }
-            }
-
-            &.title {
-                &:hover {
-                    scale: none !important;
-                }
-            }
-            .overlay-service {
-                background: rgba(0, 0, 0, 0.2);
-                opacity: 0;
-                transition: all 0.3s ease-in;
-            }
-            &:hover {
-                .overlay-service {
-                    opacity: 0.8;
-                    transition: all 0.3s ease-in;
-                }
-            }
-        }
-
-        .item-1,
-        .item-4,
-        .item-5,
-        .item-9 {
-            transform: translateX(-200%);
-            transition: all 0.35s linear, transform 0.7s linear;
-        }
-
-        .item-2,
-        .item-3,
-        .item-6,
-        .item-7,
-        .item-8,
-        .item-10 {
-            transform: translateX(200%);
-            transition: all 0.35s linear, transform 0.7s linear;
-        }
-
-        .item-1,
-        .item-2,
-        .item-3 {
-            .text {
-                font-weight: $fw-700;
-                font-size: 0.9375vw;
-                line-height: 1.43;
-                text-transform: capitalize;
-            }
-
-            .plus {
-                width: 2.1875vw;
-                height: 2.1875vw;
-            }
-
-            &:hover .text {
-                font-size: 0.875vw !important;
-            }
-
-            &:hover {
-                scale: 1.7 !important;
-                .detail {
-                    top: 0.75vw;
-                    font-size: 0.75vw;
-                    .btn-see {
-                        margin-top: 0.65vw;
-                        font-size: 0.65vw;
-                    }
-                }
-            }
-        }
-
-        .item-7 {
-            .text {
-                font-size: 1.125vw;
-            }
-            &:hover {
-                scale: 1.55 !important;
-                .text {
-                    font-size: 1.15vw;
-                }
-                .detail {
-                    top: 0.75vw;
-                    font-size: 0.85vw;
-                    .btn-see {
-                        margin-top: 0.75vw;
-                        font-size: 0.85vw;
-                    }
-                }
-            }
-        }
-
-        .item-4 {
-            .plus {
-                width: 3.5vw;
-                height: 3.5vw;
-            }
-            .text {
-                font-size: 1.375vw;
-            }
-            .detail {
-                font-size: 1.5vw;
-                .btn-see {
-                    font-size: 1.25vw;
-                }
-            }
-            &:hover {
-                .text {
-                    font-size: 1.5vw;
-                }
-                .detail {
-                    font-size: 1vw;
-                    .btn-see {
-                        font-size: 0.95vw;
-                    }
-                }
-            }
-        }
-
-        .item-5,
-        .item-6,
-        .item-8 {
-            font-size: 1vw;
-            &:hover {
-                scale: 1.6 !important;
-                .text {
-                    font-size: 1vw;
-                }
-                .detail {
-                    top: 0.75vw;
-                    font-size: 0.75vw;
-                    .btn-see {
-                        margin-top: 0.75vw;
-                        font-size: 0.75vw;
-                    }
-                }
-            }
-        }
-
-        .item-9 {
-            cursor: unset;
-            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            &:hover {
-                scale: unset !important;
-                z-index: 1;
-            }
-
-            .num {
-                display: flex;
-                gap: 13px;
-
-                span {
-                    font-weight: $fw-700;
-                    font-size: 6.25vw;
-                    line-height: 1;
-                    letter-spacing: -0.02em;
-                    text-transform: uppercase;
-                    color: $white-text;
-                }
-
-                img {
-                    margin-top: 24px;
-                }
-            }
-
-            .text {
-                font-weight: $fw-400;
-                font-size: 1vw;
-                line-height: 1.26;
-                text-transform: uppercase;
-                color: #ffffff;
-                bottom: 2vw;
-            }
-
-            &:hover .text {
-                font-size: 1vw;
-            }
-        }
-
-        .item-10 {
-            transform: translateX(50%);
-            margin-left: 40%;
-            margin-top: 20%;
-            width: 8.9375vw;
-            height: 8.9375vw;
-            border-radius: 50%;
-            font-weight: $fw-700;
-            line-height: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
-            transition: all 0.3s ease-in;
-            &:hover {
-                scale: 1.1 !important;
-            }
-        }
-    }
+  .list-service {
+    gap: calc(0.6875 * 100vw / 100);
+    grid-template-columns:
+      calc(22.25 * 100vw / 100) calc(5 * 100vw / 100) calc(11.125 * 100vw / 100)
+      calc(5.4375 * 100vw / 100) calc(3.5 * 100vw / 100) calc(
+        7.6875 * 100vw / 100
+      )
+      calc(12.125 * 100vw / 100) calc(0.6875 * 100vw / 100) calc(
+        3.5625 * 100vw / 100
+      )
+      calc(11.875 * 100vw / 100);
+    grid-template-rows:
+      calc(0.8125 * 100vw / 100) calc(12.125 * 100vw / 100)
+      calc(16 * 100vw / 100) calc(12.25 * 100vw / 100) calc(1.875 * 100vw / 100);
+    grid-template-areas:
+      ". . . s3 s3 s3 . . . ."
+      "s1 s2 s2 s3 s3 s3 s4 s4 s4 ."
+      "s5 s5 s6 s6 s6 s7 s7 s8 s8 s8"
+      "s5 s5 s9 s9 s10 s10 s10 s10 s11 s11"
+      ". . . . s10 s10 s10 s10 . .";
 
     .title {
-        grid-area: s1;
+      transform: translateX(-100%);
+
+      h2 {
+        line-height: 1.5;
+        color: $title-color;
+      }
+
+      h3 {
+        letter-spacing: -0.05em;
+        background: $bg-primary;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        line-height: 1.06;
+      }
+    }
+
+    .service-item {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      transition: all 0.35s ease-out;
+      overflow: hidden;
+      z-index: 2;
+      &:hover {
+        scale: 1.2 !important;
+        z-index: 99;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+
+      &:hover .plus {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &:hover .detail {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      &:hover .text {
+        font-size: 1.5vw;
+      }
+
+      .text {
+        font-weight: 700;
+        position: absolute;
+        bottom: 17px;
+        color: $white-text;
+        padding: 0 16px;
+        transition: all 0.3s linear;
+      }
+
+      .plus {
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.6);
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
-        flex-direction: column;
+        line-height: 2.875vw;
+        color: #fff;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.3s linear;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .detail {
+        transform: translateY(-150%);
+        opacity: 0;
+        font-weight: $fw-400;
+        line-height: 1.44;
+        color: $white-text;
+        transition: transform 0.45s linear;
+        // transition: opacity 0.45s linear;
+        top: 1.25vw;
+        margin-left: 1vw;
+        margin-right: 3vw;
+
+        .btn-see {
+          font-size: 1vw;
+          font-weight: $fw-700;
+          line-height: 1.29;
+          text-transform: uppercase;
+          color: #ffffff;
+        }
+      }
+
+      &.title {
+        &:hover {
+          scale: none !important;
+        }
+      }
+      .overlay-service {
+        background: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: all 0.35s ease-in;
+      }
+      &:hover {
+        .overlay-service {
+          opacity: 0.8;
+          transition: all 0.3s ease-in;
+        }
+      }
     }
 
-    .item-1 {
-        grid-area: s2;
-    }
-
-    .item-2 {
-        grid-area: s3;
-    }
-
-    .item-3 {
-        grid-area: s4;
-    }
-
-    .item-4 {
-        grid-area: s5;
-    }
-
-    .item-5 {
-        grid-area: s6;
-    }
-
-    .item-6 {
-        grid-area: s7;
-    }
-
-    .item-8 {
-        grid-area: s8;
-    }
-
+    .item-1,
+    .item-4,
+    .item-5,
     .item-9 {
-        grid-area: s9;
+      transform: translateX(-200%);
+      transition: all 0.35s ease-out, transform 0.7s ease-out;
+    }
+
+    .item-2,
+    .item-3,
+    .item-6,
+    .item-7,
+    .item-8,
+    .item-10 {
+      transform: translateX(200%);
+      transition: all 0.35s ease-out, transform 0.7s ease-out;
+    }
+
+    .item-1,
+    .item-2,
+    .item-3 {
+      transition: all 0.5s ease-out;
+      .text {
+        font-weight: $fw-700;
+        font-size: 0.9375vw;
+        line-height: 1.43;
+        text-transform: capitalize;
+      }
+
+      .plus {
+        width: 2.1875vw;
+        height: 2.1875vw;
+      }
+
+      &:hover .text {
+        font-size: 0.875vw !important;
+      }
+
+      &:hover {
+        scale: 1.4 !important;
+        .detail {
+          top: 0.75vw;
+          font-size: 0.75vw;
+          .btn-see {
+            margin-top: 0.65vw;
+            font-size: 0.65vw;
+          }
+        }
+      }
     }
 
     .item-7 {
-        grid-area: s10;
+      .text {
+        font-size: 1.125vw;
+      }
+      &:hover {
+        // scale: 1.55 !important;
+        .text {
+          font-size: 1.15vw;
+        }
+        .detail {
+          top: 0.75vw;
+          font-size: 0.85vw;
+          .btn-see {
+            margin-top: 0.75vw;
+            font-size: 0.85vw;
+          }
+        }
+      }
+    }
+
+    .item-4 {
+      .plus {
+        width: 3.5vw;
+        height: 3.5vw;
+      }
+      .text {
+        font-size: 1.375vw;
+      }
+      .detail {
+        font-size: 1.5vw;
+        .btn-see {
+          font-size: 1.25vw;
+        }
+      }
+      &:hover {
+        scale: 1.1 !important;
+        .text {
+          font-size: 1.5vw;
+        }
+        .detail {
+          font-size: 1vw;
+          .btn-see {
+            font-size: 0.95vw;
+          }
+        }
+      }
+    }
+
+    .item-5,
+    .item-6,
+    .item-8 {
+      font-size: 1vw;
+      &:hover {
+        // scale: 1.6 !important;
+        .text {
+          font-size: 1vw;
+        }
+        .detail {
+          top: 0.75vw;
+          font-size: 0.75vw;
+          .btn-see {
+            margin-top: 0.75vw;
+            font-size: 0.75vw;
+          }
+        }
+      }
+    }
+
+    .item-9 {
+      cursor: unset;
+      background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        scale: unset !important;
+        z-index: 1;
+        box-shadow: none;
+      }
+
+      .num {
+        display: flex;
+        gap: 13px;
+        span {
+          font-weight: $fw-700;
+          font-size: 6.25vw;
+          line-height: 1;
+          letter-spacing: -0.02em;
+          text-transform: uppercase;
+          color: $white-text;
+        }
+        img {
+          margin-top: 24px;
+        }
+      }
+
+      .text {
+        font-weight: $fw-400;
+        font-size: 1vw;
+        line-height: 1.26;
+        text-transform: uppercase;
+        color: #ffffff;
+        bottom: 2vw;
+      }
+
+      &:hover .text {
+        font-size: 1vw;
+      }
     }
 
     .item-10 {
-        grid-area: s11;
+      transform: translateX(50%);
+      margin-left: 40%;
+      margin-top: 20%;
+      width: 8.9375vw;
+      height: 8.9375vw;
+      border-radius: 50%;
+      font-weight: $fw-700;
+      line-height: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #4ca757 0%, #16a571 100%);
+      transition: all 0.5s ease-out;
+      &:hover {
+        // scale: 1.1 !important;
+      }
     }
+  }
+
+  .title {
+    grid-area: s1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .item-1 {
+    grid-area: s2;
+  }
+
+  .item-2 {
+    grid-area: s3;
+  }
+
+  .item-3 {
+    grid-area: s4;
+  }
+
+  .item-4 {
+    grid-area: s5;
+  }
+
+  .item-5 {
+    grid-area: s6;
+  }
+
+  .item-6 {
+    grid-area: s7;
+  }
+
+  .item-8 {
+    grid-area: s8;
+  }
+
+  .item-9 {
+    grid-area: s9;
+  }
+
+  .item-7 {
+    grid-area: s10;
+  }
+
+  .item-10 {
+    grid-area: s11;
+  }
 }
 
 .service .row-text .text {
-    margin-top: 60px;
-    margin-bottom: 86px;
-    font-weight: 900;
-    font-size: $fs-100;
-    line-height: 1.5;
-    text-transform: uppercase;
-    color: transparent;
-    /* -webkit-text-stroke: 1.5px #16a571; */
-    -webkit-text-fill-color: white;
-    white-space: nowrap;
-    text-shadow: 1.5px 1.5px 0 #16a571, -1.5px -1.5px 0 #16a571,
-        1.5px -1.5px 0 #16a571, -1.5px 1.5px 0 #16a571, 1.5px 1.5px 0 #16a571;
-    -moz-transform: translateX(-100%);
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
+  margin-top: 60px;
+  margin-bottom: 86px;
+  font-weight: 900;
+  font-size: $fs-100;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: transparent;
+  /* -webkit-text-stroke: 1.5px #16a571; */
+  -webkit-text-fill-color: white;
+  white-space: nowrap;
+  text-shadow: 1.5px 1.5px 0 #16a571, -1.5px -1.5px 0 #16a571,
+    1.5px -1.5px 0 #16a571, -1.5px 1.5px 0 #16a571, 1.5px 1.5px 0 #16a571;
+  -moz-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
 
-    -moz-animation: my-animation 15s linear infinite;
-    -webkit-animation: my-animation 15s linear infinite;
-    animation: my-animation 15s linear infinite;
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
 }
 
 /* for Firefox */
 @-moz-keyframes my-animation {
-    from {
-        -moz-transform: translateX(-100%);
-    }
+  from {
+    -moz-transform: translateX(-100%);
+  }
 
-    to {
-        -moz-transform: translateX(100%);
-    }
+  to {
+    -moz-transform: translateX(100%);
+  }
 }
 
 /* for Chrome */
 @-webkit-keyframes my-animation {
-    from {
-        -webkit-transform: translateX(-100%);
-    }
+  from {
+    -webkit-transform: translateX(-100%);
+  }
 
-    to {
-        -webkit-transform: translateX(100%);
-    }
+  to {
+    -webkit-transform: translateX(100%);
+  }
 }
 
 @keyframes my-animation {
-    from {
-        -moz-transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-        transform: translateX(-100%);
-    }
-
-    to {
-        -moz-transform: translateX(100%);
-        -webkit-transform: translateX(100%);
-        transform: translateX(100%);
-    }
+  from {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+  to {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
 }
 
 @include tablet {
-    .service {
-        .list-service {
-            .service-item:hover {
-                scale: 1 !important;
-            }
-        }
+  .service {
+    .list-service {
+      .service-item:hover {
+        scale: 1 !important;
+      }
     }
-    .service .list-service .service-item:hover .text {
-        font-size: 2.25vw;
-    }
+  }
+  .service .list-service .service-item:hover .text {
+    font-size: 2.25vw;
+  }
 }
 
 @include mobile {
-    .service {
-        .list-service {
-            .service-item {
-                .text {
-                    padding: 0 10px;
-                }
-            }
+  .service {
+    .list-service {
+      .service-item {
+        .text {
+          padding: 0 10px;
         }
+      }
     }
+  }
 }

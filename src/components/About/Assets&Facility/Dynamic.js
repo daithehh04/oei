@@ -3,15 +3,16 @@ import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
 import Image from "next/image";
+import img from "../../../assets/img/bg-common.png";
 export default function Dynamic({ data }) {
     useEffect(() => {
         AOS.init();
         AOS.refresh();
     }, []);
     return (
-        <div className="dynamic-assets">
+        <div className="relative dynamic-assets bg-[#FAFAFA]">
             <div>
-                <div className="flex items-start justify-between pt-[6.12vw] md:flex-col md:pt-[16vw] content">
+                <div className="flex items-start justify-between pt-[6.12vw] md:flex-col md:pt-[16vw] content relative z-10">
                     <h2
                         className="text-60pc text-primary w-[47.0625vw] tracking-tighter leading-[1.22] font-[800] md:w-full md:text-[8vw]"
                         data-aos-once="true"
@@ -29,7 +30,7 @@ export default function Dynamic({ data }) {
                         {data?.desc}
                     </p>
                 </div>
-                <div className="mt-[2.5vw] md:mt-[5.33vw] content">
+                <div className="mt-[2.5vw] md:mt-[5.33vw] content relative z-10">
                     <div className="flex gap-[1.87vw] h-[39.3125vw] md:h-auto md:gap-[2.13vw] md:flex-col-reverse">
                         <div
                             className="left w-[52.43vw] h-full md:w-full"
@@ -46,21 +47,21 @@ export default function Dynamic({ data }) {
                             />
                         </div>
                         <div
-                            className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw]"
+                            className="right flex flex-col gap-[1.5vw] h-full md:flex-row md:gap-[1.87vw] overflow-hidden"
                             data-aos-once="true"
                             data-aos="fade-left"
                             data-aos-duration="1000"
                         >
                             <Image
                                 src={data?.img2.sourceUrl}
-                                width={1000}
+                                width={1500}
                                 height={1000}
                                 alt={data?.img2.altText || data?.img2.title}
                                 className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
                             />
                             <Image
                                 src={data?.img3.sourceUrl}
-                                width={1000}
+                                width={1500}
                                 height={1000}
                                 alt={data?.img3.altText || data?.img3.title}
                                 className="block object-cover w-full h-[19.025vw] md:h-[32.5vw] md:w-[50%]"
@@ -69,6 +70,13 @@ export default function Dynamic({ data }) {
                     </div>
                 </div>
             </div>
+            <Image
+                src={img}
+                width={1500}
+                height={1000}
+                alt="img"
+                className="absolute top-0 w-full z-[0] h-[75%] object-cover"
+            />
         </div>
     );
 }

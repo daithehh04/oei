@@ -36,7 +36,7 @@ export default function Header({ header }) {
                     </div>
                 </div>
                 <nav className="relative z-10 flex justify-between">
-                    {navbar.map((item, index) => (
+                    {navbar?.map((item, index) => (
                         <Link
                             key={index}
                             href="#"

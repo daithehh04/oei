@@ -36,7 +36,7 @@ export default function ListBlog({ titles, mainBlog, othersNews }) {
     };
     const eleRef = useRef();
     useEffect(() => {
-        eleRef?.current?.scrollIntoView();
+        eleRef?.current?.scrollIntoView({ behavior: "smooth" });
     }, [activeButton]);
     useEffect(() => {
         window.scrollTo(0, 0);

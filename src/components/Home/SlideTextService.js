@@ -13,7 +13,7 @@ export default function SlideTextService({ text }) {
                 spaceBetween={50}
                 centeredSlides={true}
                 autoplay={{
-                    delay: 0,
+                    delay: 1,
                     disableOnInteraction: false,
                 }}
                 speed={8000}
@@ -23,7 +23,7 @@ export default function SlideTextService({ text }) {
             >
                 {arrItems.map((item, index) => (
                     <SwiperSlide
-                        className="!w-fit service-item-text text-[calc(6.25*100vw/100)] leading-[150%] font-black uppercase md:text-[16vw] "
+                        className="!w-fit service-item-text text-[calc(6.25*100vw/100)] leading-[150%] font-black uppercase md:text-[16vw]"
                         key={index}
                     >
                         <span dangerouslySetInnerHTML={{ __html: text }}></span>

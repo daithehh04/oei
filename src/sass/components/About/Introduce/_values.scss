@@ -6,6 +6,9 @@
     width: 100%;
     height: auto;
     position: relative;
+    .bg-value {
+        transition: width 0.4s ease-out;
+    }
     .row {
         .text {
             letter-spacing: -0.05em;
@@ -29,6 +32,7 @@
     }
 
     .text-image {
+        transition: all 0.4s ease-out;
         strong {
             -webkit-text-stroke: 1.5px #fff;
             color: transparent;

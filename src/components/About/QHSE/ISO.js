@@ -3,7 +3,7 @@ import React from "react";
 import AOS from "aos";
 import { useEffect } from "react";
 import Image from "next/image";
-import img from "../../../assets/img/circle-infi.png";
+import img from "../../../assets/img/bg-common.png";
 
 export default function ISO({ data }) {
     useEffect(() => {
@@ -17,7 +17,7 @@ export default function ISO({ data }) {
         });
     }, []);
     return (
-        <div className="iso relative pb-[9.75vw] border-t border-[#ccc] overflow-hidden">
+        <div className="iso relative z-10 pb-[9.75vw] overflow-hidden">
             <div className="content">
                 <p
                     className="title text-46pc leading-[1.22] text-[#394854] font-[800] tracking-tighter w-[44.625vw] pt-[10.6875vw] lg:text-[3.8vw] lg:w-[80%] md:text-[8vw] md:w-full"
@@ -36,14 +36,14 @@ export default function ISO({ data }) {
                 >
                     {data?.text}
                 </p>
-                <Image
-                    src={img}
-                    width={1000}
-                    height={1000}
-                    alt="img"
-                    className="w-[58.9375vw] object-cover absolute top-[-2vw] left-0 -z-1 md:hidden"
-                />
             </div>
+            <Image
+                src={img}
+                width={1500}
+                height={1000}
+                alt="img"
+                className="absolute inset-0 z-[-1] object-cover w-full md:hidden"
+            />
         </div>
     );
 }

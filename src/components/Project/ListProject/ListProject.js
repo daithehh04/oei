@@ -44,7 +44,9 @@ export default function ListProject({
     const eleRef = useRef();
 
     useEffect(() => {
-        eleRef?.current?.scrollIntoView();
+        eleRef?.current?.scrollIntoView({
+            behavior: "smooth",
+        });
     }, [activeButton]);
 
     useEffect(() => {
